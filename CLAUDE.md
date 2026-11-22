@@ -5,3 +5,4 @@
 - 用白話中文寫，不宣稱新穎，判定以 review.md 為準。
 - 省 token：照 `docs/TOKEN_BUDGET.md`。先用 `python -m discovery.digest` 看摘要，長輸出包 `python -m discovery.quiet --`，開工前先估算 token 夠不夠，里程碑完成就收尾開新執行緒。
 - **DEVLOG.md、RESEARCH.md 衝突**：`.gitattributes` 對這兩個檔設了 `merge=union`，本機 `git merge` 會自動保留兩邊新增的行。GitHub 網頁的衝突檢查不吃這個設定，所以合併 PR 前一律先在本機 `git fetch origin main && git merge origin/main`、跑測試、推上去，再按合併；合併後看一眼 DEVLOG 的順序（新的在下）和 RESEARCH 有沒有重複行。
+- **檔案放哪**：新的 OEIS 結果放 `results/A??????/`（README、OEIS 草稿、`code/` 檢查腳本）；OEIS 要連的證明頁放 `paper/`，送出後不准搬或改名；研究過程照舊放 `records/DISC-XXXX/`，Lean 放 `lean/Discovery/`。說明見 `results/README.md`。

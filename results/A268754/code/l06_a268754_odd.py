@@ -1,6 +1,6 @@
 """DISC-0013: numerical checks for the odd-index FORMULA of OEIS A268754.
 
-python research/r003/l06_a268754_odd.py [N_MAX] [DIES_MAX]   (defaults 40, 2000)
+python results/A268754/code/l06_a268754_odd.py [N_MAX] [DIES_MAX]   (defaults 40, 2000)
 
 A268754(n) = least eventual period of null-boundary rule 90 on n cells, seed = one live
 cell at the left end (entry PROG/MATHEMATICA). FORMULA of the entry (no proof given):

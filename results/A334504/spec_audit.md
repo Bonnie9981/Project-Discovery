@@ -78,4 +78,4 @@ OEIS 原文依據：`records/DISC-0008/search_evidence.jsonl` 的 S002（A334504
 | 反射技巧（對稱環 ↔ 零邊界導線）的可引用出處 | 說明：查了 Tadaki 1993（arXiv:cond-mat/9305012，零邊界 Rule 90 的軌道）和 MOW 可讀部分，都沒找到這個對應。論文寫「沒找到可引用出處，自行證明」，Tadaki 只當零邊界 Rule 90 的背景文獻 |
 | 規則 26 單點圖樣在直線上和規則 90 相同 | ✓ 論文改成一行自證（規則 90 單點各列沒有相鄰活格，110 不出現），不再引用 NKS |
 | 猜想提出者姓名拼法 | ✓ 照紀錄 DISC-0008 S002 寫 Zabolotskii |
-| MathSciNet、zbMATH、Google Scholar、math-fun 郵件列表 | 說明：zbMATH（"rule 26" & cellular：1 筆無關；A334504：0 筆）、Google Scholar（兩個查詢，只看第一頁標題和摘要）、OpenAlex（再一次全文查詢）都沒找到證明。MathSciNet 需要訂閱，無法查。math-fun 郵件列表存檔沒有去找，只用 OEIS 的 %D 紀錄（Klee 2020-04-26）。詳見 `paper/literature_check.md` |
+| MathSciNet、zbMATH、Google Scholar、math-fun 郵件列表 | 說明：zbMATH（"rule 26" & cellular：1 筆無關；A334504：0 筆）、Google Scholar（兩個查詢，只看第一頁標題和摘要）、OpenAlex（再一次全文查詢）都沒找到證明。MathSciNet 需要訂閱，無法查。math-fun 郵件列表存檔沒有去找，只用 OEIS 的 %D 紀錄（Klee 2020-04-26）。詳見 `results/A334504/literature_check.md` |

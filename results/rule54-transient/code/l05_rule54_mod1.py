@@ -12,14 +12,14 @@ Checks for every w = 9, 13, 17, ... up to W:
       N(t, d) = E(t + 1, d + 3)            (the phase-shifted ether)
       defect  = (d == 0 and t % 4 == 2) or (d == m and t % 4 == m % 4)
 
-Run: python research/r003/l05_rule54_mod1.py [W]   (default 400)
+Run: python results/rule54-transient/code/l05_rule54_mod1.py [W]   (default 400)
 """
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 from research.r002 import impl_b  # noqa: E402
 
 

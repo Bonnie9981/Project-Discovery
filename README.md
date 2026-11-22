@@ -40,14 +40,27 @@ cd lean && lake build                # 編譯 Lean（需先安裝 elan）
 
 ## 結構
 
+repo 分兩大區：**工具**（將來可能抽成開源工具）和**成果**（每條 OEIS 序列一個資料夾）。
+
 ```
-discovery/        核心：資料庫、驗證層、紀錄產生器、紀錄檢查器、CLI
-lean/             Lean 4 + Mathlib 形式化證明
-.claude/agents/   六個研究角色
-research/R-001/   研究線 R-001：整數序列與數論猜想
-records/          每次研究一個 DISC-XXXX 資料夾（report.md + result.json）
-docs/             研究規範與判定標準
+── 工具區 ──────────────────────────────────────────
+discovery/        核心套件：紀錄檢查、證據獨立性、新穎性查詢、digest/quiet（省 token）、CLI
+.claude/agents/   六個研究角色（literature、hypothesis、experiment、critic、proof、reviewer）
+research/r001/    通用引擎：整數序列批次搜尋（R-001）
+research/r002/    通用引擎：一維細胞自動機模擬，三種獨立實作（R-002）
+research/r003/    通用引擎：CA 結果和 OEIS 的算術比對（R-003）
+docs/ config/     研究規範、token 預算、資源上限
 tests/            自動測試
+── 成果區 ──────────────────────────────────────────
+results/A334504/          規則 26 環上的週期（DISC-0008、0009）：短文、OEIS 草稿、規格審計、檢查腳本
+results/A268754/          a(2n+1) = 2a(n)（DISC-0013）
+results/A071052/          a(2n) = a(n) + 2n（DISC-0014）
+results/rule54-transient/ 規則 54 暫態，OEIS 新序列草稿（DISC-0010～0012）
+paper/            OEIS 連過來的證明頁（網址固定，不搬）
+records/          研究流水帳：每次研究一個 DISC-XXXX 資料夾，只增不改
+lean/             Lean 4 證明（一個 Lake 專案，CI 綁這個路徑）
 ```
+
+各序列資料夾的 README 列出對應的 DISC 紀錄和 Lean 檔。舊路徑對照見 [results/README.md](results/README.md)。
 
 詳見 [docs/RESEARCH_STANDARDS.md](docs/RESEARCH_STANDARDS.md)。
