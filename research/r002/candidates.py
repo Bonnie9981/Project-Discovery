@@ -26,13 +26,13 @@ def is_pow2(k: int) -> bool:
 # id -> (rule, quantity "T"/"P", formula(w) or None to skip w, w_min, statement, source)
 CANDIDATES = {
     "R2-C01": (18, "T", lambda w: v2pow((w + 1) // 2), 1,
-               "T_18(w) = v2pow(ceil(w/2)) for all w >= 1 (also rule 146 for w >= 3, by its own run)", "T-18"),
+               "T_18(w) = v2pow(ceil(w/2)) for all w >= 1", "T-18"),
     "R2-C02": (146, "T", lambda w: v2pow((w + 1) // 2), 3,
                "T_146(w) = v2pow(ceil(w/2)) for w >= 3", "T-146"),
     "R2-C03": (126, "T", lambda w: v2pow(w // 2 + 1), 2,
                "T_126(w) = v2pow(floor(w/2) + 1) for w >= 2", "T-126"),
     "R2-C04": (26, "T", lambda w: 0 if w % 2 else v2pow(w // 2), 2,
-               "T_26(w) = 0 for odd w >= 3 and v2pow(w/2) for even w", "T-26"),
+               "T_26(w) = 0 for odd w >= 3 and v2pow(w/2) for even w (even part = rule 90, A160467; L1 counts only the odd part)", "T-26"),
     "R2-C05": (153, "T", lambda w: 0 if w % 2 else v2pow(w), 1,
                "T_153(w) = 0 for odd w and v2pow(w) for even w", "T-153"),
     "R2-C06": (105, "T", lambda w: v2pow(w // 3) if w % 3 == 0 else 0, 1,
@@ -40,7 +40,8 @@ CANDIDATES = {
     "R2-C07": (122, "T", lambda w: (w // 2 - 1) if w % 2 == 0 else (w if is_pow2(w + 1) else w - 2), 2,
                "T_122(w) = w/2 - 1 for even w; for odd w it is w when w+1 is a power of 2, else w-2", "T-122"),
     "R2-C08": (218, "T", lambda w: v2pow(w // 2) if w % 2 == 0 else (w - 2 if is_pow2(w - 1) else w - 1), 3,
-               "T_218(w) = v2pow(w/2) for even w; for odd w >= 3 it is w-2 when w-1 is a power of 2, else w-1",
+               "T_218(w) = v2pow(w/2) for even w; for odd w >= 3 it is w-2 when w-1 is a power of 2, else w-1 "
+               "(even part = rule 90, A160467; L1 counts only the odd part)",
                "T-218"),
     # First written as 2*floor((w+1)/4), a misreading of the w <= 22 data; the check caught it at w = 7.
     "R2-C09": (94, "T", lambda w: 2 * (w // 4), 4,
