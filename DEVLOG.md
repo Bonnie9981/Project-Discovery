@@ -21,3 +21,4 @@
 - **省 token 改造**：六個 agent 指定模型（文獻、猜想、實驗、critic 用 sonnet；Lean 證明與最終 reviewer 留 opus，重要結果的 critic 也改用 opus）；新增 `discovery.digest`（紀錄摘要、單段讀取）與 `discovery.quiet`（長輸出存檔、對話只看摘要）；規定 critic/reviewer 各一輪、里程碑後開新執行緒、ChatGPT 討論改讀文字不截圖、開工前先估算 token 夠不夠。規則在 `docs/TOKEN_BUDGET.md`，四項核心要求不變。
 - **Phase 1 結束，Phase 2 開始（與 ChatGPT 議定）**：下一階段以結構性證明為主，第一個目標是 R3-L01。
 - **DISC-0008**：規則 26 在奇數寬度環上的週期 w·2^⌊log₂ w⌋ 在紙上與 Lean 完整證明（`rule26_odd_period`，只用 Lean core，CI 通過）。這條公式原本是 OEIS A334504 的猜想（2024，「It seems that」），在查過的範圍內沒有找到證明；新穎性不宣稱。README 狀態更新到 Phase 2。
+- **DISC-0009**：OEIS A334504 偶數項猜想 a(2n+2) = A268754(n) 在紙上與 Lean 完整證明（`rule26_even_eventual_period`、`rule26_even_least_period`，只用 Lean core）。做法：單一種子下規則 26 等於規則 90，偶數環上的對稱軌道等於零邊界導線。兩步都是已知技巧，判定 `PROVEN_KNOWN`，不宣稱新。
