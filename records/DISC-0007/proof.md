@@ -97,3 +97,33 @@ N 1000000 solutions 39234 mismatch 0 second-branch 671 [416, 872, 1832, 3272, 56
     數值上把這兩個條件都拿掉（只留 p 質數、a 奇、p+1 無平方因子、3 ∤ p+1、rad(2^(a+1) − 1) ∣ 3(p+1)）重跑到 10⁶，同樣 `mismatch 0`（第二種情形增為 9943 個，多出的都是 a = 1 的 2p）。
   - 沒有發現 H2′ 寫錯的條件。
 - **卡住的引理**：無。`c02_iff` 兩個方向都完整證明，檔案中沒有 `sorry`／`admit`／`native_decide`／新 `axiom`。
+
+## C01 延伸
+
+C01（DISC-0006）：σ(σ_odd(n)) = σ_odd(σ(n)) ⇔ n 是奇平方數。原本 Lean 只證到 v₂(n) ≤ 10（`c01_of_not_two_pow_eleven_dvd`）。新檔 `lean/Discovery/SigmaOddExt.lean`（import `Discovery.SigmaOdd`）把範圍擴大到 v₂(n) ≤ 22。
+
+### 定理對照
+
+| 敘述 | Lean 定理 | 檔案 |
+|---|---|---|
+| 12 ≤ a ≤ 22 時 2^(a+1) − 1 不是過剩數 | `Discovery.SigmaOdd.mersenne_not_abundant_ext`（各別情形為 `mersenne13` … `mersenne23`） | `lean/Discovery/SigmaOddExt.lean` |
+| q = 4095：t > 0、N 奇且 N ≥ 8191 ⇒ σ(4095·t) ≠ N·σ(t) | `Discovery.SigmaOdd.sigma_4095_mul_ne` | 同上 |
+| v₂(n) = 11 沒有解：m 奇 ⇒ σ(σ_odd(2^11·m)) ≠ σ_odd(σ(2^11·m)) | `Discovery.SigmaOdd.c01_even_v2_eq_eleven` | 同上 |
+| 0 < n 且 2^23 ∤ n ⇒（σ(σ_odd n) = σ_odd(σ n) ⇔ n 奇且是平方數） | `Discovery.SigmaOdd.c01_of_not_two_pow_twentythree_dvd` | 同上 |
+
+證明方式：
+- a = 12..22：寫出 2^k − 1 的質因數分解（8191、131071、524287 是質數；16383 = 3·43·127；32767 = 7·31·151；65535 = 3·5·17·257；262143 = 3³·7·19·73；1048575 = 3·5²·11·31·41；2097151 = 7²·127·337；4194303 = 3·23·89·683；8388607 = 47·178481），用 σ 的積性加上 `norm_num`（含 `Mathlib.Tactic.NormNum.Prime` 判定質數），沒有用大型 `decide`。接著套用既有的 `c01_even_of_not_abundant`。
+- a = 11：令 σ(m) = 2^b·t（t 奇）。方程式變成 (2^(b+1) − 1)·σ(t) = σ(4095·t)。由 `lt_sigma_mul` 得到 b ≥ 12，所以 N = 2^(b+1) − 1 ≥ 8191 而且是奇數。把 t 寫成 3^f₃·5^f₅·7^f₇·13^f₁₃·u（u 與 4095 互質），用積性把兩邊拆開，約掉 σ(u)。對每個 p 有 σ(p^(e+f)) = (1+…+p^(e−1)) + p^e·σ(p^f)，因此：
+  - 永遠成立 A_p ≤ σ(p^e)·B_p（上界 13、6、8、14）；
+  - f ≥ 1 時 (p+1)·A_p ≤ (c_p + (p+1)p^e)·B_p，即 4A₃ ≤ 40B₃、6A₅ ≤ 31B₅、8A₇ ≤ 57B₇、14A₁₃ ≤ 183B₁₃。
+
+  只要有一個 f ≥ 1，比值的上界就是 6720、7522.7、7780.5、8156.6 之一，都 < 8191，矛盾。若四個 f 都是 0，比值等於 σ(4095) = 8736，是偶數，而 N 是奇數，也矛盾。
+
+### 編譯結果
+
+本機編譯，沒有跑 CI。工具鏈為 Lean 4.15.0 + Mathlib v4.15.0（從原始碼建置；這次另外建置了 `Mathlib.Tactic.NormNum.Prime`，`Build completed successfully.`）。先以 `lake env lean --root=<dir> -o <dir>/Discovery/SigmaOdd.olean SigmaOdd.lean` 產生依賴，再對 `SigmaOddExt.lean` 執行 `lean`：0 錯誤、0 警告，約 8 秒。把 `#check_discovery_axioms` 接在檔尾後執行，得到 `THEOREM_COUNT 45`（SigmaOdd 加 SigmaOddExt），全部只用 `propext`、`Classical.choice`、`Quot.sound`，沒有 `sorryAx`，也沒有 `Lean.ofReduceBool`。`grep` 沒有找到 `sorry`、`admit`、`native_decide` 或 `axiom`。`lean/Discovery.lean` 已加上 `import Discovery.SigmaOddExt`，但整個 `Discovery` 的 `lake build` 沒有在本機跑過。依規則，要等 CI 的 `lean` 工作通過才算「已證明」。CI 連結：待推送後補上。
+
+### 敘述差異
+
+- 範圍：原文涵蓋所有 n ≥ 1；Lean 多了 `¬ 2^23 ∣ n`（v₂(n) ≤ 22）與 `0 < n` 兩個前提。**C01 仍然沒有完整證明**。下一個要處理的指數是 v₂(n) = 23，此時 2^24 − 1 = 3²·5·7·13·17·241 是過剩數，需要做類似 a = 11 的有限比值分析。之後 2^36 − 1、2^40 − 1、2^48 − 1、2^60 − 1 等過剩數也一樣。
+- 「奇平方數」寫成 `Odd n ∧ IsSquare n`，σ_odd 用 `sigmaOdd`（奇因數和），與 DISC-0006 的說明相同。
