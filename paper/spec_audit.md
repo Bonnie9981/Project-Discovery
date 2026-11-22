@@ -57,7 +57,7 @@ OEIS 原文依據：`records/DISC-0008/search_evidence.jsonl` 的 S002（A334504
 | 環和導線差一步 | ✓ | `iter_succ_testBit`：x_{t+1} = E(y_t) |
 | 環的暫態 = 導線暫態 + 1 | 說明 | 不是 OEIS 猜想的一部分。沒有單獨的 Lean 定理，由 `iter_succ_eq_iff` 和 `iter_succ_ne_one` 在紙上推出；n ≤ 40 數值驗證（l02_check），w = 4 時環的暫態是 2。論文 Discussion 已寫明 |
 | 最小最終週期相同 | ✓ | `rule26_even_least_period` |
-| A268754 的 Mathematica 程式也一致 | **待辦** | 只核對了 Python 程式（DISC-0009 literature.md S001） |
+| A268754 的 Mathematica 程式也一致 | ✓ | 2026-11-22 讀 OEIS 文字版：矩陣 `Boole[Abs[i-j]==1]`（n×n 三對角，即零邊界 Rule 90）、向量 `Boole[i==1]`（左端單點）、在 GF(2) 上求最終週期，和 Python 程式、Lean `nstep` 同一個系統 |
 
 ## F. Lean ↔ 論文 ↔ 版本
 
@@ -67,15 +67,15 @@ OEIS 原文依據：`records/DISC-0008/search_evidence.jsonl` 的 S002（A334504
 | `iter` 方向 | ✓ | `iter w (k+1) x = iter w k (step w x)`，`iter_succ'` 證明也等於 `step w (iter w k x)` |
 | 偶數證明的 Lean 檔已合併、CI 通過 | ✓ | PR 17 合併為 main 的 b481f0f；CI 在 PR head e9ef507 上通過：Lean build（含公理稽核）run 45021537194、測試 run 45021533388（審查者另行核對 run 45021537194 = success、commit e9ef507）。獨立審查判定 PROVEN_KNOWN（records/DISC-0009/review.md） |
 | 奇數證明的 CI | ✓ | run 45017724157（commit af98758），含公理稽核 |
-| 論文、Lean、CI 對應同一 commit | **待辦** | 目前兩個 Lean 檔都在 main b481f0f；對外發布前把最終 commit hash 寫進論文 |
+| 論文、Lean、CI 對應同一 commit | ✓ | 兩個 Lean 檔自 005a335 起沒改；含公理稽核的 CI 在 e9ef507 通過（run 45021537194）。論文 Formal verification 段已寫這兩個 hash |
 
 ## G. 文獻定位（對外前要補）
 
 | 項目 | 結果 |
 |---|---|
-| Martin–Odlyzko–Wolfram 1984 中規則 18 的奇偶化約（ChatGPT 指出） | **待辦**：讀原文前論文不點名，只寫「很可能不是新的」 |
-| OEIS A160657 的 2019 評論（矩形振盪器 → Rule 90 導線） | **待辦**：讀條目原文 |
-| 反射技巧（對稱環 ↔ 零邊界導線）的可引用出處 | **待辦**：DISC-0009 critic 指出不能直接歸給 MOW 1984；論文目前寫「標準技巧，自行證明，不指名出處」 |
+| Martin–Odlyzko–Wolfram 1984 中規則 18 的奇偶化約（ChatGPT 指出） | 說明：可取得的版本（scispace）只讀到第 1～4D 節，第 4F 節（其他邊界）和第 5 節（非加法規則）缺頁；Project Euclid 被機器人防護擋住。讀到的部分沒有規則 18 化約或規則 26。論文只引用它的循環邊界 Rule 90 理論，並明寫 4F、5 節沒讀到、不對其內容下結論 |
+| OEIS A160657 的 2019 評論（矩形振盪器 → Rule 90 導線） | ✓ 已讀原文：C. Neder 2019 證明 B36/S125 規則的 2×4n 振盪器角落像寬 n 的 Rule 90 帶子，所以 A160657(n) = A268754(2n)；A268754 也記「偶數項恰為 A160657」。這是偶數證明的直接先例（不同機制），論文 Discussion 已引用 |
+| 反射技巧（對稱環 ↔ 零邊界導線）的可引用出處 | 說明：查了 Tadaki 1993（arXiv:cond-mat/9305012，零邊界 Rule 90 的軌道）和 MOW 可讀部分，都沒找到這個對應。論文寫「沒找到可引用出處，自行證明」，Tadaki 只當零邊界 Rule 90 的背景文獻 |
 | 規則 26 單點圖樣在直線上和規則 90 相同 | ✓ 論文改成一行自證（規則 90 單點各列沒有相鄰活格，110 不出現），不再引用 NKS |
 | 猜想提出者姓名拼法 | ✓ 照紀錄 DISC-0008 S002 寫 Zabolotskii |
-| MathSciNet、zbMATH、Google Scholar、math-fun 郵件列表 | **待辦**：都還沒查 |
+| MathSciNet、zbMATH、Google Scholar、math-fun 郵件列表 | 說明：zbMATH（"rule 26" & cellular：1 筆無關；A334504：0 筆）、Google Scholar（兩個查詢，只看第一頁標題和摘要）、OpenAlex（再一次全文查詢）都沒找到證明。MathSciNet 需要訂閱，無法查。math-fun 郵件列表存檔沒有去找，只用 OEIS 的 %D 紀錄（Klee 2020-04-26）。詳見 `paper/literature_check.md` |

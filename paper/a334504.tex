@@ -253,37 +253,50 @@ $t \ge T$, which gives the claims.
 
 \paragraph{What is new and what is not.}
 The formulas~\eqref{eq:conj} are not ours; they were conjectured in OEIS
-A334504. The ingredients of the proofs are classical: the Sierpi\'nski pattern
-of rule~26 on the line, Lucas' theorem, the periods of rule~90, and the
-reflection trick relating null and cyclic boundaries. Reducing a non-additive
-rule to rule~90 on states with parity-separated support is very likely not new
-either; we have not yet checked specific earlier instances.
-% TODO(verify): possible precedents to read before release: Martin-Odlyzko-Wolfram 1984 on rule 18; a 2019 comment in OEIS A160657.
-The reflection between a symmetric cyclic configuration of length $2n+2$ and a
-null-boundary configuration of length~$n$ is a standard device for linear
-automata; we prove the instance we need directly and do not attribute it.
-% TODO(verify): find a citable source for the reflection trick and for the rule 26 / rule 90 single-seed pattern on the line.
-What we contribute is the specific analysis of rule~26 on the ring: the
-drifting-window closed form (Lemma~\ref{lem:closed}) with its boundary
+A334504, a sequence first computed by B.~Klee (math-fun mailing list, April
+2020, as recorded in the OEIS entry). The ingredients of the proofs are
+classical: Lucas' theorem, the algebraic theory of rule~90 on cyclic lattices
+\cite{mow}, and the study of rule~90 with null boundaries (see e.g.\
+\cite{tadaki}). The even-width argument also has a close precedent inside
+OEIS itself: a 2019 comment by C.~Neder in A160657 proves that the
+$2 \times 4n$ rectangular oscillators of the Life-like rule B36/S125 have the
+same period as A268754$(2n)$, by showing that suitable corners of the pattern
+evolve as rule~90 on a width-$n$ strip from a single seed; A268754 accordingly
+records that its even-indexed terms are exactly A160657. Our Theorem~\ref{thm:even}
+does the same kind of reduction for rule~26 on even rings, with a different
+mechanism (parity-separated support, so that the neighbourhood $110$ never
+occurs, followed by a reflection). We have not found a citable source for the
+reflection between symmetric cyclic configurations of length $2n+2$ and
+null-boundary configurations of length~$n$, so we prove the instance we need
+directly. What we contribute is the specific analysis of rule~26 on the ring:
+the drifting-window closed form (Lemma~\ref{lem:closed}) with its boundary
 analysis, the exact return-time characterisation for odd widths, and the
 explicit orbit embedding for even widths. We do not claim more.
 
 \paragraph{Literature search.}
-In November 2026 we read the OEIS entries A334504 and A268754 in full, ran
-OEIS sequence searches, one arXiv keyword search (\texttt{"rule 26" AND
-cellular}, one unrelated hit) and one OpenAlex full-text search (top 8 titles
-read), all for the odd case; for the even case only the two OEIS entries were
-read. None of this found a proof. MathSciNet, zbMATH, Google Scholar and
-mailing-list archives have not been searched, so a proof may exist that was
-not reported to OEIS.
+In November 2026 we read the OEIS entries A334504, A268754, A334507,
+A363121 and A160657 in full and ran OEIS sequence searches; searched arXiv
+(\texttt{"rule 26" AND cellular}: one unrelated hit), zbMATH Open
+(\texttt{"rule 26" \& cellular}: one unrelated hit; \texttt{A334504}: none),
+OpenAlex (two full-text searches, top titles read) and Google Scholar
+(\texttt{"rule 26" cellular automaton period cyclic}, first page of titles and
+snippets; \texttt{A334504}: nothing relevant). Judging from titles and snippets only, the Scholar hits on rule~26
+appear to concern its symbolic dynamics on the infinite line, its classification, and
+fixed-boundary automata. None of this
+found a proof of either formula. MathSciNet was not available to us. Of
+\cite{mow} we could read Sections 1--4D in the copy available to us; its
+Sections 4F (other boundary conditions) and 5 (non-additive rules) were not
+accessible, and we make no claim about their content. A proof may therefore
+exist that was not reported to OEIS.
 
 \paragraph{Formal verification.}
 Both theorems are formalised in Lean~4 (core library only, no
 \texttt{sorry}, no \texttt{native\_decide}; axioms limited to
 \texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}) in the
 files \texttt{lean/Discovery/Rule26.lean} and
-\texttt{lean/Discovery/Rule26Even.lean} of the accompanying repository
-(main statements \texttt{rule26\_odd\_period}, \texttt{iter\_eq\_one\_iff},
+\texttt{lean/Discovery/Rule26Even.lean} of the accompanying repository,
+unchanged since commit \texttt{005a335}; CI with the axiom audit passed on
+\texttt{e9ef507} (main statements \texttt{rule26\_odd\_period}, \texttt{iter\_eq\_one\_iff},
 \texttt{rule26\_even\_eventual\_period} and
 \texttt{rule26\_even\_least\_period}; the last says that $p$ is the least
 eventual period of the ring orbit if and only if it is that of the wire orbit,
@@ -313,6 +326,12 @@ responsible for the final text. A detailed log is in the repository.
   Encyclopedia of Integer Sequences}, \url{https://oeis.org/A334504}.
 \bibitem{oeis268754} OEIS Foundation, Sequence A268754,
   \url{https://oeis.org/A268754}.
+\bibitem{oeis160657} OEIS Foundation, Sequence A160657 (comment by
+  C.~Neder, Jan.~2019), \url{https://oeis.org/A160657}.
+\bibitem{mow} O.~Martin, A.~M.~Odlyzko, S.~Wolfram, Algebraic properties of
+  cellular automata, \emph{Comm. Math. Phys.} 93 (1984), 219--258.
+\bibitem{tadaki} S.~Tadaki, Orbits in one-dimensional finite linear cellular
+  automata, arXiv:cond-mat/9305012 (1993).
 \end{thebibliography}
 
 \end{document}
