@@ -40,3 +40,9 @@ def test_l02_even_ring_matches_null_rule90_and_a268754():
     # DISC-0009: A334504(2n+2) = A268754(n), transient one more on the ring.
     from research.r003 import l02_check
     l02_check.main(16)
+
+
+def test_l04_rule54_mod23_small():
+    # DISC-0011: rule 54, w ≡ 2, 3 (mod 4): transient T, period 4, folded cone + centre defect.
+    from research.r003 import l04_rule54_mod23
+    assert l04_rule54_mod23.main(60) == 0
