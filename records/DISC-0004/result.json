@@ -5246,7 +5246,7 @@
    "note": "",
    "triviality": "should follow from explicit bounds on d(n) (d(n) <= sqrt(3n)) plus a finite check",
    "oeis_screen": "",
-   "level": "L1",
+   "level": "L0",
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
    "novelty": "NOT_CHECKED"
   },
@@ -5260,7 +5260,7 @@
    "note": "",
    "triviality": "same route as C07",
    "oeis_screen": "",
-   "level": "L1",
+   "level": "L0",
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
    "novelty": "NOT_CHECKED"
   },
@@ -5274,7 +5274,7 @@
    "note": "",
    "triviality": "",
    "oeis_screen": "",
-   "level": "L1",
+   "level": "L0",
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
    "novelty": "NOT_CHECKED"
   },
@@ -5285,7 +5285,7 @@
    "checked_to": 1000000,
    "holds": false,
    "counterexample": 10711,
-   "note": "373 exceptions up to 1000000: [8191, 10711, 11551, 11971, 14851, 16831, 17011, 17851] ... the 1e4 window was misleading",
+   "note": "373 exceptions up to 1000000: [8191, 10711, 11551, 11971, 14851, 16831, 17011, 17851] ... the 1e4 window was misleading; counterexample confirmed by three implementations: {'impl_a': 11232, 'impl_b': 11232, 'impl_c': 11232, 'phi': 10710}",
    "triviality": "",
    "oeis_screen": "",
    "level": "REFUTED",
@@ -5302,7 +5302,7 @@
    "note": "found [1, 2, 3, 4, 6] and [1, 3, 4, 6, 12] up to 1000000",
    "triviality": "finiteness follows from d(m) = m^{o(1)}; the exact list needs an explicit bound",
    "oeis_screen": "",
-   "level": "L1",
+   "level": "L0",
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
    "novelty": "NOT_CHECKED"
   },
@@ -5316,7 +5316,7 @@
    "note": "",
    "triviality": "elementary (phi(p) = p - 1 for the largest prime p of n)",
    "oeis_screen": "",
-   "level": "L1",
+   "level": "L0",
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
    "novelty": "NOT_CHECKED"
   },
@@ -5337,18 +5337,14 @@
  ],
  "aggregate": {
   "goal": "M1.2: at least 10 Level-1 candidates",
+  "m1_2_met": false,
   "status": "SUPPORTED_NOVELTY_UNCHECKED",
   "level1": [
    "C01",
    "C02",
    "C03",
    "C05",
-   "C06",
-   "C07",
-   "C08",
-   "C09",
-   "C11",
-   "C12"
+   "C06"
   ],
   "refuted": [
    "C10"
@@ -5360,29 +5356,15 @@
     "C02",
     "C03",
     "C05",
-    "C06",
-    "C07",
-    "C08",
-    "C09",
-    "C11",
-    "C12"
+    "C06"
    ],
    "note": "statements (not sequences) are not searchable in the OEIS snapshot; every L1 needs a literature check before M1.3"
   }
  },
  "oeis_snapshot": "sha256:c6d34403102c,2026-11-22T08:14:57+00:00",
  "meta": {
-  "git_commit": "0687073af6ba8049ed63a9756056b3589d650825-dirty",
-  "dirty_files": [
-   "research/r001/batch/__init__.py",
-   "research/r001/batch/candidates.py",
-   "research/r001/batch/engine.py",
-   "research/r001/batch/impl_a.py",
-   "research/r001/batch/impl_b.py",
-   "research/r001/batch/impl_c.py",
-   "research/r001/batch/library.py",
-   "research/r001/batch/run.py"
-  ],
+  "git_commit": "7333dd9c63604c158475e15bd1e26a73e746c0c1",
+  "dirty_files": [],
   "env": {
    "python": "3.13.18",
    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39"
@@ -5406,5 +5388,5 @@
    "n_big": 1000000
   }
  },
- "seconds": 52.1
+ "seconds": 52.3
 }
