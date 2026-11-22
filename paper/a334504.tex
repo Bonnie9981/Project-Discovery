@@ -256,6 +256,10 @@ non-additive rule to rule~90 on states with parity-separated support also has
 precedents (Martin, Odlyzko and Wolfram treat rule~18 this way, and a 2019
 comment in OEIS A160657 reduces oscillators of a Life-like rule to finite
 rule-90 wires).% TODO(verify): read MOW 1984 Sec. on rule 18 and the A160657 comment before release.
+The reflection between a symmetric cyclic configuration of length $2n+2$ and a
+null-boundary configuration of length~$n$ is a standard device for linear
+automata; we prove the instance we need directly and do not attribute it.
+% TODO(verify): find a citable source for the reflection trick and for the rule 26 / rule 90 single-seed pattern on the line.
 What we contribute is the specific analysis of rule~26 on the ring: the
 drifting-window closed form (Lemma~\ref{lem:closed}) with its boundary
 analysis, the exact return-time characterisation for odd widths, and the
@@ -272,11 +276,19 @@ Both theorems are formalised in Lean~4 (core library only, no
 \texttt{sorry}, no \texttt{native\_decide}; axioms limited to
 \texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}) in the
 files \texttt{lean/Discovery/Rule26.lean} and
-\texttt{lean/Discovery/Rule26Even.lean} of the accompanying repository.
-States are encoded as natural numbers whose bit~$i$ is cell~$i$. Two points
-of the correspondence are not themselves formal: (i) Lean defines $b_t(j)$ by
+\texttt{lean/Discovery/Rule26Even.lean} of the accompanying repository
+(main statements \texttt{rule26\_odd\_period}, \texttt{iter\_eq\_one\_iff},
+\texttt{rule26\_even\_eventual\_period} and
+\texttt{rule26\_even\_least\_period}; the last says that $p$ is the least
+eventual period of the ring orbit if and only if it is that of the wire orbit,
+which is exactly the OEIS notion for both sequences).
+States are encoded as natural numbers whose bit~$i$ is cell~$i$. Three points
+are not themselves formal: (i) Lean defines $b_t(j)$ by
 Pascal's rule and does not state its equality with $\binom{t}{j} \bmod 2$
-(the main theorems do not mention $b$); (ii) the identification of the Lean
+(the main theorems do not mention $b$); (ii) the statement in
+Theorem~\ref{thm:even} that the ring transient is one more than the wire
+transient is derived on paper from the two formal facts
+$x_{s+1} = x_{t+1} \iff y_s = y_t$ and $x_{t+1} \ne x_0$; (iii) the identification of the Lean
 definitions with the OEIS definitions is by inspection and numerical
 cross-checks (independent simulations agree with the formulas for odd
 $w \le 129$ and with A268754 for $n \le 40$). The audit is recorded in
