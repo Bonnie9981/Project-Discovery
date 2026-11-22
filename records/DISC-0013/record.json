@@ -1,0 +1,42 @@
+{
+  "id": "DISC-0013",
+  "line": "R-003",
+  "title": "Phase 2：證明 OEIS A268754 的奇數項公式 a(2n+1) = 2a(n)（n ≠ 2^k − 1）與死亡條件",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-22T14:20:00+00:00",
+  "lean_theorems": [
+    "Discovery.A268754Odd.a268754_odd",
+    "Discovery.A268754Odd.a268754_odd_exception",
+    "Discovery.A268754Odd.dies_iff",
+    "Discovery.A268754Odd.spr_step",
+    "Discovery.A268754Odd.spr_iter",
+    "Discovery.A268754Odd.ker_even",
+    "Discovery.A268754Odd.evper_double_iff",
+    "Discovery.A268754Odd.leastPer_unique",
+    "Discovery.A268754Odd.a268754_odd_iff",
+    "Discovery.A268754Odd.exists_leastPer_iff"
+  ],
+  "candidates": {
+    "A268754-odd": {
+      "status": "PROVEN_KNOWN",
+      "proof": "Lean (core only) for every n >= 1: a268754_odd (n+1 not a power of 2: least eventual period doubles) and a268754_odd_exception (n+1 = 2^k: both die, period 1); dies_iff (wire dies iff n+1 = 2^k). Numeric check by two implementations for n <= 40 and against the 54 DATA terms."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0013-S001)"
+    ],
+    "note": "The FORMULA and the death COMMENT of A268754 are stated without proof or reference. The argument (spreading onto odd cells, parity, invertibility for even widths) uses standard techniques; MOW 1984's doubling of the maximal ring period is the same idea for a different quantity. Not checked: arXiv, MathSciNet, Math Fun, the Stack Exchange chat logs linked from the entry. PROVEN_KNOWN means proven with known techniques, not claimed new.",
+    "open": [],
+    "evidence": [
+      "DISC-0013-S001"
+    ]
+  }
+}
