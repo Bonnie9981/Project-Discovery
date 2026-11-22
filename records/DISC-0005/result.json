@@ -28459,7 +28459,7 @@
   {
    "id": "R2-C01",
    "rule": 18,
-   "statement": "T_18(w) = v2pow(ceil(w/2)) for all w >= 1 (also rule 146 for w >= 3, by its own run)",
+   "statement": "T_18(w) = v2pow(ceil(w/2)) for all w >= 1",
    "source_lead": "T-18",
    "checked_widths": [
     1,
@@ -28474,7 +28474,7 @@
    "disagreements": [],
    "unresolved": [],
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
-   "level": "L1",
+   "level": "L0",
    "novelty": "NOT_CHECKED",
    "sequence_oeis": []
   },
@@ -28518,14 +28518,14 @@
    "disagreements": [],
    "unresolved": [],
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
-   "level": "L1",
+   "level": "L0",
    "novelty": "NOT_CHECKED",
    "sequence_oeis": []
   },
   {
    "id": "R2-C04",
    "rule": 26,
-   "statement": "T_26(w) = 0 for odd w >= 3 and v2pow(w/2) for even w",
+   "statement": "T_26(w) = 0 for odd w >= 3 and v2pow(w/2) for even w (even part = rule 90, A160467; L1 counts only the odd part)",
    "source_lead": "T-26",
    "checked_widths": [
     2,
@@ -28613,7 +28613,7 @@
   {
    "id": "R2-C08",
    "rule": 218,
-   "statement": "T_218(w) = v2pow(w/2) for even w; for odd w >= 3 it is w-2 when w-1 is a power of 2, else w-1",
+   "statement": "T_218(w) = v2pow(w/2) for even w; for odd w >= 3 it is w-2 when w-1 is a power of 2, else w-1 (even part = rule 90, A160467; L1 counts only the odd part)",
    "source_lead": "T-218",
    "checked_widths": [
     3,
@@ -28694,7 +28694,7 @@
    "disagreements": [],
    "unresolved": [],
    "status": "SUPPORTED_NOVELTY_UNCHECKED",
-   "level": "L1",
+   "level": "L0",
    "novelty": "NOT_CHECKED",
    "sequence_oeis": []
   }
@@ -28703,34 +28703,28 @@
   "goal": "R-002 batch: Level-1 candidates on ECA orbit sizes (contributes to M1.2)",
   "status": "SUPPORTED_NOVELTY_UNCHECKED",
   "level1": [
-   "R2-C01",
-   "R2-C03",
    "R2-C04",
    "R2-C07",
    "R2-C08",
    "R2-C09",
-   "R2-C10",
-   "R2-C11"
+   "R2-C10"
   ],
   "refuted": [],
   "novelty": {
    "status": "NOT_CHECKED",
    "open": [
-    "R2-C01",
-    "R2-C03",
     "R2-C04",
     "R2-C07",
     "R2-C08",
     "R2-C09",
-    "R2-C10",
-    "R2-C11"
+    "R2-C10"
    ],
    "note": "the period sequences are largely in OEIS (A334496-A334515); transient formulas need a literature check (Martin-Odlyzko-Wolfram 1984 and later)"
   }
  },
  "oeis_snapshot": "sha256:c6d34403102c,2026-11-22T08:14:57+00:00",
  "meta": {
-  "git_commit": "ae0d912c2876a38ba7ab12dca7558d13e782219c",
+  "git_commit": "2e21a8f944d7e1fda51744f53d9118d34f9cfd3e",
   "dirty_files": [],
   "env": {
    "python": "3.13.18",
@@ -28755,5 +28749,5 @@
    "w_big": 40
   }
  },
- "seconds": 106.9
+ "seconds": 104.3
 }

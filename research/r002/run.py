@@ -20,8 +20,13 @@ LEVELS = {  # set after reading the checks; reasons are in report.md
     # C02: rule 146 differs from 18 only on pattern 111, so it is C01 plus "no 111 occurs".
     # C05, C06: rules 153 and 105 are affine (XNOR), so the transient follows from the
     # linear-algebra analysis of Martin, Odlyzko and Wolfram (1984).
-    "R2-C01": "L1", "R2-C02": "L0", "R2-C03": "L1", "R2-C04": "L1", "R2-C05": "L0",
-    "R2-C06": "L0", "R2-C07": "L1", "R2-C08": "L1", "R2-C09": "L1", "R2-C10": "L1", "R2-C11": "L1",
+    # Downgraded after the independent review (records/DISC-0005/review.md, section C):
+    # C01: odd-width rule 18 is even-width rule 90 minus the antipodal cell (always 0).
+    # C03: Phi(u)_i = u_i or u_{i+1} conjugates rule 18 to rule 126, so (T,P)_126(w) = (T,P)_18(w+1).
+    # C11: even part reduces to rule 90; odd part has a ten-line fixed-point proof.
+    # C04, C08: only the odd-width part counts (the even part is rule 90, A160467).
+    "R2-C01": "L0", "R2-C02": "L0", "R2-C03": "L0", "R2-C04": "L1", "R2-C05": "L0",
+    "R2-C06": "L0", "R2-C07": "L1", "R2-C08": "L1", "R2-C09": "L1", "R2-C10": "L1", "R2-C11": "L0",
 }
 
 
