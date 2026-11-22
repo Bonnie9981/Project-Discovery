@@ -31,8 +31,8 @@ def test_known_sequence_with_offset_matches():
 
 
 @pytest.mark.parametrize("q,transform", [
-    ([-2, -3, -5, -11, -17], "negated"),
-    ([41, 17, 11, 5, 3], "reversed"),
+    ([-2, -3, -5, -11, -17, -41], "negated"),
+    ([41, 17, 11, 5, 3, 2], "reversed"),
 ])
 def test_transformed_match_is_partial(q, transform):
     rep = novelty.check_sequence(q, use_network=False, use_offline_oeis=False)
@@ -59,6 +59,13 @@ def test_offline_snapshot_search_and_manifest(tmp_path):
     assert any(s.startswith("oeis_offline@sha256:") for s in rep.sources_checked)
     rep = novelty.check_sequence([9, 9, 9, 9, 1], use_network=False, oeis_dir=d)
     assert rep.status == novelty.NO_MATCH_IN_SCOPE and rep.known is None
+
+
+def test_short_transformed_queries_do_not_count():
+    # 5-term parity subsequences matched unrelated OEIS entries on the real snapshot.
+    names = [n for n, _ in novelty.query_variants([9, 7, 7, 7, 1, 3, 3, 8, 2, 9, 1])]
+    assert "odd_index_terms" not in names and "even_index_terms" not in names
+    assert [n for n, _ in novelty.query_variants([1, 2, 3, 4, 5])] == ["identity"]
 
 
 def test_offline_snapshot_tampering_detected(tmp_path):

@@ -41,6 +41,11 @@ HUMAN_ONLY_STATUSES = {NOVELTY_SUPPORTED, NOVELTY_CONFIRMED}
 
 # Shorter queries match almost anything, so they are not searched.
 MIN_TERMS = 4
+# Transformed queries are looser, so they must be longer to count (tested on the real OEIS
+# snapshot: 5-term parity subsequences of random data matched unrelated sequences).
+MIN_TERMS_TRANSFORMED = 6
+MIN_TERMS_SUBSAMPLED = 8
+SUBSAMPLED = {"even_index_terms", "odd_index_terms"}
 
 
 @dataclass
@@ -118,7 +123,9 @@ def query_variants(terms: list[int]) -> list[tuple[str, list[int]]]:
     for name, f in TRANSFORMS.items():
         v = f(terms)
         key = tuple(v)
-        if len(v) < MIN_TERMS or key in seen:
+        need = MIN_TERMS if name == "identity" else (
+            MIN_TERMS_SUBSAMPLED if name in SUBSAMPLED else MIN_TERMS_TRANSFORMED)
+        if len(v) < need or key in seen:
             continue
         seen.add(key)
         out.append((name, v))
@@ -127,18 +134,23 @@ def query_variants(terms: list[int]) -> list[tuple[str, list[int]]]:
 
 def search_table(terms: list[int], table: Iterable[tuple[str, str, list[int]]],
                  source: str, max_matches: int = 50) -> list[dict]:
-    """Search rows of (id, name, terms) for every query variant; first variant that hits wins."""
+    """Search rows of (id, name, terms). Exact (identity) matches are listed first;
+    transformed matches follow, each row reported once with its first matching transform."""
     variants = query_variants(terms)
-    out: list[dict] = []
+    exact: list[dict] = []
+    partial: list[dict] = []
     for sid, name, ref in table:
         for tname, q in variants:
+            if tname != "identity" and len(partial) >= max_matches:
+                break
             off = contains_run(q, ref)
             if off is not None:
-                out.append({"source": source, "id": sid, "name": name, "transform": tname, "offset": off})
+                hit = {"source": source, "id": sid, "name": name, "transform": tname, "offset": off}
+                (exact if tname == "identity" else partial).append(hit)
                 break
-        if len(out) >= max_matches:
+        if len(exact) >= max_matches:
             break
-    return out
+    return (exact + partial)[:max_matches]
 
 
 # --------------------------------------------------------------------------- sources

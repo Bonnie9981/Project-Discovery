@@ -1,0 +1,17 @@
+{
+  "source": "https://oeis.org/",
+  "license": "CC BY-SA 4.0 (OEIS Foundation)",
+  "registered_at": "2026-11-22T08:14:57+00:00",
+  "files": {
+    "names.gz": {
+      "bytes": 7838301,
+      "sha256": "6f2f42c65150348c107340ee8813b0ba31ee3c8d5da32e9fba0bfd8a0d78893f",
+      "mtime_utc": "2026-11-22T08:14:57+00:00"
+    },
+    "stripped.gz": {
+      "bytes": 33901810,
+      "sha256": "c6d34403102c2eafd74b28ad9dec97789f6ccfa9c45fed76c0af990f9e2422ce",
+      "mtime_utc": "2026-11-22T08:14:57+00:00"
+    }
+  }
+}

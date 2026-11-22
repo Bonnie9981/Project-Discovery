@@ -11,5 +11,5 @@ def test_r001_finds_eulers_lucky_numbers_and_marks_them_known():
 
 
 def test_unknown_sequence_without_network_is_unchecked_not_new():
-    rep = novelty.check_sequence([7, 1, 8, 2, 8, 1, 8, 2, 8, 4, 5], use_network=False)
+    rep = novelty.check_sequence([7, 1, 8, 2, 8, 1, 8, 2, 8, 4, 5], use_network=False, use_offline_oeis=False)
     assert rep.known is None  # must never be reported as "new" without a real search
