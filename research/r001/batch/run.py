@@ -47,6 +47,7 @@ def main(n: int = 10_000, n_big: int = 1_000_000, out: Path | None = None) -> di
         "candidates": cands,
         "aggregate": {
             "goal": "M1.2: at least 10 Level-1 candidates",
+            "m1_2_met": len(l1) >= 10,
             "status": "SUPPORTED_NOVELTY_UNCHECKED",
             "level1": l1,
             "refuted": [c["id"] for c in cands if not c["holds"]],

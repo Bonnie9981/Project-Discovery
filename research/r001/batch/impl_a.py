@@ -3,7 +3,9 @@
 Method: every n is factorised on its own by trial division, and each function
 is evaluated from that factorisation with its textbook prime-power formula,
 or by direct enumeration where the definition is a count:
-- r2, r3: count lattice points by enumerating x, y (, z) directly.
+- r2: count lattice points by enumerating x, y directly.
+- r3: convolution of that r2 table with the squares z^2 (same structure as
+  implementation B, so r3 is NOT independently checked; no L1 candidate uses it).
 - r4: Dirichlet-free count, r4 = sum_{a+b=n} r2(a) r2(b) (convolution of the
   directly counted r2 with itself).
 No sieve is used anywhere.

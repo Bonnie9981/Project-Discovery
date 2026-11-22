@@ -103,9 +103,21 @@ def check_all(n_big: int = 1_000_000) -> list[dict]:
 
     # C10 refuted
     ex = [n for n in range(1, n_big + 1) if c.sigma_odd(c.phi(n)) > n]
+    assert ex and ex[0] == 8191, ex[:3]
+    cex = ex[1] if len(ex) > 1 else None
+    confirm = {}
+    if cex is not None:   # the counterexample must also be confirmed by impl_a and impl_b
+        from research.r001.batch import impl_a, impl_b
+        phi = impl_a.value("phi", cex)
+        confirm = {"impl_a": impl_a.value("sigma_odd", phi),
+                   "impl_b": impl_b.table("sigma_odd", phi)[phi],
+                   "impl_c": c.sigma_odd(c.phi(cex)), "phi": phi}
+        assert impl_b.table("phi", cex)[cex] == phi
+        assert len(set(v for k, v in confirm.items() if k != "phi")) == 1 and confirm["impl_c"] > cex
     add("C10", "sigma_odd(phi(n)) <= n for all n except n = 8191 (the only exception up to 1e4)",
-        "B-sigma_odd(phi(n))<=n", not ex[1:], ex[1] if len(ex) > 1 else None,
-        note=f"{len(ex)} exceptions up to {n_big}: {ex[:8]} ... the 1e4 window was misleading")
+        "B-sigma_odd(phi(n))<=n", not ex[1:], cex,
+        note=f"{len(ex)} exceptions up to {n_big}: {ex[:8]} ... the 1e4 window was misleading; "
+             f"counterexample confirmed by three implementations: {confirm}")
 
     # C11 finite solution sets
     s1 = [n for n in range(1, n_big + 1) if c.d(c.psi(n)) == n]
@@ -132,5 +144,8 @@ def check_all(n_big: int = 1_000_000) -> list[dict]:
 
 LEVELS = {  # set after reading the checks; reasons are in the report
     "C01": "L1", "C02": "L1", "C02b": "L0", "C03": "L1", "C04": "L0", "C05": "L1", "C06": "L1",
-    "C07": "L1", "C08": "L1", "C09": "L1", "C10": "REFUTED", "C11": "L1", "C12": "L1", "C13": "L0",
+    # Downgraded after the independent review (records/DISC-0004/review.md): C07-C09 and C11
+    # follow in one step from d(n) < sqrt(n) for n > 1260 plus a finite check; C12 from
+    # "P - 1 is even and > 2 for P >= 5".
+    "C07": "L0", "C08": "L0", "C09": "L0", "C10": "REFUTED", "C11": "L0", "C12": "L0", "C13": "L0",
 }
