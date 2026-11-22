@@ -20,3 +20,10 @@ jobs:
         run: |
           if grep -rnE '\b(sorry|admit)\b|^\s*axiom ' lean/Discovery lean/Discovery.lean; then
             echo "sorry/admit/axiom found"; exit 1; fi
+      - name: Check axioms used by every theorem
+        run: |
+          cd lean
+          lake env lean AxiomCheck.lean | tee axioms.txt
+          test "$(grep -c "depends on axioms\|does not depend on any axioms" axioms.txt)" -eq 5
+          if grep -oE "axioms: \[[^]]*\]" axioms.txt | tr -d '[]' | tr ',' '\n' | sed 's/.*axioms: //' | tr -d ' ' | grep -vxE 'propext|Classical.choice|Quot.sound|'; then
+            echo "non-standard axiom used"; exit 1; fi
