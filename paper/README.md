@@ -3,6 +3,8 @@
 - `a334504.tex`：英文短文草稿，人看得懂的證明，不需要讀 Lean。奇數寬度（DISC-0008）和偶數寬度（DISC-0009）兩節。
 - `a268754-odd.md`：OEIS A268754 奇數項公式 a(2n+1) = 2a(n) 的英文短證明（DISC-0013），OEIS LINKS 要連的頁面。
 - `a268754_oeis_edit_draft.md`：A268754 的 OEIS 編輯草稿（中文說明＋英文文字），使用者自己送出。
+- `a071052-even.md`：OEIS A071052 偶數項公式 a(2n) = a(n) + 2n 的英文短證明（DISC-0014），OEIS LINKS 要連的頁面。
+- `a071052_oeis_edit_draft.md`：A071052 的 OEIS 編輯草稿，使用者自己送出。
 - `spec_audit.md`：Lean 敘述和 OEIS 定義的逐項對照；標「待辦」的項目做完前不對外。
 
 狀態：**內部草稿，沒有投稿、沒有上 arXiv、沒有改 OEIS。** 對外的每一步（找教授、arXiv、OEIS、期刊）都要使用者決定。
