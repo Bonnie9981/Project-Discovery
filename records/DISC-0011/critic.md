@@ -46,3 +46,29 @@
 - 「每 4 步閃一次」改為「比 ether 少亮一次（k≡1）」。
 - record.json 若有「查無出處」類措辭，補上「僅限 DISC-0006 的 OEIS/OpenAlex 查詢，對單段無辨別力」。
 - 在 proof.md 補一句「週期 1、2 的軌道也是週期 4 的，所以 p=1,2,3 足以給出最小週期 4」。
+
+## 第二輪（opus）
+
+### (a) 主定理是不是 R2-C10 的 w ≡ 2、3 段
+- 用 `pp.fullNames` 印出 `rule54_mod4_two/three`：`T`、`iter` 都是 `Discovery.Rule54.*`（和 DISC-0006 同一份定義），前提只有 `w % 4 = 2, 6 ≤ w` / `w % 4 = 3, 7 ≤ w`，沒有藏前提。
+- 不是空話：在 w = 6、7 實例化成功，並由定理推出 `T 1002 = 498`、`T 1003 = 498`。`#eval` w = 10、11 的軌道：x₂ = x₆（260、516），x₁ ≠ x₅，和 T = 2、週期 4 相符。手算確認 `c xor (l or r)` 就是 Wolfram 54 的 8 列真值表。
+- 用 repo 原始檔從頭重編 `Rule26 → Rule54Mod23`（輸出到 /tmp/claude-0/critic2/ol，約 40 秒），沒有錯誤；兩條定理的公理只有 propext、Classical.choice、Quot.sound。所以不是用了過期的 olean。CI 的 `AxiomCheck.lean` 會掃描整個環境，自動涵蓋新檔案。
+
+### (b) 對折引理與 `defect_seg`
+- `fold`：w 奇時中心格 i = m 的兩個鄰居距離是 m − 1 和 m，`up` 取 m，正確；`hw : 3 ≤ w` 在使用處（w ≥ 6）成立。
+- `defect_seg` 的三種情形 d + 1 < m、d + 1 = m、d = m，在 d ≤ m 下涵蓋了所有情況。第一種要用到 lo d ≠ m，這靠 m = T + 3 ≥ 3（lo 0 = 1）。第二種要用到 d ≥ 1，這由 d = T + 2 保證。這些前提都成立。
+- 獨立重算 H1、H2 的每一格（不是只看中心）：/tmp/claude-0/critic2/h12.py（list 加真值表，不 import 專案程式碼），涵蓋 6 ≤ w ≤ 401 中 w ≡ 2、3 的 198 個寬度。檢查範圍是 t ≤ T + 7 的每一格，加上 (μ, λ)，結果 0 個不符。t > T + 7 的部分由週期性推出。
+- 更正第一輪：proof.md 第 5 步寫的「8 種情形各 3 條等式」和 `defect_table` 完全一致：a ∈ {0, 2}、r < 4，每種情形 3 個合取式。第一輪「數字對不上」的建議不成立。
+
+### (c) 措辭
+- RESEARCH_STANDARDS 對 `PROVEN_KNOWN` 的定義是「Lean 4 + Mathlib 證明…但結果已知」。本案只用 Lean core，而且沒有找到出處。review.md 已說明這裡沿用 DISC-0008～0010 的慣例（意思是「已知技巧、不宣稱新」），但標準文件的字面意思和實際用法不一致。
+- proof.md 附註寫「對折做法其實也涵蓋 w ≡ 0」，但沒有證明：`rule54_core` 要求 m = T + 3，而 w ≡ 0 時 m = T + 2，所以這條核心定理不能直接套用。
+- 本輪讀過的工具輸出和文件裡，沒有出現要我做事的指示文字。
+
+必修：
+- 無。
+
+建議：
+- proof.md 附註改成「預期可用同法處理 w ≡ 0（未做）」。
+- 在 RESEARCH_STANDARDS 註明 `PROVEN_KNOWN` 也用於「已知技巧、未找到出處」，並且不限定 Mathlib；或另外新增一個狀態。
+- 刪除第一輪對「8 × 3」的建議。
