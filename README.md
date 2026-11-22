@@ -6,20 +6,20 @@
 
 > 規則第一條：任何 agent（包括 Claude）都不能自己宣布成功。成果必須經過反例搜尋、獨立實作驗證、新穎性檢查，並留下可重跑的紀錄。
 
-## 目前狀態：Phase 0 完成到 P0-07（等待 CEO 驗收 M0.1～M0.3）
+## 目前狀態：Phase 2 進行中（2026-11-22）
 
-| 任務 | 狀態 |
+| 階段 | 狀態 |
 |---|---|
-| P0-01 GitHub repo | 完成 |
-| P0-02 Python 環境 + pytest | 完成（只用標準函式庫 + pytest） |
-| P0-03 Lean 4 + Mathlib | 完成：`lean/`，在 GitHub Actions 編譯，依賴鎖定，自動稽核公理 |
-| P0-04 六個 agent | 完成：`.claude/agents/`，分工見 [docs/AGENTS.md](docs/AGENTS.md) |
-| P0-05 SQLite 任務庫 | 完成：結果只能新增，中斷可續跑 |
-| P0-06 驗證機制 | 完成：雙實作交叉檢查、新穎性檢查、紀錄完整性檢查器 |
-| P0-07 首次完整演練 | 完成：`records/DISC-0002/` |
+| Phase 0 研究基礎建設 | 完成：repo、Python + pytest、Lean 4 + Mathlib（CI 編譯並自動稽核公理）、六個 agent、SQLite 任務庫、驗證機制 |
+| Phase 0.5 研究完整性 | 完成：雙實作真正獨立、九級新穎性狀態、OEIS 離線快照、查詢存證 |
+| Phase 1 研究流程驗證 | 完成：M1.1 重現已知定理（DISC-0003）、M1.2 10 條 L1 候選（DISC-0004、0005）、M1.3 3 條過初篩（DISC-0006）、M1.4 第一條完整 Lean 證明（DISC-0007，C02） |
+| Phase 2 結構性數學發現 | 進行中：DISC-0008 證明 OEIS A334504 的奇數項猜想（規則 26 週期） |
+
+各項研究的白話說明見 [RESEARCH.md](RESEARCH.md)。目前沒有任何結果被宣稱為新發現。
 
 已知限制：
-- 開發環境連不到 oeis.org、OpenAlex、Lean 下載站。新穎性的線上查詢尚未實測成功；Lean 只在 CI 上編譯。
+- 程式端連不到 oeis.org、OpenAlex；線上查詢透過使用者的瀏覽器進行並存證。Lean 的正式結果以 GitHub CI 為準。
+- MathSciNet、Google Scholar 尚未查詢。
 - Orchestrator 目前是 Claude Code 主執行緒，不是背景常駐程式。
 
 ## 快速開始

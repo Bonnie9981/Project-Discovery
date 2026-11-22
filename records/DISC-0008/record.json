@@ -1,0 +1,39 @@
+{
+  "id": "DISC-0008",
+  "line": "R-003",
+  "title": "Phase 2：規則 26 在奇數寬度環上的週期 w·2^⌊log₂ w⌋（OEIS A334504 的猜想）",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator",
+    "proof (subagent)"
+  ],
+  "critic": "critic (independent subagent)",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-22T11:50:00+00:00",
+  "lean_theorems": [
+    "Discovery.Rule26.rule26_odd_period",
+    "Discovery.Rule26.iter_eq_one_iff"
+  ],
+  "candidates": {
+    "R3-L01": {
+      "status": "PROVEN_KNOWN",
+      "proof": "complete paper proof and Lean proof for all odd w >= 3 (rule26_odd_period, iter_eq_one_iff), CI lean run 45017724157; numeric check odd w <= 61 with two independent simulations"
+    }
+  },
+  "novelty": {
+    "status": "PARTIAL_MATCH",
+    "sources_checked": [
+      "oeis online via claude-in-chrome (A334504, A268754)",
+      "arxiv api",
+      "openalex"
+    ],
+    "note": "PROVEN_KNOWN means the statement already appears in OEIS (as a conjecture); it does not mean a prior proof exists. The formula itself is stated in OEIS A334504 FORMULA (Zabolotskii 2024) as a conjecture ('It seems that'); no proof found in scope. The proof is NO_MATCH_IN_SCOPE. Not checked: Math Fun mailing list (Klee 2020), MathSciNet, zbMATH, Google Scholar. The even-index conjecture a(2n+2) = A268754(n) is not proven here.",
+    "open": [
+      "R3-L01"
+    ],
+    "evidence": [
+      "DISC-0008-S001..S005"
+    ]
+  },
+  "experiment_commit": "af987585715b66ac757aa7657679edc1b1c3de39"
+}

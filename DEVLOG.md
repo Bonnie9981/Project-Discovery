@@ -19,3 +19,5 @@
 - **DISC-0006，M1.3 達成**：挑 C01、C02、R2-C10 做文獻查證（OEIS 線上、OpenAlex，7 筆存證）、critic 攻擊、證明嘗試與獨立審查。3 條都存活。C02 得到完整紙本證明與解集的完整刻畫；C01 奇數情形與 v₂(n) ≤ 10 在 Lean 證明（紙本到 22）；規則 54 只有 Lean 有限核驗（寬度 6～200）。新增 3 個 Lean 檔、35 個定理。新穎性仍為查詢範圍內未命中。
 - **DISC-0007，M1.4**：C02 完整刻畫在 Lean 兩個方向都證完（`c02_iff`，CI 通過），是第一條從電腦探索走到完整形式證明的結果；新穎性仍為查詢範圍內未命中，critic 評估為習題程度。C01 在 Lean 推進到 v₂(n) ≤ 22（含過剩的 a = 11 情形）。新研究線 R-003 試點（算術公式配對）為負面結果：9 條完整線索全部化約到已知。文獻查詢擴大到 zbMATH、arXiv、MathOverflow、Math.SE（10 筆存證）。
 - **省 token 改造**：六個 agent 指定模型（文獻、猜想、實驗、critic 用 sonnet；Lean 證明與最終 reviewer 留 opus，重要結果的 critic 也改用 opus）；新增 `discovery.digest`（紀錄摘要、單段讀取）與 `discovery.quiet`（長輸出存檔、對話只看摘要）；規定 critic/reviewer 各一輪、里程碑後開新執行緒、ChatGPT 討論改讀文字不截圖、開工前先估算 token 夠不夠。規則在 `docs/TOKEN_BUDGET.md`，四項核心要求不變。
+- **Phase 1 結束，Phase 2 開始（與 ChatGPT 議定）**：下一階段以結構性證明為主，第一個目標是 R3-L01。
+- **DISC-0008**：規則 26 在奇數寬度環上的週期 w·2^⌊log₂ w⌋ 在紙上與 Lean 完整證明（`rule26_odd_period`，只用 Lean core，CI 通過）。這條公式原本是 OEIS A334504 的猜想（2024，「It seems that」），在查過的範圍內沒有找到證明；新穎性不宣稱。README 狀態更新到 Phase 2。
