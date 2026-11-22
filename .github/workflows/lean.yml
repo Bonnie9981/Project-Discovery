@@ -5,11 +5,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Generate lake-manifest.json if missing
+        if: hashFiles('lean/lake-manifest.json') == ''
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          cd lean && "$HOME/.elan/bin/lake" update
+      - name: Upload generated manifest
+        if: hashFiles('lean/lake-manifest.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: lake-manifest
+          path: lean/lake-manifest.json
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: lean
           use-mathlib-cache: true
-          build-args: "--log-level=warning"
       - name: Reject unfinished proofs
         run: |
           if grep -rnE '\b(sorry|admit)\b|^\s*axiom ' lean/Discovery lean/Discovery.lean; then
