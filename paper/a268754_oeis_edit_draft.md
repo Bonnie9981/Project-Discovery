@@ -28,7 +28,7 @@ For n >= 1, a(2n+1) = 2*a(n) if n+1 is not a power of 2, and a(n) = a(2n+1) = 1 
 **COMMENTS**：原句「Terms of the form 2^k-1 have a period of 1 since all cells die.」下面加：
 
 ```
-Conversely, for n+1 not a power of 2 the cells never all die: for even n the update map is invertible over GF(2), and the wire of 2n+1 cells dies iff the wire of n cells does (put the n-wire on the even cells of the (2n+1)-wire; two steps of the long wire are one step of the short one). - Chi Hsia, Nov 2026
+Conversely, for n+1 not a power of 2 the cells never all die: for even n the update map is invertible over GF(2), and the wire of 2n+1 cells dies iff the wire of n cells does (put the n-wire on cells 2, 4, ..., 2n of the (2n+1)-wire; two steps of the long wire are one step of the short one). - Chi Hsia, Nov 2026
 ```
 
 **LINKS**：加一行
