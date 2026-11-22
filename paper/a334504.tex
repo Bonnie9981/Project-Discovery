@@ -1,0 +1,318 @@
+% Draft short note: proofs of the two conjectured formulas in OEIS A334504.
+% Status: DRAFT for internal review (not submitted anywhere). See paper/README.md.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\lb}{\lfloor \log_2 w \rfloor}
+
+\title{The period of a single cell under elementary cellular automaton rule~26\\ on a cyclic lattice}
+\author{[Author names to be decided]}
+\date{Draft, November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $a(w)$ be the eventual period of the orbit of a single live cell under
+elementary cellular automaton rule~26 on a cyclic lattice of $w$ cells
+(OEIS A334504). Two formulas for $a$ were conjectured in that entry in 2024:
+$a(2n+1) = (2n+1)\,2^{A070939(n)}$ and $a(2n+2) = A268754(n)$ for $n \ge 1$.
+We prove both. For odd $w \ge 3$ the orbit is purely periodic with period
+exactly $w \cdot 2^{\lfloor \log_2 w \rfloor}$; the proof describes every state
+explicitly as a window of Pascal's triangle modulo~$2$ drifting around the
+ring. For even $w = 2m \ge 4$ we show that from time~$1$ on, the orbit is a
+mirror-symmetric embedding of the orbit of a single end cell under rule~90 on
+a segment of $m-1$ cells with null boundaries, which is the system whose
+period A268754 records. The main statements of both results have been
+checked in the Lean~4 proof assistant.
+\end{abstract}
+
+\section{Introduction}
+
+Rule~26 is the elementary cellular automaton whose new cell value is~$1$
+exactly when the neighbourhood (left, centre, right) is $100$, $011$ or $001$.
+It is not additive, but started from a single live cell on the infinite line
+it draws the same Sierpi\'nski pattern as the additive rule~90: no row of the
+rule-90 pattern has two adjacent live cells, so the neighbourhood $110$, the
+only one on which the two rules differ, never occurs. On a finite
+cyclic lattice the two rules differ, because the pattern wraps around and
+meets itself.
+
+OEIS A334504 lists the eventual period $a(w)$ of a single cell under rule~26
+on a cyclic lattice of width~$w$. Its FORMULA field records two conjectures
+(A.~Zabolotskii, 2024): for $n \ge 1$,
+\begin{equation}\label{eq:conj}
+a(2n+1) = (2n+1)\,2^{A070939(n)}, \qquad a(2n+2) = A268754(n),
+\end{equation}
+where $A070939(n)$ is the number of binary digits of~$n$ and $A268754(n)$ is
+the period of the $n \times 1$ oscillator in the Life-like rule B1/S, whose
+OEIS program iterates rule~90 on $n$ cells with null boundaries from a single
+end cell. The cross-reference in A268754 likewise only says that it
+``seems to be'' a shifted bisection of A334504 and A334507. We have not found
+a proof of either formula in the limited search described in
+Section~\ref{sec:discussion}.
+
+Since $A070939(n) = \lfloor \log_2 n \rfloor + 1 = \lfloor \log_2 (2n+1) \rfloor$
+for $n \ge 1$, the first formula is the case $w = 2n+1$ of
+Theorem~\ref{thm:odd} below; the second is Theorem~\ref{thm:even}.
+
+\section{Definitions}
+
+Fix $w \ge 1$. A state is a word $x = (x(0), \dots, x(w-1)) \in \F_2^{w}$,
+indices taken modulo~$w$; the left neighbour of cell~$i$ is cell $i-1$ and the
+right neighbour is cell $i+1$. Write
+\[
+f(l,c,r) = 1 \iff (l,c,r) \in \{100,\,011,\,001\}
+\]
+for the local rule of rule~26 ($26 = 00011010_2$, bit $4l+2c+r$), and
+$F(x)(i) = f(x(i-1), x(i), x(i+1))$ for the synchronous global map. The seed
+is $e_0$, the state with only cell~$0$ alive, and $x_t = F^t(e_0)$.
+
+Since the state space is finite, there are least integers $T \ge 0$ and
+$p \ge 1$ with $x_{t+p} = x_t$ for all $t \ge T$; $p$ is the \emph{eventual
+period} $a(w)$ and $T$ the \emph{transient}.
+
+\begin{remark}
+Reversing the orientation of the ring turns rule~26 into its mirror image,
+rule~82, and maps the orbit of $e_0$ bijectively onto the mirrored orbit. The
+period is therefore independent of which neighbour is called ``left''.
+\end{remark}
+
+We write $b_t(j) = \binom{t}{j} \bmod 2$ (with $b_t(j) = 0$ for $j > t$), so
+that $b_t(0) = 1$, $b_0(j) = [j = 0]$ and
+$b_{t+1}(j+1) = b_t(j) \oplus b_t(j+1)$.
+
+\section{Odd widths}
+
+\begin{theorem}\label{thm:odd}
+Let $w \ge 3$ be odd and $k = \lfloor \log_2 w \rfloor$. Then for all $t \ge 0$,
+\[
+x_t = e_0 \iff w \cdot 2^{k} \mid t .
+\]
+Consequently the orbit of $e_0$ is purely periodic (transient~$0$) with
+period exactly $a(w) = w \cdot 2^{\lfloor \log_2 w \rfloor}$.
+\end{theorem}
+
+The proof rests on an explicit description of every state.
+
+\begin{definition}
+For $0 \le s < w$ let $Y_t(s) = 1$ if $s$ is even and $b_t(s/2) = 1$, and
+$Y_t(s) = 0$ otherwise. We call $s$ a \emph{window coordinate}.
+\end{definition}
+
+Geometrically, row~$t$ of the rule-90 pattern on~$\Z$ has live cells at the
+positions $r$ with $r \equiv t \pmod 2$ and $b_t((t+r)/2) = 1$; putting
+$s = r + t$, $Y_t$ is the part of that row in the window $-t \le r < w - t$.
+The window moves one cell to the left per step.
+
+\begin{lemma}[closed form]\label{lem:closed}
+Let $w \ge 3$ be odd. For all $t \ge 0$ and $0 \le i < w$,
+\[
+x_t(i) = Y_t\big((i+t) \bmod w\big).
+\]
+\end{lemma}
+
+\begin{proof}
+Induction on~$t$. For $t = 0$, $Y_0(s) = [s = 0]$, so the right-hand side is
+$e_0$. For the inductive step fix $i$ and let $s = (i+t+1) \bmod w$. The cells
+$i-1$, $i$, $i+1$ have window coordinates $s-2$, $s-1$, $s$ (mod~$w$) at
+time~$t$, so it suffices to show
+\[
+f\big(Y_t(s-2),\,Y_t(s-1),\,Y_t(s)\big) = Y_{t+1}(s) \qquad (\text{indices mod } w).
+\]
+The following four cases cover every $s$ (the assumption $w \ge 3$ makes
+$i-1$, $i$, $i+1$ three distinct cells).
+\begin{enumerate}
+\item $s \ge 2$ even, $s = 2j+2$. The arguments are $(b_t(j), 0, b_t(j+1))$.
+  With centre~$0$, $f(l,0,r) = l \oplus r$, so the value is
+  $b_t(j) \oplus b_t(j+1) = b_{t+1}(j+1) = Y_{t+1}(s)$.
+\item $s \ge 3$ odd. Then $s-2$ and $s$ are odd, both outer arguments are~$0$,
+  and $f(0,c,0) = 0 = Y_{t+1}(s)$.
+\item $s = 1$. The arguments are $(Y_t(w-1), Y_t(0), Y_t(1)) = (l, 1, 0)$, and
+  $f(l,1,0) = 0 = Y_{t+1}(1)$. (Here rule~26 differs from rule~90, which maps
+  $110$ to~$1$; this is where the wrapped pattern is cut off.)
+\item $s = 0$. The arguments are $(Y_t(w-2), Y_t(w-1), Y_t(0))$. Since $w$ is
+  odd, $w-2$ is odd and $Y_t(w-2) = 0$; also $Y_t(0) = b_t(0) = 1$. Hence the
+  value is $f(0,c,1) = 1 = Y_{t+1}(0)$. \qedhere
+\end{enumerate}
+\end{proof}
+
+The oddness of~$w$ enters only in case~4: it makes the two ends $s = w-1$ and
+$s = 0$ of the window both even, so the left edge of the pattern always reads
+$0\,?\,1$ and is reproduced.
+
+\begin{lemma}[Lucas, $p = 2$]\label{lem:lucas}
+\begin{enumerate}
+\item[(a)] If $2^{m} \mid t$, then $\binom{t}{j}$ is even for $0 < j < 2^{m}$.
+\item[(b)] If $2^{m} \nmid t$, then $\binom{t}{2^{v}}$ is odd for some $v < m$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Both follow from Lucas' theorem; we give the short self-contained argument
+that is also the one formalised. From $(1+X)^{2a} = (1+X^2)^a$ in $\F_2[X]$,
+$b_{2a}(2c) = b_a(c)$ and $b_{2a}(2c+1) = 0$; also $b_t(1) = t \bmod 2$.
+(a) Induction on~$m$: write $t = 2a$ with $2^{m-1} \mid a$. Odd $j$ give
+$b_t(j) = 0$, and $j = 2j'$ gives $b_t(j) = b_a(j')$ with $0 < j' < 2^{m-1}$.
+(b) Here $t > 0$; take $v = v_2(t) < m$: writing $t = 2^{v} u$ with $u$ odd, repeated use of
+$b_{2a}(2c) = b_a(c)$ gives $b_t(2^{v}) = b_u(1) = 1$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:odd}]
+Since $w \ge 3$ is odd, $k \ge 1$ and $2^{k} < w < 2^{k+1}$. By
+Lemma~\ref{lem:closed}, $x_t = e_0$ if and only if
+$Y_t((i+t) \bmod w) = [i = 0]$ for all $0 \le i < w$.
+
+($\Rightarrow$) Suppose $x_t = e_0$. If $r = t \bmod w \ne 0$, then
+$i = w - r$ satisfies $0 < i < w$ and $x_t(i) = Y_t(0) = 1$, a contradiction;
+so $w \mid t$ and $x_t(i) = Y_t(i)$. If $2^{k} \nmid t$,
+Lemma~\ref{lem:lucas}(b) gives $v < k$ with $b_t(2^{v}) = 1$; then
+$i = 2^{v+1} \le 2^{k} < w$ is a nonzero cell with $x_t(i) = Y_t(2^{v+1}) = 1$,
+again a contradiction. Hence $2^{k} \mid t$.
+
+($\Leftarrow$) If $w \mid t$ and $2^{k} \mid t$, then $x_t(i) = Y_t(i)$.
+For $i = 0$ this is~$1$, for odd~$i$ it is~$0$, and for $i = 2j \ne 0$ we have
+$0 < j < 2^{k}$ (because $2j < w < 2^{k+1}$), so $b_t(j) = 0$ by
+Lemma~\ref{lem:lucas}(a).
+
+As $\gcd(w, 2^{k}) = 1$, the condition $w \mid t \wedge 2^{k} \mid t$ is
+$w 2^{k} \mid t$. Since $x_0 = e_0$ lies on the cycle, the transient is~$0$
+and the period is the least positive return time $w 2^{k}$.
+\end{proof}
+
+\begin{remark}
+The width $w = 1$ is excluded. There the single cell sees itself on both
+sides, $f(1,1,1) = 0$, so $x_1 = 0$ is a fixed point: the period $a(1) = 1$
+happens to equal $w\,2^{\lfloor\log_2 w\rfloor}$, but the transient is~$1$.
+The OEIS form $(2n+1)2^{A070939(n)}$ with $n = 0$ would give~$2$, since
+$A070939(0) = 1$; this is why the conjecture is stated for $n \ge 1$.
+\end{remark}
+
+\section{Even widths}
+
+Let $n \ge 1$ and consider rule~90 on a segment of $n$ cells $0, \dots, n-1$
+with null boundaries: $y'(j) = y(j-1) \oplus y(j+1)$, where $y(-1) = y(n) = 0$.
+Let $y_t$ be the orbit of the single end cell $y_0 = e_0$. This is exactly the
+recurrence computed by the program in OEIS A268754 (state as an integer,
+update $((h \ll 1) \oplus (h \gg 1))$ masked to $n$ bits, start $h = 1$), and
+A268754$(n)$ is the eventual period of $(y_t)$.
+
+\begin{theorem}\label{thm:even}
+Let $w = 2m$ with $m \ge 2$ and $n = m - 1$. Define the embedding
+$E : \F_2^{n} \to \F_2^{w}$ by $E(y)(0) = E(y)(m) = 0$,
+$E(y)(i) = y(i-1)$ for $0 < i < m$ and $E(y)(i) = y(2m-1-i)$ for $m < i < 2m$.
+Then $x_{t+1} = E(y_t)$ for all $t \ge 0$. Consequently, for every $p \ge 1$,
+$(x_t)$ is eventually $p$-periodic if and only if $(y_t)$ is, so
+$a(2n+2) = A268754(n)$ for all $n \ge 1$, and the transient of $(x_t)$ is one
+more than that of $(y_t)$.
+\end{theorem}
+
+\begin{proof}
+\emph{Parity.} Every live cell of $y_t$ lies at a position $j \equiv t
+\pmod 2$: true for $t = 0$, and $y_{t+1}(j)$ depends only on positions
+$j \pm 1$.
+
+\emph{One step.} Let $y$ have all live cells of one parity and put $x = E(y)$.
+Then $x$ has no two adjacent live cells: on each half adjacent cells
+correspond to adjacent positions of~$y$, and cells $0$ and $m$ are dead (the
+ring has even length, so wrapping around causes no problem). Hence the
+neighbourhood $110$ never occurs in~$x$, and on such states rule~26 agrees
+with rule~90: $f(l,c,r) = l \oplus r$ whenever $c = 1 \Rightarrow l = 0$. We
+check $F(x) = E(y')$ cell by cell. Cell~$0$ sees $y(0)$ on both sides (cells
+$2m-1$ and~$1$), giving~$0$; cell~$m$ likewise sees $y(m-2)$ twice. For
+$0 < i < m$ the left neighbour is $y(i-2)$ (or the dead cell~$0$ when $i = 1$)
+and the right neighbour is $y(i)$ (or the dead cell~$m$ when $i = m-1$, which
+matches $y(n) = 0$), so $F(x)(i) = y'(i-1)$. For the right half, note that on these states the
+local rule is $l \oplus r$, which is symmetric in $l$ and $r$, and that $E(y)$
+is invariant under the reflection $i \mapsto -i$ of the ring; hence $F(x)$ is
+invariant too and the right half follows from the left.
+
+\emph{First step.} $x_1 = F(e_0)$ has live cells exactly $1$ and $2m-1$
+(neighbourhoods $100$ and $001$), which is $E(e_0)$ because $m \ge 2$.
+Induction gives $x_{t+1} = E(y_t)$.
+
+\emph{Periods.} $E$ is injective (its left half reads back~$y$) and
+$E(y)(0) = 0 \ne e_0(0)$, so $x_{s+1} = x_{t+1} \iff y_s = y_t$ and $x_0$ never
+recurs. Thus $x_{t+p} = x_t$ for all $t \ge T+1$ iff $y_{t+p} = y_t$ for all
+$t \ge T$, which gives the claims.
+\end{proof}
+
+\section{Discussion}\label{sec:discussion}
+
+\paragraph{What is new and what is not.}
+The formulas~\eqref{eq:conj} are not ours; they were conjectured in OEIS
+A334504. The ingredients of the proofs are classical: the Sierpi\'nski pattern
+of rule~26 on the line, Lucas' theorem, the periods of rule~90, and the
+reflection trick relating null and cyclic boundaries. Reducing a non-additive
+rule to rule~90 on states with parity-separated support is very likely not new
+either; we have not yet checked specific earlier instances.
+% TODO(verify): possible precedents to read before release: Martin-Odlyzko-Wolfram 1984 on rule 18; a 2019 comment in OEIS A160657.
+The reflection between a symmetric cyclic configuration of length $2n+2$ and a
+null-boundary configuration of length~$n$ is a standard device for linear
+automata; we prove the instance we need directly and do not attribute it.
+% TODO(verify): find a citable source for the reflection trick and for the rule 26 / rule 90 single-seed pattern on the line.
+What we contribute is the specific analysis of rule~26 on the ring: the
+drifting-window closed form (Lemma~\ref{lem:closed}) with its boundary
+analysis, the exact return-time characterisation for odd widths, and the
+explicit orbit embedding for even widths. We do not claim more.
+
+\paragraph{Literature search.}
+In November 2026 we read the OEIS entries A334504 and A268754 in full, ran
+OEIS sequence searches, one arXiv keyword search (\texttt{"rule 26" AND
+cellular}, one unrelated hit) and one OpenAlex full-text search (top 8 titles
+read), all for the odd case; for the even case only the two OEIS entries were
+read. None of this found a proof. MathSciNet, zbMATH, Google Scholar and
+mailing-list archives have not been searched, so a proof may exist that was
+not reported to OEIS.
+
+\paragraph{Formal verification.}
+Both theorems are formalised in Lean~4 (core library only, no
+\texttt{sorry}, no \texttt{native\_decide}; axioms limited to
+\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}) in the
+files \texttt{lean/Discovery/Rule26.lean} and
+\texttt{lean/Discovery/Rule26Even.lean} of the accompanying repository
+(main statements \texttt{rule26\_odd\_period}, \texttt{iter\_eq\_one\_iff},
+\texttt{rule26\_even\_eventual\_period} and
+\texttt{rule26\_even\_least\_period}; the last says that $p$ is the least
+eventual period of the ring orbit if and only if it is that of the wire orbit,
+which is exactly the OEIS notion for both sequences).
+States are encoded as natural numbers whose bit~$i$ is cell~$i$. Three points
+are not themselves formal: (i) Lean defines $b_t(j)$ by
+Pascal's rule and does not state its equality with $\binom{t}{j} \bmod 2$
+(the main theorems do not mention $b$); (ii) the statement in
+Theorem~\ref{thm:even} that the ring transient is one more than the wire
+transient is derived on paper from the two formal facts
+$x_{s+1} = x_{t+1} \iff y_s = y_t$ and $x_{t+1} \ne x_0$; (iii) the identification of the Lean
+definitions with the OEIS definitions is by inspection and numerical
+cross-checks (two simulations in the proof's check script agree with the
+odd-width formula for $w \le 129$; two independently written simulations agree
+with A268754 for $n \le 40$). The audit is recorded in
+\texttt{paper/spec\_audit.md}.
+
+\paragraph{Use of AI.}
+The conjectures were selected, the proofs found, the Lean formalisation
+written and the numerical checks run with substantial help from AI systems
+(Claude Code, with independent AI review passes); the human authors are
+responsible for the final text. A detailed log is in the repository.
+% TODO: authors to state their own contribution precisely before any release.
+
+\begin{thebibliography}{9}
+\bibitem{oeis334504} OEIS Foundation, Sequence A334504, \emph{The On-Line
+  Encyclopedia of Integer Sequences}, \url{https://oeis.org/A334504}.
+\bibitem{oeis268754} OEIS Foundation, Sequence A268754,
+  \url{https://oeis.org/A268754}.
+\end{thebibliography}
+
+\end{document}
