@@ -96,9 +96,26 @@ def check(d: Path) -> list[str]:
             if t not in table:
                 errs.append(f"{d.name}: Lean theorem {t} is cited but has no row in proof.md '## 定理對照'")
     errs += _novelty_errors(d.name, m)
+    errs += _critic_model_errors(d.name, m)
     if m.get("reviewer") and m.get("reviewer") in m.get("authors", []):
         errs.append(f"{d.name}: reviewer must be independent of authors")
     return errs
+
+
+CRITIC_MODEL_SINCE = "2026-11-22T12:00"  # docs/TOKEN_BUDGET.md section 1; older records are history
+
+
+def _critic_model_errors(name: str, m: dict) -> list[str]:
+    """Important results must have been attacked by an opus critic (TOKEN_BUDGET 1)."""
+    if str(m.get("created_at", "")) < CRITIC_MODEL_SINCE:
+        return []
+    st = str(m.get("status", ""))
+    nov = str((m.get("novelty") or {}).get("status", ""))
+    important = st.startswith("PROVEN") or st.endswith("POSSIBLY_NEW") or nov in {
+        "PENDING_REVIEW", "NOVELTY_SUPPORTED", "NOVELTY_CONFIRMED"} or m.get("milestone")
+    if important and m.get("critic_model") != "opus":
+        return [f"{name}: status {st} needs record.json critic_model = \"opus\" (docs/TOKEN_BUDGET.md section 1)"]
+    return []
 
 
 def _novelty_errors(name: str, m: dict) -> list[str]:

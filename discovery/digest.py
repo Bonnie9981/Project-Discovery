@@ -10,6 +10,7 @@ reviewers still rerun the reproduce command, and check_record still reads every 
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -88,14 +89,24 @@ def one_section(d: Path, fname: str, heading: str) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     args = sys.argv[1:] if argv is None else argv
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
     if not args:
         print(overview())
         return 0
+    if not re.fullmatch(r"DISC-\d{4}", args[0]):
+        print(f"not a record id (DISC-0000): {args[0]}", file=sys.stderr)
+        return 2
     d = RECORDS / args[0]
     if not d.is_dir():
         print(f"no such record: {args[0]}", file=sys.stderr)
         return 2
     if len(args) == 3:
+        if "/" in args[1] or "\\" in args[1] or ".." in args[1]:
+            print(f"bad file name: {args[1]}", file=sys.stderr)
+            return 2
         try:
             print(one_section(d, args[1], args[2]))
         except (KeyError, OSError) as e:

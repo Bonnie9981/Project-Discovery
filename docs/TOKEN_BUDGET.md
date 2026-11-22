@@ -13,7 +13,7 @@
 | proof | opus | Lean 證明難，失敗重試反而更貴 |
 | reviewer | opus | 最後一道關，模型也和多數作者不同，增加獨立性 |
 
-例外：候選要升到 `PROVEN_*`、`*_POSSIBLY_NEW`，或是里程碑的主結果時，總控呼叫 critic 時改用 opus（Agent 呼叫可指定 `model`）。
+例外（必做）：紀錄要判 `PROVEN_*`、`*_POSSIBLY_NEW`、新穎性到 `PENDING_REVIEW` 以上，或是里程碑主結果（`record.json` 寫 `"milestone": true`）時，總控呼叫 critic 必須指定 `model: opus`，並在 `record.json` 寫 `"critic_model": "opus"`。`check_record` 會擋下沒寫的新紀錄。
 
 ## 2. 少讀
 
@@ -37,7 +37,7 @@
 
 - critic 一輪攻擊；作者修正後，**只有 critic 列為必修的項目**才再請 critic 複查一次（只看修正處）。之後交 reviewer，不再來回。
 - reviewer 一輪。如果 reviewer 要求修正，修完後由新的 reviewer 只審修正項與最終判定，不重審整份紀錄。
-- 重現檢查不省：reviewer 一定親自跑一次 `experiment.md` 的重現指令（包在 `discovery.quiet` 裡）。
+- 重現檢查不省：每一位 reviewer（包括只審修正項的新 reviewer）都要親自跑一次 `experiment.md` 的重現指令。包在 `discovery.quiet` 裡時，要核對的數字若不在最後幾行，就調高 `--tail` 或直接讀 `logs/` 裡的完整紀錄，不能只看摘要。
 
 ## 6. 長執行緒要收尾重開
 

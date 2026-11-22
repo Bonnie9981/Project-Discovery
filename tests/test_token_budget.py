@@ -60,3 +60,22 @@ def test_quiet_surfaces_errors_above_the_tail():
     lines = ["ok"] * 10 + ["Traceback here"] + ["ok"] * 50
     out = quiet.summarize(lines, tail=5, max_err=20)
     assert any(re.search("Traceback", l) for l in out)
+
+
+def test_quiet_missing_command_returns_127(tmp_path):
+    assert quiet.main(["--log", str(tmp_path / "x.log"), "--", "no-such-program-xyz"]) == 127
+
+
+def test_digest_rejects_paths_outside_records():
+    assert digest.main(["../discovery"]) == 2
+    assert digest.main(["DISC-0007", "../../CLAUDE.md", "## x"]) == 2
+
+
+def test_important_new_records_need_opus_critic():
+    from discovery.check_record import _critic_model_errors
+    new = {"created_at": "2026-12-01T00:00:00+00:00", "status": "PROVEN_KNOWN"}
+    assert _critic_model_errors("D", new)
+    assert not _critic_model_errors("D", {**new, "critic_model": "opus"})
+    assert not _critic_model_errors("D", {**new, "status": "REFUTED"})
+    assert _critic_model_errors("D", {**new, "status": "REFUTED", "milestone": True})
+    assert not _critic_model_errors("D", {**new, "created_at": "2026-11-22T11:10:00+00:00"})
