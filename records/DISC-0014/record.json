@@ -1,0 +1,39 @@
+{
+  "id": "DISC-0014",
+  "line": "R-003",
+  "title": "Phase 2：證明 OEIS A071052 的 a(2n) = a(n) + 2n（規則 150 第 n 列的 0 個數）",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-22T17:50:00+00:00",
+  "lean_theorems": [
+    "Discovery.A071052Even.a071052_double",
+    "Discovery.A071052Even.ones_double",
+    "Discovery.A071052Even.row_double",
+    "Discovery.A071052Even.step_step_dil",
+    "Discovery.A071052Even.step_step",
+    "Discovery.A071052Even.row_support"
+  ],
+  "candidates": {
+    "A071052-even": {
+      "status": "PROVEN_KNOWN",
+      "proof": "Lean (core only) for every n >= 0: a071052_double. Two steps of Rule 150 on a configuration dilated to even cells equal one step then dilation (GF(2) Frobenius), so row 2n = row n dilated; the ON count is unchanged (A071053(2n) = A071053(n), already in A071053's FORMULA) and the window grows by 2n zeros. Numeric check by two implementations for n <= 2000 and against the 67 DATA terms."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0014-S001, DISC-0014-S002)"
+    ],
+    "note": "The A071052 FORMULA is still marked (conjectured) without proof. It is a one-line consequence of A071053(2n) = A071053(n) (stated in A071053 by Peter J. Taylor 2020; a standard Frobenius fact over GF(2)). Nothing new is claimed; the value is closing the open label in OEIS with a checked proof.",
+    "open": [],
+    "evidence": [
+      "DISC-0014-S001",
+      "DISC-0014-S002"
+    ]
+  }
+}

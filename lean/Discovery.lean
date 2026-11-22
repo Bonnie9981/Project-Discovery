@@ -12,3 +12,4 @@ import Discovery.Rule54Mod4
 import Discovery.Rule54Mod23
 import Discovery.Rule54Mod1
 import Discovery.A268754Odd
+import Discovery.A071052Even
