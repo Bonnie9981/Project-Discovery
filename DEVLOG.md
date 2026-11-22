@@ -23,3 +23,4 @@
 - **DISC-0008**：規則 26 在奇數寬度環上的週期 w·2^⌊log₂ w⌋ 在紙上與 Lean 完整證明（`rule26_odd_period`，只用 Lean core，CI 通過）。這條公式原本是 OEIS A334504 的猜想（2024，「It seems that」），在查過的範圍內沒有找到證明；新穎性不宣稱。README 狀態更新到 Phase 2。
 - **DISC-0009**：OEIS A334504 偶數項猜想 a(2n+2) = A268754(n) 在紙上與 Lean 完整證明（`rule26_even_eventual_period`、`rule26_even_least_period`，只用 Lean core）。做法：單一種子下規則 26 等於規則 90，偶數環上的對稱軌道等於零邊界導線。兩步都是已知技巧，判定 `PROVEN_KNOWN`，不宣稱新。
 - **A334504 證明短文草稿**：詢問 Gemini 與 ChatGPT 的研究價值評估（共識：短篇筆記等級，只主張規則 26 的具體結果），寫成 `paper/a334504.tex`（5 頁，奇偶兩半的人類可讀證明）與 `paper/spec_audit.md`（Lean ↔ OEIS 逐項核對，文獻出處等列為待辦）。內部草稿，未對外。
+- **DISC-0010**：規則 54 單種子暫態公式（R2-C10）在 w ≡ 0 (mod 4) 這一段，紙上與 Lean 對所有 w ≥ 4 證完（`rule54_mod4_zero`，只用 Lean core）：光錐內是 ether，到 (w−4)/2 步錐外剩下 3 格剛好是 ether 的空白。習題程度、不宣稱新；w ≡ 1, 2, 3 仍只有有限核驗。
