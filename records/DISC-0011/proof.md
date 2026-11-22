@@ -35,6 +35,12 @@
 | **H3，w ≡ 2** | `Discovery.Rule54Mod23.rule54_mod4_two` | 同上 |
 | **H3，w ≡ 3** | `Discovery.Rule54Mod23.rule54_mod4_three` | 同上 |
 
+## 敘述差異
+
+- 主定理的形式和 DISC-0006 的 `rule54_transient_period`、DISC-0010 的 `rule54_mod4_zero` 相同（同一個 `step`、`iter`、`T`），前提換成 `w % 4 = 2 ∧ 6 ≤ w` 或 `w % 4 = 3 ∧ 7 ≤ w`，沒有上界；另外多給出 `T w` 的明確值。
+- 「(μ, λ) = (T, 4)」由「x_{μ+4} = x_μ ⇔ μ ≥ T」加上「x_{T+p} ≠ x_T（p = 1, 2, 3）」決定，這個標準等價沒有另外形式化（同 DISC-0010）。
+- w = 2, 3, 5 不在範圍內（週期 1，見 experiment.md）。w ≡ 1 (mod 4) 仍然只有 6 ≤ w ≤ 200 的有限核驗。
+
 ## 編譯結果
 
 本機 Lean 4.15.0（與 `lean/lean-toolchain` 相同），只用 Lean core，`lean -o` 依序編譯 `Rule26`、`Rule54`、`Rule54Mod4`、`Rule54Mod23`，無錯誤、無警告。`#print axioms` 對 `rule54_mod4_two`、`rule54_mod4_three`：propext、Classical.choice、Quot.sound。最終以 CI `lean` 工作的公理稽核為準。
