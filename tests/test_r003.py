@@ -34,3 +34,9 @@ def test_rule167_is_one_step_then_complemented_rule26():
         t167, p167 = _orbit(167, w)
         t26, p26 = _orbit(26, w)
         assert (t167, p167) == (t26 + 1, p26)
+
+
+def test_l02_even_ring_matches_null_rule90_and_a268754():
+    # DISC-0009: A334504(2n+2) = A268754(n), transient one more on the ring.
+    from research.r003 import l02_check
+    l02_check.main(16)
