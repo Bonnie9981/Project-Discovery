@@ -19,7 +19,9 @@ the range `n ≤ p - 2` in `Q p` is the longest possible. -/
 theorem boundary_not_prime (p : ℕ) (hp : 2 ≤ p) :
     ¬ Nat.Prime ((p - 1) ^ 2 + (p - 1) + p) := by
   rw [boundary_eq p (by omega)]
-  exact Nat.Prime.pow_not_prime (le_refl 2)
+  intro h
+  rw [sq] at h
+  rcases Nat.prime_mul_iff.mp h with ⟨_, h1⟩ | ⟨_, h1⟩ <;> omega
 
 /-- Euler's polynomial: `n^2 + n + 41` is prime for `n = 0, …, 39`. -/
 theorem euler41 : ∀ n < 40, Nat.Prime (n ^ 2 + n + 41) := by
