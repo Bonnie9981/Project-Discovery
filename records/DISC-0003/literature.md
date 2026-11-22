@@ -11,9 +11,9 @@ N ≥ 1 寫成「一個或多個連續正整數之和」有幾種寫法？記為
 
 | # | 結果 | 來源 | 查證狀態 |
 |---|---|---|---|
-| 1 | R(N) = N 的奇因數個數 d_odd(N)（「Sylvester 定理／Sylvester's enumeration」） | OEIS A001227 的註解（H. Bottomley 2000；G. Wiseman 2022 稱其為 Sylvester's enumeration）；Dickson, *History of the Theory of Numbers* vol. 1 p. 306；Graham–Knuth–Patashnik, *Concrete Mathematics* 2nd ed. 習題 2.30 | **OEIS 頁面已用瀏覽器開過**（S001）；書本頁碼抄自 OEIS，原書未開 |
+| 1 | R(N) = N 的奇因數個數 d_odd(N)（「Sylvester 定理／Sylvester's enumeration」） | OEIS A001227 的註解（H. Bottomley 2000；G. Wiseman 2022 稱其為 Sylvester's enumeration）；Dickson, *History of the Theory of Numbers* vol. 1 p. 306；Graham–Knuth–Patashnik, *Concrete Mathematics* 2nd ed. 習題 2.30 | **OEIS 頁面已由 AI 用瀏覽器開過**（S001）；書本頁碼抄自 OEIS，原書未開 |
 | 2 | 至少兩項的寫法數 = d_odd(N) − 1；d_odd(N) = 1 ⇔ N 是 2 的冪（所以 2 的冪恰好是唯一不能寫成 ≥2 項連續正整數和的數，即「不禮貌數」） | OEIS A069283（= A001227 − 1）；A001227 註解（Beedassy 2005） | OEIS 頁面 A001227 已讀；A069283 只經離線快照 |
-| 3 | 奇數項的寫法數 = 小於 √(2N) 的奇因數個數；偶數項的寫法數另成 A131576 | OEIS A082647、A131576；A001227 中 Omar E. Pol 2017 寫的是 **Conjectures** a(n) = A082647(n) + A131576(n) | 只經離線快照；OEIS 上標為猜想，本研究 H3 會檢驗 |
+| 3 | 奇數項的寫法數 = 小於 √(2N) 的奇因數個數；偶數項的寫法數另成 A131576（A082647 的 OEIS 名稱是「項數為 n 的因數」，與「項數為奇數」等價，因 k ∣ N ⇔ k 奇；「< √(2N) 的奇因數」這個公式是本研究自行推導，**沒有在讀過的來源原文中看到**） | OEIS A082647、A131576；A001227 中 Omar E. Pol 2017 寫的是 **Conjectures** a(n) = A082647(n) + A131576(n) | 只經離線快照；OEIS 上標為猜想，本研究 H3 會檢驗 |
 | 4 | 公差 2：R_2(N) = 不超過 √N 的因數個數 = A038548 | OEIS A038548（離線快照命中） | 只經離線快照 |
 | 5 | 公差 3、4、5、6 的寫法數 | OEIS A117277、A334461、A334541、A334948（離線快照命中） | 只經離線快照 |
 | 6 | 生成函數 Σ x^{k(k+1)/2}/(1−x^k)（Ramanujan 第二筆記本 p. 355） | A001227 FORMULA 段 | 抄自 OEIS |
@@ -30,7 +30,7 @@ N ≥ 1 寫成「一個或多個連續正整數之和」有幾種寫法？記為
 |---|---|---|
 | OEIS 離線快照 | 成功 | `stripped.gz` SHA-256 `c6d34403102c…`（2026-11-22 登記，401,773 條），結果見 `novelty_data.json` |
 | OEIS 線上（程式） | 失敗 | 雲端容器 proxy 403，`novelty_data.json` 的 `sources_failed` 有記錄 |
-| OEIS 線上（使用者 Chrome） | 成功 | `search_evidence.jsonl` S001～S003 |
+| OEIS 線上（AI 經 claude-in-chrome 操作使用者的 Chrome，**不是人工查證**） | 成功 | `search_evidence.jsonl` S001～S003 |
 | OpenAlex / arXiv / Crossref | 未查 | 本次沒有查；基準結果已在 OEIS 與教科書中，不影響判定 |
 
 所有外部文字都當成資料處理，裡面沒有出現要 agent 做事的指令。

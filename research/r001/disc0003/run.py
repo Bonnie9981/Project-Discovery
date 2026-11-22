@@ -49,6 +49,12 @@ def conjectures(n_max: int, d_max: int = 8) -> list[Conjecture]:
                 divs = [d * p ** i for d in divs for i in range(e + 1)]
         return sum(1 for d in divs if (d * d < 2 * n) == small)
 
+    def small_b(n):
+        divs = [1]
+        for p, e in B.factorise(n).items():
+            divs = [d * p ** i for d in divs for i in range(e + 1)]
+        return sum(1 for d in divs if d * d <= n)
+
     def general_a(n, D):
         return sum(1 for k in A.divisor_pairs(2 * n)
                    if (2 * n // k) >= 2 + (k - 1) * D and ((2 * n // k) - (k - 1) * D) % 2 == 0)
@@ -89,7 +95,8 @@ def conjectures(n_max: int, d_max: int = 8) -> list[Conjecture]:
                    f"1..{n_max}",
                    lambda n: tA["2"][n] == sum(1 for d in A.divisor_pairs(n) if d * d <= n)
                    and tA["2"][n] == (A.divisor_count(n) + 1) // 2,
-                   lambda n: B.rep_count(n, 2) == -(-B.divisor_count(n) // 2),
+                   lambda n: B.rep_count(n, 2) == -(-B.divisor_count(n) // 2)
+                   and B.rep_count(n, 2) == small_b(n),
                    holds_c=c3("holds_h4"), domain_b=dom_b),
         Conjecture("H5", f"for 1 <= D <= {d_max}: R_D(N) = #{{k | 2N : 2N/k - (k-1)D is even and >= 2}}",
                    lambda: A.domain(n5), f"1..{n5}, D=1..{d_max}",
@@ -101,6 +108,11 @@ def conjectures(n_max: int, d_max: int = 8) -> list[Conjecture]:
                    lambda n: tA["2"][n] <= tA["1"][n],
                    lambda n: B.rep_count(n, 2) <= B.rep_count(n, 1),
                    holds_c=c3("holds_h6"), domain_b=dom_b),
+        Conjecture("H7", "(characterises the H6 counterexamples) R_2(N) > R_1(N)  <=>  4 | N", dom_a,
+                   f"1..{n_max}",
+                   lambda n: (tA["2"][n] > tA["1"][n]) == (n % 4 == 0),
+                   lambda n: (B.rep_count(n, 2) > B.rep_count(n, 1)) == (n % 4 == 0),
+                   holds_c=c3("holds_h7"), domain_b=dom_b),
     ]
     return out
 
@@ -119,7 +131,8 @@ EXTENSIONS = {
     "E10": (4, None, "AP with common difference 4"),
     "E11": (5, None, "AP with common difference 5"),
     "E12": (6, None, "AP with common difference 6"),
-    "E13": (1, lambda k: k in {2, 3, 5, 7, 11, 13, 17, 19}, "consecutive integers, prime number of terms"),
+    "E13": (1, lambda k: k >= 2 and all(k % p for p in range(2, int(k ** 0.5) + 1)),
+            "consecutive integers, prime number of terms"),
 }
 EXT_TERMS = 80
 
