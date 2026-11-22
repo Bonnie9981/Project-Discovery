@@ -41,3 +41,12 @@ STATUS: PROVEN_KNOWN
 - 判定 `PROVEN_KNOWN`：已經證明，但用的是已知技巧（對折加 ether 加中心缺陷），不宣稱新；這兩段的文獻查證其實沒有做到，紀錄裡有誠實寫出來。
 - R2-C10 四段中已證三段（餘 0、2、3），只剩餘 1 那段（暫態 w−3）。整條候選仍是 `SUPPORTED_NOVELTY_UNCHECKED`。
 - 合併前有一個流程缺口：這份紀錄的 critic 用的是 sonnet，規範要求 opus。要補一輪 opus critic，否則要降級。另外要補 proof.md 的「敘述差異」一節，以及 RESEARCH.md 和 DEVLOG。
+
+## 必修複查
+
+複查對象：commit `e59a827`。只看三個必修項目。
+- **M1 已修。** critic.md 新增了「## 第二輪（opus）」，裡面沒有必修項。這一輪從原始檔重編 Lean、重新稽核公理，並用獨立程式逐格核對到 w = 401，也更正了第一輪「8 × 3」的誤判。record.json 的 `critic_model` 改成 `"opus"`，`critic` 欄也照實寫「round 1 sonnet, round 2 opus」。這一輪用的模型是哪一個，我只能依紀錄上寫的為準，無法另外查證。
+- **M3 已修。** proof.md 補上了 `## 敘述差異`：沒有上界、標準等價沒有另外形式化、w ≤ 5 和 w ≡ 1 不在範圍內。附註裡「涵蓋 w ≡ 0」也已改成「預期可以，但沒有做」。
+- **M2 已修（CI 除外）。** RESEARCH.md 已有 `## DISC-0011` 一節，R2-C10 那一列寫成「0、2、3 已證，1 未證」，最後更新也改成 DISC-0011。DEVLOG 第 27 行加了一行。本機重跑結果：`check_record` 是 0 problems，`pytest` 是 65 passed。CI 的 `lean` 工作要以實際結果為準。
+
+STATUS: PROVEN_KNOWN（維持原判定；如果 CI 的 lean 工作失敗，這個判定就不成立）。
