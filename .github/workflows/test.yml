@@ -1,0 +1,17 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Reproduce DISC-0001 conclusion
+        run: python -m discovery --db /tmp/ci.db run R-001 --offline | tee out.txt && grep -q "SUPPORTED_KNOWN  sequence=\[2, 3, 5, 11, 17, 41\]" out.txt
