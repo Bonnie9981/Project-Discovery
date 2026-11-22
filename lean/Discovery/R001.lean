@@ -3,7 +3,8 @@ import Mathlib
 /-!
 # R-001 formal results (DISC-0002)
 
-Family: for a prime `p`, the statement `Q p` says `n^2 + n + p` is prime for all `n ≤ p - 2`.
+Context (not formalised here): for a prime `p`, Q_p says `n^2 + n + p` is prime for all `n ≤ p - 2`.
+The theorems below are H1 (boundary), H2 (Euler's 40 primes) and H3 (failure at n = 40).
 -/
 
 namespace Discovery.R001
@@ -15,11 +16,13 @@ theorem boundary_eq (p : ℕ) (hp : 1 ≤ p) : (p - 1) ^ 2 + (p - 1) + p = p ^ 2
   ring
 
 /-- So no `p ≥ 2` can make `n^2 + n + p` prime at `n = p - 1`:
-the range `n ≤ p - 2` in `Q p` is the longest possible. -/
+the range `n ≤ p - 2` in Q_p is the longest possible. -/
 theorem boundary_not_prime (p : ℕ) (hp : 2 ≤ p) :
     ¬ Nat.Prime ((p - 1) ^ 2 + (p - 1) + p) := by
   rw [boundary_eq p (by omega)]
-  exact Nat.Prime.pow_not_prime (le_refl 2)
+  intro h
+  rw [sq] at h
+  rcases Nat.prime_mul_iff.mp h with ⟨_, h1⟩ | ⟨_, h1⟩ <;> omega
 
 /-- Euler's polynomial: `n^2 + n + 41` is prime for `n = 0, …, 39`. -/
 theorem euler41 : ∀ n < 40, Nat.Prime (n ^ 2 + n + 41) := by

@@ -16,13 +16,15 @@ def is_prime_trial(n: int) -> bool:
     return True
 
 
-_MR_BASES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+_MR_BASES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41)
 
 
 def is_prime_mr(n: int) -> bool:
-    """Implementation B: Miller-Rabin with the first 12 prime bases.
+    """Implementation B: Miller-Rabin with the first 13 prime bases (2..41).
 
-    Deterministic for n < 3.3e24 (Sorenson & Webster 2015), far beyond R-001's range.
+    Deterministic for n < 3317044064679887385961981 (~3.3e24; Sorenson & Webster 2015).
+    With only the first 12 bases the bound is 318665857834031151167461, which is itself
+    a strong pseudoprime to bases 2..37 (found by the DISC-0002 critic). R-001 values stay < 1e11.
     """
     if n < 2:
         return False

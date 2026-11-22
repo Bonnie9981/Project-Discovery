@@ -1,0 +1,57 @@
+{
+  "params": {
+    "N": 100000
+  },
+  "git_commit": "5288d723beb169dfc2a614c808c52f9ec9a142b2",
+  "env": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39"
+  },
+  "results": [
+    {
+      "id": "H1",
+      "statement": "for every p >= 2: (p-1)^2 + (p-1) + p = p^2 (so it is not prime)",
+      "domain": "2..10000",
+      "status": "SUPPORTED_IN_RANGE",
+      "checked": 9999,
+      "counterexample": null,
+      "disagreements": []
+    },
+    {
+      "id": "H2",
+      "statement": "n^2 + n + 41 is prime for 0 <= n <= 39",
+      "domain": "0..39",
+      "status": "SUPPORTED_IN_RANGE",
+      "checked": 40,
+      "counterexample": null,
+      "disagreements": []
+    },
+    {
+      "id": "H4",
+      "statement": "for prime p <= 100000: Q_p holds  <=>  p in {2,3,5,11,17,41}",
+      "domain": "primes <= 100000",
+      "status": "SUPPORTED_IN_RANGE",
+      "checked": 9592,
+      "counterexample": null,
+      "disagreements": []
+    },
+    {
+      "id": "H5",
+      "statement": "for prime p <= 100000: Q_p holds  <=>  n^2+n+p prime for all n <= floor(sqrt(p/3))",
+      "domain": "primes <= 100000",
+      "status": "SUPPORTED_IN_RANGE",
+      "checked": 9592,
+      "counterexample": null,
+      "disagreements": []
+    },
+    {
+      "id": "H3",
+      "statement": "40^2+40+41 is not prime",
+      "value": 1681,
+      "trial": false,
+      "mr": false,
+      "status": "SUPPORTED_IN_RANGE"
+    }
+  ],
+  "seconds": 0.93
+}

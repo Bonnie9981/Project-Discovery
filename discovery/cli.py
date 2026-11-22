@@ -43,6 +43,28 @@ def cmd_run(args) -> int:
     return 0
 
 
+def cmd_new(args) -> int:
+    """Create an empty full-loop record for the six agents to fill in."""
+    import json
+    from discovery.check_record import FULL_SECTIONS
+    db = DB(args.db)
+    db.add_task(args.line, args.line, args.title)
+    run_id = db.next_run_id(records.existing_ids())
+    d = records.RECORDS_DIR / run_id
+    d.mkdir(parents=True)
+    for fname, heads in FULL_SECTIONS.items():
+        (d / fname).write_text(f"# {run_id} {fname}\n\n" + "\n\n".join(f"{h}\n\n（待填）" for h in heads) + "\n",
+                               encoding="utf-8")
+    (d / "record.json").write_text(json.dumps({
+        "id": run_id, "line": args.line, "title": args.title, "status": "INCONCLUSIVE",
+        "authors": [], "reviewer": None, "lean_theorems": [], "created_at": now(),
+    }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    db.start_run(run_id, args.line, records.git_commit(), {"kind": "full", "title": args.title})
+    db.log(run_id, "full record created")
+    print(d)
+    return 0
+
+
 def cmd_list(args) -> int:
     db = DB(args.db)
     print("tasks:")
@@ -67,6 +89,10 @@ def main(argv=None) -> int:
     r.add_argument("--p-max", type=int, default=2000)
     r.add_argument("--offline", action="store_true", help="skip online novelty sources")
     r.set_defaults(func=cmd_run)
+    n = sub.add_parser("new", help="create an empty full-loop DISC record")
+    n.add_argument("line")
+    n.add_argument("title")
+    n.set_defaults(func=cmd_new)
     sub.add_parser("list", help="list tasks and runs").set_defaults(func=cmd_list)
     args = ap.parse_args(argv)
     return args.func(args)

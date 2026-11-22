@@ -17,7 +17,7 @@ def git_commit() -> str | None:
             cwd=Path(__file__).resolve().parent,
         ).stdout.strip()
         dirty = subprocess.run(
-            ["git", "status", "--porcelain"], capture_output=True, text=True,
+            ["git", "status", "--porcelain", "--untracked-files=no"], capture_output=True, text=True,
             cwd=Path(__file__).resolve().parent,
         ).stdout.strip()
         return out + ("-dirty" if dirty else "")

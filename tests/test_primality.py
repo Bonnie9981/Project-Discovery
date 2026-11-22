@@ -11,3 +11,8 @@ def test_known_values():
     for n in (561, 1105, 1729, 2047, 3215031751, 3825123056546413051):
         assert not is_prime_mr(n)
     assert is_prime_mr(2_147_483_647)  # Mersenne prime 2^31-1
+
+
+def test_strong_pseudoprime_to_first_12_bases_is_rejected():
+    # 399165290221 * 798330580441: passes MR for bases 2..37, caught by base 41.
+    assert not is_prime_mr(318665857834031151167461)
