@@ -7,7 +7,7 @@ Does not import any project module. Two methods, both different from l07_a071052
   M2: dict-based Rule 150 simulation on absolute positions (no fixed window), also checks
       the row identity r_{2n}(2i) = r_n(i), r_{2n}(2i+1) = 0 cell by cell (H1).
   M3: A071053 = run-length transform of Jacobsthal 1,3,5,11,21,... (cross-check only).
-Usage: python research/r003/critic_c_a071052.py [N]
+Usage: python results/A071052/code/critic_c_a071052.py [N]
 """
 import sys
 

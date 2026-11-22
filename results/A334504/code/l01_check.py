@@ -1,6 +1,6 @@
 """R3-L01 (DISC-0008): numerical checks for the rule-26 odd-ring period proof.
 
-python research/r003/l01_check.py [W_MAX]      (default W_MAX = 61)
+python results/A334504/code/l01_check.py [W_MAX]      (default W_MAX = 61)
 
 Checks, for every odd 3 <= w <= W_MAX, two independent ways:
 
@@ -24,7 +24,7 @@ import sys
 from math import comb
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 from research.r002 import impl_b  # noqa: E402
 
 

@@ -15,7 +15,7 @@ Extra attacks (all printed):
   * relaxed cone_seg (t + 3 <= m) as a pure statement about Cf, for every
     width 3..W (even and odd), and whether t + 2 <= m would also hold.
 
-Run: python research/r003/critic_c_mod1.py [W]   (default 1201)
+Run: python results/rule54-transient/code/critic_c_mod1.py [W]   (default 1201)
 """
 from __future__ import annotations
 

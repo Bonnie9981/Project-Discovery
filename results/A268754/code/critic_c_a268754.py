@@ -20,7 +20,7 @@ Checks (printed):
   3. for 1 <= n <= D_MAX: x_n == 0 iff n+1 is a power of two.
   4. the spread lemma at a few random large times (t up to 10^6), closed form only.
 
-Run: python research/r003/critic_c_a268754.py [N_MAX] [D_MAX]   (defaults 40, 1000)
+Run: python results/A268754/code/critic_c_a268754.py [N_MAX] [D_MAX]   (defaults 40, 1000)
 """
 from __future__ import annotations
 

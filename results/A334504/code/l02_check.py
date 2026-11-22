@@ -1,6 +1,6 @@
 """R3-L02 (DISC-0009): numerical checks for the even-width half of OEIS A334504.
 
-python research/r003/l02_check.py [N_MAX]      (default N_MAX = 40)
+python results/A334504/code/l02_check.py [N_MAX]      (default N_MAX = 40)
 
 Conjecture (A334504 FORMULA, Zabolotskii 2024, "It seems that"):
     a(2n+2) = A268754(n),  n >= 1,
@@ -25,7 +25,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 from research.r002 import impl_b  # noqa: E402
 
 # OEIS A268754, offset 1 (read 2026-11-22 via the browser, entry DATA field).

@@ -3,7 +3,7 @@
 A071052(n) = number of 0's among the 2n+1 cells of row n of the Rule 150 triangle (A071036).
 Method 1: simulate Rule 150 on a list (cells -n..n) from one ON cell.
 Method 2: coefficients of (1+x+x^2)^n over GF(2), as an integer bit mask (carry-less product).
-Usage: python research/r003/l07_a071052_even.py [N]
+Usage: python results/A071052/code/l07_a071052_even.py [N]
 """
 import sys
 
