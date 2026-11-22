@@ -15,14 +15,10 @@ https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a334504.pdf
 
 ## A334504
 
-**FORMULA**：把現有那一行
-
-> It seems that a(2*n+2) = A268754(n) and a(2*n+1) = (2*n+1) * 2^A070939(n) = A363121(n+1)/2 for n > 0. - _Andrei Zabolotskii_, Sep 04 2024
-
-改成（保留原提出者署名，再加一行說明已證明）：
+**FORMULA**：原本那行猜想（Zabolotskii 2024）**不要改**，直接在它下面加一行，交給編輯決定要不要把「It seems that」改掉：
 
 ```
-a(2*n+2) = A268754(n) and a(2*n+1) = (2*n+1) * 2^A070939(n) = A363121(n+1)/2 for n > 0. - _Andrei Zabolotskii_, Sep 04 2024 [Conjectured by Andrei Zabolotskii; proved by <你的名字>, Nov 2026, see link.]
+The two formulas conjectured above, a(2*n+1) = (2*n+1) * 2^A070939(n) and a(2*n+2) = A268754(n) for n > 0, are true; see the proof in the links. - <你的名字>, Nov 2026
 ```
 
 **LINKS**：加一行
