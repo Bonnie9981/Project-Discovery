@@ -4,3 +4,5 @@ import Discovery.Consecutive
 import Discovery.SigmaOdd
 import Discovery.RadSigma
 import Discovery.Rule54
+import Discovery.RadSigmaIff
+import Discovery.SigmaOddExt

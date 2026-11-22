@@ -162,3 +162,7 @@ STATUS: SUPPORTED_NOVELTY_UNCHECKED
 - **C01：** 奇數情形和大部分偶數情形已證（紙本證到 2 的次方數 ≤ 22，Lean 證到 ≤ 10）。剩下的情形，電腦數值檢查根本碰不到，要靠數學才能解決。
 - **R2-C10（規則 54）：** 只驗證了有限範圍（Lean 到寬度 200，模擬到 1200），沒有一般證明。
 - 三條在 OEIS、OpenAlex 都**查不到**，但這不代表是新的。目前一律不可以對外宣稱是新發現。
+
+## 合併後追記（DISC-0007 整理時補）
+
+上面「合併前必修」1～4 在 PR #13 合併前都已完成：`RESEARCH.md` 有 `## DISC-0006`；CI 的 lean 工作通過（https://github.com/Bonnie9981/Project-Discovery/actions/runs/45011976606），proof.md 已補連結；`search_evidence.jsonl` 有 S001～S007；record.json 有逐條狀態和 `novelty.open`。建議修正 5、6 也已處理（proof.md 總表、literature.md 補註）。第 7 項：experiment.md 已寫明 Python 版本與 commit，並註明 critic 的兩支程式不在 repo、只有審查員的獨立重算佐證。這段是作者追記，不是審查員的判斷。

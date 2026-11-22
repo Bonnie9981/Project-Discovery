@@ -1,0 +1,55 @@
+{
+  "id": "DISC-0007",
+  "line": "R-001 + R-003",
+  "title": "M1.4：C02 完整刻畫的 Lean 證明、C01 延伸到 v₂(n) ≤ 22、R-003 試點",
+  "status": "SUPPORTED_NOVELTY_UNCHECKED",
+  "authors": [
+    "orchestrator",
+    "proof (subagent, C02)",
+    "proof (subagent, C01)"
+  ],
+  "critic": "critic (independent subagent)",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-22T11:10:00+00:00",
+  "lean_theorems": [
+    "Discovery.RadSigma.c02_iff",
+    "Discovery.SigmaOdd.c01_of_not_two_pow_twentythree_dvd",
+    "Discovery.SigmaOdd.c01_even_v2_eq_eleven"
+  ],
+  "candidates": {
+    "C02": {
+      "status": "SUPPORTED_NOVELTY_UNCHECKED",
+      "proof": "complete iff proven in Lean (c02_iff), CI lean run 45014528005; numeric check of the Lean statement to n = 10^6 (0 mismatches); exercise-level difficulty (LTE/Zsigmondy)"
+    },
+    "C01": {
+      "status": "SUPPORTED_NOVELTY_UNCHECKED",
+      "proof": "Lean for all n with v2(n) <= 22 incl. the abundant case a = 11 (c01_of_not_two_pow_twentythree_dvd), CI lean run 45014862688; open for v2(n) >= 23"
+    },
+    "R3-pilot": {
+      "status": "REFUTED",
+      "proof": "H3 negative for full-class leads: all 9 nontrivial leads reduce to known results; 24 partial leads are v2pow / 2^sord-1 (rule 90 family) in form but not reduced one by one"
+    },
+    "R3-L01": {
+      "status": "SUPPORTED_NOVELTY_UNCHECKED",
+      "proof": "L0 lead found by critic: P26(w) = w*2^floor(log2 w) for odd w; impl_b and impl_c agree for odd 3 <= w <= 41; no proof"
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "zbmath, arxiv, mathoverflow, math.se, oeis online, openalex via claude-in-chrome (DISC-0007-S001..S010)",
+      "DISC-0006-S001..S007"
+    ],
+    "note": "no match within the queries made; not evidence of novelty. MathSciNet, Google Scholar, Semantic Scholar, Crossref not checked. The A065301 part of C02 is known (MATCH_FOUND). C02 is likely exercise-level. R3-L01 not checked at all.",
+    "open": [
+      "C02",
+      "C01",
+      "R3-L01"
+    ],
+    "evidence": [
+      "DISC-0007-S001..S010",
+      "DISC-0006-S001..S007"
+    ]
+  },
+  "experiment_commit": "407efb93842084b1b6900d8fae6f88c12d3f6053"
+}

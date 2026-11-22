@@ -10,8 +10,8 @@ C02: if `rad(σ n) = σ(rad n)` then `n` and `σ n` are both squarefree, or `n =
 * `c02_of_squarefree`: a squarefree solution `n` has `σ n` squarefree.
 * `squarefree_sigma_rad`, `odd_prime_factor_unique`: every solution has `σ(rad n)` squarefree,
   hence at most one odd prime factor.
-The remaining case analysis (`n = 2^a p^b`, which needs lifting-the-exponent) is only on paper
-in `records/DISC-0006/proof.md`.
+The remaining case analysis (`n = 2^a p^b`, which needs lifting-the-exponent) and the full
+"if and only if" characterisation `c02_iff` are in `Discovery/RadSigmaIff.lean` (DISC-0007).
 -/
 
 namespace Discovery.RadSigma
