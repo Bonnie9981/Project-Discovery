@@ -10,3 +10,9 @@
 編譯：`pdflatex a334504.tex`（只用 amsmath、amsthm、hyperref、geometry）。
 
 定位（Gemini 與 ChatGPT 的共識，2026-11-22）：短篇研究筆記等級。新意只主張規則 26 環上的具體軌道結構和週期，不主張 Rule 90、Pascal 三角形或奇偶化約這些方法本身。
+
+## 規則 54 暫態（R2-C10）→ OEIS 新序列
+
+- `rule54_oeis_new_sequence.md`：OEIS 新序列投稿草稿（查重結果、表單各欄、核對清單）。由使用者本人送出。
+- `rule54_transient.html` → `rule54_transient.pdf`：人看得懂的短證明（3 頁），四個餘數類都講。PDF 用 Chromium 從 HTML 印出（容器裡沒有 LaTeX，tectonic 下載字型包被擋）。
+- `b_rule54_transient.txt`：OEIS b-file，n = 1..1000，用 `research/r002/impl_b.py` 的位元模擬逐一算出。

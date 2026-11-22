@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rule 54 transient on a ring</title>
+<style>
+  body { font-family: "Times New Roman", Times, serif; font-size: 11.5pt; line-height: 1.45; max-width: 46em; margin: 2.2em auto; color: #000; background: #fff; padding: 0 1em; }
+  h1 { font-size: 17pt; text-align: center; margin-bottom: 0.2em; }
+  .author, .date { text-align: center; margin: 0.15em 0; }
+  h2 { font-size: 13pt; margin-top: 1.4em; }
+  .abstract { margin: 1.2em 2.5em; font-size: 10.5pt; }
+  .thm { margin: 0.8em 0; }
+  .thm b { font-style: normal; }
+  .thm span.st { font-style: italic; }
+  table { border-collapse: collapse; margin: 0.6em auto; font-size: 10.5pt; }
+  td, th { border: 1px solid #444; padding: 2px 8px; text-align: center; }
+  code, .mono { font-family: "DejaVu Sans Mono", monospace; font-size: 9.5pt; }
+  pre { font-family: "DejaVu Sans Mono", monospace; font-size: 8.5pt; line-height: 1.15; margin: 0.5em 2em; }
+  .small { font-size: 10pt; }
+  @page { size: A4; margin: 2cm; }
+</style>
+</head>
+<body>
+<h1>The transient of a single cell under rule 54 on a cyclic lattice</h1>
+<p class="author">Chi Hsia</p>
+<p class="date">Draft, November 2026</p>
+
+<div class="abstract"><b>Abstract.</b>
+Start elementary cellular automaton rule 54 from a single live cell on a ring of <i>w</i> cells.
+We prove that for every <i>w</i> &ge; 6 the orbit becomes periodic with period exactly 4 after
+<i>T</i>(<i>w</i>) steps, where <i>T</i>(<i>w</i>) = <i>w</i> &minus; 3, (<i>w</i> &minus; 6)/2, (<i>w</i> &minus; 7)/2, (<i>w</i> &minus; 4)/2
+for <i>w</i> &equiv; 1, 2, 3, 0 (mod 4), and that no earlier state recurs. The proof uses only the
+mirror symmetry of the orbit, the period-4 background pattern ("ether") of rule 54, and a short
+case check of local configurations modulo 4. All statements have been formalized and
+checked in the Lean 4 proof assistant (core library only).</div>
+
+<h2>1. Setting and result</h2>
+<p>Cells are indexed by <i>i</i> &isin; &#8484;/<i>w</i>. Rule 54 updates every cell simultaneously by
+<i>x</i>&prime;<sub><i>i</i></sub> = <i>x</i><sub><i>i</i></sub> <span style="font-size:80%">&oplus;</span> (<i>x</i><sub><i>i</i>&minus;1</sub> &or; <i>x</i><sub><i>i</i>+1</sub>):
+a cell flips exactly when at least one neighbour is alive. Let <i>x</i><sub>0</sub> have only cell 0 alive,
+and <i>x</i><sub><i>t</i></sub> the state after <i>t</i> steps.</p>
+
+<div class="thm"><b>Theorem.</b> <span class="st">Let w &ge; 6 and let T(w) be as above. Then
+x<sub>&mu;+4</sub> = x<sub>&mu;</sub> holds exactly for &mu; &ge; T(w), and x<sub>T+p</sub> &ne; x<sub>T</sub> for p = 1, 2, 3.
+Hence the orbit enters a cycle of length exactly 4 at time T(w), and T(w) is the length of the transient.</span></div>
+
+<p>(For <i>w</i> = 1, 2, 3, 5 the eventual period is 1 and the transients are 1, 2, 2, 5; for <i>w</i> = 4 the
+formula (<i>w</i> &minus; 4)/2 = 0 also holds.) The values <i>a</i>(<i>w</i>) = <i>T</i>(<i>w</i>) start
+1, 2, 2, 0, 5, 0, 0, 2, 6, 2, 2, 4, 10, 4, 4, 6, 14, &hellip;</p>
+
+<h2>2. The proof</h2>
+
+<p><b>Ether.</b> Define <i>E</i>(<i>t</i>, <i>d</i>) (depending only on <i>t</i> mod 4 and <i>d</i> mod 4): for even <i>t</i>,
+<i>E</i> = 1 iff <i>d</i> &equiv; <i>t</i>; for odd <i>t</i>, <i>E</i> = 1 iff <i>d</i> &#8802; <i>t</i> + 1 (mod 4).
+Checking the 16 residue pairs shows that <i>E</i> is invariant under rule 54 on the infinite line:
+<i>E</i>(<i>t</i>+1, <i>d</i>) = <i>E</i>(<i>t</i>, <i>d</i>) <span style="font-size:80%">&oplus;</span> (<i>E</i>(<i>t</i>, <i>d</i>&minus;1) &or; <i>E</i>(<i>t</i>, <i>d</i>+1)). It is also symmetric
+about every even <i>d</i>.</p>
+
+<p><b>Folding.</b> The rule and the initial state are invariant under <i>i</i> &#8614; &minus;<i>i</i>, so every <i>x</i><sub><i>t</i></sub> is mirror
+symmetric and is a function of the ring distance <i>d</i> = min(<i>i</i>, <i>w</i> &minus; <i>i</i>) &isin; {0, &hellip;, <i>m</i>}, <i>m</i> = &lfloor;<i>w</i>/2&rfloor;.
+On this segment rule 54 acts with reflecting ends: the lower neighbour of <i>d</i> = 0 is 1, and the upper neighbour of
+<i>d</i> = <i>m</i> is <i>m</i> &minus; 1 if <i>w</i> is even and <i>m</i> itself if <i>w</i> is odd. From now on we work on the segment.</p>
+
+<p><b>Light cone.</b> By induction on <i>t</i>, as long as <i>t</i> + 2 &le; <i>m</i>, cell <i>d</i> at time <i>t</i> is alive iff
+<i>d</i> &le; <i>t</i> and <i>E</i>(<i>t</i>, <i>d</i>). (Inside the cone this is the ether identity; at the edge <i>d</i> = <i>t</i>, <i>t</i> + 1
+it is a two-line check modulo 4; outside everything is dead.)</p>
+
+<p><b>Case w &equiv; 0 (mod 4).</b> At <i>t</i> = <i>T</i> = (<i>w</i> &minus; 4)/2 the cells outside the cone are exactly the three
+cells that the ether leaves dead at that time, so the whole ring is ether, which has period 4. One step earlier, the
+cells outside the cone form a block of 5 dead cells, which never occurs in the ether; so no earlier state lies on the cycle.</p>
+
+<p><b>Cases w &equiv; 2, 3 (mod 4).</b> Here <i>m</i> = <i>T</i> + 3 with <i>T</i> even. At time <i>T</i> the segment is the ether
+(the cells <i>T</i> + 1, <i>T</i> + 2, <i>T</i> + 3 are ether-dead), but the reflection at the centre does not respect the
+ether. One checks, for the 8 values of (<i>T</i> mod 4, <i>k</i> mod 4), that at time <i>T</i> + <i>k</i> the state is the ether except
+that the centre cell <i>d</i> = <i>m</i> is dead when <i>k</i> &equiv; 1 (mod 4): a stationary defect. This description has period
+4 in <i>k</i>. Before <i>T</i>, cell <i>T</i> + 1 is dead at time <i>T</i> &minus; 1 (outside the cone) but alive at time <i>T</i> + 3, so the
+orbit is not yet periodic.</p>
+
+<p><b>Case w &equiv; 1 (mod 4).</b> Here <i>w</i> = 2<i>m</i> + 1 with <i>m</i> even. At <i>t</i> = <i>m</i> &minus; 2 the cone has filled the
+segment and the state is exactly the ether. From then on, with the shifted ether <i>N</i>(<i>t</i>, <i>d</i>) = <i>E</i>(<i>t</i> + 1, <i>d</i> + 3),
+we claim that for <i>t</i> &ge; <i>m</i> &minus; 2 the state at time <i>t</i> is</p>
+<ul>
+  <li><i>E</i>(<i>t</i>, <i>d</i>) if <i>d</i> + <i>t</i> &lt; <i>w</i> (in front of the wall),</li>
+  <li><i>N</i>(<i>t</i>, <i>d</i>) <span style="font-size:80%">&oplus;</span> &delta; if <i>d</i> + <i>t</i> &ge; <i>w</i> (behind the wall), where the defect &delta; = 1 exactly when
+  (<i>d</i> = 0 and <i>t</i> &equiv; 2) or (<i>d</i> = <i>m</i> and <i>t</i> &equiv; <i>m</i>) (mod 4).</li>
+</ul>
+<p>So a phase wall is born at the far side at time <i>m</i> + 1 and walks back to the seed at speed 1, reaching it at time <i>w</i>;
+behind it, each end of the segment carries a one-cell defect once every 4 steps (neither end is a mirror point of <i>N</i>).
+The claim is proved by checking one step of rule 54 on it. The cases are: the position of the cell (seed end,
+next to it, interior, next to the centre, centre) times the position relative to the wall (all three cells in front,
+the cell about to cross, the cell just crossed, all behind). In each case every value involved depends only on
+<i>t</i> mod 4 and <i>d</i> mod 4 (with <i>d</i> + <i>t</i> fixed modulo 4 at the wall), so the check is finite.</p>
+
+<p>From <i>t</i> = <i>w</i> &minus; 3 on, the description has period 4: for <i>d</i> &ge; 3 both <i>t</i> and <i>t</i> + 4 are behind the wall,
+and for <i>d</i> &le; 2 the ether value at <i>t</i> agrees with the defect-corrected <i>N</i> value at <i>t</i> + 4 (three residue
+checks). The transient is not shorter: cell 0 is alive at time <i>w</i> &minus; 4 (ether, <i>t</i> &equiv; 1) and dead at time <i>w</i>
+(behind the wall, <i>N</i> value, no defect since <i>w</i> &equiv; 1). Exact period 4 follows by comparing cells 5 and 6.
+The small widths <i>w</i> = 9, 13 were checked directly.</p>
+
+<p><b>Period exactly 4.</b> In every case the cycle is described by the ether (possibly shifted, possibly with defects
+away from a fixed cell), and comparing one suitable cell shows <i>x</i><sub><i>T</i>+<i>p</i></sub> &ne; <i>x</i><sub><i>T</i></sub> for
+<i>p</i> = 1, 2, 3. A cycle of length 1 or 2 would already give equality at <i>p</i> = 1 or 2.</p>
+
+<p>Example (<i>w</i> = 29, <i>m</i> = 14, folded segment, &ldquo;#&rdquo; = alive). The wall is born at <i>t</i> = 15 and reaches the seed at
+<i>t</i> = 29; the transient is 26.</p>
+<pre>
+ t  d=0..14          t  d=0..14
+12  #...#...#...#..  20  #...#...###.###
+14  ..#...#...#...#  24  #...###.###.###
+16  #...#...#...###  26  ..###.###.###..
+18  ..#...#...###..  28  ###.###.###.###
+                     30  ..###.###.###..
+</pre>
+
+<h2>3. Verification and AI use</h2>
+<p class="small">The theorem is formalized in Lean 4 (v4.15.0, core library only, no <code>sorry</code>, standard axioms) in
+<a href="https://github.com/Bonnie9981/Project-Discovery">github.com/Bonnie9981/Project-Discovery</a>:
+<code>Discovery.Rule54Mod4.rule54_mod4_zero</code>, <code>Discovery.Rule54Mod23.rule54_mod4_two</code>,
+<code>Discovery.Rule54Mod23.rule54_mod4_three</code>, <code>Discovery.Rule54Mod1.rule54_mod4_one</code>
+(the last uses the finite kernel check <code>Discovery.Rule54.rule54_transient_period</code> for <i>w</i> = 9, 13). Three
+independent simulations agree with the formula cell by cell up to <i>w</i> = 1200.</p>
+<p class="small">The conjecture was found, and the proofs, the Lean formalization and this note were drafted, with the help of
+a large language model (Claude, Anthropic) inside the Project Discovery research pipeline; independent AI critics and
+reviewers checked them, and the Lean kernel checked the formal proofs. The ether and phase-wall language is standard for
+rule 54 (e.g. Hanson and Crutchfield, Physica D 103, 1997); we do not claim the techniques are new.</p>
+</body>
+</html>
