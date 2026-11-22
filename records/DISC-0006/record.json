@@ -1,0 +1,52 @@
+{
+  "id": "DISC-0006",
+  "line": "R-001 + R-002",
+  "title": "M1.3：C01、C02、R2-C10 三條候選的初篩（文獻、critic、證明嘗試）",
+  "status": "SUPPORTED_NOVELTY_UNCHECKED",
+  "authors": [
+    "orchestrator",
+    "proof (subagent)"
+  ],
+  "critic": "critic (independent subagent)",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-22T10:20:00+00:00",
+  "lean_theorems": [
+    "Discovery.SigmaOdd.c01_odd",
+    "Discovery.SigmaOdd.c01_of_not_two_pow_eleven_dvd",
+    "Discovery.RadSigma.c02b",
+    "Discovery.RadSigma.odd_prime_factor_unique",
+    "Discovery.Rule54.rule54_transient_period"
+  ],
+  "candidates": {
+    "C01": {
+      "status": "SUPPORTED_NOVELTY_UNCHECKED",
+      "proof": "odd n proven in Lean; even n proven in Lean for v2(n) <= 10, on paper for v2(n) <= 22 and whenever 2^(v2(n)+1)-1 is not abundant; open for v2(n)+1 in {24,36,40,48,60,...}"
+    },
+    "C02": {
+      "status": "SUPPORTED_NOVELTY_UNCHECKED",
+      "proof": "complete paper proof incl. full characterization H2' (checked by critic, proof agent and reviewer); Lean only partial (c02b, odd_prime_factor_unique)"
+    },
+    "R2-C10": {
+      "status": "SUPPORTED_NOVELTY_UNCHECKED",
+      "proof": "no general proof; Lean decide check 6 <= w <= 200; three implementations to w = 300; independent simulations to w = 1200"
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online via claude-in-chrome (6 queries, literature.md)",
+      "openalex (2 queries)",
+      "oeis_offline@sha256:c6d34403102c"
+    ],
+    "note": "no match within the queries made; not evidence of novelty. arXiv/MathSciNet not checked. The A065301 structure formula (squarefree, primes in A049097, p+1 pairwise coprime) is already in OEIS (Eldar 2025); only the rad/sigma solution set and its 2^a*p part were not found.",
+    "open": [
+      "C01",
+      "C02",
+      "R2-C10"
+    ],
+    "evidence": [
+      "DISC-0006-S001..S007"
+    ]
+  },
+  "experiment_commit": "58fb4c955118a35dd69f26c95f17badf76c310a6"
+}

@@ -1,3 +1,6 @@
 import Discovery.Smoke
 import Discovery.R001
 import Discovery.Consecutive
+import Discovery.SigmaOdd
+import Discovery.RadSigma
+import Discovery.Rule54
