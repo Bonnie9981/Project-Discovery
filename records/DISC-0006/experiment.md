@@ -29,3 +29,5 @@
 python -m research.r001.m13.extend_ab 1000000     # 約 1 分鐘
 python -m research.r002.m13_rule54 300            # 約 5 秒
 ```
+
+執行環境：Python 3.13.18，程式 commit 58fb4c9（擴大驗證腳本與 JSON 在同一 commit 產生）。critic 的 2×10⁶ 程式與 a = 11 的窮舉程式不在 repo；審查員另用自己的程式獨立重算了這兩項（見 review.md）。

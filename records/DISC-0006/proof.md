@@ -6,7 +6,7 @@
 
 | 候選 | 紙本證明 | Lean 形式化 |
 |---|---|---|
-| C01 | **部分**：奇數 n 完整；偶數 n 在 v₂(n) = a 且 2^(a+1) − 1 不是過剩數時完整（含 a ≤ 10 與 12 ≤ a ≤ 22），或 σ(n 的奇部分) 的奇部分是平方數時完整。v₂(n) = 11 及 v₂(n) ≥ 23 的一部分仍開放 | 奇數 n 全部；偶數 n 的兩個充分條件；合併成「2¹¹ ∤ n 時 C01 成立」 |
+| C01 | **部分**：奇數 n 完整；偶數 n 在 v₂(n) = a 且 2^(a+1) − 1 不是過剩數時完整（含 a ≤ 10 與 12 ≤ a ≤ 22），或 σ(n 的奇部分) 的奇部分是平方數時完整。v₂(n) = 11 紙本已排除（critic 窮舉，審查員獨立重算：f 不全為 0 時比值最大 8156.57 < 8191，全為 0 時是 8736 ≠ 8191），只是 Lean 還沒做；v₂(n) ≥ 23 的一部分仍開放 | 奇數 n 全部；偶數 n 的兩個充分條件；合併成「2¹¹ ∤ n 時 C01 成立」 |
 | C02 | **完整**（見下，關鍵一步用 LTE） | **部分**：A065301 ⊆ 解集；無平方因子的解 σ(n) 也無平方因子；任何解至多一個奇質因數。2^a·p^b 的分類未形式化 |
 | R2-C10 | **失敗**（沒有一般 w 的證明） | 只有 6 ≤ w ≤ 200 的 kernel 有限驗證（`decide`），加上「有限檢查 ⇒ 暫態／週期」的一般引理 |
 
@@ -53,6 +53,9 @@ Lean 檔案：`lean/Discovery/SigmaOdd.lean`（C01）、`lean/Discovery/RadSigma
 輔助引理：`iter_succ'`、`iter_add`。
 
 ## 編譯結果
+
+**GitHub CI（lean 工作）：通過**，commit 58fb4c9，包含 `lean/Discovery.lean` 匯入三個新模組與 AxiomCheck 全環境公理檢查：https://github.com/Bonnie9981/Project-Discovery/actions/runs/45011976606
+
 
 **本機已編譯（非 CI）。** 本機原本沒有 `lake`；Mathlib cache 主機（lakecache.blob.core.windows.net）被代理擋下，因此改為：
 

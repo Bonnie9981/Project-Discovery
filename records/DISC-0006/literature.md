@@ -39,6 +39,8 @@ M1.3 的三條候選：
 | 6 | OpenAlex | elementary cellular automaton rule 54 transient periodic boundary | 267 筆；前 10 筆是滑翔機碰撞、交通模型等，沒有環上暫態公式 |
 | 7 | OpenAlex | radical sum of divisors sigma rad commute squarefree | 6 筆，都不相關 |
 
+補註：critic.md 說 oeis.org 經 proxy 回 403、查不到 A065301 的 COMMENTS，這是 critic 自己環境的情況；已被上表查詢 #4（用 Chrome 讀了條目全文）取代。每筆查詢的 URL 與時間記在 `search_evidence.jsonl`（DISC-0006-S001～S007）。
+
 限制：
 
 - OpenAlex 是關鍵字全文搜尋，召回率有限。
