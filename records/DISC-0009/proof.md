@@ -29,6 +29,8 @@ w = 2（n = 0）不在 A334504 猜想範圍（A268754 offset 1），沒有證；
 | H1 結構（步驟 3） | `Discovery.Rule26Even.iter_succ_testBit` | 同上 |
 | 步驟 4 | `Discovery.Rule26Even.iter_succ_eq_iff`、`Discovery.Rule26Even.iter_succ_ne_one` | 同上 |
 | H2 最終週期相同 | `Discovery.Rule26Even.rule26_even_eventual_period` | 同上 |
+| H2 最小最終週期相同（OEIS 的定義） | `Discovery.Rule26Even.rule26_even_least_period` | 同上 |
+| 暫態差 1 | （沒有單獨的 Lean 定理；由 `iter_succ_eq_iff` 和 `iter_succ_ne_one` 在紙上推出） | — |
 | 小例子（w = 8、10） | `Discovery.Rule26Even.check_small`（`decide`） | 同上 |
 
 ## 編譯結果
@@ -37,7 +39,8 @@ w = 2（n = 0）不在 A334504 猜想範圍（A268754 offset 1），沒有證；
 
 ## 敘述差異
 
-- 「最終週期」在 Lean 是 `EvPer f p := ∃ T, ∀ t ≥ T, f (t+p) = f t`；OEIS 的最終週期是使它成立的最小 p ≥ 1。定理對每個 p 給出等價，所以最小值相同；沒有在 Lean 裡另外定義「最小」。
+- 「最終週期」在 Lean 是 `EvPer f p := ∃ T, ∀ t ≥ T, f (t+p) = f t`；OEIS 的最終週期是使它成立的最小 p ≥ 1。定理對每個 p 給出等價，所以最小值相同；critic 建議後加了 `rule26_even_least_period`，直接說「p 是最小正最終週期」兩邊等價。
+- 「環的暫態 = 導線暫態 + 1」**沒有單獨的 Lean 定理**，只在紙上由 `iter_succ_eq_iff`（x_{s+1} = x_{t+1} ⇔ y_s = y_t）和 `iter_succ_ne_one`（x₀ 不再出現）推出；數值上 n ≤ 40 由 l02_check 驗證。
 - 環的編碼、`step`、`iter` 直接沿用 DISC-0008 的 `Discovery.Rule26`（已審查過和 impl_b 一致）。
 - 導線寬度 n = m − 1，種子 1 = 左端；A268754 程式也是從 1 開始。A268754(n) 的 n 對應 m = n + 1、w = 2n + 2。
 

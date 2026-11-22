@@ -248,6 +248,15 @@ theorem rule26_even_eventual_period {m : Nat} (hm : 2 ≤ m) (p : Nat) :
     simp only [show s + 1 + p = s + p + 1 by omega]
     exact (iter_succ_eq_iff hm _ _).2 (hT s (by omega))
 
+/-- The least eventual periods agree: `p` is the least `p > 0` with eventual period `p`
+for the ring iff it is for the wire (this is how OEIS defines both A334504 and A268754). -/
+theorem rule26_even_least_period {m : Nat} (hm : 2 ≤ m) (p : Nat) :
+    (0 < p ∧ EvPer (fun t => iter (2 * m) t 1) p ∧
+        ∀ q, 0 < q → q < p → ¬ EvPer (fun t => iter (2 * m) t 1) q) ↔
+      (0 < p ∧ EvPer (fun t => niter (m - 1) t 1) p ∧
+        ∀ q, 0 < q → q < p → ¬ EvPer (fun t => niter (m - 1) t 1) q) := by
+  simp only [rule26_even_eventual_period hm]
+
 set_option maxRecDepth 100000 in
 /-- Kernel-evaluated spot checks: `w = 10` (`n = 4`): transient 1, period 6 = A268754(4);
 `w = 8` (`n = 3`): the wire dies, period 1 = A268754(3). -/
