@@ -79,3 +79,8 @@ def test_important_new_records_need_opus_critic():
     assert not _critic_model_errors("D", {**new, "status": "REFUTED"})
     assert _critic_model_errors("D", {**new, "status": "REFUTED", "milestone": True})
     assert not _critic_model_errors("D", {**new, "created_at": "2026-11-22T11:10:00+00:00"})
+
+
+def test_record_without_date_is_treated_as_new():
+    from discovery.check_record import _critic_model_errors
+    assert _critic_model_errors("D", {"status": "PROVEN_KNOWN"})

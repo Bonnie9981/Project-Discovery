@@ -107,7 +107,7 @@ CRITIC_MODEL_SINCE = "2026-11-22T12:00"  # docs/TOKEN_BUDGET.md section 1; older
 
 def _critic_model_errors(name: str, m: dict) -> list[str]:
     """Important results must have been attacked by an opus critic (TOKEN_BUDGET 1)."""
-    if str(m.get("created_at", "")) < CRITIC_MODEL_SINCE:
+    if m.get("created_at") and str(m["created_at"]) < CRITIC_MODEL_SINCE:
         return []
     st = str(m.get("status", ""))
     nov = str((m.get("novelty") or {}).get("status", ""))
