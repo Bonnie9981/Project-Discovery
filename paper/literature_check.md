@@ -4,7 +4,7 @@
 
 | # | 管道 | 查詢 / 文件 | 結果 |
 |---|---|---|---|
-| L1 | OEIS 文字版 | A334504 | 名稱「Eventual period of a single cell in rule 26 cellular automaton in a cyclic universe of width n」；猜想署名 _Andrei Zabolotskii_，Sep 04 2024，另寫 a(2n+1) = A363121(n+1)/2；%D：Bradley Klee，Math Fun 郵件列表，2020-04-26 |
+| L1 | OEIS 文字版 | A334504 | 名稱「Eventual period of a single cell in rule 26 cellular automaton in a cyclic universe of width n」；猜想署名 _Andrei Zabolotskii_，Sep 04 2024，另寫 a(2n+1) = A363121(n+1)/2；%C：Bradley Klee 計算了 a(1)–a(10)；%D：Bradley Klee，Math Fun 郵件列表，2020-04-26 |
 | L2 | OEIS 文字版 | A268754 | Mathematica：三對角矩陣 `Abs[i-j]==1`、向量 e₁、GF(2) 最終週期；Python 同 `nstep`；%Y：偶數項恰為 A160657（Goucher 2019 修正）；A334504、A334507 只寫「Seems to be」 |
 | L3 | OEIS 文字版 | A160657 | C. Neder 2019-01-11 的證明：B36/S125 的 2×4n 振盪器拆成矩形，角落像寬 n 的 Rule 90 帶子，單點種子，所以週期 = A268754(2n)。偶數證明的直接先例（機制不同） |
 | L4 | OEIS 文字版 | A334507、A363121 | A334507 = 規則 122 的同類序列，無公式；A363121 是純數論序列（A116882 的本原項），和細胞自動機無關 |
