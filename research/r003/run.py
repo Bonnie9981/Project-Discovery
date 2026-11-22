@@ -19,9 +19,9 @@ REDUCTION = {
     90: "additive rule; even-width transient is A160467",
     146: "R2-C02 (L0): differs from 18 only on 111, never visited",
     153: "R2-C05 (L0): affine rule",
-    154: "differs from 26 only on 111, never visited: same single-seed orbit as 26",
+    154: "for w >= 2: differs from 26 only on 111, never visited, so same single-seed orbit as 26 (fails at w = 1)",
     165: "affine rule (complement of 90)",
-    167: "one step gives NOT(seed); NOT F167(s) = F26(NOT s), so (T,P)167 = (T26 + 1, P26)",
+    167: "for w >= 4: one step gives NOT(seed); NOT F167(s) = F26(NOT s), so (T,P)167 = (T26 + 1, P26) (fails at w = 1, 2, 3)",
 }
 
 
@@ -41,14 +41,20 @@ def main(w_check: int = am.W_CHECK) -> dict:
         else:
             row["formulas"] = {str(c): [am.show(f) for f in fs[:3]] for c, fs in l["pieces"].items()}
         out.append(row)
+    part = [l for l in am.partial_leads(data, leads) if l["rule"] <= mirror(l["rule"])]
+    partial = [{"rule": l["rule"], "quantity": l["quantity"], "modulus": l["modulus"],
+                "classes": {str(c): [am.show(f) for f in fs[:3]] for c, fs in l["pieces"].items()}}
+               for l in part]
     commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True).stdout.strip()
     res = {"meta": {"python": platform.python_version(), "commit": commit,
                     "W0": am.W0, "W_FIT": am.W_FIT, "W_CHECK": w_check,
                     "G": list(am.G), "H": list(am.H), "a": list(am.A), "b": list(am.B)},
            "counts": {"leads": len(leads), "mirror_reps": len(reps),
                       "nontrivial": sum(r["nontrivial"] for r in out),
-                      "nontrivial_unreduced": sum(r["nontrivial"] and r["reduction"] == "none found" for r in out)},
-           "leads": out}
+                      "nontrivial_unreduced": sum(r["nontrivial"] and r["reduction"] == "none found" for r in out),
+                      "partial_unanalysed": len(partial)},
+           "leads": out,
+           "partial_leads_unanalysed": partial}
     Path("records/DISC-0007/r003_pilot.json").write_text(json.dumps(res, indent=1, ensure_ascii=False) + "\n")
     return res
 

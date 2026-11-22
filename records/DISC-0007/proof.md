@@ -2,7 +2,7 @@
 
 對象：DISC-0004 C02（H2′ 形式）的完整「當且僅當」刻畫。紙本證明見 `records/DISC-0006/proof.md` 第 C02 節、`critic.md` 第 3 點、`review.md` B 節。
 
-狀態：**Lean 已完整證明 `c02_iff`（兩個方向）。本機逐檔編譯通過；CI `lean` 工作尚未執行（未 push），依規則要等 CI 通過才算「已證明」。**
+狀態：**Lean 已完整證明 `c02_iff`（兩個方向）。本機逐檔編譯通過；GitHub CI `lean` 工作（含 AxiomCheck）已通過：https://github.com/Bonnie9981/Project-Discovery/actions/runs/45014528005（commit e6c3e79）。**
 
 ## 定理對照
 
@@ -15,6 +15,7 @@ Lean 檔案：`lean/Discovery/RadSigmaIff.lean`（新檔，命名空間 `Discove
 | 猜想 | Lean 定理 | 檔案 |
 |---|---|---|
 | C02 / H2′：n ≥ 1 時，rad(σ n) = σ(rad n) ⇔（n 與 σ(n) 都無平方因子）或（n = 2^a·p，p 奇質數，a 奇且 a ≥ 3，p+1 無平方因子，3 ∤ p+1，rad(2^(a+1) − 1) ∣ 3(p+1)） | `Discovery.RadSigma.c02_iff` | `lean/Discovery/RadSigmaIff.lean` |
+| C01 延伸（H2）：0 < n 且 2^23 ∤ n ⇒（σ(σ_odd n) = σ_odd(σ n) ⇔ n 奇且是平方數）；其中 v₂(n) = 11 的情形 | `Discovery.SigmaOdd.c01_of_not_two_pow_twentythree_dvd`、`Discovery.SigmaOdd.c01_even_v2_eq_eleven` | `lean/Discovery/SigmaOddExt.lean`（詳見下方「C01 延伸」） |
 
 Lean 敘述（逐字）：
 
@@ -54,7 +55,7 @@ theorem c02_iff (n : ℕ) (hn : 0 < n) :
 
 ## 編譯結果
 
-**CI：尚未執行（本工作未 commit／push）。依規則，待 CI `lean` 工作通過後才算「已證明」。CI 連結：待補。**
+**CI：通過。** https://github.com/Bonnie9981/Project-Discovery/actions/runs/45014528005（commit e6c3e79，`lean/Discovery.lean` 匯入 RadSigmaIff，全環境 AxiomCheck）。
 
 **本機已編譯（非 CI）。** 環境：官方 Lean 4.15.0 工具鏈 + 從原始碼建的 Mathlib v4.15.0（與 `lean/lakefile.toml` 的 `rev = "v4.15.0"` 相同；前一個 proof agent 已建好的部分之外，這次另外 `lake build Mathlib.NumberTheory.Multiplicity Mathlib.Data.Nat.Factorization.Basic Mathlib.Tactic.IntervalCases`，輸出 `✔ [1007/1007] Built Mathlib.NumberTheory.Multiplicity` / `Build completed successfully.`）。
 
@@ -121,7 +122,7 @@ C01（DISC-0006）：σ(σ_odd(n)) = σ_odd(σ(n)) ⇔ n 是奇平方數。原�
 
 ### 編譯結果
 
-本機編譯，沒有跑 CI。工具鏈為 Lean 4.15.0 + Mathlib v4.15.0（從原始碼建置；這次另外建置了 `Mathlib.Tactic.NormNum.Prime`，`Build completed successfully.`）。先以 `lake env lean --root=<dir> -o <dir>/Discovery/SigmaOdd.olean SigmaOdd.lean` 產生依賴，再對 `SigmaOddExt.lean` 執行 `lean`：0 錯誤、0 警告，約 8 秒。把 `#check_discovery_axioms` 接在檔尾後執行，得到 `THEOREM_COUNT 45`（SigmaOdd 加 SigmaOddExt），全部只用 `propext`、`Classical.choice`、`Quot.sound`，沒有 `sorryAx`，也沒有 `Lean.ofReduceBool`。`grep` 沒有找到 `sorry`、`admit`、`native_decide` 或 `axiom`。`lean/Discovery.lean` 已加上 `import Discovery.SigmaOddExt`，但整個 `Discovery` 的 `lake build` 沒有在本機跑過。依規則，要等 CI 的 `lean` 工作通過才算「已證明」。CI 連結：待推送後補上。
+本機編譯，沒有跑 CI。工具鏈為 Lean 4.15.0 + Mathlib v4.15.0（從原始碼建置；這次另外建置了 `Mathlib.Tactic.NormNum.Prime`，`Build completed successfully.`）。先以 `lake env lean --root=<dir> -o <dir>/Discovery/SigmaOdd.olean SigmaOdd.lean` 產生依賴，再對 `SigmaOddExt.lean` 執行 `lean`：0 錯誤、0 警告，約 8 秒。把 `#check_discovery_axioms` 接在檔尾後執行，得到 `THEOREM_COUNT 45`（SigmaOdd 加 SigmaOddExt），全部只用 `propext`、`Classical.choice`、`Quot.sound`，沒有 `sorryAx`，也沒有 `Lean.ofReduceBool`。`grep` 沒有找到 `sorry`、`admit`、`native_decide` 或 `axiom`。`lean/Discovery.lean` 已加上 `import Discovery.SigmaOddExt`，但整個 `Discovery` 的 `lake build` 沒有在本機跑過。**CI：通過。** https://github.com/Bonnie9981/Project-Discovery/actions/runs/45014862688（commit 57ec73d，匯入 SigmaOddExt，全環境 AxiomCheck）。
 
 ### 敘述差異
 

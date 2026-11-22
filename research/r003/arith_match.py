@@ -149,3 +149,27 @@ def recheck(lead: dict, w_hi: int = W_CHECK, max_steps: int = 1 << 22) -> dict:
         ws = [w for w in truth if w % m == c]
         kept[c] = [f for f in fs if all(evaluate(f, w) == truth[w] for w in ws)]
     return {"survives": all(kept.values()), "pieces": kept, "w_hi": w_hi}
+
+
+def partial_leads(orbits: dict[int, list], full: list[dict], rules=range(256)) -> list[dict]:
+    """Rule/quantity pairs with no full lead where, for m in {2, 4}, some residue
+    classes (not all) have a non-linear formula. search() drops these."""
+    done = {(l["rule"], l["quantity"]) for l in full}
+    out = []
+    for r in rules:
+        for qi, q in ((0, "T"), (1, "P")):
+            if (r, q) in done:
+                continue
+            vals = {w: orbits[r][w - 1][qi] for w in range(1, W_FIT + 1)}
+            if len(set(vals[w] for w in range(W0, W_FIT + 1))) <= 2:
+                continue
+            for m in (2, 4):
+                pieces = {}
+                for c in range(m):
+                    ws = [w for w in range(W0, W_FIT + 1) if w % m == c]
+                    f = [x for x in fits(vals, ws) if x[1] not in LINEAR]
+                    if f and not any(x[1] in LINEAR for x in fits(vals, ws)):
+                        pieces[c] = f
+                if pieces:
+                    out.append({"rule": r, "quantity": q, "modulus": m, "pieces": pieces})
+    return out
