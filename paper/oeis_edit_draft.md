@@ -56,7 +56,9 @@ For odd n >= 3, the orbit is purely periodic: at time t, cell i is alive iff s =
 
 ## A268754
 
-**CROSSREFS**：把
+> **已作廢（2026-11-22）：** 編輯要求這句改放 FORMULA 並署名，照上面「目前狀態」的做法改，下面這段只留作紀錄。
+
+~~**CROSSREFS**：~~ 原本的建議是把
 
 > Seems to be a shifted bisection of A334504 and A334507.
 
