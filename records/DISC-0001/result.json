@@ -1,0 +1,2774 @@
+{
+  "aggregate": {
+    "novelty": {
+      "known": true,
+      "matches": [
+        {
+          "citation": "OEIS A014556; G. Rabinowitsch (1913), J. reine angew. Math. 142, 153-164. Completeness follows from the class number one theorem (Heegner 1952, Baker 1966, Stark 1967).",
+          "id": "A014556",
+          "name": "Euler's 'lucky' numbers: p such that n^2 + n + p is prime for n = 0..p-2",
+          "source": "local"
+        }
+      ],
+      "sources_checked": [
+        "local"
+      ],
+      "sources_failed": [
+        "oeis: URLError: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>"
+      ]
+    },
+    "sequence": [
+      2,
+      3,
+      5,
+      11,
+      17,
+      41
+    ],
+    "statement": "Primes p <= 2000 for which n^2+n+p is prime for all 0<=n<=p-2",
+    "status": "SUPPORTED_KNOWN"
+  },
+  "conjectures": [
+    {
+      "checked": 1,
+      "counterexample": null,
+      "disagreements": [],
+      "domain": "0..0 (complete: the statement is finite)",
+      "id": "Q2",
+      "statement": "n^2 + n + 2 is prime for every integer 0 <= n <= 0",
+      "status": "SUPPORTED_IN_RANGE"
+    },
+    {
+      "checked": 2,
+      "counterexample": null,
+      "disagreements": [],
+      "domain": "0..1 (complete: the statement is finite)",
+      "id": "Q3",
+      "statement": "n^2 + n + 3 is prime for every integer 0 <= n <= 1",
+      "status": "SUPPORTED_IN_RANGE"
+    },
+    {
+      "checked": 4,
+      "counterexample": null,
+      "disagreements": [],
+      "domain": "0..3 (complete: the statement is finite)",
+      "id": "Q5",
+      "statement": "n^2 + n + 5 is prime for every integer 0 <= n <= 3",
+      "status": "SUPPORTED_IN_RANGE"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..5 (complete: the statement is finite)",
+      "id": "Q7",
+      "statement": "n^2 + n + 7 is prime for every integer 0 <= n <= 5",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 10,
+      "counterexample": null,
+      "disagreements": [],
+      "domain": "0..9 (complete: the statement is finite)",
+      "id": "Q11",
+      "statement": "n^2 + n + 11 is prime for every integer 0 <= n <= 9",
+      "status": "SUPPORTED_IN_RANGE"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..11 (complete: the statement is finite)",
+      "id": "Q13",
+      "statement": "n^2 + n + 13 is prime for every integer 0 <= n <= 11",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 16,
+      "counterexample": null,
+      "disagreements": [],
+      "domain": "0..15 (complete: the statement is finite)",
+      "id": "Q17",
+      "statement": "n^2 + n + 17 is prime for every integer 0 <= n <= 15",
+      "status": "SUPPORTED_IN_RANGE"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..17 (complete: the statement is finite)",
+      "id": "Q19",
+      "statement": "n^2 + n + 19 is prime for every integer 0 <= n <= 17",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..21 (complete: the statement is finite)",
+      "id": "Q23",
+      "statement": "n^2 + n + 23 is prime for every integer 0 <= n <= 21",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..27 (complete: the statement is finite)",
+      "id": "Q29",
+      "statement": "n^2 + n + 29 is prime for every integer 0 <= n <= 27",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..29 (complete: the statement is finite)",
+      "id": "Q31",
+      "statement": "n^2 + n + 31 is prime for every integer 0 <= n <= 29",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..35 (complete: the statement is finite)",
+      "id": "Q37",
+      "statement": "n^2 + n + 37 is prime for every integer 0 <= n <= 35",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 40,
+      "counterexample": null,
+      "disagreements": [],
+      "domain": "0..39 (complete: the statement is finite)",
+      "id": "Q41",
+      "statement": "n^2 + n + 41 is prime for every integer 0 <= n <= 39",
+      "status": "SUPPORTED_IN_RANGE"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..41 (complete: the statement is finite)",
+      "id": "Q43",
+      "statement": "n^2 + n + 43 is prime for every integer 0 <= n <= 41",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..45 (complete: the statement is finite)",
+      "id": "Q47",
+      "statement": "n^2 + n + 47 is prime for every integer 0 <= n <= 45",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..51 (complete: the statement is finite)",
+      "id": "Q53",
+      "statement": "n^2 + n + 53 is prime for every integer 0 <= n <= 51",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..57 (complete: the statement is finite)",
+      "id": "Q59",
+      "statement": "n^2 + n + 59 is prime for every integer 0 <= n <= 57",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..59 (complete: the statement is finite)",
+      "id": "Q61",
+      "statement": "n^2 + n + 61 is prime for every integer 0 <= n <= 59",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..65 (complete: the statement is finite)",
+      "id": "Q67",
+      "statement": "n^2 + n + 67 is prime for every integer 0 <= n <= 65",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..69 (complete: the statement is finite)",
+      "id": "Q71",
+      "statement": "n^2 + n + 71 is prime for every integer 0 <= n <= 69",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..71 (complete: the statement is finite)",
+      "id": "Q73",
+      "statement": "n^2 + n + 73 is prime for every integer 0 <= n <= 71",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..77 (complete: the statement is finite)",
+      "id": "Q79",
+      "statement": "n^2 + n + 79 is prime for every integer 0 <= n <= 77",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..81 (complete: the statement is finite)",
+      "id": "Q83",
+      "statement": "n^2 + n + 83 is prime for every integer 0 <= n <= 81",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..87 (complete: the statement is finite)",
+      "id": "Q89",
+      "statement": "n^2 + n + 89 is prime for every integer 0 <= n <= 87",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..95 (complete: the statement is finite)",
+      "id": "Q97",
+      "statement": "n^2 + n + 97 is prime for every integer 0 <= n <= 95",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 5,
+      "counterexample": 4,
+      "disagreements": [],
+      "domain": "0..99 (complete: the statement is finite)",
+      "id": "Q101",
+      "statement": "n^2 + n + 101 is prime for every integer 0 <= n <= 99",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..101 (complete: the statement is finite)",
+      "id": "Q103",
+      "statement": "n^2 + n + 103 is prime for every integer 0 <= n <= 101",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..105 (complete: the statement is finite)",
+      "id": "Q107",
+      "statement": "n^2 + n + 107 is prime for every integer 0 <= n <= 105",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..107 (complete: the statement is finite)",
+      "id": "Q109",
+      "statement": "n^2 + n + 109 is prime for every integer 0 <= n <= 107",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..111 (complete: the statement is finite)",
+      "id": "Q113",
+      "statement": "n^2 + n + 113 is prime for every integer 0 <= n <= 111",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..125 (complete: the statement is finite)",
+      "id": "Q127",
+      "statement": "n^2 + n + 127 is prime for every integer 0 <= n <= 125",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..129 (complete: the statement is finite)",
+      "id": "Q131",
+      "statement": "n^2 + n + 131 is prime for every integer 0 <= n <= 129",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..135 (complete: the statement is finite)",
+      "id": "Q137",
+      "statement": "n^2 + n + 137 is prime for every integer 0 <= n <= 135",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..137 (complete: the statement is finite)",
+      "id": "Q139",
+      "statement": "n^2 + n + 139 is prime for every integer 0 <= n <= 137",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..147 (complete: the statement is finite)",
+      "id": "Q149",
+      "statement": "n^2 + n + 149 is prime for every integer 0 <= n <= 147",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..149 (complete: the statement is finite)",
+      "id": "Q151",
+      "statement": "n^2 + n + 151 is prime for every integer 0 <= n <= 149",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..155 (complete: the statement is finite)",
+      "id": "Q157",
+      "statement": "n^2 + n + 157 is prime for every integer 0 <= n <= 155",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..161 (complete: the statement is finite)",
+      "id": "Q163",
+      "statement": "n^2 + n + 163 is prime for every integer 0 <= n <= 161",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..165 (complete: the statement is finite)",
+      "id": "Q167",
+      "statement": "n^2 + n + 167 is prime for every integer 0 <= n <= 165",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..171 (complete: the statement is finite)",
+      "id": "Q173",
+      "statement": "n^2 + n + 173 is prime for every integer 0 <= n <= 171",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..177 (complete: the statement is finite)",
+      "id": "Q179",
+      "statement": "n^2 + n + 179 is prime for every integer 0 <= n <= 177",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..179 (complete: the statement is finite)",
+      "id": "Q181",
+      "statement": "n^2 + n + 181 is prime for every integer 0 <= n <= 179",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..189 (complete: the statement is finite)",
+      "id": "Q191",
+      "statement": "n^2 + n + 191 is prime for every integer 0 <= n <= 189",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..191 (complete: the statement is finite)",
+      "id": "Q193",
+      "statement": "n^2 + n + 193 is prime for every integer 0 <= n <= 191",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..195 (complete: the statement is finite)",
+      "id": "Q197",
+      "statement": "n^2 + n + 197 is prime for every integer 0 <= n <= 195",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..197 (complete: the statement is finite)",
+      "id": "Q199",
+      "statement": "n^2 + n + 199 is prime for every integer 0 <= n <= 197",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..209 (complete: the statement is finite)",
+      "id": "Q211",
+      "statement": "n^2 + n + 211 is prime for every integer 0 <= n <= 209",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..221 (complete: the statement is finite)",
+      "id": "Q223",
+      "statement": "n^2 + n + 223 is prime for every integer 0 <= n <= 221",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 5,
+      "counterexample": 4,
+      "disagreements": [],
+      "domain": "0..225 (complete: the statement is finite)",
+      "id": "Q227",
+      "statement": "n^2 + n + 227 is prime for every integer 0 <= n <= 225",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..227 (complete: the statement is finite)",
+      "id": "Q229",
+      "statement": "n^2 + n + 229 is prime for every integer 0 <= n <= 227",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..231 (complete: the statement is finite)",
+      "id": "Q233",
+      "statement": "n^2 + n + 233 is prime for every integer 0 <= n <= 231",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..237 (complete: the statement is finite)",
+      "id": "Q239",
+      "statement": "n^2 + n + 239 is prime for every integer 0 <= n <= 237",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..239 (complete: the statement is finite)",
+      "id": "Q241",
+      "statement": "n^2 + n + 241 is prime for every integer 0 <= n <= 239",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..249 (complete: the statement is finite)",
+      "id": "Q251",
+      "statement": "n^2 + n + 251 is prime for every integer 0 <= n <= 249",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..255 (complete: the statement is finite)",
+      "id": "Q257",
+      "statement": "n^2 + n + 257 is prime for every integer 0 <= n <= 255",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..261 (complete: the statement is finite)",
+      "id": "Q263",
+      "statement": "n^2 + n + 263 is prime for every integer 0 <= n <= 261",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..267 (complete: the statement is finite)",
+      "id": "Q269",
+      "statement": "n^2 + n + 269 is prime for every integer 0 <= n <= 267",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..269 (complete: the statement is finite)",
+      "id": "Q271",
+      "statement": "n^2 + n + 271 is prime for every integer 0 <= n <= 269",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..275 (complete: the statement is finite)",
+      "id": "Q277",
+      "statement": "n^2 + n + 277 is prime for every integer 0 <= n <= 275",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..279 (complete: the statement is finite)",
+      "id": "Q281",
+      "statement": "n^2 + n + 281 is prime for every integer 0 <= n <= 279",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..281 (complete: the statement is finite)",
+      "id": "Q283",
+      "statement": "n^2 + n + 283 is prime for every integer 0 <= n <= 281",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..291 (complete: the statement is finite)",
+      "id": "Q293",
+      "statement": "n^2 + n + 293 is prime for every integer 0 <= n <= 291",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..305 (complete: the statement is finite)",
+      "id": "Q307",
+      "statement": "n^2 + n + 307 is prime for every integer 0 <= n <= 305",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..309 (complete: the statement is finite)",
+      "id": "Q311",
+      "statement": "n^2 + n + 311 is prime for every integer 0 <= n <= 309",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..311 (complete: the statement is finite)",
+      "id": "Q313",
+      "statement": "n^2 + n + 313 is prime for every integer 0 <= n <= 311",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..315 (complete: the statement is finite)",
+      "id": "Q317",
+      "statement": "n^2 + n + 317 is prime for every integer 0 <= n <= 315",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..329 (complete: the statement is finite)",
+      "id": "Q331",
+      "statement": "n^2 + n + 331 is prime for every integer 0 <= n <= 329",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..335 (complete: the statement is finite)",
+      "id": "Q337",
+      "statement": "n^2 + n + 337 is prime for every integer 0 <= n <= 335",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 6,
+      "counterexample": 5,
+      "disagreements": [],
+      "domain": "0..345 (complete: the statement is finite)",
+      "id": "Q347",
+      "statement": "n^2 + n + 347 is prime for every integer 0 <= n <= 345",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..347 (complete: the statement is finite)",
+      "id": "Q349",
+      "statement": "n^2 + n + 349 is prime for every integer 0 <= n <= 347",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..351 (complete: the statement is finite)",
+      "id": "Q353",
+      "statement": "n^2 + n + 353 is prime for every integer 0 <= n <= 351",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..357 (complete: the statement is finite)",
+      "id": "Q359",
+      "statement": "n^2 + n + 359 is prime for every integer 0 <= n <= 357",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..365 (complete: the statement is finite)",
+      "id": "Q367",
+      "statement": "n^2 + n + 367 is prime for every integer 0 <= n <= 365",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..371 (complete: the statement is finite)",
+      "id": "Q373",
+      "statement": "n^2 + n + 373 is prime for every integer 0 <= n <= 371",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..377 (complete: the statement is finite)",
+      "id": "Q379",
+      "statement": "n^2 + n + 379 is prime for every integer 0 <= n <= 377",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..381 (complete: the statement is finite)",
+      "id": "Q383",
+      "statement": "n^2 + n + 383 is prime for every integer 0 <= n <= 381",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..387 (complete: the statement is finite)",
+      "id": "Q389",
+      "statement": "n^2 + n + 389 is prime for every integer 0 <= n <= 387",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..395 (complete: the statement is finite)",
+      "id": "Q397",
+      "statement": "n^2 + n + 397 is prime for every integer 0 <= n <= 395",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..399 (complete: the statement is finite)",
+      "id": "Q401",
+      "statement": "n^2 + n + 401 is prime for every integer 0 <= n <= 399",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..407 (complete: the statement is finite)",
+      "id": "Q409",
+      "statement": "n^2 + n + 409 is prime for every integer 0 <= n <= 407",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..417 (complete: the statement is finite)",
+      "id": "Q419",
+      "statement": "n^2 + n + 419 is prime for every integer 0 <= n <= 417",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..419 (complete: the statement is finite)",
+      "id": "Q421",
+      "statement": "n^2 + n + 421 is prime for every integer 0 <= n <= 419",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..429 (complete: the statement is finite)",
+      "id": "Q431",
+      "statement": "n^2 + n + 431 is prime for every integer 0 <= n <= 429",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..431 (complete: the statement is finite)",
+      "id": "Q433",
+      "statement": "n^2 + n + 433 is prime for every integer 0 <= n <= 431",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..437 (complete: the statement is finite)",
+      "id": "Q439",
+      "statement": "n^2 + n + 439 is prime for every integer 0 <= n <= 437",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..441 (complete: the statement is finite)",
+      "id": "Q443",
+      "statement": "n^2 + n + 443 is prime for every integer 0 <= n <= 441",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..447 (complete: the statement is finite)",
+      "id": "Q449",
+      "statement": "n^2 + n + 449 is prime for every integer 0 <= n <= 447",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..455 (complete: the statement is finite)",
+      "id": "Q457",
+      "statement": "n^2 + n + 457 is prime for every integer 0 <= n <= 455",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..459 (complete: the statement is finite)",
+      "id": "Q461",
+      "statement": "n^2 + n + 461 is prime for every integer 0 <= n <= 459",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..461 (complete: the statement is finite)",
+      "id": "Q463",
+      "statement": "n^2 + n + 463 is prime for every integer 0 <= n <= 461",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..465 (complete: the statement is finite)",
+      "id": "Q467",
+      "statement": "n^2 + n + 467 is prime for every integer 0 <= n <= 465",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..477 (complete: the statement is finite)",
+      "id": "Q479",
+      "statement": "n^2 + n + 479 is prime for every integer 0 <= n <= 477",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..485 (complete: the statement is finite)",
+      "id": "Q487",
+      "statement": "n^2 + n + 487 is prime for every integer 0 <= n <= 485",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..489 (complete: the statement is finite)",
+      "id": "Q491",
+      "statement": "n^2 + n + 491 is prime for every integer 0 <= n <= 489",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..497 (complete: the statement is finite)",
+      "id": "Q499",
+      "statement": "n^2 + n + 499 is prime for every integer 0 <= n <= 497",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..501 (complete: the statement is finite)",
+      "id": "Q503",
+      "statement": "n^2 + n + 503 is prime for every integer 0 <= n <= 501",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..507 (complete: the statement is finite)",
+      "id": "Q509",
+      "statement": "n^2 + n + 509 is prime for every integer 0 <= n <= 507",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..519 (complete: the statement is finite)",
+      "id": "Q521",
+      "statement": "n^2 + n + 521 is prime for every integer 0 <= n <= 519",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..521 (complete: the statement is finite)",
+      "id": "Q523",
+      "statement": "n^2 + n + 523 is prime for every integer 0 <= n <= 521",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..539 (complete: the statement is finite)",
+      "id": "Q541",
+      "statement": "n^2 + n + 541 is prime for every integer 0 <= n <= 539",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..545 (complete: the statement is finite)",
+      "id": "Q547",
+      "statement": "n^2 + n + 547 is prime for every integer 0 <= n <= 545",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..555 (complete: the statement is finite)",
+      "id": "Q557",
+      "statement": "n^2 + n + 557 is prime for every integer 0 <= n <= 555",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..561 (complete: the statement is finite)",
+      "id": "Q563",
+      "statement": "n^2 + n + 563 is prime for every integer 0 <= n <= 561",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..567 (complete: the statement is finite)",
+      "id": "Q569",
+      "statement": "n^2 + n + 569 is prime for every integer 0 <= n <= 567",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..569 (complete: the statement is finite)",
+      "id": "Q571",
+      "statement": "n^2 + n + 571 is prime for every integer 0 <= n <= 569",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..575 (complete: the statement is finite)",
+      "id": "Q577",
+      "statement": "n^2 + n + 577 is prime for every integer 0 <= n <= 575",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..585 (complete: the statement is finite)",
+      "id": "Q587",
+      "statement": "n^2 + n + 587 is prime for every integer 0 <= n <= 585",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..591 (complete: the statement is finite)",
+      "id": "Q593",
+      "statement": "n^2 + n + 593 is prime for every integer 0 <= n <= 591",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..597 (complete: the statement is finite)",
+      "id": "Q599",
+      "statement": "n^2 + n + 599 is prime for every integer 0 <= n <= 597",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..599 (complete: the statement is finite)",
+      "id": "Q601",
+      "statement": "n^2 + n + 601 is prime for every integer 0 <= n <= 599",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..605 (complete: the statement is finite)",
+      "id": "Q607",
+      "statement": "n^2 + n + 607 is prime for every integer 0 <= n <= 605",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..611 (complete: the statement is finite)",
+      "id": "Q613",
+      "statement": "n^2 + n + 613 is prime for every integer 0 <= n <= 611",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..615 (complete: the statement is finite)",
+      "id": "Q617",
+      "statement": "n^2 + n + 617 is prime for every integer 0 <= n <= 615",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..617 (complete: the statement is finite)",
+      "id": "Q619",
+      "statement": "n^2 + n + 619 is prime for every integer 0 <= n <= 617",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..629 (complete: the statement is finite)",
+      "id": "Q631",
+      "statement": "n^2 + n + 631 is prime for every integer 0 <= n <= 629",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 6,
+      "counterexample": 5,
+      "disagreements": [],
+      "domain": "0..639 (complete: the statement is finite)",
+      "id": "Q641",
+      "statement": "n^2 + n + 641 is prime for every integer 0 <= n <= 639",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..641 (complete: the statement is finite)",
+      "id": "Q643",
+      "statement": "n^2 + n + 643 is prime for every integer 0 <= n <= 641",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..645 (complete: the statement is finite)",
+      "id": "Q647",
+      "statement": "n^2 + n + 647 is prime for every integer 0 <= n <= 645",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..651 (complete: the statement is finite)",
+      "id": "Q653",
+      "statement": "n^2 + n + 653 is prime for every integer 0 <= n <= 651",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..657 (complete: the statement is finite)",
+      "id": "Q659",
+      "statement": "n^2 + n + 659 is prime for every integer 0 <= n <= 657",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..659 (complete: the statement is finite)",
+      "id": "Q661",
+      "statement": "n^2 + n + 661 is prime for every integer 0 <= n <= 659",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..671 (complete: the statement is finite)",
+      "id": "Q673",
+      "statement": "n^2 + n + 673 is prime for every integer 0 <= n <= 671",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..675 (complete: the statement is finite)",
+      "id": "Q677",
+      "statement": "n^2 + n + 677 is prime for every integer 0 <= n <= 675",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..681 (complete: the statement is finite)",
+      "id": "Q683",
+      "statement": "n^2 + n + 683 is prime for every integer 0 <= n <= 681",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..689 (complete: the statement is finite)",
+      "id": "Q691",
+      "statement": "n^2 + n + 691 is prime for every integer 0 <= n <= 689",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..699 (complete: the statement is finite)",
+      "id": "Q701",
+      "statement": "n^2 + n + 701 is prime for every integer 0 <= n <= 699",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..707 (complete: the statement is finite)",
+      "id": "Q709",
+      "statement": "n^2 + n + 709 is prime for every integer 0 <= n <= 707",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..717 (complete: the statement is finite)",
+      "id": "Q719",
+      "statement": "n^2 + n + 719 is prime for every integer 0 <= n <= 717",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..725 (complete: the statement is finite)",
+      "id": "Q727",
+      "statement": "n^2 + n + 727 is prime for every integer 0 <= n <= 725",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..731 (complete: the statement is finite)",
+      "id": "Q733",
+      "statement": "n^2 + n + 733 is prime for every integer 0 <= n <= 731",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..737 (complete: the statement is finite)",
+      "id": "Q739",
+      "statement": "n^2 + n + 739 is prime for every integer 0 <= n <= 737",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..741 (complete: the statement is finite)",
+      "id": "Q743",
+      "statement": "n^2 + n + 743 is prime for every integer 0 <= n <= 741",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..749 (complete: the statement is finite)",
+      "id": "Q751",
+      "statement": "n^2 + n + 751 is prime for every integer 0 <= n <= 749",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..755 (complete: the statement is finite)",
+      "id": "Q757",
+      "statement": "n^2 + n + 757 is prime for every integer 0 <= n <= 755",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..759 (complete: the statement is finite)",
+      "id": "Q761",
+      "statement": "n^2 + n + 761 is prime for every integer 0 <= n <= 759",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..767 (complete: the statement is finite)",
+      "id": "Q769",
+      "statement": "n^2 + n + 769 is prime for every integer 0 <= n <= 767",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..771 (complete: the statement is finite)",
+      "id": "Q773",
+      "statement": "n^2 + n + 773 is prime for every integer 0 <= n <= 771",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..785 (complete: the statement is finite)",
+      "id": "Q787",
+      "statement": "n^2 + n + 787 is prime for every integer 0 <= n <= 785",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..795 (complete: the statement is finite)",
+      "id": "Q797",
+      "statement": "n^2 + n + 797 is prime for every integer 0 <= n <= 795",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..807 (complete: the statement is finite)",
+      "id": "Q809",
+      "statement": "n^2 + n + 809 is prime for every integer 0 <= n <= 807",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..809 (complete: the statement is finite)",
+      "id": "Q811",
+      "statement": "n^2 + n + 811 is prime for every integer 0 <= n <= 809",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..819 (complete: the statement is finite)",
+      "id": "Q821",
+      "statement": "n^2 + n + 821 is prime for every integer 0 <= n <= 819",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..821 (complete: the statement is finite)",
+      "id": "Q823",
+      "statement": "n^2 + n + 823 is prime for every integer 0 <= n <= 821",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..825 (complete: the statement is finite)",
+      "id": "Q827",
+      "statement": "n^2 + n + 827 is prime for every integer 0 <= n <= 825",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..827 (complete: the statement is finite)",
+      "id": "Q829",
+      "statement": "n^2 + n + 829 is prime for every integer 0 <= n <= 827",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..837 (complete: the statement is finite)",
+      "id": "Q839",
+      "statement": "n^2 + n + 839 is prime for every integer 0 <= n <= 837",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..851 (complete: the statement is finite)",
+      "id": "Q853",
+      "statement": "n^2 + n + 853 is prime for every integer 0 <= n <= 851",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..855 (complete: the statement is finite)",
+      "id": "Q857",
+      "statement": "n^2 + n + 857 is prime for every integer 0 <= n <= 855",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..857 (complete: the statement is finite)",
+      "id": "Q859",
+      "statement": "n^2 + n + 859 is prime for every integer 0 <= n <= 857",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..861 (complete: the statement is finite)",
+      "id": "Q863",
+      "statement": "n^2 + n + 863 is prime for every integer 0 <= n <= 861",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..875 (complete: the statement is finite)",
+      "id": "Q877",
+      "statement": "n^2 + n + 877 is prime for every integer 0 <= n <= 875",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..879 (complete: the statement is finite)",
+      "id": "Q881",
+      "statement": "n^2 + n + 881 is prime for every integer 0 <= n <= 879",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..881 (complete: the statement is finite)",
+      "id": "Q883",
+      "statement": "n^2 + n + 883 is prime for every integer 0 <= n <= 881",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..885 (complete: the statement is finite)",
+      "id": "Q887",
+      "statement": "n^2 + n + 887 is prime for every integer 0 <= n <= 885",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..905 (complete: the statement is finite)",
+      "id": "Q907",
+      "statement": "n^2 + n + 907 is prime for every integer 0 <= n <= 905",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..909 (complete: the statement is finite)",
+      "id": "Q911",
+      "statement": "n^2 + n + 911 is prime for every integer 0 <= n <= 909",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..917 (complete: the statement is finite)",
+      "id": "Q919",
+      "statement": "n^2 + n + 919 is prime for every integer 0 <= n <= 917",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..927 (complete: the statement is finite)",
+      "id": "Q929",
+      "statement": "n^2 + n + 929 is prime for every integer 0 <= n <= 927",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..935 (complete: the statement is finite)",
+      "id": "Q937",
+      "statement": "n^2 + n + 937 is prime for every integer 0 <= n <= 935",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..939 (complete: the statement is finite)",
+      "id": "Q941",
+      "statement": "n^2 + n + 941 is prime for every integer 0 <= n <= 939",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..945 (complete: the statement is finite)",
+      "id": "Q947",
+      "statement": "n^2 + n + 947 is prime for every integer 0 <= n <= 945",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..951 (complete: the statement is finite)",
+      "id": "Q953",
+      "statement": "n^2 + n + 953 is prime for every integer 0 <= n <= 951",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..965 (complete: the statement is finite)",
+      "id": "Q967",
+      "statement": "n^2 + n + 967 is prime for every integer 0 <= n <= 965",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..969 (complete: the statement is finite)",
+      "id": "Q971",
+      "statement": "n^2 + n + 971 is prime for every integer 0 <= n <= 969",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..975 (complete: the statement is finite)",
+      "id": "Q977",
+      "statement": "n^2 + n + 977 is prime for every integer 0 <= n <= 975",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..981 (complete: the statement is finite)",
+      "id": "Q983",
+      "statement": "n^2 + n + 983 is prime for every integer 0 <= n <= 981",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..989 (complete: the statement is finite)",
+      "id": "Q991",
+      "statement": "n^2 + n + 991 is prime for every integer 0 <= n <= 989",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..995 (complete: the statement is finite)",
+      "id": "Q997",
+      "statement": "n^2 + n + 997 is prime for every integer 0 <= n <= 995",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1007 (complete: the statement is finite)",
+      "id": "Q1009",
+      "statement": "n^2 + n + 1009 is prime for every integer 0 <= n <= 1007",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1011 (complete: the statement is finite)",
+      "id": "Q1013",
+      "statement": "n^2 + n + 1013 is prime for every integer 0 <= n <= 1011",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1017 (complete: the statement is finite)",
+      "id": "Q1019",
+      "statement": "n^2 + n + 1019 is prime for every integer 0 <= n <= 1017",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1019 (complete: the statement is finite)",
+      "id": "Q1021",
+      "statement": "n^2 + n + 1021 is prime for every integer 0 <= n <= 1019",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1029 (complete: the statement is finite)",
+      "id": "Q1031",
+      "statement": "n^2 + n + 1031 is prime for every integer 0 <= n <= 1029",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1031 (complete: the statement is finite)",
+      "id": "Q1033",
+      "statement": "n^2 + n + 1033 is prime for every integer 0 <= n <= 1031",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1037 (complete: the statement is finite)",
+      "id": "Q1039",
+      "statement": "n^2 + n + 1039 is prime for every integer 0 <= n <= 1037",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1047 (complete: the statement is finite)",
+      "id": "Q1049",
+      "statement": "n^2 + n + 1049 is prime for every integer 0 <= n <= 1047",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1049 (complete: the statement is finite)",
+      "id": "Q1051",
+      "statement": "n^2 + n + 1051 is prime for every integer 0 <= n <= 1049",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1059 (complete: the statement is finite)",
+      "id": "Q1061",
+      "statement": "n^2 + n + 1061 is prime for every integer 0 <= n <= 1059",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1061 (complete: the statement is finite)",
+      "id": "Q1063",
+      "statement": "n^2 + n + 1063 is prime for every integer 0 <= n <= 1061",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1067 (complete: the statement is finite)",
+      "id": "Q1069",
+      "statement": "n^2 + n + 1069 is prime for every integer 0 <= n <= 1067",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1085 (complete: the statement is finite)",
+      "id": "Q1087",
+      "statement": "n^2 + n + 1087 is prime for every integer 0 <= n <= 1085",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 5,
+      "counterexample": 4,
+      "disagreements": [],
+      "domain": "0..1089 (complete: the statement is finite)",
+      "id": "Q1091",
+      "statement": "n^2 + n + 1091 is prime for every integer 0 <= n <= 1089",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1091 (complete: the statement is finite)",
+      "id": "Q1093",
+      "statement": "n^2 + n + 1093 is prime for every integer 0 <= n <= 1091",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1095 (complete: the statement is finite)",
+      "id": "Q1097",
+      "statement": "n^2 + n + 1097 is prime for every integer 0 <= n <= 1095",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1101 (complete: the statement is finite)",
+      "id": "Q1103",
+      "statement": "n^2 + n + 1103 is prime for every integer 0 <= n <= 1101",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1107 (complete: the statement is finite)",
+      "id": "Q1109",
+      "statement": "n^2 + n + 1109 is prime for every integer 0 <= n <= 1107",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1115 (complete: the statement is finite)",
+      "id": "Q1117",
+      "statement": "n^2 + n + 1117 is prime for every integer 0 <= n <= 1115",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1121 (complete: the statement is finite)",
+      "id": "Q1123",
+      "statement": "n^2 + n + 1123 is prime for every integer 0 <= n <= 1121",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1127 (complete: the statement is finite)",
+      "id": "Q1129",
+      "statement": "n^2 + n + 1129 is prime for every integer 0 <= n <= 1127",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1149 (complete: the statement is finite)",
+      "id": "Q1151",
+      "statement": "n^2 + n + 1151 is prime for every integer 0 <= n <= 1149",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1151 (complete: the statement is finite)",
+      "id": "Q1153",
+      "statement": "n^2 + n + 1153 is prime for every integer 0 <= n <= 1151",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1161 (complete: the statement is finite)",
+      "id": "Q1163",
+      "statement": "n^2 + n + 1163 is prime for every integer 0 <= n <= 1161",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1169 (complete: the statement is finite)",
+      "id": "Q1171",
+      "statement": "n^2 + n + 1171 is prime for every integer 0 <= n <= 1169",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1179 (complete: the statement is finite)",
+      "id": "Q1181",
+      "statement": "n^2 + n + 1181 is prime for every integer 0 <= n <= 1179",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1185 (complete: the statement is finite)",
+      "id": "Q1187",
+      "statement": "n^2 + n + 1187 is prime for every integer 0 <= n <= 1185",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1191 (complete: the statement is finite)",
+      "id": "Q1193",
+      "statement": "n^2 + n + 1193 is prime for every integer 0 <= n <= 1191",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1199 (complete: the statement is finite)",
+      "id": "Q1201",
+      "statement": "n^2 + n + 1201 is prime for every integer 0 <= n <= 1199",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1211 (complete: the statement is finite)",
+      "id": "Q1213",
+      "statement": "n^2 + n + 1213 is prime for every integer 0 <= n <= 1211",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1215 (complete: the statement is finite)",
+      "id": "Q1217",
+      "statement": "n^2 + n + 1217 is prime for every integer 0 <= n <= 1215",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1221 (complete: the statement is finite)",
+      "id": "Q1223",
+      "statement": "n^2 + n + 1223 is prime for every integer 0 <= n <= 1221",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1227 (complete: the statement is finite)",
+      "id": "Q1229",
+      "statement": "n^2 + n + 1229 is prime for every integer 0 <= n <= 1227",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1229 (complete: the statement is finite)",
+      "id": "Q1231",
+      "statement": "n^2 + n + 1231 is prime for every integer 0 <= n <= 1229",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1235 (complete: the statement is finite)",
+      "id": "Q1237",
+      "statement": "n^2 + n + 1237 is prime for every integer 0 <= n <= 1235",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1247 (complete: the statement is finite)",
+      "id": "Q1249",
+      "statement": "n^2 + n + 1249 is prime for every integer 0 <= n <= 1247",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1257 (complete: the statement is finite)",
+      "id": "Q1259",
+      "statement": "n^2 + n + 1259 is prime for every integer 0 <= n <= 1257",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 8,
+      "counterexample": 7,
+      "disagreements": [],
+      "domain": "0..1275 (complete: the statement is finite)",
+      "id": "Q1277",
+      "statement": "n^2 + n + 1277 is prime for every integer 0 <= n <= 1275",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1277 (complete: the statement is finite)",
+      "id": "Q1279",
+      "statement": "n^2 + n + 1279 is prime for every integer 0 <= n <= 1277",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1281 (complete: the statement is finite)",
+      "id": "Q1283",
+      "statement": "n^2 + n + 1283 is prime for every integer 0 <= n <= 1281",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1287 (complete: the statement is finite)",
+      "id": "Q1289",
+      "statement": "n^2 + n + 1289 is prime for every integer 0 <= n <= 1287",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1289 (complete: the statement is finite)",
+      "id": "Q1291",
+      "statement": "n^2 + n + 1291 is prime for every integer 0 <= n <= 1289",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1295 (complete: the statement is finite)",
+      "id": "Q1297",
+      "statement": "n^2 + n + 1297 is prime for every integer 0 <= n <= 1295",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..1299 (complete: the statement is finite)",
+      "id": "Q1301",
+      "statement": "n^2 + n + 1301 is prime for every integer 0 <= n <= 1299",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1301 (complete: the statement is finite)",
+      "id": "Q1303",
+      "statement": "n^2 + n + 1303 is prime for every integer 0 <= n <= 1301",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1305 (complete: the statement is finite)",
+      "id": "Q1307",
+      "statement": "n^2 + n + 1307 is prime for every integer 0 <= n <= 1305",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1317 (complete: the statement is finite)",
+      "id": "Q1319",
+      "statement": "n^2 + n + 1319 is prime for every integer 0 <= n <= 1317",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1319 (complete: the statement is finite)",
+      "id": "Q1321",
+      "statement": "n^2 + n + 1321 is prime for every integer 0 <= n <= 1319",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1325 (complete: the statement is finite)",
+      "id": "Q1327",
+      "statement": "n^2 + n + 1327 is prime for every integer 0 <= n <= 1325",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1359 (complete: the statement is finite)",
+      "id": "Q1361",
+      "statement": "n^2 + n + 1361 is prime for every integer 0 <= n <= 1359",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1365 (complete: the statement is finite)",
+      "id": "Q1367",
+      "statement": "n^2 + n + 1367 is prime for every integer 0 <= n <= 1365",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1371 (complete: the statement is finite)",
+      "id": "Q1373",
+      "statement": "n^2 + n + 1373 is prime for every integer 0 <= n <= 1371",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1379 (complete: the statement is finite)",
+      "id": "Q1381",
+      "statement": "n^2 + n + 1381 is prime for every integer 0 <= n <= 1379",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1397 (complete: the statement is finite)",
+      "id": "Q1399",
+      "statement": "n^2 + n + 1399 is prime for every integer 0 <= n <= 1397",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1407 (complete: the statement is finite)",
+      "id": "Q1409",
+      "statement": "n^2 + n + 1409 is prime for every integer 0 <= n <= 1407",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1421 (complete: the statement is finite)",
+      "id": "Q1423",
+      "statement": "n^2 + n + 1423 is prime for every integer 0 <= n <= 1421",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 6,
+      "counterexample": 5,
+      "disagreements": [],
+      "domain": "0..1425 (complete: the statement is finite)",
+      "id": "Q1427",
+      "statement": "n^2 + n + 1427 is prime for every integer 0 <= n <= 1425",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1427 (complete: the statement is finite)",
+      "id": "Q1429",
+      "statement": "n^2 + n + 1429 is prime for every integer 0 <= n <= 1427",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1431 (complete: the statement is finite)",
+      "id": "Q1433",
+      "statement": "n^2 + n + 1433 is prime for every integer 0 <= n <= 1431",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1437 (complete: the statement is finite)",
+      "id": "Q1439",
+      "statement": "n^2 + n + 1439 is prime for every integer 0 <= n <= 1437",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1445 (complete: the statement is finite)",
+      "id": "Q1447",
+      "statement": "n^2 + n + 1447 is prime for every integer 0 <= n <= 1445",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1449 (complete: the statement is finite)",
+      "id": "Q1451",
+      "statement": "n^2 + n + 1451 is prime for every integer 0 <= n <= 1449",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1451 (complete: the statement is finite)",
+      "id": "Q1453",
+      "statement": "n^2 + n + 1453 is prime for every integer 0 <= n <= 1451",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1457 (complete: the statement is finite)",
+      "id": "Q1459",
+      "statement": "n^2 + n + 1459 is prime for every integer 0 <= n <= 1457",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1469 (complete: the statement is finite)",
+      "id": "Q1471",
+      "statement": "n^2 + n + 1471 is prime for every integer 0 <= n <= 1469",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 5,
+      "counterexample": 4,
+      "disagreements": [],
+      "domain": "0..1479 (complete: the statement is finite)",
+      "id": "Q1481",
+      "statement": "n^2 + n + 1481 is prime for every integer 0 <= n <= 1479",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1481 (complete: the statement is finite)",
+      "id": "Q1483",
+      "statement": "n^2 + n + 1483 is prime for every integer 0 <= n <= 1481",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 5,
+      "counterexample": 4,
+      "disagreements": [],
+      "domain": "0..1485 (complete: the statement is finite)",
+      "id": "Q1487",
+      "statement": "n^2 + n + 1487 is prime for every integer 0 <= n <= 1485",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1487 (complete: the statement is finite)",
+      "id": "Q1489",
+      "statement": "n^2 + n + 1489 is prime for every integer 0 <= n <= 1487",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1491 (complete: the statement is finite)",
+      "id": "Q1493",
+      "statement": "n^2 + n + 1493 is prime for every integer 0 <= n <= 1491",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1497 (complete: the statement is finite)",
+      "id": "Q1499",
+      "statement": "n^2 + n + 1499 is prime for every integer 0 <= n <= 1497",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1509 (complete: the statement is finite)",
+      "id": "Q1511",
+      "statement": "n^2 + n + 1511 is prime for every integer 0 <= n <= 1509",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1521 (complete: the statement is finite)",
+      "id": "Q1523",
+      "statement": "n^2 + n + 1523 is prime for every integer 0 <= n <= 1521",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1529 (complete: the statement is finite)",
+      "id": "Q1531",
+      "statement": "n^2 + n + 1531 is prime for every integer 0 <= n <= 1529",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1541 (complete: the statement is finite)",
+      "id": "Q1543",
+      "statement": "n^2 + n + 1543 is prime for every integer 0 <= n <= 1541",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1547 (complete: the statement is finite)",
+      "id": "Q1549",
+      "statement": "n^2 + n + 1549 is prime for every integer 0 <= n <= 1547",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1551 (complete: the statement is finite)",
+      "id": "Q1553",
+      "statement": "n^2 + n + 1553 is prime for every integer 0 <= n <= 1551",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1557 (complete: the statement is finite)",
+      "id": "Q1559",
+      "statement": "n^2 + n + 1559 is prime for every integer 0 <= n <= 1557",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1565 (complete: the statement is finite)",
+      "id": "Q1567",
+      "statement": "n^2 + n + 1567 is prime for every integer 0 <= n <= 1565",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1569 (complete: the statement is finite)",
+      "id": "Q1571",
+      "statement": "n^2 + n + 1571 is prime for every integer 0 <= n <= 1569",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1577 (complete: the statement is finite)",
+      "id": "Q1579",
+      "statement": "n^2 + n + 1579 is prime for every integer 0 <= n <= 1577",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1581 (complete: the statement is finite)",
+      "id": "Q1583",
+      "statement": "n^2 + n + 1583 is prime for every integer 0 <= n <= 1581",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1595 (complete: the statement is finite)",
+      "id": "Q1597",
+      "statement": "n^2 + n + 1597 is prime for every integer 0 <= n <= 1595",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1599 (complete: the statement is finite)",
+      "id": "Q1601",
+      "statement": "n^2 + n + 1601 is prime for every integer 0 <= n <= 1599",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 7,
+      "counterexample": 6,
+      "disagreements": [],
+      "domain": "0..1605 (complete: the statement is finite)",
+      "id": "Q1607",
+      "statement": "n^2 + n + 1607 is prime for every integer 0 <= n <= 1605",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1607 (complete: the statement is finite)",
+      "id": "Q1609",
+      "statement": "n^2 + n + 1609 is prime for every integer 0 <= n <= 1607",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1611 (complete: the statement is finite)",
+      "id": "Q1613",
+      "statement": "n^2 + n + 1613 is prime for every integer 0 <= n <= 1611",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1617 (complete: the statement is finite)",
+      "id": "Q1619",
+      "statement": "n^2 + n + 1619 is prime for every integer 0 <= n <= 1617",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1619 (complete: the statement is finite)",
+      "id": "Q1621",
+      "statement": "n^2 + n + 1621 is prime for every integer 0 <= n <= 1619",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1625 (complete: the statement is finite)",
+      "id": "Q1627",
+      "statement": "n^2 + n + 1627 is prime for every integer 0 <= n <= 1625",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1635 (complete: the statement is finite)",
+      "id": "Q1637",
+      "statement": "n^2 + n + 1637 is prime for every integer 0 <= n <= 1635",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1655 (complete: the statement is finite)",
+      "id": "Q1657",
+      "statement": "n^2 + n + 1657 is prime for every integer 0 <= n <= 1655",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1661 (complete: the statement is finite)",
+      "id": "Q1663",
+      "statement": "n^2 + n + 1663 is prime for every integer 0 <= n <= 1661",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1665 (complete: the statement is finite)",
+      "id": "Q1667",
+      "statement": "n^2 + n + 1667 is prime for every integer 0 <= n <= 1665",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1667 (complete: the statement is finite)",
+      "id": "Q1669",
+      "statement": "n^2 + n + 1669 is prime for every integer 0 <= n <= 1667",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1691 (complete: the statement is finite)",
+      "id": "Q1693",
+      "statement": "n^2 + n + 1693 is prime for every integer 0 <= n <= 1691",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1695 (complete: the statement is finite)",
+      "id": "Q1697",
+      "statement": "n^2 + n + 1697 is prime for every integer 0 <= n <= 1695",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1697 (complete: the statement is finite)",
+      "id": "Q1699",
+      "statement": "n^2 + n + 1699 is prime for every integer 0 <= n <= 1697",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1707 (complete: the statement is finite)",
+      "id": "Q1709",
+      "statement": "n^2 + n + 1709 is prime for every integer 0 <= n <= 1707",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1719 (complete: the statement is finite)",
+      "id": "Q1721",
+      "statement": "n^2 + n + 1721 is prime for every integer 0 <= n <= 1719",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1721 (complete: the statement is finite)",
+      "id": "Q1723",
+      "statement": "n^2 + n + 1723 is prime for every integer 0 <= n <= 1721",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1731 (complete: the statement is finite)",
+      "id": "Q1733",
+      "statement": "n^2 + n + 1733 is prime for every integer 0 <= n <= 1731",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1739 (complete: the statement is finite)",
+      "id": "Q1741",
+      "statement": "n^2 + n + 1741 is prime for every integer 0 <= n <= 1739",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1745 (complete: the statement is finite)",
+      "id": "Q1747",
+      "statement": "n^2 + n + 1747 is prime for every integer 0 <= n <= 1745",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1751 (complete: the statement is finite)",
+      "id": "Q1753",
+      "statement": "n^2 + n + 1753 is prime for every integer 0 <= n <= 1751",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1757 (complete: the statement is finite)",
+      "id": "Q1759",
+      "statement": "n^2 + n + 1759 is prime for every integer 0 <= n <= 1757",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1775 (complete: the statement is finite)",
+      "id": "Q1777",
+      "statement": "n^2 + n + 1777 is prime for every integer 0 <= n <= 1775",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1781 (complete: the statement is finite)",
+      "id": "Q1783",
+      "statement": "n^2 + n + 1783 is prime for every integer 0 <= n <= 1781",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1785 (complete: the statement is finite)",
+      "id": "Q1787",
+      "statement": "n^2 + n + 1787 is prime for every integer 0 <= n <= 1785",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1787 (complete: the statement is finite)",
+      "id": "Q1789",
+      "statement": "n^2 + n + 1789 is prime for every integer 0 <= n <= 1787",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1799 (complete: the statement is finite)",
+      "id": "Q1801",
+      "statement": "n^2 + n + 1801 is prime for every integer 0 <= n <= 1799",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1809 (complete: the statement is finite)",
+      "id": "Q1811",
+      "statement": "n^2 + n + 1811 is prime for every integer 0 <= n <= 1809",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1821 (complete: the statement is finite)",
+      "id": "Q1823",
+      "statement": "n^2 + n + 1823 is prime for every integer 0 <= n <= 1821",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1829 (complete: the statement is finite)",
+      "id": "Q1831",
+      "statement": "n^2 + n + 1831 is prime for every integer 0 <= n <= 1829",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1845 (complete: the statement is finite)",
+      "id": "Q1847",
+      "statement": "n^2 + n + 1847 is prime for every integer 0 <= n <= 1845",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1859 (complete: the statement is finite)",
+      "id": "Q1861",
+      "statement": "n^2 + n + 1861 is prime for every integer 0 <= n <= 1859",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1865 (complete: the statement is finite)",
+      "id": "Q1867",
+      "statement": "n^2 + n + 1867 is prime for every integer 0 <= n <= 1865",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..1869 (complete: the statement is finite)",
+      "id": "Q1871",
+      "statement": "n^2 + n + 1871 is prime for every integer 0 <= n <= 1869",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1871 (complete: the statement is finite)",
+      "id": "Q1873",
+      "statement": "n^2 + n + 1873 is prime for every integer 0 <= n <= 1871",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1875 (complete: the statement is finite)",
+      "id": "Q1877",
+      "statement": "n^2 + n + 1877 is prime for every integer 0 <= n <= 1875",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1877 (complete: the statement is finite)",
+      "id": "Q1879",
+      "statement": "n^2 + n + 1879 is prime for every integer 0 <= n <= 1877",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1887 (complete: the statement is finite)",
+      "id": "Q1889",
+      "statement": "n^2 + n + 1889 is prime for every integer 0 <= n <= 1887",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1899 (complete: the statement is finite)",
+      "id": "Q1901",
+      "statement": "n^2 + n + 1901 is prime for every integer 0 <= n <= 1899",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1905 (complete: the statement is finite)",
+      "id": "Q1907",
+      "statement": "n^2 + n + 1907 is prime for every integer 0 <= n <= 1905",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1911 (complete: the statement is finite)",
+      "id": "Q1913",
+      "statement": "n^2 + n + 1913 is prime for every integer 0 <= n <= 1911",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1929 (complete: the statement is finite)",
+      "id": "Q1931",
+      "statement": "n^2 + n + 1931 is prime for every integer 0 <= n <= 1929",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1931 (complete: the statement is finite)",
+      "id": "Q1933",
+      "statement": "n^2 + n + 1933 is prime for every integer 0 <= n <= 1931",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 3,
+      "counterexample": 2,
+      "disagreements": [],
+      "domain": "0..1947 (complete: the statement is finite)",
+      "id": "Q1949",
+      "statement": "n^2 + n + 1949 is prime for every integer 0 <= n <= 1947",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1949 (complete: the statement is finite)",
+      "id": "Q1951",
+      "statement": "n^2 + n + 1951 is prime for every integer 0 <= n <= 1949",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1971 (complete: the statement is finite)",
+      "id": "Q1973",
+      "statement": "n^2 + n + 1973 is prime for every integer 0 <= n <= 1971",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1977 (complete: the statement is finite)",
+      "id": "Q1979",
+      "statement": "n^2 + n + 1979 is prime for every integer 0 <= n <= 1977",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1985 (complete: the statement is finite)",
+      "id": "Q1987",
+      "statement": "n^2 + n + 1987 is prime for every integer 0 <= n <= 1985",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1991 (complete: the statement is finite)",
+      "id": "Q1993",
+      "statement": "n^2 + n + 1993 is prime for every integer 0 <= n <= 1991",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 4,
+      "counterexample": 3,
+      "disagreements": [],
+      "domain": "0..1995 (complete: the statement is finite)",
+      "id": "Q1997",
+      "statement": "n^2 + n + 1997 is prime for every integer 0 <= n <= 1995",
+      "status": "REFUTED"
+    },
+    {
+      "checked": 2,
+      "counterexample": 1,
+      "disagreements": [],
+      "domain": "0..1997 (complete: the statement is finite)",
+      "id": "Q1999",
+      "statement": "n^2 + n + 1999 is prime for every integer 0 <= n <= 1997",
+      "status": "REFUTED"
+    }
+  ],
+  "meta": {
+    "env": {
+      "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+      "python": "3.13.18"
+    },
+    "finished_at": "2026-11-22T07:22:52+00:00",
+    "git_commit": "890b845333717f97fd066c2c8b709eec2801e539",
+    "started_at": "2026-11-22T07:22:52+00:00"
+  },
+  "params": {
+    "p_max": 2000,
+    "use_network": true
+  },
+  "task": "R-001"
+}
