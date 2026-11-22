@@ -34,7 +34,8 @@ def cmd_run(args) -> int:
     db.add_result(run_id, "aggregate", result["aggregate"]["status"], result["aggregate"])
     db.finish_run(run_id)
     db.set_task_status(mod.TASK_ID, "done")
-    meta = {"git_commit": commit, "env": records.environment(), "started_at": started, "finished_at": now()}
+    meta = {"git_commit": commit, "env": records.environment(), "started_at": started, "finished_at": now(),
+            "provenance": records.provenance(params)}
     result["meta"] = meta
     path = records.write_record(run_id, result, mod.report_markdown(run_id, result, meta))
     db.log(run_id, f"record written to {path.name}")
