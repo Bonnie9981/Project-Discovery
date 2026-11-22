@@ -8,7 +8,7 @@
 - 要能用自己的話說出證明大意：奇數寬度是「Pascal 三角形 mod 2 在環上移動的窗口」，偶數寬度是「單點出發時規則 26 等於規則 90，再對折成零邊界導線」。編輯可能會追問。
 
 證明連結（合併後有效）：
-https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a334504.pdf
+https://github.com/Bonnie9981/Project-Discovery/raw/main/paper/a334504.pdf
 
 ---
 
@@ -23,7 +23,7 @@ The two formulas conjectured above, a(2*n+1) = (2*n+1) * 2^A070939(n) and a(2*n+
 **LINKS**：加一行
 
 ```
-Chi Hsia, <a href="https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a334504.pdf">Proof of the formulas for a(2n+1) and a(2n+2)</a>, 2026. Proof and Lean 4 formalization generated with an LLM (Claude) and machine-checked; see the acknowledgements.
+Chi Hsia, <a href="https://github.com/Bonnie9981/Project-Discovery/raw/main/paper/a334504.pdf">Proof of the formulas for a(2n+1) and a(2n+2)</a>, 2026. Proof and Lean 4 formalization generated with an LLM (Claude) and machine-checked; see the acknowledgements.
 ```
 
 **COMMENTS**（可選，簡短說明證明想法）：
