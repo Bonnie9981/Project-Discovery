@@ -65,7 +65,7 @@ OEIS 原文依據：`records/DISC-0008/search_evidence.jsonl` 的 S002（A334504
 |---|---|---|
 | `pas` 和 C(t, j) mod 2 | 說明 | Lean 的 `pas` 用 Pascal 遞迴定義，沒有證明它等於 `Nat.choose t j % 2`（core 沒有 `Nat.choose`）。主定理不提 `pas`，不受影響；論文 Discussion 已明寫 |
 | `iter` 方向 | ✓ | `iter w (k+1) x = iter w k (step w x)`，`iter_succ'` 證明也等於 `step w (iter w k x)` |
-| 偶數證明的 Lean 檔已合併、CI 通過 | ✓ | PR 17 合併為 main 的 b481f0f；head 上 Lean build（含公理稽核）run 45021537194、測試 run 45021533388 都通過。獨立審查判定 PROVEN_KNOWN（records/DISC-0009/review.md） |
+| 偶數證明的 Lean 檔已合併、CI 通過 | ✓ | PR 17 合併為 main 的 b481f0f；CI 在 PR head e9ef507 上通過：Lean build（含公理稽核）run 45021537194、測試 run 45021533388（審查者另行核對 run 45021537194 = success、commit e9ef507）。獨立審查判定 PROVEN_KNOWN（records/DISC-0009/review.md） |
 | 奇數證明的 CI | ✓ | run 45017724157（commit af98758），含公理稽核 |
 | 論文、Lean、CI 對應同一 commit | **待辦** | 目前兩個 Lean 檔都在 main b481f0f；對外發布前把最終 commit hash 寫進論文 |
 
@@ -73,9 +73,9 @@ OEIS 原文依據：`records/DISC-0008/search_evidence.jsonl` 的 S002（A334504
 
 | 項目 | 結果 |
 |---|---|
-| Martin–Odlyzko–Wolfram 1984 中規則 18 的奇偶化約（ChatGPT 指出） | **待辦**：讀原文確認寫法再引用 |
+| Martin–Odlyzko–Wolfram 1984 中規則 18 的奇偶化約（ChatGPT 指出） | **待辦**：讀原文前論文不點名，只寫「很可能不是新的」 |
 | OEIS A160657 的 2019 評論（矩形振盪器 → Rule 90 導線） | **待辦**：讀條目原文 |
 | 反射技巧（對稱環 ↔ 零邊界導線）的可引用出處 | **待辦**：DISC-0009 critic 指出不能直接歸給 MOW 1984；論文目前寫「標準技巧，自行證明，不指名出處」 |
-| 規則 26 單點圖樣在直線上和規則 90 相同的出處（NKS 哪一頁） | **待辦** |
-| 猜想提出者姓名拼法（紀錄寫 Zabolotskii，論文寫 Zabolotskiy） | **待辦**：照 OEIS 原文 |
+| 規則 26 單點圖樣在直線上和規則 90 相同 | ✓ 論文改成一行自證（規則 90 單點各列沒有相鄰活格，110 不出現），不再引用 NKS |
+| 猜想提出者姓名拼法 | ✓ 照紀錄 DISC-0008 S002 寫 Zabolotskii |
 | MathSciNet、zbMATH、Google Scholar、math-fun 郵件列表 | **待辦**：都還沒查 |

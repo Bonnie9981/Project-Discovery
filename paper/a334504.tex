@@ -35,8 +35,8 @@ explicitly as a window of Pascal's triangle modulo~$2$ drifting around the
 ring. For even $w = 2m \ge 4$ we show that from time~$1$ on, the orbit is a
 mirror-symmetric embedding of the orbit of a single end cell under rule~90 on
 a segment of $m-1$ cells with null boundaries, which is the system whose
-period A268754 records. Both results have been checked in the Lean~4 proof
-assistant.
+period A268754 records. The main statements of both results have been
+checked in the Lean~4 proof assistant.
 \end{abstract}
 
 \section{Introduction}
@@ -44,14 +44,15 @@ assistant.
 Rule~26 is the elementary cellular automaton whose new cell value is~$1$
 exactly when the neighbourhood (left, centre, right) is $100$, $011$ or $001$.
 It is not additive, but started from a single live cell on the infinite line
-it draws the same Sierpi\'nski pattern as the additive rule~90, a fact that is
-well known (see e.g.\ Wolfram's \emph{A New Kind of Science}). On a finite
+it draws the same Sierpi\'nski pattern as the additive rule~90: no row of the
+rule-90 pattern has two adjacent live cells, so the neighbourhood $110$, the
+only one on which the two rules differ, never occurs. On a finite
 cyclic lattice the two rules differ, because the pattern wraps around and
 meets itself.
 
 OEIS A334504 lists the eventual period $a(w)$ of a single cell under rule~26
 on a cyclic lattice of width~$w$. Its FORMULA field records two conjectures
-(A.~Zabolotskiy, 2024): for $n \ge 1$,
+(A.~Zabolotskii, 2024): for $n \ge 1$,
 \begin{equation}\label{eq:conj}
 a(2n+1) = (2n+1)\,2^{A070939(n)}, \qquad a(2n+2) = A268754(n),
 \end{equation}
@@ -59,9 +60,9 @@ where $A070939(n)$ is the number of binary digits of~$n$ and $A268754(n)$ is
 the period of the $n \times 1$ oscillator in the Life-like rule B1/S, whose
 OEIS program iterates rule~90 on $n$ cells with null boundaries from a single
 end cell. The cross-reference in A268754 likewise only says that it
-``seems to be'' a shifted bisection of A334504. We have not found a proof of
-either formula in the literature we searched (OEIS, arXiv, OpenAlex; see
-Section~\ref{sec:discussion}).
+``seems to be'' a shifted bisection of A334504 and A334507. We have not found
+a proof of either formula in the limited search described in
+Section~\ref{sec:discussion}.
 
 Since $A070939(n) = \lfloor \log_2 n \rfloor + 1 = \lfloor \log_2 (2n+1) \rfloor$
 for $n \ge 1$, the first formula is the case $w = 2n+1$ of
@@ -131,8 +132,8 @@ time~$t$, so it suffices to show
 \[
 f\big(Y_t(s-2),\,Y_t(s-1),\,Y_t(s)\big) = Y_{t+1}(s) \qquad (\text{indices mod } w).
 \]
-Because $w \ge 3$, the values $0,1,2$ are distinct mod~$w$ and the following
-four cases are exhaustive.
+The following four cases cover every $s$ (the assumption $w \ge 3$ makes
+$i-1$, $i$, $i+1$ three distinct cells).
 \begin{enumerate}
 \item $s \ge 2$ even, $s = 2j+2$. The arguments are $(b_t(j), 0, b_t(j+1))$.
   With centre~$0$, $f(l,0,r) = l \oplus r$, so the value is
@@ -165,7 +166,7 @@ that is also the one formalised. From $(1+X)^{2a} = (1+X^2)^a$ in $\F_2[X]$,
 $b_{2a}(2c) = b_a(c)$ and $b_{2a}(2c+1) = 0$; also $b_t(1) = t \bmod 2$.
 (a) Induction on~$m$: write $t = 2a$ with $2^{m-1} \mid a$. Odd $j$ give
 $b_t(j) = 0$, and $j = 2j'$ gives $b_t(j) = b_a(j')$ with $0 < j' < 2^{m-1}$.
-(b) Take $v = v_2(t) < m$: writing $t = 2^{v} u$ with $u$ odd, repeated use of
+(b) Here $t > 0$; take $v = v_2(t) < m$: writing $t = 2^{v} u$ with $u$ odd, repeated use of
 $b_{2a}(2c) = b_a(c)$ gives $b_t(2^{v}) = b_u(1) = 1$.
 \end{proof}
 
@@ -233,7 +234,10 @@ check $F(x) = E(y')$ cell by cell. Cell~$0$ sees $y(0)$ on both sides (cells
 $2m-1$ and~$1$), giving~$0$; cell~$m$ likewise sees $y(m-2)$ twice. For
 $0 < i < m$ the left neighbour is $y(i-2)$ (or the dead cell~$0$ when $i = 1$)
 and the right neighbour is $y(i)$ (or the dead cell~$m$ when $i = m-1$, which
-matches $y(n) = 0$), so $F(x)(i) = y'(i-1)$. The right half is the mirror image.
+matches $y(n) = 0$), so $F(x)(i) = y'(i-1)$. For the right half, note that on these states the
+local rule is $l \oplus r$, which is symmetric in $l$ and $r$, and that $E(y)$
+is invariant under the reflection $i \mapsto -i$ of the ring; hence $F(x)$ is
+invariant too and the right half follows from the left.
 
 \emph{First step.} $x_1 = F(e_0)$ has live cells exactly $1$ and $2m-1$
 (neighbourhoods $100$ and $001$), which is $E(e_0)$ because $m \ge 2$.
@@ -251,11 +255,10 @@ $t \ge T$, which gives the claims.
 The formulas~\eqref{eq:conj} are not ours; they were conjectured in OEIS
 A334504. The ingredients of the proofs are classical: the Sierpi\'nski pattern
 of rule~26 on the line, Lucas' theorem, the periods of rule~90, and the
-reflection trick relating null and cyclic boundaries. The device of reducing a
-non-additive rule to rule~90 on states with parity-separated support also has
-precedents (Martin, Odlyzko and Wolfram treat rule~18 this way, and a 2019
-comment in OEIS A160657 reduces oscillators of a Life-like rule to finite
-rule-90 wires).% TODO(verify): read MOW 1984 Sec. on rule 18 and the A160657 comment before release.
+reflection trick relating null and cyclic boundaries. Reducing a non-additive
+rule to rule~90 on states with parity-separated support is very likely not new
+either; we have not yet checked specific earlier instances.
+% TODO(verify): possible precedents to read before release: Martin-Odlyzko-Wolfram 1984 on rule 18; a 2019 comment in OEIS A160657.
 The reflection between a symmetric cyclic configuration of length $2n+2$ and a
 null-boundary configuration of length~$n$ is a standard device for linear
 automata; we prove the instance we need directly and do not attribute it.
@@ -266,10 +269,13 @@ analysis, the exact return-time characterisation for odd widths, and the
 explicit orbit embedding for even widths. We do not claim more.
 
 \paragraph{Literature search.}
-We searched OEIS (A334504, A268754 and sequence searches), arXiv and OpenAlex
-in November 2026 and found no proof of either formula. MathSciNet, zbMATH,
-Google Scholar and the math-fun mailing list where the sequence originated
-have not yet been searched; a proof may exist that was not reported to OEIS.
+In November 2026 we read the OEIS entries A334504 and A268754 in full, ran
+OEIS sequence searches, one arXiv keyword search (\texttt{"rule 26" AND
+cellular}, one unrelated hit) and one OpenAlex full-text search (top 8 titles
+read), all for the odd case; for the even case only the two OEIS entries were
+read. None of this found a proof. MathSciNet, zbMATH, Google Scholar and
+mailing-list archives have not been searched, so a proof may exist that was
+not reported to OEIS.
 
 \paragraph{Formal verification.}
 Both theorems are formalised in Lean~4 (core library only, no
@@ -290,8 +296,9 @@ Theorem~\ref{thm:even} that the ring transient is one more than the wire
 transient is derived on paper from the two formal facts
 $x_{s+1} = x_{t+1} \iff y_s = y_t$ and $x_{t+1} \ne x_0$; (iii) the identification of the Lean
 definitions with the OEIS definitions is by inspection and numerical
-cross-checks (independent simulations agree with the formulas for odd
-$w \le 129$ and with A268754 for $n \le 40$). The audit is recorded in
+cross-checks (two simulations in the proof's check script agree with the
+odd-width formula for $w \le 129$; two independently written simulations agree
+with A268754 for $n \le 40$). The audit is recorded in
 \texttt{paper/spec\_audit.md}.
 
 \paragraph{Use of AI.}
@@ -306,11 +313,6 @@ responsible for the final text. A detailed log is in the repository.
   Encyclopedia of Integer Sequences}, \url{https://oeis.org/A334504}.
 \bibitem{oeis268754} OEIS Foundation, Sequence A268754,
   \url{https://oeis.org/A268754}.
-\bibitem{oeis160657} OEIS Foundation, Sequence A160657,
-  \url{https://oeis.org/A160657}.
-\bibitem{mow} O.~Martin, A.~M.~Odlyzko, S.~Wolfram, Algebraic properties of
-  cellular automata, \emph{Comm. Math. Phys.} 93 (1984), 219--258.
-\bibitem{nks} S.~Wolfram, \emph{A New Kind of Science}, Wolfram Media, 2002.
 \end{thebibliography}
 
 \end{document}
