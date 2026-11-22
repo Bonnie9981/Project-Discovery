@@ -3,7 +3,8 @@ import Mathlib
 /-!
 # R-001 formal results (DISC-0002)
 
-Family: for a prime `p`, the statement `Q p` says `n^2 + n + p` is prime for all `n ≤ p - 2`.
+Context (not formalised here): for a prime `p`, Q_p says `n^2 + n + p` is prime for all `n ≤ p - 2`.
+The theorems below are H1 (boundary), H2 (Euler's 40 primes) and H3 (failure at n = 40).
 -/
 
 namespace Discovery.R001

@@ -52,7 +52,8 @@ def h3() -> dict:
     v = 40 * 40 + 40 + 41
     return {"id": "H3", "statement": "40^2+40+41 is not prime",
             "value": v, "trial": is_prime_trial(v), "mr": is_prime_mr(v),
-            "status": "REFUTED_EXTENSION" if not is_prime_trial(v) and not is_prime_mr(v) else "INCONCLUSIVE"}
+            "status": verify.SUPPORTED_IN_RANGE if not is_prime_trial(v) and not is_prime_mr(v)
+            else verify.REFUTED if is_prime_trial(v) and is_prime_mr(v) else verify.INCONCLUSIVE}
 
 
 def main(N: int = 10_000) -> dict:
