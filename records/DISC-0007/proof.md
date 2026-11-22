@@ -122,7 +122,7 @@ C01（DISC-0006）：σ(σ_odd(n)) = σ_odd(σ(n)) ⇔ n 是奇平方數。原�
 
 ### 編譯結果
 
-本機編譯，沒有跑 CI。工具鏈為 Lean 4.15.0 + Mathlib v4.15.0（從原始碼建置；這次另外建置了 `Mathlib.Tactic.NormNum.Prime`，`Build completed successfully.`）。先以 `lake env lean --root=<dir> -o <dir>/Discovery/SigmaOdd.olean SigmaOdd.lean` 產生依賴，再對 `SigmaOddExt.lean` 執行 `lean`：0 錯誤、0 警告，約 8 秒。把 `#check_discovery_axioms` 接在檔尾後執行，得到 `THEOREM_COUNT 45`（SigmaOdd 加 SigmaOddExt），全部只用 `propext`、`Classical.choice`、`Quot.sound`，沒有 `sorryAx`，也沒有 `Lean.ofReduceBool`。`grep` 沒有找到 `sorry`、`admit`、`native_decide` 或 `axiom`。`lean/Discovery.lean` 已加上 `import Discovery.SigmaOddExt`，但整個 `Discovery` 的 `lake build` 沒有在本機跑過。**CI：通過。** https://github.com/Bonnie9981/Project-Discovery/actions/runs/45014862688（commit 57ec73d，匯入 SigmaOddExt，全環境 AxiomCheck）。
+本機編譯後已推上 GitHub 跑 CI（連結見本段末）。工具鏈為 Lean 4.15.0 + Mathlib v4.15.0（從原始碼建置；這次另外建置了 `Mathlib.Tactic.NormNum.Prime`，`Build completed successfully.`）。先以 `lake env lean --root=<dir> -o <dir>/Discovery/SigmaOdd.olean SigmaOdd.lean` 產生依賴，再對 `SigmaOddExt.lean` 執行 `lean`：0 錯誤、0 警告，約 8 秒。把 `#check_discovery_axioms` 接在檔尾後執行，得到 `THEOREM_COUNT 45`（SigmaOdd 加 SigmaOddExt），全部只用 `propext`、`Classical.choice`、`Quot.sound`，沒有 `sorryAx`，也沒有 `Lean.ofReduceBool`。`grep` 沒有找到 `sorry`、`admit`、`native_decide` 或 `axiom`。`lean/Discovery.lean` 已加上 `import Discovery.SigmaOddExt`，但整個 `Discovery` 的 `lake build` 沒有在本機跑過。**CI：通過。** https://github.com/Bonnie9981/Project-Discovery/actions/runs/45014862688（commit 57ec73d，匯入 SigmaOddExt，全環境 AxiomCheck）。
 
 ### 敘述差異
 

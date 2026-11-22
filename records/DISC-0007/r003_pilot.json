@@ -1,7 +1,7 @@
 {
  "meta": {
   "python": "3.13.18",
-  "commit": "8ff88e6",
+  "commit": "407efb9",
   "W0": 5,
   "W_FIT": 22,
   "W_CHECK": 30,
@@ -43,7 +43,8 @@
   "leads": 150,
   "mirror_reps": 82,
   "nontrivial": 9,
-  "nontrivial_unreduced": 0
+  "nontrivial_unreduced": 0,
+  "partial_unanalysed": 24
  },
  "leads": [
   {
@@ -853,7 +854,7 @@
      "2*1(w-1)-2"
     ]
    },
-   "reduction": "differs from 26 only on 111, never visited: same single-seed orbit as 26"
+   "reduction": "for w >= 2: differs from 26 only on 111, never visited, so same single-seed orbit as 26 (fails at w = 1)"
   },
   {
    "rule": 155,
@@ -1056,7 +1057,7 @@
      "2*1(w-1)-1"
     ]
    },
-   "reduction": "one step gives NOT(seed); NOT F167(s) = F26(NOT s), so (T,P)167 = (T26 + 1, P26)"
+   "reduction": "for w >= 4: one step gives NOT(seed); NOT F167(s) = F26(NOT s), so (T,P)167 = (T26 + 1, P26) (fails at w = 1, 2, 3)"
   },
   {
    "rule": 170,
@@ -1430,6 +1431,296 @@
      "1*n((w+1)/2)-1",
      "1*n((w-1)/2)+0",
      "0.5*n(w+1)-1"
+    ]
+   }
+  }
+ ],
+ "partial_leads_unanalysed": [
+  {
+   "rule": 18,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "2*2^sord2-1((w+1)/2)+0",
+     "2*2^sord2-1(w+1)+0"
+    ],
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ]
+   }
+  },
+  {
+   "rule": 22,
+   "quantity": "T",
+   "modulus": 4,
+   "classes": {
+    "0": [
+     "0.5*v2pow(w)+0",
+     "1*v2pow(w/2)+0"
+    ],
+    "3": [
+     "1*v2pow((w+1)/2)+0",
+     "0.5*v2pow(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 26,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ]
+   }
+  },
+  {
+   "rule": 90,
+   "quantity": "P",
+   "modulus": 2,
+   "classes": {
+    "1": [
+     "1*2^sord2-1(w)+0"
+    ]
+   }
+  },
+  {
+   "rule": 90,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "1*2^sord2-1(w)+0"
+    ],
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ],
+    "3": [
+     "1*2^sord2-1(w)+0"
+    ]
+   }
+  },
+  {
+   "rule": 105,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ],
+    "3": [
+     "2*2^sord2-1(w)+0"
+    ]
+   }
+  },
+  {
+   "rule": 122,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "2*2^sord2-1((w+1)/2)+0",
+     "2*2^sord2-1(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 126,
+   "quantity": "T",
+   "modulus": 2,
+   "classes": {
+    "1": [
+     "1*v2pow((w+1)/2)+0",
+     "0.5*v2pow(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 126,
+   "quantity": "T",
+   "modulus": 4,
+   "classes": {
+    "3": [
+     "1*v2pow((w+1)/2)+0",
+     "0.5*v2pow(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 126,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "2*2^sord2-1((w+1)/2)+0",
+     "2*2^sord2-1(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 129,
+   "quantity": "T",
+   "modulus": 4,
+   "classes": {
+    "3": [
+     "1*v2pow((w+1)/2)+0",
+     "0.5*v2pow(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 129,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "2*2^sord2-1((w+1)/2)+0",
+     "2*2^sord2-1(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 146,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "2*2^sord2-1((w+1)/2)+0",
+     "2*2^sord2-1(w+1)+0"
+    ],
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ]
+   }
+  },
+  {
+   "rule": 150,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "3": [
+     "1*2^sord2-1(w)+0"
+    ]
+   }
+  },
+  {
+   "rule": 154,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ]
+   }
+  },
+  {
+   "rule": 161,
+   "quantity": "T",
+   "modulus": 4,
+   "classes": {
+    "3": [
+     "1*v2pow((w+1)/2)+0",
+     "0.5*v2pow(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 161,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "2*2^sord2-1((w+1)/2)+0",
+     "2*2^sord2-1(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 165,
+   "quantity": "P",
+   "modulus": 2,
+   "classes": {
+    "1": [
+     "1*2^sord2-1(w)+0"
+    ]
+   }
+  },
+  {
+   "rule": 165,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "1*2^sord2-1(w)+0"
+    ],
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ],
+    "3": [
+     "1*2^sord2-1(w)+0"
+    ]
+   }
+  },
+  {
+   "rule": 167,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
+    ]
+   }
+  },
+  {
+   "rule": 182,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "1": [
+     "2*2^sord2-1((w+1)/2)+0",
+     "2*2^sord2-1(w+1)+0"
+    ]
+   }
+  },
+  {
+   "rule": 218,
+   "quantity": "T",
+   "modulus": 2,
+   "classes": {
+    "0": [
+     "0.5*v2pow(w)+0",
+     "1*v2pow(w/2)+0"
+    ]
+   }
+  },
+  {
+   "rule": 218,
+   "quantity": "T",
+   "modulus": 4,
+   "classes": {
+    "0": [
+     "0.5*v2pow(w)+0",
+     "1*v2pow(w/2)+0"
+    ]
+   }
+  },
+  {
+   "rule": 218,
+   "quantity": "P",
+   "modulus": 4,
+   "classes": {
+    "2": [
+     "2*2^sord2-1(w)+0",
+     "2*2^sord2-1(w/2)+0"
     ]
    }
   }
