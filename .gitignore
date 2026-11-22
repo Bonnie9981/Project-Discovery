@@ -6,3 +6,4 @@ discovery.db
 data/oeis/raw/
 data/oeis/index/
 lean/axioms.txt
+logs/
