@@ -1,0 +1,16 @@
+name: lean
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+          use-mathlib-cache: true
+          build-args: "--log-level=warning"
+      - name: Reject unfinished proofs
+        run: |
+          if grep -rnE '\b(sorry|admit)\b|^\s*axiom ' lean/Discovery lean/Discovery.lean; then
+            echo "sorry/admit/axiom found"; exit 1; fi
