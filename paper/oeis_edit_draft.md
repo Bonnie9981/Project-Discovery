@@ -23,7 +23,7 @@ The two formulas conjectured above, a(2*n+1) = (2*n+1) * 2^A070939(n) and a(2*n+
 **LINKS**：加一行
 
 ```
-Chi Hsia, <a href="https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a334504.pdf">Proof of the formulas for a(2n+1) and a(2n+2)</a>, 2026. Includes a Lean 4 formalization.
+Chi Hsia, <a href="https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a334504.pdf">Proof of the formulas for a(2n+1) and a(2n+2)</a>, 2026. Proof and Lean 4 formalization generated with an LLM (Claude) and machine-checked; see the acknowledgements.
 ```
 
 **COMMENTS**（可選，簡短說明證明想法）：
