@@ -16,7 +16,7 @@ theorem boundary_eq (p : ℕ) (hp : 1 ≤ p) : (p - 1) ^ 2 + (p - 1) + p = p ^ 2
   ring
 
 /-- So no `p ≥ 2` can make `n^2 + n + p` prime at `n = p - 1`:
-the range `n ≤ p - 2` in `Q p` is the longest possible. -/
+the range `n ≤ p - 2` in Q_p is the longest possible. -/
 theorem boundary_not_prime (p : ℕ) (hp : 2 ≤ p) :
     ¬ Nat.Prime ((p - 1) ^ 2 + (p - 1) + p) := by
   rw [boundary_eq p (by omega)]
