@@ -1,6 +1,6 @@
-# DISC-0008 證明草稿：R3-L01（規則 26，奇數寬度環，單一種子的週期）
+# DISC-0008 證明：R3-L01（規則 26，奇數寬度環，單一種子的週期）
 
-狀態：**紙上證明完整；Lean 一般性證明（所有奇數 w ≥ 3，非有限範圍）本機編譯通過，0 錯誤 0 警告，未跑 CI。** 依規則，CI 的 `lean` 工作通過之前不算「已證明」。
+狀態：**紙上證明完整；Lean 一般性證明（所有奇數 w ≥ 3，非有限範圍）本機編譯 0 錯誤 0 警告，GitHub CI `lean` 工作（含公理稽核）已通過：run 45017724157。**
 
 ## 敘述
 
@@ -102,6 +102,8 @@ $ python3 research/r003/l01_check.py 129      # 約 17 秒
 OK: odd 3 <= w <= 129: ...（同上）
 ```
 
+（腳本輸出中的「Lemma 3」指引理 1 歸納步驟裡的局部一步：在窗口座標 s′ 下，對所有 s′ ∈ [0, w)、t ≤ 64 窮舉。）
+
 ## 定理對照
 
 | 猜想／引理 | Lean 定理 | 檔案 |
@@ -138,7 +140,7 @@ theorem rule26_odd_period (w : Nat) (hw : w % 2 = 1) (h3 : 3 ≤ w) :
 4. `grep` 沒有 `sorry`、`admit`、`axiom` 宣告；沒有用 `native_decide`（只在檔頭註解裡出現這個字）。
 5. `lean/Discovery.lean` 已加上 `import Discovery.Rule26`。整個 `Discovery` 的 `lake build`、完整 `AxiomCheck.lean` 沒有在本機跑（`Smoke.lean` 等需要完整 Mathlib，cache 主機被擋）。新檔命名空間 `Discovery.Rule26` 與 `Discovery.Rule54` 的 `step`、`iter` 不衝突。
 
-CI：尚未執行（本輪不 commit、不 push）。
+**CI：通過。** https://github.com/Bonnie9981/Project-Discovery/actions/runs/45017724157（commit af98758，`lean/Discovery.lean` 匯入 Rule26，全環境 AxiomCheck）。
 
 ## 敘述差異
 
@@ -150,7 +152,7 @@ CI：尚未執行（本輪不 commit、不 push）。
 
 ## 誠實說明／缺口
 
-- 一般證明在紙上和 Lean 都已完整（對所有奇數 w ≥ 3）；唯一未完成的是 **CI 執行**，在 CI `lean` 工作通過前依規則不算「已證明」。
+- 一般證明在紙上和 Lean 都已完整（對所有奇數 w ≥ 3）；CI `lean` 工作已通過（run 45017724157）。
 - 規則 26 ↔ impl_b 的對應見上（閱讀＋抽查），與 Rule54.lean 的作法相同。
-- 新穎性：`NOT_CHECKED`。封閉形式本質上是「Pascal 三角形 mod 2 截在漂移窗口內」，很可能在 Wolfram 一派的文獻或 OEIS 中以別的形式出現過；本輪沒有查文獻。
+- 新穎性：見 literature.md。公式本身已在 OEIS A334504 以猜想形式出現（「It seems that」），條目沒有證明；證明在查過的範圍內沒有找到。
 - 提示中「規則 26 與 90 差在 011」不正確，實際差在 110；「軌道不含 11」對奇數 w 不正確（只對偶數 w 正確）。
