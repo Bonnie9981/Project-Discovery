@@ -46,9 +46,8 @@ def run(p_max: int = 2000, use_network: bool = True) -> dict:
         aggregate_status = verify.REFUTED
     elif nov.known:
         aggregate_status = verify.SUPPORTED_KNOWN
-    elif nov.known is False:
-        aggregate_status = verify.SUPPORTED_POSSIBLY_NEW
     else:
+        # No match (or no source) is never "possibly new": that needs human review (RESEARCH_STANDARDS 1b).
         aggregate_status = verify.SUPPORTED_NOVELTY_UNCHECKED
 
     return {
@@ -115,6 +114,7 @@ def report_markdown(run_id: str, result: dict, meta: dict) -> str:
         "",
         "## 4. 新穎性檢查",
         "",
+        f"- 新穎性狀態：`{nov.get('status')}`",
         f"- 已查來源：{nov.get('sources_checked')}",
         f"- 查詢失敗：{nov.get('sources_failed')}",
     ]

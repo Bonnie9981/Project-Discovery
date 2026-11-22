@@ -31,17 +31,8 @@ FULL_SECTIONS = {
 
 
 def lean_theorems() -> set[str]:
-    names: set[str] = set()
-    for f in LEAN.rglob("*.lean"):
-        if ".lake" in f.parts:
-            continue
-        text = f.read_text(encoding="utf-8")
-        ns = re.findall(r"^namespace\s+(\S+)", text, re.M)
-        for n in re.findall(r"^theorem\s+(\S+)", text, re.M):
-            names.add(n)
-            if ns:
-                names.add(f"{ns[0]}.{n}")
-    return names
+    from discovery.lean_decls import source_theorems
+    return set(source_theorems(LEAN))
 
 
 def lean_has_sorry() -> list[str]:
@@ -96,8 +87,41 @@ def check(d: Path) -> list[str]:
             errs.append(f"{d.name}: PROVEN status but no lean_theorems listed")
         for f in lean_has_sorry():
             errs.append(f"{f}: contains sorry/admit")
+    cited = m.get("lean_theorems", [])
+    proof = d / "proof.md"
+    if cited and proof.exists():
+        text = proof.read_text(encoding="utf-8")
+        table = text.split("## 定理對照", 1)[-1].split("\n## ", 1)[0]
+        for t in cited:
+            if t not in table:
+                errs.append(f"{d.name}: Lean theorem {t} is cited but has no row in proof.md '## 定理對照'")
+    errs += _novelty_errors(d.name, m)
     if m.get("reviewer") and m.get("reviewer") in m.get("authors", []):
         errs.append(f"{d.name}: reviewer must be independent of authors")
+    return errs
+
+
+def _novelty_errors(name: str, m: dict) -> list[str]:
+    """RESEARCH_STANDARDS 1b: no-match is never novelty; NOVELTY_* needs a named human reviewer."""
+    from discovery import novelty as nv
+    errs = []
+    nov = m.get("novelty") or {}
+    st = nov.get("status")
+    if st is not None and st not in nv.NOVELTY_STATUSES:
+        errs.append(f"{name}: illegal novelty status {st}")
+    if str(m.get("status", "")).endswith("POSSIBLY_NEW") and st not in (
+            nv.PENDING_REVIEW, nv.NOVELTY_SUPPORTED, nv.NOVELTY_CONFIRMED):
+        errs.append(f"{name}: *_POSSIBLY_NEW needs novelty.status PENDING_REVIEW or later, got {st}")
+    if st in nv.HUMAN_ONLY_STATUSES:
+        who = nov.get("reviewed_by")
+        if not who:
+            errs.append(f"{name}: novelty {st} needs novelty.reviewed_by (a human)")
+        elif who in m.get("authors", []) or who == m.get("reviewer"):
+            errs.append(f"{name}: novelty reviewer {who} must not be an author or the AI reviewer")
+        if not nov.get("evidence"):
+            errs.append(f"{name}: novelty {st} needs novelty.evidence (search evidence ids)")
+    if st == nv.NOVELTY_CONFIRMED and not nov.get("expert"):
+        errs.append(f"{name}: NOVELTY_CONFIRMED needs novelty.expert (independent domain expert)")
     return errs
 
 

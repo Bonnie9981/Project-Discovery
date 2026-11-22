@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(sudo:*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Edit(./records/DISC-0001/**)",
+      "Edit(./records/DISC-0002/**)",
+      "Edit(./data/oeis/raw/**)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(pip install:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(gh:*)",
+      "WebFetch"
+    ]
+  }
+}

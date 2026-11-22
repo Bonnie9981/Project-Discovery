@@ -14,5 +14,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m pytest -q
       - run: python -m discovery.check_record
+      - run: python -m discovery.independence
+      - run: python -m discovery.evidence check
       - name: Reproduce DISC-0001 conclusion
         run: python -m discovery --db /tmp/ci.db run R-001 --offline | tee out.txt && grep -q "SUPPORTED_KNOWN  sequence=\[2, 3, 5, 11, 17, 41\]" out.txt

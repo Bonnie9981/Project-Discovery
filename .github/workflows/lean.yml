@@ -23,7 +23,7 @@ jobs:
       - name: Check axioms used by every theorem
         run: |
           cd lean
-          lake env lean AxiomCheck.lean | tee axioms.txt
-          test "$(grep -c "depends on axioms\|does not depend on any axioms" axioms.txt)" -eq 5
-          if grep -oE "axioms: \[[^]]*\]" axioms.txt | tr -d '[]' | tr ',' '\n' | sed 's/.*axioms: //' | tr -d ' ' | grep -vxE 'propext|Classical.choice|Quot.sound|'; then
-            echo "non-standard axiom used"; exit 1; fi
+          lake env lean AxiomCheck.lean 2>&1 | tee axioms.txt
+          test "${PIPESTATUS[0]}" -eq 0
+      - name: Every source theorem was axiom-checked
+        run: python3 -m discovery.lean_decls lean/axioms.txt

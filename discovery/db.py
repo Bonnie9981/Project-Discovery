@@ -2,6 +2,9 @@
 
 Results and events cannot be updated or deleted: SQLite triggers reject it.
 This is how "failed results are never overwritten" is enforced, not just promised.
+
+Tasks and runs are mutable *operational state* (status, finished_at). Every change
+to them is also written to the append-only events table, so their history is kept.
 """
 from __future__ import annotations
 
@@ -79,7 +82,7 @@ class DB:
         self.conn.execute(
             "UPDATE tasks SET status=?, updated_at=? WHERE id=?", (status, now(), task_id)
         )
-        self.conn.commit()
+        self.log(None, f"task {task_id} status -> {status}")
 
     def pending_tasks(self) -> list[sqlite3.Row]:
         """Tasks to resume: queued, or left 'running' by an interrupted session."""
@@ -107,7 +110,7 @@ class DB:
 
     def finish_run(self, run_id: str) -> None:
         self.conn.execute("UPDATE runs SET finished_at=? WHERE id=?", (now(), run_id))
-        self.conn.commit()
+        self.log(run_id, "run finished")
 
     def runs(self) -> list[sqlite3.Row]:
         return list(self.conn.execute("SELECT * FROM runs ORDER BY id"))
