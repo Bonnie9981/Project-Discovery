@@ -7,3 +7,4 @@ import Discovery.Rule54
 import Discovery.RadSigmaIff
 import Discovery.SigmaOddExt
 import Discovery.Rule26
+import Discovery.Rule26Even
