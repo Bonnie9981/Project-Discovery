@@ -2,7 +2,7 @@
   "id": "DISC-0009",
   "line": "R-003",
   "title": "Phase 2：規則 26 在偶數寬度環上的週期等於零邊界規則 90（OEIS A334504 偶數項猜想）",
-  "status": "INCONCLUSIVE",
+  "status": "PROVEN_KNOWN",
   "authors": [
     "orchestrator"
   ],
@@ -19,7 +19,7 @@
   ],
   "candidates": {
     "R3-L02": {
-      "status": "INCONCLUSIVE",
+      "status": "PROVEN_KNOWN",
       "proof": "paper proof and Lean proof for all m >= 2 (rule26_even_eventual_period); numeric check n <= 40 with two independent simulations against OEIS A268754 data"
     }
   },
