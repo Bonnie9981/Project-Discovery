@@ -66,7 +66,7 @@ Lean 檔案：`lean/Discovery/SigmaOdd.lean`（C01）、`lean/Discovery/RadSigma
 - `python -m discovery.lean_decls` 的原始碼解析列出同樣的 35 個新定理。
 - `grep -nE '\b(sorry|admit)\b|^\s*axiom '` 對新檔無輸出。
 
-**未做的事：** 沒有在 repo 的 `lean/` 專案內跑完整的 `lake build`（需要整個 Mathlib，本機無 cache）；`lean/Discovery.lean` 匯入三個新模組的那一步沒有本機編譯。新檔只 import Mathlib 模組、命名空間各自獨立（`Discovery.SigmaOdd`、`Discovery.RadSigma`、`Discovery.Rule54`），預期不衝突，但「已證明」須以 CI `lean` 工作通過為準。CI 連結：待推送後補上。
+**未做的事：** 沒有在 repo 的 `lean/` 專案內跑完整的 `lake build`（需要整個 Mathlib，本機無 cache）；`lean/Discovery.lean` 匯入三個新模組的那一步沒有本機編譯。新檔只 import Mathlib 模組、命名空間各自獨立（`Discovery.SigmaOdd`、`Discovery.RadSigma`、`Discovery.Rule54`），預期不衝突，但「已證明」須以 CI `lean` 工作通過為準。CI 連結：https://github.com/Bonnie9981/Project-Discovery/actions/runs/45011976606（lean 工作通過，見下方「GitHub CI」一行）。
 
 ## 敘述差異
 
