@@ -21,7 +21,7 @@
   "candidates": {
     "A071052-even": {
       "status": "PROVEN_KNOWN",
-      "proof": "Lean (core only) for every n >= 0: a071052_double. Two steps of Rule 150 on a configuration dilated to even cells equal one step then dilation (GF(2) Frobenius), so row 2n = row n dilated; the ON count is unchanged (A071053(2n) = A071053(n), already in A071053's FORMULA) and the window grows by 2n zeros. Numeric check by two implementations for n <= 2000 and against the 67 DATA terms."
+      "proof": "Lean (core only) for every n >= 0: a071052_double. Two steps of Rule 150 on a configuration dilated to even cells equal one step then dilation (GF(2) Frobenius), so row 2n = row n dilated; the ON count is unchanged (A071053(2n) = A071053(n), already in A071053's FORMULA) and the window grows by 2n zeros. Numeric check: two algorithms in one script (simulation, GF(2) powers) for n <= 2000 incl. cell-by-cell doubling, against the 67 DATA terms (copied from the live entry 2026-11-22), plus an independent critic script (Lucas parity) for n <= 3000."
     }
   },
   "novelty": {
