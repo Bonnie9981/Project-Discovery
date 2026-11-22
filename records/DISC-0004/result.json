@@ -1,0 +1,5410 @@
+{
+ "id": "DISC-0004",
+ "params": {
+  "n": 10000,
+  "m": 50000,
+  "n_big": 1000000
+ },
+ "library": {
+  "one": {
+   "definition": "1 for all n",
+   "oeis": "A000012"
+  },
+  "id": {
+   "definition": "n",
+   "oeis": "A000027"
+  },
+  "d": {
+   "definition": "number of positive divisors of n",
+   "oeis": "A000005"
+  },
+  "d_odd": {
+   "definition": "number of odd positive divisors of n",
+   "oeis": "A001227"
+  },
+  "sigma": {
+   "definition": "sum of positive divisors of n",
+   "oeis": "A000203"
+  },
+  "sigma2": {
+   "definition": "sum of squares of positive divisors of n",
+   "oeis": "A001157"
+  },
+  "sigma_odd": {
+   "definition": "sum of odd positive divisors of n",
+   "oeis": "A000593"
+  },
+  "phi": {
+   "definition": "Euler totient: #{1<=k<=n : gcd(k,n)=1}",
+   "oeis": "A000010"
+  },
+  "psi": {
+   "definition": "Dedekind psi: n * prod_{p|n} (1 + 1/p)",
+   "oeis": "A001615"
+  },
+  "J2": {
+   "definition": "Jordan totient J_2: n^2 * prod_{p|n} (1 - 1/p^2)",
+   "oeis": "A007434"
+  },
+  "omega": {
+   "definition": "number of distinct primes dividing n (omega(1)=0)",
+   "oeis": "A001221"
+  },
+  "Omega": {
+   "definition": "number of prime factors of n with multiplicity (Omega(1)=0)",
+   "oeis": "A001222"
+  },
+  "mu": {
+   "definition": "Moebius function",
+   "oeis": "A008683"
+  },
+  "liouville": {
+   "definition": "Liouville lambda: (-1)^Omega(n)",
+   "oeis": "A008836"
+  },
+  "rad": {
+   "definition": "product of distinct primes dividing n (rad(1)=1)",
+   "oeis": "A007947"
+  },
+  "core": {
+   "definition": "squarefree part: n divided by its largest square divisor",
+   "oeis": "A007913"
+  },
+  "carmichael": {
+   "definition": "Carmichael lambda: exponent of the group (Z/nZ)^*; lambda(1)=lambda(2)=1",
+   "oeis": "A002322"
+  },
+  "sopf": {
+   "definition": "sum of distinct primes dividing n (sopf(1)=0)",
+   "oeis": "A008472"
+  },
+  "sopfr": {
+   "definition": "sum of prime factors of n with multiplicity (sopfr(1)=0)",
+   "oeis": "A001414"
+  },
+  "gpf": {
+   "definition": "greatest prime factor of n, gpf(1)=1",
+   "oeis": "A006530"
+  },
+  "lpf": {
+   "definition": "least prime factor of n, lpf(1)=1",
+   "oeis": "A020639"
+  },
+  "usigma": {
+   "definition": "sum of unitary divisors d of n (gcd(d, n/d) = 1)",
+   "oeis": "A034448"
+  },
+  "d_unitary": {
+   "definition": "number of unitary divisors of n = 2^omega(n)",
+   "oeis": "A034444"
+  },
+  "d_square": {
+   "definition": "number of square divisors of n",
+   "oeis": "A046951"
+  },
+  "r2": {
+   "definition": "#{(x,y) in Z^2 : x^2+y^2 = n}",
+   "oeis": "A004018"
+  },
+  "r3": {
+   "definition": "#{(x,y,z) in Z^3 : x^2+y^2+z^2 = n}",
+   "oeis": "A005875"
+  },
+  "r4": {
+   "definition": "#{(x,y,z,w) in Z^4 : x^2+y^2+z^2+w^2 = n}",
+   "oeis": "A000118"
+  }
+ },
+ "base_mismatch_a_vs_b": [],
+ "dropped": {
+  "out_of_range": 42,
+  "disagree": 0
+ },
+ "n_sequences": 210,
+ "sequence_oeis_status": {
+  "definitional": 38,
+  "none": 119,
+  "cross": 53
+ },
+ "n_leads": 150,
+ "lead_kinds": {
+  "equality_set": 37,
+  "fixed_points": 21,
+  "bound_with_exceptions": 27,
+  "inequality_with_exceptions": 1,
+  "residue_with_exceptions": 60,
+  "inequality": 4
+ },
+ "leads": [
+  {
+   "id": "E-psi(sigma(n))=sigma(psi(n))",
+   "kind": "equality_set",
+   "statement": "{n : psi(sigma(n)) = sigma(psi(n))}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A087250"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 617,
+    "first": [
+     1,
+     2,
+     5,
+     13,
+     26,
+     29,
+     37,
+     41,
+     61,
+     73,
+     74,
+     101,
+     109,
+     113,
+     122,
+     137,
+     146,
+     157,
+     173,
+     181,
+     193,
+     218,
+     229,
+     257,
+     277,
+     281,
+     313,
+     314,
+     317,
+     353,
+     362,
+     373,
+     386,
+     389,
+     397,
+     401,
+     409,
+     416,
+     421,
+     433
+    ]
+   }
+  },
+  {
+   "id": "E-rad(sigma(n))=sigma(rad(n))",
+   "kind": "equality_set",
+   "statement": "{n : rad(sigma(n)) = sigma(rad(n))}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A087250"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 616,
+    "first": [
+     1,
+     2,
+     5,
+     13,
+     26,
+     29,
+     37,
+     41,
+     61,
+     73,
+     74,
+     101,
+     109,
+     113,
+     122,
+     137,
+     146,
+     157,
+     173,
+     181,
+     193,
+     218,
+     229,
+     257,
+     277,
+     281,
+     313,
+     314,
+     317,
+     353,
+     362,
+     373,
+     386,
+     389,
+     397,
+     401,
+     409,
+     416,
+     421,
+     433
+    ]
+   }
+  },
+  {
+   "id": "E-sigma(sigma_odd(n))=sigma_odd(sigma(n))",
+   "kind": "equality_set",
+   "statement": "{n : sigma(sigma_odd(n)) = sigma_odd(sigma(n))}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A016754"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 50,
+    "first": [
+     1,
+     9,
+     25,
+     49,
+     81,
+     121,
+     169,
+     225,
+     289,
+     361,
+     441,
+     529,
+     625,
+     729,
+     841,
+     961,
+     1089,
+     1225,
+     1369,
+     1521,
+     1681,
+     1849,
+     2025,
+     2209,
+     2401,
+     2601,
+     2809,
+     3025,
+     3249,
+     3481,
+     3721,
+     3969,
+     4225,
+     4489,
+     4761,
+     5041,
+     5329,
+     5625,
+     5929,
+     6241
+    ]
+   }
+  },
+  {
+   "id": "E-core(usigma(n))=usigma(core(n))",
+   "kind": "equality_set",
+   "statement": "{n : core(usigma(n)) = usigma(core(n))}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A065301",
+    "A087250"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 607,
+    "first": [
+     1,
+     2,
+     5,
+     13,
+     26,
+     29,
+     37,
+     41,
+     61,
+     73,
+     74,
+     101,
+     109,
+     113,
+     122,
+     137,
+     146,
+     157,
+     173,
+     181,
+     193,
+     218,
+     229,
+     257,
+     277,
+     281,
+     313,
+     314,
+     317,
+     353,
+     362,
+     373,
+     386,
+     389,
+     397,
+     401,
+     409,
+     421,
+     433,
+     457
+    ]
+   }
+  },
+  {
+   "id": "F-sopf(rad(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : sopf(rad(n)) = n}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000040",
+    "A008578",
+    "A094742",
+    "A100726",
+    "A158611"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 1229,
+    "first": [
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173
+    ]
+   }
+  },
+  {
+   "id": "F-lpf(rad(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : lpf(rad(n)) = n}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A008578",
+    "A094742",
+    "A158611",
+    "A324050",
+    "A352190"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 1230,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167
+    ]
+   }
+  },
+  {
+   "id": "F-sopf(core(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : sopf(core(n)) = n}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000040",
+    "A008578",
+    "A094742",
+    "A100726",
+    "A158611"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 1229,
+    "first": [
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173
+    ]
+   }
+  },
+  {
+   "id": "F-lpf(core(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : lpf(core(n)) = n}",
+   "score": 60,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A008578",
+    "A094742",
+    "A158611",
+    "A324050",
+    "A352190"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30"
+   ],
+   "data": {
+    "count": 1230,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167
+    ]
+   }
+  },
+  {
+   "id": "E-gpf(phi(n))=phi(gpf(n))",
+   "kind": "equality_set",
+   "statement": "{n : gpf(phi(n)) = phi(gpf(n))}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A098011"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 14,
+    "first": [
+     1,
+     2,
+     3,
+     6,
+     12,
+     24,
+     48,
+     96,
+     192,
+     384,
+     768,
+     1536,
+     3072,
+     6144
+    ]
+   }
+  },
+  {
+   "id": "E-gpf(psi(n))=psi(gpf(n))",
+   "kind": "equality_set",
+   "statement": "{n : gpf(psi(n)) = psi(gpf(n))}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000079",
+    "A011782",
+    "A034008",
+    "A050732",
+    "A118655"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 14,
+    "first": [
+     1,
+     2,
+     4,
+     8,
+     16,
+     32,
+     64,
+     128,
+     256,
+     512,
+     1024,
+     2048,
+     4096,
+     8192
+    ]
+   }
+  },
+  {
+   "id": "E-gpf(sigma_odd(n))=sigma_odd(gpf(n))",
+   "kind": "equality_set",
+   "statement": "{n : gpf(sigma_odd(n)) = sigma_odd(gpf(n))}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000079",
+    "A011782",
+    "A034008",
+    "A050732",
+    "A118655"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 14,
+    "first": [
+     1,
+     2,
+     4,
+     8,
+     16,
+     32,
+     64,
+     128,
+     256,
+     512,
+     1024,
+     2048,
+     4096,
+     8192
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(gpf(n))=gpf(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(gpf(n)) = gpf(carmichael(n))}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A098011"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 14,
+    "first": [
+     1,
+     2,
+     3,
+     6,
+     12,
+     24,
+     48,
+     96,
+     192,
+     384,
+     768,
+     1536,
+     3072,
+     6144
+    ]
+   }
+  },
+  {
+   "id": "F-sopfr(rad(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : sopfr(rad(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000040",
+    "A008578",
+    "A094742",
+    "A100726",
+    "A158611"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1229,
+    "first": [
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173
+    ]
+   }
+  },
+  {
+   "id": "F-gpf(rad(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : gpf(rad(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A008578",
+    "A094742",
+    "A158611",
+    "A324050",
+    "A352190"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1230,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167
+    ]
+   }
+  },
+  {
+   "id": "F-sopfr(core(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : sopfr(core(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000040",
+    "A008578",
+    "A094742",
+    "A100726",
+    "A158611"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1229,
+    "first": [
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173
+    ]
+   }
+  },
+  {
+   "id": "F-gpf(core(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : gpf(core(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A008578",
+    "A094742",
+    "A158611",
+    "A324050",
+    "A352190"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1230,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167
+    ]
+   }
+  },
+  {
+   "id": "F-rad(gpf(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : rad(gpf(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A008578",
+    "A094742",
+    "A158611",
+    "A324050",
+    "A352190"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1230,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167
+    ]
+   }
+  },
+  {
+   "id": "F-core(gpf(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : core(gpf(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A008578",
+    "A094742",
+    "A158611",
+    "A324050",
+    "A352190"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1230,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167
+    ]
+   }
+  },
+  {
+   "id": "F-sopf(gpf(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : sopf(gpf(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000040",
+    "A008578",
+    "A094742",
+    "A100726",
+    "A158611"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1229,
+    "first": [
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173
+    ]
+   }
+  },
+  {
+   "id": "F-sopfr(gpf(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : sopfr(gpf(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A000040",
+    "A008578",
+    "A094742",
+    "A100726",
+    "A158611"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1229,
+    "first": [
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173
+    ]
+   }
+  },
+  {
+   "id": "F-lpf(gpf(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : lpf(gpf(n)) = n}",
+   "score": 55,
+   "oeis_kind": "cross",
+   "oeis": [
+    "A008578",
+    "A094742",
+    "A158611",
+    "A324050",
+    "A352190"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "set/sequence matches an OEIS entry defined differently +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1230,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167
+    ]
+   }
+  },
+  {
+   "id": "B-sigma2(phi(n))>=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sigma2(phi(n)) >= n for all n except [2, 6] (n <= 10000)",
+   "score": 40,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     6
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-sigma_odd(phi(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sigma_odd(phi(n)) <= n for all n except [8191] (n <= 10000)",
+   "score": 40,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10"
+   ],
+   "data": {
+    "exceptions": [
+     8191
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-J2(phi(n))>=n",
+   "kind": "bound_with_exceptions",
+   "statement": "J2(phi(n)) >= n for all n except [2, 4, 6] (n <= 10000)",
+   "score": 40,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     6
+    ],
+    "equal_count": 3
+   }
+  },
+  {
+   "id": "B-sopf(psi(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopf(psi(n)) <= n for all n except [2, 4] (n <= 10000)",
+   "score": 40,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-lpf(psi(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "lpf(psi(n)) <= n for all n except [2] (n <= 10000)",
+   "score": 40,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10"
+   ],
+   "data": {
+    "exceptions": [
+     2
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-sigma_odd(carmichael(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sigma_odd(carmichael(n)) <= n for all n except [8191] (n <= 10000)",
+   "score": 40,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10"
+   ],
+   "data": {
+    "exceptions": [
+     8191
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-gpf(psi(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "gpf(psi(n)) <= n for all n except [2] (n <= 10000)",
+   "score": 35,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-sigma(d(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sigma(d(n)) <= n for all n except [2, 6] (n <= 10000)",
+   "score": 35,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     6
+    ],
+    "equal_count": 4
+   }
+  },
+  {
+   "id": "B-psi(d(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "psi(d(n)) <= n for all n except [2] (n <= 10000)",
+   "score": 35,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2
+    ],
+    "equal_count": 5
+   }
+  },
+  {
+   "id": "B-usigma(d(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "usigma(d(n)) <= n for all n except [2] (n <= 10000)",
+   "score": 35,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2
+    ],
+    "equal_count": 4
+   }
+  },
+  {
+   "id": "E-core(sigma(n))=sigma(core(n))",
+   "kind": "equality_set",
+   "statement": "{n : core(sigma(n)) = sigma(core(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 622,
+    "first": [
+     1,
+     2,
+     5,
+     13,
+     26,
+     29,
+     37,
+     41,
+     61,
+     73,
+     74,
+     81,
+     101,
+     109,
+     113,
+     122,
+     137,
+     146,
+     157,
+     162,
+     173,
+     181,
+     193,
+     218,
+     229,
+     257,
+     277,
+     281,
+     313,
+     314,
+     317,
+     353,
+     362,
+     373,
+     386,
+     389,
+     397,
+     400,
+     401,
+     405
+    ]
+   }
+  },
+  {
+   "id": "I-phi(d(n))<=d(phi(n))",
+   "kind": "inequality_with_exceptions",
+   "statement": "phi(d(n)) <= d(phi(n)) for all n except n in [120, 240, 840, 960, 1320, 1920, 2040, 2760, 3264, 3840, 4080, 5640, 6528, 6720, 7080, 7560, 7680, 8160, 9960] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind inequality_with_exceptions +35",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     120,
+     240,
+     840,
+     960,
+     1320,
+     1920,
+     2040,
+     2760,
+     3264,
+     3840,
+     4080,
+     5640,
+     6528,
+     6720,
+     7080,
+     7560,
+     7680,
+     8160,
+     9960
+    ],
+    "equal_count": 25
+   }
+  },
+  {
+   "id": "E-core(psi(n))=psi(core(n))",
+   "kind": "equality_set",
+   "statement": "{n : core(psi(n)) = psi(core(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 672,
+    "first": [
+     1,
+     2,
+     5,
+     8,
+     13,
+     26,
+     29,
+     32,
+     37,
+     41,
+     61,
+     73,
+     74,
+     101,
+     104,
+     109,
+     113,
+     122,
+     125,
+     128,
+     137,
+     146,
+     157,
+     173,
+     181,
+     193,
+     218,
+     229,
+     257,
+     277,
+     281,
+     296,
+     313,
+     314,
+     317,
+     353,
+     362,
+     373,
+     386,
+     389
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(psi(n))=psi(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(psi(n)) = psi(carmichael(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 152,
+    "first": [
+     1,
+     10,
+     20,
+     30,
+     40,
+     72,
+     140,
+     144,
+     216,
+     220,
+     288,
+     312,
+     364,
+     396,
+     432,
+     455,
+     460,
+     550,
+     576,
+     648,
+     770,
+     780,
+     828,
+     852,
+     864,
+     888,
+     910,
+     936,
+     940,
+     1026,
+     1036,
+     1040,
+     1100,
+     1152,
+     1176,
+     1188,
+     1295,
+     1296,
+     1392,
+     1533
+    ]
+   }
+  },
+  {
+   "id": "E-psi(rad(n))=rad(psi(n))",
+   "kind": "equality_set",
+   "statement": "{n : psi(rad(n)) = rad(psi(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 766,
+    "first": [
+     1,
+     2,
+     5,
+     13,
+     26,
+     29,
+     37,
+     41,
+     52,
+     61,
+     73,
+     74,
+     101,
+     104,
+     109,
+     113,
+     122,
+     137,
+     146,
+     148,
+     157,
+     173,
+     181,
+     193,
+     208,
+     218,
+     229,
+     244,
+     257,
+     277,
+     281,
+     292,
+     296,
+     313,
+     314,
+     317,
+     353,
+     362,
+     373,
+     386
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(rad(n))=rad(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(rad(n)) = rad(carmichael(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 2306,
+    "first": [
+     1,
+     2,
+     3,
+     6,
+     7,
+     11,
+     12,
+     14,
+     21,
+     22,
+     23,
+     24,
+     28,
+     31,
+     33,
+     42,
+     43,
+     44,
+     46,
+     47,
+     48,
+     56,
+     59,
+     62,
+     63,
+     66,
+     67,
+     69,
+     71,
+     77,
+     79,
+     83,
+     84,
+     86,
+     88,
+     92,
+     93,
+     94,
+     96,
+     103
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(core(n))=core(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(core(n)) = core(carmichael(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 2218,
+    "first": [
+     1,
+     2,
+     3,
+     6,
+     7,
+     11,
+     12,
+     14,
+     16,
+     21,
+     22,
+     23,
+     24,
+     27,
+     28,
+     31,
+     33,
+     42,
+     43,
+     44,
+     46,
+     47,
+     54,
+     56,
+     59,
+     62,
+     63,
+     64,
+     66,
+     67,
+     69,
+     71,
+     77,
+     79,
+     83,
+     84,
+     86,
+     88,
+     92,
+     93
+    ]
+   }
+  },
+  {
+   "id": "E-phi(sigma_odd(n))=sigma_odd(phi(n))",
+   "kind": "equality_set",
+   "statement": "{n : phi(sigma_odd(n)) = sigma_odd(phi(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 83,
+    "first": [
+     1,
+     2,
+     4,
+     7,
+     8,
+     14,
+     16,
+     28,
+     29,
+     32,
+     56,
+     58,
+     64,
+     109,
+     112,
+     116,
+     128,
+     218,
+     224,
+     232,
+     256,
+     349,
+     436,
+     448,
+     464,
+     497,
+     509,
+     512,
+     698,
+     817,
+     872,
+     896,
+     928,
+     994,
+     1018,
+     1021,
+     1024,
+     1396,
+     1633,
+     1634
+    ]
+   }
+  },
+  {
+   "id": "E-rad(sigma_odd(n))=sigma_odd(rad(n))",
+   "kind": "equality_set",
+   "statement": "{n : rad(sigma_odd(n)) = sigma_odd(rad(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 1012,
+    "first": [
+     1,
+     2,
+     4,
+     5,
+     8,
+     10,
+     13,
+     16,
+     20,
+     26,
+     29,
+     32,
+     37,
+     40,
+     41,
+     52,
+     58,
+     61,
+     64,
+     73,
+     74,
+     80,
+     82,
+     101,
+     104,
+     109,
+     113,
+     116,
+     122,
+     128,
+     137,
+     146,
+     148,
+     157,
+     160,
+     164,
+     173,
+     181,
+     193,
+     202
+    ]
+   }
+  },
+  {
+   "id": "E-core(sigma_odd(n))=sigma_odd(core(n))",
+   "kind": "equality_set",
+   "statement": "{n : core(sigma_odd(n)) = sigma_odd(core(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 1041,
+    "first": [
+     1,
+     2,
+     4,
+     5,
+     8,
+     10,
+     13,
+     16,
+     20,
+     26,
+     29,
+     32,
+     37,
+     40,
+     41,
+     52,
+     58,
+     61,
+     64,
+     73,
+     74,
+     80,
+     81,
+     82,
+     101,
+     104,
+     109,
+     113,
+     116,
+     122,
+     128,
+     137,
+     146,
+     148,
+     157,
+     160,
+     162,
+     164,
+     173,
+     181
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(sigma_odd(n))=sigma_odd(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(sigma_odd(n)) = sigma_odd(carmichael(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 195,
+    "first": [
+     1,
+     2,
+     4,
+     8,
+     16,
+     32,
+     35,
+     41,
+     55,
+     64,
+     70,
+     82,
+     89,
+     110,
+     115,
+     123,
+     128,
+     140,
+     164,
+     178,
+     205,
+     220,
+     230,
+     235,
+     246,
+     256,
+     267,
+     279,
+     280,
+     328,
+     356,
+     410,
+     429,
+     440,
+     451,
+     460,
+     470,
+     492,
+     512,
+     521
+    ]
+   }
+  },
+  {
+   "id": "E-sigma(usigma(n))=usigma(sigma(n))",
+   "kind": "equality_set",
+   "statement": "{n : sigma(usigma(n)) = usigma(sigma(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 677,
+    "first": [
+     1,
+     2,
+     5,
+     13,
+     26,
+     29,
+     37,
+     41,
+     45,
+     61,
+     73,
+     74,
+     101,
+     109,
+     113,
+     117,
+     122,
+     137,
+     146,
+     157,
+     173,
+     181,
+     193,
+     218,
+     224,
+     229,
+     234,
+     257,
+     277,
+     281,
+     313,
+     314,
+     317,
+     333,
+     353,
+     362,
+     369,
+     373,
+     386,
+     389
+    ]
+   }
+  },
+  {
+   "id": "E-phi(usigma(n))=usigma(phi(n))",
+   "kind": "equality_set",
+   "statement": "{n : phi(usigma(n)) = usigma(phi(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 9,
+    "first": [
+     1,
+     36,
+     258,
+     294,
+     710,
+     882,
+     3110,
+     3954,
+     8196
+    ]
+   }
+  },
+  {
+   "id": "E-psi(usigma(n))=usigma(psi(n))",
+   "kind": "equality_set",
+   "statement": "{n : psi(usigma(n)) = usigma(psi(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 726,
+    "first": [
+     1,
+     2,
+     5,
+     12,
+     13,
+     26,
+     29,
+     36,
+     37,
+     41,
+     61,
+     73,
+     74,
+     101,
+     104,
+     109,
+     113,
+     117,
+     122,
+     137,
+     146,
+     157,
+     172,
+     173,
+     181,
+     193,
+     218,
+     229,
+     257,
+     268,
+     277,
+     281,
+     289,
+     296,
+     313,
+     314,
+     317,
+     333,
+     353,
+     362
+    ]
+   }
+  },
+  {
+   "id": "E-rad(usigma(n))=usigma(rad(n))",
+   "kind": "equality_set",
+   "statement": "{n : rad(usigma(n)) = usigma(rad(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 649,
+    "first": [
+     1,
+     2,
+     5,
+     8,
+     13,
+     26,
+     29,
+     37,
+     41,
+     61,
+     73,
+     74,
+     101,
+     104,
+     109,
+     113,
+     122,
+     137,
+     146,
+     157,
+     173,
+     181,
+     193,
+     218,
+     229,
+     257,
+     277,
+     281,
+     296,
+     313,
+     314,
+     317,
+     353,
+     362,
+     373,
+     386,
+     389,
+     397,
+     401,
+     409
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(usigma(n))=usigma(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(usigma(n)) = usigma(carmichael(n))}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30"
+   ],
+   "data": {
+    "count": 40,
+    "first": [
+     1,
+     72,
+     88,
+     180,
+     504,
+     616,
+     712,
+     856,
+     890,
+     1184,
+     1288,
+     1640,
+     2013,
+     2024,
+     2135,
+     2136,
+     2632,
+     2670,
+     2982,
+     3552,
+     3608,
+     3843,
+     4026,
+     4094,
+     4136,
+     4168,
+     4270,
+     4402,
+     5210,
+     5467,
+     5551,
+     5920,
+     5992,
+     6300,
+     7686,
+     8052,
+     8540,
+     8648,
+     9416,
+     9798
+    ]
+   }
+  },
+  {
+   "id": "B-carmichael(sigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "carmichael(sigma(n)) <= n for all n except [4, 9, 16, 25, 64, 81, 289, 324, 400, 729, 1681, 2401, 3481, 4096, 5041, 5184, 7921] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     4,
+     9,
+     16,
+     25,
+     64,
+     81,
+     289,
+     324,
+     400,
+     729,
+     1681,
+     2401,
+     3481,
+     4096,
+     5041,
+     5184,
+     7921
+    ],
+    "equal_count": 2
+   }
+  },
+  {
+   "id": "B-sopf(sigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopf(sigma(n)) <= n for all n except [2, 4, 9, 16, 25, 64, 289, 729, 1681, 2401, 3481, 4096, 5041, 7921] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     9,
+     16,
+     25,
+     64,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     4096,
+     5041,
+     7921
+    ],
+    "equal_count": 2
+   }
+  },
+  {
+   "id": "B-lpf(sigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "lpf(sigma(n)) <= n for all n except [2, 4, 9, 16, 25, 64, 289, 729, 1681, 2401, 3481, 4096, 5041, 7921] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     9,
+     16,
+     25,
+     64,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     4096,
+     5041,
+     7921
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "F-usigma(phi(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : usigma(phi(n)) = n}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind fixed_points +30"
+   ],
+   "data": {
+    "count": 5,
+    "first": [
+     1,
+     3,
+     5,
+     17,
+     257
+    ]
+   }
+  },
+  {
+   "id": "B-phi(sigma_odd(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "phi(sigma_odd(n)) <= n for all n except [9, 25, 81, 225, 289, 625, 729, 1089, 1681, 2025, 2401, 2601, 3025, 3481, 4761, 5041, 5625, 6561, 7225, 7569, 7921, 9801] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     9,
+     25,
+     81,
+     225,
+     289,
+     625,
+     729,
+     1089,
+     1681,
+     2025,
+     2401,
+     2601,
+     3025,
+     3481,
+     4761,
+     5041,
+     5625,
+     6561,
+     7225,
+     7569,
+     7921,
+     9801
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-carmichael(sigma_odd(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "carmichael(sigma_odd(n)) <= n for all n except [9, 25, 81, 289, 729, 1681, 2401, 3481, 5041, 7921] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     9,
+     25,
+     81,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     5041,
+     7921
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-sopf(sigma_odd(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopf(sigma_odd(n)) <= n for all n except [9, 25, 289, 729, 1681, 2401, 3481, 5041, 7921] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     9,
+     25,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     5041,
+     7921
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-lpf(sigma_odd(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "lpf(sigma_odd(n)) <= n for all n except [9, 25, 289, 729, 1681, 2401, 3481, 5041, 7921] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     9,
+     25,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     5041,
+     7921
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "F-usigma(carmichael(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : usigma(carmichael(n)) = n}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind fixed_points +30"
+   ],
+   "data": {
+    "count": 5,
+    "first": [
+     1,
+     3,
+     5,
+     17,
+     257
+    ]
+   }
+  },
+  {
+   "id": "F-phi(usigma(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : phi(usigma(n)) = n}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind fixed_points +30"
+   ],
+   "data": {
+    "count": 5,
+    "first": [
+     1,
+     2,
+     4,
+     16,
+     256
+    ]
+   }
+  },
+  {
+   "id": "F-carmichael(usigma(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : carmichael(usigma(n)) = n}",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind fixed_points +30"
+   ],
+   "data": {
+    "count": 5,
+    "first": [
+     1,
+     2,
+     4,
+     16,
+     256
+    ]
+   }
+  },
+  {
+   "id": "B-sopf(usigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopf(usigma(n)) <= n for all n except [2, 4, 16, 256] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     16,
+     256
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-lpf(usigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "lpf(usigma(n)) <= n for all n except [2, 4, 16, 256] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     16,
+     256
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "R-2|phi(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides phi(sigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|psi(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides psi(sigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|J2(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides J2(sigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-3|J2(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "3 divides J2(sigma(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 3,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-4|J2(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "4 divides J2(sigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 4,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-8|J2(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "8 divides J2(sigma(n)) for all n except [1, 3] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 8,
+    "exceptions": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "R-12|J2(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "12 divides J2(sigma(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 12,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-24|J2(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "24 divides J2(sigma(n)) for all n except [1, 2, 3] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 24,
+    "exceptions": [
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "R-2|carmichael(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides carmichael(sigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(sigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(sigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-3|psi(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "3 divides psi(phi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 3,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-3|J2(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "3 divides J2(phi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 3,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|rad(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides rad(phi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|lpf(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides lpf(phi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(phi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|phi(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides phi(psi(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|J2(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides J2(psi(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-3|J2(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "3 divides J2(psi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 3,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-4|J2(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "4 divides J2(psi(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 4,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-8|J2(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "8 divides J2(psi(n)) for all n except [1, 3] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 8,
+    "exceptions": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "R-12|J2(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "12 divides J2(psi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 12,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-24|J2(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "24 divides J2(psi(n)) for all n except [1, 2, 3] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 24,
+    "exceptions": [
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "R-2|rad(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides rad(psi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|carmichael(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides carmichael(psi(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|lpf(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides lpf(psi(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(psi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(psi(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(rad(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(rad(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-3|psi(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "3 divides psi(carmichael(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 3,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-3|J2(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "3 divides J2(carmichael(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 3,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|rad(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides rad(carmichael(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|lpf(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides lpf(carmichael(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(carmichael(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-2|phi(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides phi(usigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|psi(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides psi(usigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|J2(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides J2(usigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-3|J2(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "3 divides J2(usigma(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 3,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-4|J2(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "4 divides J2(usigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 4,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-8|J2(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "8 divides J2(usigma(n)) for all n except [1, 3] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 8,
+    "exceptions": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "R-12|J2(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "12 divides J2(usigma(n)) for all n except [1, 2] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 12,
+    "exceptions": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "R-24|J2(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "24 divides J2(usigma(n)) for all n except [1, 2, 3] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 24,
+    "exceptions": [
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "R-2|carmichael(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides carmichael(usigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(usigma(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(usigma(n)) for all n except [1] (n <= 10000)",
+   "score": 30,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "E-d(psi(n))=psi(d(n))",
+   "kind": "equality_set",
+   "statement": "{n : d(psi(n)) = psi(d(n))}",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 266,
+    "first": [
+     1,
+     3,
+     4,
+     6,
+     8,
+     10,
+     21,
+     30,
+     36,
+     40,
+     42,
+     44,
+     45,
+     50,
+     52,
+     54,
+     56,
+     63,
+     68,
+     147,
+     148,
+     150,
+     176,
+     200,
+     228,
+     234,
+     244,
+     260,
+     292,
+     294,
+     312,
+     330,
+     364,
+     378,
+     392,
+     408,
+     414,
+     416,
+     440,
+     460
+    ]
+   }
+  },
+  {
+   "id": "E-d(rad(n))=rad(d(n))",
+   "kind": "equality_set",
+   "statement": "{n : d(rad(n)) = rad(d(n))}",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1240,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     8,
+     11,
+     13,
+     17,
+     19,
+     23,
+     27,
+     29,
+     31,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     101,
+     103,
+     107,
+     109,
+     113,
+     125,
+     127,
+     128,
+     131,
+     137,
+     139,
+     149
+    ]
+   }
+  },
+  {
+   "id": "I-rad(core(n))<=core(rad(n))",
+   "kind": "inequality",
+   "statement": "rad(core(n)) <= core(rad(n)) for all n <= 10000",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind inequality +25"
+   ],
+   "data": {
+    "equal_count": 7055,
+    "equal_first": [
+     1,
+     2,
+     3,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     13,
+     14,
+     15,
+     17,
+     19,
+     21,
+     22,
+     23,
+     24,
+     26,
+     27
+    ]
+   }
+  },
+  {
+   "id": "E-d(sigma_odd(n))=sigma_odd(d(n))",
+   "kind": "equality_set",
+   "statement": "{n : d(sigma_odd(n)) = sigma_odd(d(n))}",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 129,
+    "first": [
+     1,
+     2,
+     8,
+     20,
+     28,
+     49,
+     52,
+     98,
+     121,
+     128,
+     148,
+     160,
+     169,
+     176,
+     224,
+     242,
+     244,
+     272,
+     292,
+     304,
+     336,
+     338,
+     361,
+     392,
+     416,
+     496,
+     529,
+     628,
+     688,
+     722,
+     772,
+     841,
+     960,
+     961,
+     968,
+     1058,
+     1072,
+     1108,
+     1184,
+     1252
+    ]
+   }
+  },
+  {
+   "id": "E-d(usigma(n))=usigma(d(n))",
+   "kind": "equality_set",
+   "statement": "{n : d(usigma(n)) = usigma(d(n))}",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 209,
+    "first": [
+     1,
+     3,
+     9,
+     24,
+     25,
+     44,
+     45,
+     68,
+     98,
+     116,
+     117,
+     121,
+     124,
+     126,
+     132,
+     140,
+     147,
+     171,
+     172,
+     268,
+     325,
+     333,
+     350,
+     361,
+     364,
+     388,
+     436,
+     516,
+     549,
+     605,
+     630,
+     652,
+     657,
+     660,
+     704,
+     729,
+     804,
+     828,
+     841,
+     844
+    ]
+   }
+  },
+  {
+   "id": "E-core(d(n))=d(core(n))",
+   "kind": "equality_set",
+   "statement": "{n : core(d(n)) = d(core(n))}",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind equality_set +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 1427,
+    "first": [
+     1,
+     2,
+     3,
+     5,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29,
+     31,
+     36,
+     37,
+     41,
+     43,
+     47,
+     53,
+     59,
+     61,
+     67,
+     71,
+     73,
+     79,
+     83,
+     89,
+     97,
+     100,
+     101,
+     103,
+     107,
+     109,
+     113,
+     127,
+     128,
+     131,
+     137,
+     139,
+     149,
+     151
+    ]
+   }
+  },
+  {
+   "id": "B-sopfr(sigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopfr(sigma(n)) <= n for all n except [2, 3, 4, 6, 9, 16, 25, 64, 289, 729, 1681, 2401, 3481, 4096, 5041, 7921] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     3,
+     4,
+     6,
+     9,
+     16,
+     25,
+     64,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     4096,
+     5041,
+     7921
+    ],
+    "equal_count": 2
+   }
+  },
+  {
+   "id": "B-gpf(sigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "gpf(sigma(n)) <= n for all n except [2, 4, 9, 16, 25, 64, 289, 729, 1681, 2401, 3481, 4096, 5041, 7921] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     9,
+     16,
+     25,
+     64,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     4096,
+     5041,
+     7921
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "F-d(psi(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : d(psi(n)) = n}",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind fixed_points +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 5,
+    "first": [
+     1,
+     2,
+     3,
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": "B-sopfr(psi(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopfr(psi(n)) <= n for all n except [2, 3, 4, 6] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     3,
+     4,
+     6
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-sopfr(sigma_odd(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopfr(sigma_odd(n)) <= n for all n except [3, 9, 25, 289, 729, 1681, 2401, 3481, 5041, 7921] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     3,
+     9,
+     25,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     5041,
+     7921
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-gpf(sigma_odd(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "gpf(sigma_odd(n)) <= n for all n except [9, 25, 289, 729, 1681, 2401, 3481, 5041, 7921] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     9,
+     25,
+     289,
+     729,
+     1681,
+     2401,
+     3481,
+     5041,
+     7921
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-sopfr(usigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "sopfr(usigma(n)) <= n for all n except [2, 3, 4, 6, 16, 256] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     3,
+     4,
+     6,
+     16,
+     256
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "B-gpf(usigma(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "gpf(usigma(n)) <= n for all n except [2, 4, 16, 256] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     16,
+     256
+    ],
+    "equal_count": 1
+   }
+  },
+  {
+   "id": "F-psi(d(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : psi(d(n)) = n}",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind fixed_points +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 5,
+    "first": [
+     1,
+     3,
+     4,
+     6,
+     12
+    ]
+   }
+  },
+  {
+   "id": "B-J2(d(n))<=n",
+   "kind": "bound_with_exceptions",
+   "statement": "J2(d(n)) <= n for all n except [2, 4, 6, 8, 10, 12, 16, 18, 20, 24, 30, 36, 40, 42, 48, 60, 72, 84, 90, 120, 144, 168, 180, 240, 360] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind bound_with_exceptions +30",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "exceptions": [
+     2,
+     4,
+     6,
+     8,
+     10,
+     12,
+     16,
+     18,
+     20,
+     24,
+     30,
+     36,
+     40,
+     42,
+     48,
+     60,
+     72,
+     84,
+     90,
+     120,
+     144,
+     168,
+     180,
+     240,
+     360
+    ],
+    "equal_count": 3
+   }
+  },
+  {
+   "id": "R-2|d(rad(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d(rad(n)) for all n except [1] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(d(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(d(n)) for all n except [1] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|d(gpf(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d(gpf(n)) for all n except [1] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "R-2|d_unitary(gpf(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides d_unitary(gpf(n)) for all n except [1] (n <= 10000)",
+   "score": 25,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20",
+    "few exceptions +10",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "I-gpf(psi(n))<=psi(gpf(n))",
+   "kind": "inequality",
+   "statement": "gpf(psi(n)) <= psi(gpf(n)) for all n <= 10000",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind inequality +25",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "equal_count": 14,
+    "equal_first": [
+     1,
+     2,
+     4,
+     8,
+     16,
+     32,
+     64,
+     128,
+     256,
+     512,
+     1024,
+     2048,
+     4096,
+     8192
+    ]
+   }
+  },
+  {
+   "id": "I-d(gpf(n))<=gpf(d(n))",
+   "kind": "inequality",
+   "statement": "d(gpf(n)) <= gpf(d(n)) for all n <= 10000",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind inequality +25",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "equal_count": 6884,
+    "equal_first": [
+     1,
+     2,
+     3,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     13,
+     14,
+     15,
+     17,
+     19,
+     21,
+     22,
+     23,
+     24,
+     26,
+     27
+    ]
+   }
+  },
+  {
+   "id": "I-gpf(core(n))<=core(gpf(n))",
+   "kind": "inequality",
+   "statement": "gpf(core(n)) <= core(gpf(n)) for all n <= 10000",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind inequality +25",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "equal_count": 9674,
+    "equal_first": [
+     1,
+     2,
+     3,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     17,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24
+    ]
+   }
+  },
+  {
+   "id": "R-2|psi(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides psi(phi(n)) for all n except [1, 2, 3, 4, 6] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": "R-2|J2(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides J2(phi(n)) for all n except [1, 2, 3, 4, 6] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": "R-4|J2(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "4 divides J2(phi(n)) for all n except [1, 2, 3, 4, 6] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 4,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": "R-8|J2(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "8 divides J2(phi(n)) for all n except [1, 2, 3, 4, 5, 6, 8, 10, 12] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 8,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8,
+     10,
+     12
+    ]
+   }
+  },
+  {
+   "id": "R-12|J2(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "12 divides J2(phi(n)) for all n except [1, 2, 3, 4, 6] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 12,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": "R-24|J2(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "24 divides J2(phi(n)) for all n except [1, 2, 3, 4, 5, 6, 8, 10, 12] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 24,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8,
+     10,
+     12
+    ]
+   }
+  },
+  {
+   "id": "R-2|carmichael(phi(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides carmichael(phi(n)) for all n except [1, 2, 3, 4, 6] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": "R-2|phi(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides phi(carmichael(n)) for all n except [1, 2, 3, 4, 6, 8, 12, 24] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     8,
+     12,
+     24
+    ]
+   }
+  },
+  {
+   "id": "R-2|psi(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides psi(carmichael(n)) for all n except [1, 2, 3, 4, 6, 8, 12, 24] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     8,
+     12,
+     24
+    ]
+   }
+  },
+  {
+   "id": "R-2|J2(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "2 divides J2(carmichael(n)) for all n except [1, 2, 3, 4, 6, 8, 12, 24] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 2,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     8,
+     12,
+     24
+    ]
+   }
+  },
+  {
+   "id": "R-4|J2(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "4 divides J2(carmichael(n)) for all n except [1, 2, 3, 4, 6, 8, 12, 24] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 4,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     8,
+     12,
+     24
+    ]
+   }
+  },
+  {
+   "id": "R-8|J2(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "8 divides J2(carmichael(n)) for all n except [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 30, 40, 48, 60, 80, 120, 240] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 8,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8,
+     10,
+     12,
+     15,
+     16,
+     20,
+     24,
+     30,
+     40,
+     48,
+     60,
+     80,
+     120,
+     240
+    ]
+   }
+  },
+  {
+   "id": "R-12|J2(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "12 divides J2(carmichael(n)) for all n except [1, 2, 3, 4, 6, 8, 12, 24] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 12,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     8,
+     12,
+     24
+    ]
+   }
+  },
+  {
+   "id": "R-24|J2(carmichael(n))",
+   "kind": "residue_with_exceptions",
+   "statement": "24 divides J2(carmichael(n)) for all n except [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 30, 40, 48, 60, 80, 120, 240] (n <= 10000)",
+   "score": 20,
+   "oeis_kind": "none",
+   "oeis": [],
+   "reasons": [
+    "kind residue_with_exceptions +20"
+   ],
+   "data": {
+    "mod": 24,
+    "exceptions": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8,
+     10,
+     12,
+     15,
+     16,
+     20,
+     24,
+     30,
+     40,
+     48,
+     60,
+     80,
+     120,
+     240
+    ]
+   }
+  },
+  {
+   "id": "E-d(sigma(n))=sigma(d(n))",
+   "kind": "equality_set",
+   "statement": "{n : d(sigma(n)) = sigma(d(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A076361"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 211,
+    "first": [
+     1,
+     3,
+     44,
+     49,
+     66,
+     68,
+     70,
+     76,
+     99,
+     121,
+     124,
+     147,
+     153,
+     164,
+     169,
+     170,
+     171,
+     172,
+     243,
+     245,
+     268,
+     275,
+     279,
+     361,
+     363,
+     387,
+     425,
+     475,
+     507,
+     529,
+     564,
+     603,
+     620,
+     644,
+     652,
+     724,
+     775,
+     841,
+     844,
+     845
+    ]
+   }
+  },
+  {
+   "id": "E-phi(sigma(n))=sigma(phi(n))",
+   "kind": "equality_set",
+   "statement": "{n : phi(sigma(n)) = sigma(phi(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A033632"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 7,
+    "first": [
+     1,
+     9,
+     225,
+     242,
+     516,
+     729,
+     3872
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(sigma(n))=sigma(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(sigma(n)) = sigma(carmichael(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A173942"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 27,
+    "first": [
+     1,
+     9,
+     18,
+     36,
+     63,
+     72,
+     126,
+     252,
+     504,
+     712,
+     729,
+     1458,
+     1716,
+     2136,
+     2916,
+     2982,
+     3484,
+     3588,
+     4402,
+     5103,
+     5467,
+     5832,
+     7120,
+     7332,
+     8800,
+     9798,
+     9894
+    ]
+   }
+  },
+  {
+   "id": "E-d(phi(n))=phi(d(n))",
+   "kind": "equality_set",
+   "statement": "{n : d(phi(n)) = phi(d(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A078148"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 25,
+    "first": [
+     1,
+     2,
+     4,
+     6,
+     16,
+     24,
+     30,
+     36,
+     64,
+     384,
+     408,
+     480,
+     510,
+     1024,
+     1296,
+     1560,
+     1680,
+     2304,
+     2640,
+     3480,
+     4096,
+     5440,
+     5520,
+     6360,
+     9240
+    ]
+   }
+  },
+  {
+   "id": "E-core(phi(n))=phi(core(n))",
+   "kind": "equality_set",
+   "statement": "{n : core(phi(n)) = phi(core(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A069579"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 862,
+    "first": [
+     1,
+     2,
+     3,
+     6,
+     7,
+     8,
+     11,
+     14,
+     22,
+     23,
+     24,
+     27,
+     31,
+     32,
+     43,
+     46,
+     47,
+     54,
+     56,
+     59,
+     62,
+     67,
+     71,
+     79,
+     83,
+     86,
+     88,
+     94,
+     96,
+     103,
+     107,
+     118,
+     128,
+     131,
+     134,
+     139,
+     142,
+     158,
+     166,
+     167
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(phi(n))=phi(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(phi(n)) = phi(carmichael(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A123101"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 1087,
+    "first": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     9,
+     10,
+     11,
+     14,
+     15,
+     16,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     27,
+     28,
+     30,
+     32,
+     33,
+     36,
+     38,
+     42,
+     44,
+     46,
+     47,
+     51,
+     54,
+     56,
+     57,
+     59,
+     64,
+     65,
+     66,
+     68,
+     69
+    ]
+   }
+  },
+  {
+   "id": "E-phi(psi(n))=psi(phi(n))",
+   "kind": "equality_set",
+   "statement": "{n : phi(psi(n)) = psi(phi(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A290002"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 334,
+    "first": [
+     1,
+     10,
+     18,
+     20,
+     36,
+     40,
+     54,
+     70,
+     72,
+     78,
+     80,
+     108,
+     110,
+     140,
+     144,
+     156,
+     160,
+     162,
+     174,
+     198,
+     216,
+     220,
+     222,
+     230,
+     234,
+     246,
+     280,
+     288,
+     294,
+     312,
+     320,
+     324,
+     348,
+     396,
+     414,
+     426,
+     432,
+     438,
+     440,
+     444
+    ]
+   }
+  },
+  {
+   "id": "E-phi(rad(n))=rad(phi(n))",
+   "kind": "equality_set",
+   "statement": "{n : phi(rad(n)) = rad(phi(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A226384"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 1054,
+    "first": [
+     1,
+     2,
+     3,
+     6,
+     7,
+     11,
+     12,
+     14,
+     22,
+     23,
+     24,
+     28,
+     31,
+     43,
+     44,
+     46,
+     47,
+     48,
+     56,
+     59,
+     62,
+     67,
+     71,
+     79,
+     83,
+     86,
+     88,
+     92,
+     94,
+     96,
+     103,
+     107,
+     112,
+     118,
+     124,
+     131,
+     134,
+     139,
+     142,
+     158
+    ]
+   }
+  },
+  {
+   "id": "E-carmichael(d(n))=d(carmichael(n))",
+   "kind": "equality_set",
+   "statement": "{n : carmichael(d(n)) = d(carmichael(n))}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A173941"
+   ],
+   "reasons": [
+    "kind equality_set +30",
+    "OEIS entry defines it with the same functions -30 (known object)",
+    "small-valued inner/outer function -5"
+   ],
+   "data": {
+    "count": 43,
+    "first": [
+     1,
+     2,
+     4,
+     6,
+     8,
+     12,
+     24,
+     100,
+     168,
+     180,
+     264,
+     300,
+     468,
+     552,
+     684,
+     1100,
+     1128,
+     1260,
+     1416,
+     1848,
+     1992,
+     2340,
+     2568,
+     3276,
+     3300,
+     3600,
+     3864,
+     4008,
+     4296,
+     4788,
+     4920,
+     5208,
+     5448,
+     6072,
+     6312,
+     7056,
+     7224,
+     7896,
+     8184,
+     8328
+    ]
+   }
+  },
+  {
+   "id": "F-phi(sigma(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : phi(sigma(n)) = n}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A001229"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 8,
+    "first": [
+     1,
+     2,
+     8,
+     12,
+     128,
+     240,
+     720,
+     6912
+    ]
+   }
+  },
+  {
+   "id": "F-sigma(phi(n))=n",
+   "kind": "fixed_points",
+   "statement": "{n : sigma(phi(n)) = n}",
+   "score": 0,
+   "oeis_kind": "definitional",
+   "oeis": [
+    "A018784"
+   ],
+   "reasons": [
+    "kind fixed_points +30",
+    "OEIS entry defines it with the same functions -30 (known object)"
+   ],
+   "data": {
+    "count": 7,
+    "first": [
+     1,
+     3,
+     15,
+     28,
+     255,
+     744,
+     2418
+    ]
+   }
+  }
+ ],
+ "candidates": [
+  {
+   "id": "C01",
+   "statement": "sigma(sigma_odd(n)) = sigma_odd(sigma(n))  <=>  n is an odd square",
+   "source_lead": "E-sigma(sigma_odd(n))=sigma_odd(sigma(n))",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "",
+   "triviality": "short argument expected (sigma(m) odd iff m is a square or twice a square), but the 'only if' for even n is not one step",
+   "oeis_screen": "set matches A016754 (odd squares), defined differently: cross match",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C02",
+   "statement": "if rad(sigma(n)) = sigma(rad(n)) then either n and sigma(n) are both squarefree (A065301) or n = 2^a * p with p an odd prime and a odd, a >= 3",
+   "source_lead": "E-rad(sigma(n))=sigma(rad(n))",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "to 1e6 the exceptional solutions have a in {3, 5, 7}; A065301 is always contained (C02b)",
+   "triviality": "containment of A065301 is one step; the classification of the other solutions is not",
+   "oeis_screen": "set is A065301 plus extras; no identity match for the full set",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C02b",
+   "statement": "A065301 is contained in {n : rad(sigma(n)) = sigma(rad(n))}",
+   "source_lead": "E-rad(sigma(n))=sigma(rad(n))",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "",
+   "triviality": "one step (rad fixes squarefree numbers): kept only as a sanity check, not counted as L1",
+   "oeis_screen": "",
+   "level": "L0",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C03",
+   "statement": "if psi(sigma(n)) = sigma(psi(n)) and n is not in A065301, then the 2-adic valuation of n is odd and >= 3",
+   "source_lead": "E-psi(sigma(n))=sigma(psi(n))",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "examples 2088 = 2^3*3^2*29, 39688 = 2^3*11^2*41: odd part need not be squarefree",
+   "triviality": "",
+   "oeis_screen": "set is A065301 plus extras; no identity match",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C04",
+   "statement": "if core(usigma(n)) = usigma(core(n)) and n is squarefree, then sigma(n) is squarefree (n in A065301)",
+   "source_lead": "E-core(usigma(n))=usigma(core(n))",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "non-squarefree solutions exist (1764, 8820, 14400, ...): 51 up to 1e6",
+   "triviality": "for squarefree n, usigma = sigma and core(n) = n, so this reduces to core(sigma(n)) = sigma(n): one step. NOT L1",
+   "oeis_screen": "cross match with A065301 on the squarefree part",
+   "level": "L0",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C05",
+   "statement": "phi(usigma(n)) = n  <=>  n = 1 or n + 1 is a Fermat prime",
+   "source_lead": "F-phi(usigma(n))=n",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "solutions to 1e6: 1, 2, 4, 16, 256, 65536",
+   "triviality": "",
+   "oeis_screen": "5 terms only: too short for a meaningful OEIS screen",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C06",
+   "statement": "usigma(phi(n)) = n  <=>  n = 1 or n is a Fermat prime",
+   "source_lead": "F-usigma(phi(n))=n",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "solutions to 1e6: 1, 3, 5, 17, 257, 65537",
+   "triviality": "",
+   "oeis_screen": "too short for OEIS screen",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C07",
+   "statement": "sigma(d(n)) <= n for every n >= 1 except n = 2 and n = 6",
+   "source_lead": "B-sigma(d(n))<=n",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "",
+   "triviality": "should follow from explicit bounds on d(n) (d(n) <= sqrt(3n)) plus a finite check",
+   "oeis_screen": "",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C08",
+   "statement": "J2(d(n)) <= n for every n > 360 (the 25 exceptions are all <= 360)",
+   "source_lead": "B-J2(d(n))<=n",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "",
+   "triviality": "same route as C07",
+   "oeis_screen": "",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C09",
+   "statement": "psi(d(n)) <= n and usigma(d(n)) <= n for every n except n = 2",
+   "source_lead": "B-psi(d(n))<=n",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "",
+   "triviality": "",
+   "oeis_screen": "",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C10",
+   "statement": "sigma_odd(phi(n)) <= n for all n except n = 8191 (the only exception up to 1e4)",
+   "source_lead": "B-sigma_odd(phi(n))<=n",
+   "checked_to": 1000000,
+   "holds": false,
+   "counterexample": 10711,
+   "note": "373 exceptions up to 1000000: [8191, 10711, 11551, 11971, 14851, 16831, 17011, 17851] ... the 1e4 window was misleading",
+   "triviality": "",
+   "oeis_screen": "",
+   "level": "REFUTED",
+   "status": "REFUTED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C11",
+   "statement": "{n : d(psi(n)) = n} = {1, 2, 3, 4, 6} and {n : psi(d(n)) = n} = {1, 3, 4, 6, 12}",
+   "source_lead": "F-d(psi(n))=n",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "found [1, 2, 3, 4, 6] and [1, 3, 4, 6, 12] up to 1000000",
+   "triviality": "finiteness follows from d(m) = m^{o(1)}; the exact list needs an explicit bound",
+   "oeis_screen": "",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C12",
+   "statement": "gpf(phi(n)) = phi(gpf(n))  <=>  n in {1, 2} or n = 3 * 2^k (k >= 0)",
+   "source_lead": "E-gpf(phi(n))=phi(gpf(n))",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "",
+   "triviality": "elementary (phi(p) = p - 1 for the largest prime p of n)",
+   "oeis_screen": "",
+   "level": "L1",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  },
+  {
+   "id": "C13",
+   "statement": "the sequence {n : phi(usigma(n)) = usigma(phi(n))} (unitary analogue of A033632)",
+   "source_lead": "E-phi(usigma(n))=usigma(phi(n))",
+   "checked_to": 1000000,
+   "holds": true,
+   "counterexample": null,
+   "note": "terms up to 2e5: [1, 36, 258, 294, 710, 882, 3110, 3954, 8196, 11532, 14270, 15282, 15550, 15638, 20106, 20702, 22870, 25390, 26990, 29270]",
+   "triviality": "L0 only: a definition, not a statement",
+   "oeis_screen": "no identity match in the snapshot for its first terms",
+   "level": "L0",
+   "status": "SUPPORTED_NOVELTY_UNCHECKED",
+   "novelty": "NOT_CHECKED"
+  }
+ ],
+ "aggregate": {
+  "goal": "M1.2: at least 10 Level-1 candidates",
+  "status": "SUPPORTED_NOVELTY_UNCHECKED",
+  "level1": [
+   "C01",
+   "C02",
+   "C03",
+   "C05",
+   "C06",
+   "C07",
+   "C08",
+   "C09",
+   "C11",
+   "C12"
+  ],
+  "refuted": [
+   "C10"
+  ],
+  "novelty": {
+   "status": "NOT_CHECKED",
+   "open": [
+    "C01",
+    "C02",
+    "C03",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C11",
+    "C12"
+   ],
+   "note": "statements (not sequences) are not searchable in the OEIS snapshot; every L1 needs a literature check before M1.3"
+  }
+ },
+ "oeis_snapshot": "sha256:c6d34403102c,2026-11-22T08:14:57+00:00",
+ "meta": {
+  "git_commit": "0687073af6ba8049ed63a9756056b3589d650825-dirty",
+  "dirty_files": [
+   "research/r001/batch/__init__.py",
+   "research/r001/batch/candidates.py",
+   "research/r001/batch/engine.py",
+   "research/r001/batch/impl_a.py",
+   "research/r001/batch/impl_b.py",
+   "research/r001/batch/impl_c.py",
+   "research/r001/batch/library.py",
+   "research/r001/batch/run.py"
+  ],
+  "env": {
+   "python": "3.13.18",
+   "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39"
+  },
+  "packages": {
+   "numpy": "2.5.3",
+   "pytest": "9.1.1"
+  },
+  "lean": {
+   "toolchain": "leanprover/lean4:v4.15.0",
+   "mathlib_rev": "9837ca9d65d9de6fad1ef4381750ca688774e608"
+  },
+  "data_snapshots": {
+   "oeis": {
+    "names.gz": "6f2f42c65150348c107340ee8813b0ba31ee3c8d5da32e9fba0bfd8a0d78893f",
+    "stripped.gz": "c6d34403102c2eafd74b28ad9dec97789f6ccfa9c45fed76c0af990f9e2422ce"
+   }
+  },
+  "params": {
+   "n": 10000,
+   "n_big": 1000000
+  }
+ },
+ "seconds": 52.1
+}
