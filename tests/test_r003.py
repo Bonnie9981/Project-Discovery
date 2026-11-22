@@ -46,3 +46,9 @@ def test_l04_rule54_mod23_small():
     # DISC-0011: rule 54, w ≡ 2, 3 (mod 4): transient T, period 4, folded cone + centre defect.
     from research.r003 import l04_rule54_mod23
     assert l04_rule54_mod23.main(60) == 0
+
+
+def test_l05_rule54_mod1_small():
+    # DISC-0012: rule 54, w ≡ 1 (mod 4): transient w - 3, period 4, cone + phase wall.
+    from research.r003 import l05_rule54_mod1
+    assert l05_rule54_mod1.main(60) == 0

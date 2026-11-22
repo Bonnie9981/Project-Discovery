@@ -10,3 +10,4 @@ import Discovery.Rule26
 import Discovery.Rule26Even
 import Discovery.Rule54Mod4
 import Discovery.Rule54Mod23
+import Discovery.Rule54Mod1

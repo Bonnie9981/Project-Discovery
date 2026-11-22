@@ -26,3 +26,4 @@
 - **DISC-0010**：規則 54 單種子暫態公式（R2-C10）在 w ≡ 0 (mod 4) 這一段，紙上與 Lean 對所有 w ≥ 4 證完（`rule54_mod4_zero`，只用 Lean core）：光錐內是 ether，到 (w−4)/2 步錐外剩下 3 格剛好是 ether 的空白。習題程度、不宣稱新；w ≡ 1, 2, 3 仍只有有限核驗。
 - **DISC-0011**：規則 54 暫態公式（R2-C10）在 w ≡ 2, 3 (mod 4) 兩段，紙上與 Lean 對所有 w 證完（`rule54_mod4_two`、`rule54_mod4_three`，只用 Lean core）：把左右對稱的軌道對折成線段，光錐合攏後兩塊 ether 在正對面留下一個不動的缺陷，週期仍是 4。習題程度、不宣稱新；只剩 w ≡ 1。
 - **證明短文文獻補查**：讀 OEIS A160657（Neder 2019 的同類化約，偶數證明的先例）、A268754 Mathematica 程式、MOW 1984 可讀部分、Tadaki 1993，查 zbMATH、Google Scholar、OpenAlex；規格核對表待辦清零（MathSciNet 無法查，照實記錄），論文改正姓名、引用與版本號。
+- **DISC-0012**：規則 54 暫態公式（R2-C10）最後一段 w ≡ 1 (mod 4)，紙上與 Lean 對所有 w ≥ 9 證完（`rule54_mod4_one`，只用 Lean core）：光錐填滿後，正對面冒出一道相位牆走回種子，牆後是錯開一步的 ether，兩端各有一個週期缺陷。R2-C10 四段全部證完，習題程度、不宣稱新。

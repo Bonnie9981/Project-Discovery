@@ -1,0 +1,39 @@
+{
+  "id": "DISC-0012",
+  "line": "R-002",
+  "title": "Phase 2：規則 54 在寬度除以 4 餘 1 的環上，暫態 w−3，週期 4（R2-C10 最後一段，相位牆）",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-22T14:00:00+00:00",
+  "lean_theorems": [
+    "Discovery.Rule54Mod1.rule54_mod4_one",
+    "Discovery.Rule54Mod1.G_step",
+    "Discovery.Rule54Mod1.iter_G",
+    "Discovery.Rule54Mod1.G_period",
+    "Discovery.Rule54Mod1.cone_eq_G"
+  ],
+  "candidates": {
+    "R2-C10": {
+      "status": "PROVEN_KNOWN",
+      "proof": "All four residue classes now have a Lean proof without an upper bound on w: w ≡ 0 (DISC-0010, rule54_mod4_zero, w ≥ 4), w ≡ 2, 3 (DISC-0011, rule54_mod4_two/three, w ≥ 6 / 7), w ≡ 1 (this record, rule54_mod4_one, w ≥ 9; general argument for w ≥ 17, w = 9, 13 from the finite check of DISC-0006). Numeric check by two implementations with cell-by-cell cone and phase-wall check for w ≤ 1200."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0006-S005)",
+      "openalex (DISC-0006-S006)"
+    ],
+    "note": "No new searches in this record. Ether, phase-shifted ether domains and the walls between them are standard rule-54 particle language (Hanson–Crutchfield 1997 etc., not re-read). Folding is the technique of DISC-0009/0011. The reused OEIS query is the mixed four-class sequence and does not discriminate the w ≡ 1 class (4k + 2). Not checked: arXiv, MathSciNet, Jen's cylindrical CA papers, Wolfram's finite-ring tables. PROVEN_KNOWN means proven with known techniques, not claimed new.",
+    "open": [],
+    "evidence": [
+      "DISC-0006-S005",
+      "DISC-0006-S006"
+    ]
+  }
+}

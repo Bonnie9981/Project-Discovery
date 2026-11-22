@@ -96,7 +96,7 @@ theorem E_dead_even {t d : Nat} (ht : t % 2 = 0) (hd : d % 4 ≠ t % 4) : E t d 
 /-- Folded cone: alive iff within distance `t` and on the ether. -/
 def Cf (t d : Nat) : Bool := decide (d ≤ t) && E t d
 
-theorem cone_seg {w t d : Nat} (hc : t + 4 ≤ w / 2) (hd : d ≤ w / 2) :
+theorem cone_seg {w t d : Nat} (hc : t + 3 ≤ w / 2) (hd : d ≤ w / 2) :
     Cf (t + 1) d = xor (Cf t d) (Cf t (lo d) || Cf t (up w d)) := by
   have hhi : up w d = d + 1 ∨ d = w / 2 := by unfold up; split <;> omega
   unfold Cf
@@ -138,9 +138,9 @@ theorem cone_seg {w t d : Nat} (hc : t + 4 ≤ w / 2) (hd : d ≤ w / 2) :
           decide_eq_false hout]
         rfl
 
-/-- Lemma 1: for `t + 3 ≤ w / 2`, cell `i` after `t` steps is `Cf t (dist w i)`. -/
+/-- Lemma 1: for `t + 2 ≤ w / 2`, cell `i` after `t` steps is `Cf t (dist w i)`. -/
 theorem iter_cone {w : Nat} (hw : 6 ≤ w) :
-    ∀ t, t + 3 ≤ w / 2 → ∀ i, i < w → (iter w t 1).testBit i = Cf t (dist w i) := by
+    ∀ t, t + 2 ≤ w / 2 → ∀ i, i < w → (iter w t 1).testBit i = Cf t (dist w i) := by
   have hw1 : 1 ≤ w := by omega
   intro t
   induction t with
