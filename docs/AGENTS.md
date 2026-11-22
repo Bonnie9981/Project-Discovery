@@ -16,8 +16,8 @@
 目前由 Claude Code 主執行緒擔任：
 
 1. `python -m discovery new <研究線> "<題目>"` 建立 `records/DISC-XXXX/` 與 `record.json`。
-2. 依序呼叫 1～6，每一步都讀前一步的文件。
-3. critic 和 reviewer **必須是獨立的 agent 執行**（新的 subagent、沒有前面步驟的上下文），作者名單寫在 `record.json` 的 `authors`，審查者寫在 `reviewer`。
+2. 依序呼叫 1～6，每一步用 `python -m discovery.digest` 讀前一步的文件，需要細節才讀單一段落。每個角色用的模型與省 token 規則見 [TOKEN_BUDGET.md](TOKEN_BUDGET.md)。
+3. critic 和 reviewer **必須是獨立的 agent 執行**（新的 subagent、沒有前面步驟的上下文），作者名單寫在 `record.json` 的 `authors`，審查者寫在 `reviewer`。各一輪，修正後只複查必修項目（見 TOKEN_BUDGET.md 第 5 節）。
 4. `python -m discovery.check_record` 必須通過，CI 的 `lean` 與 `tests` 必須綠燈。
 5. 判定為 `*_POSSIBLY_NEW` 時，依規範向 CEO 回報，不得對外發布。
 

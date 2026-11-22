@@ -33,6 +33,8 @@ python -m discovery run R-001        # 重跑 R-001，產生新的 DISC 紀錄
 python -m discovery list             # 列出任務與研究紀錄
 python -m discovery new R-001 "題目"  # 建立空白完整紀錄給六個 agent 填
 python -m discovery.check_record     # 檢查所有紀錄是否完整
+python -m discovery.digest           # 每份紀錄一行摘要（省 token，見 docs/TOKEN_BUDGET.md）
+python -m discovery.quiet -- <指令>   # 長輸出存到 logs/，只印摘要
 cd lean && lake build                # 編譯 Lean（需先安裝 elan）
 ```
 
