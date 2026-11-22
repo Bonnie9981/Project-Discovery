@@ -26,5 +26,5 @@ def test_run_small():
     out = run.main(500)
     st = {r["id"]: r["status"] for r in out["results"]}
     assert st["H6"] == "REFUTED"
-    assert all(st[h] == "SUPPORTED_IN_RANGE" for h in ("H1", "H2a", "H2b", "H3", "H4", "H5"))
+    assert all(st[h] == "SUPPORTED_IN_RANGE" for h in ("H1", "H2a", "H2b", "H3", "H4", "H5", "H7"))
     assert all(e["impl_agree"] for e in out["extensions"].values())
