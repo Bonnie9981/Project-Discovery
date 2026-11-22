@@ -1,0 +1,8 @@
+[
+  {
+    "id": "A014556",
+    "name": "Euler's 'lucky' numbers: p such that n^2 + n + p is prime for n = 0..p-2",
+    "terms": [2, 3, 5, 11, 17, 41],
+    "citation": "OEIS A014556; G. Rabinowitsch (1913), J. reine angew. Math. 142, 153-164. Completeness follows from the class number one theorem (Heegner 1952, Baker 1966, Stark 1967)."
+  }
+]
