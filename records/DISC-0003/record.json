@@ -1,0 +1,10 @@
+{
+  "id": "DISC-0003",
+  "line": "R-001",
+  "title": "連續正整數表示數 = 奇因數個數（M1.1 基準）與等差數列延伸",
+  "status": "INCONCLUSIVE",
+  "authors": [],
+  "reviewer": null,
+  "lean_theorems": [],
+  "created_at": "2026-11-22T08:25:09+00:00"
+}
