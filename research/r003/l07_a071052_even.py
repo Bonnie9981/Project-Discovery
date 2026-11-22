@@ -35,14 +35,26 @@ def zeros_poly(N):
     return out
 
 
+def rows_ca(N):
+    rows, row = [], [1]
+    for n in range(N + 1):
+        rows.append(row)
+        p = [0, 0] + row + [0, 0]
+        row = [p[i - 1] ^ p[i] ^ p[i + 1] for i in range(1, len(p) - 1)]
+    return rows
+
+
 def main():
     N = int(sys.argv[1]) if len(sys.argv) > 1 else 2000
     z1, z2 = zeros_ca(N), zeros_poly(N)
     assert z1 == z2, "methods disagree"
     assert z1[:len(DATA)] == DATA, "DATA mismatch"
+    rows = rows_ca(N)
     for n in range(N // 2 + 1):
         assert z1[2 * n] == z1[n] + 2 * n, n
-    print(f"OK: 0 <= n <= {N // 2}: a(2n) = a(n) + 2n; two methods agree to n = {N}; "
+        # H1 cell by cell: list index k <-> position k - n
+        assert rows[2 * n][0::2] == rows[n] and not any(rows[2 * n][1::2]), n
+    print(f"OK: 0 <= n <= {N // 2}: a(2n) = a(n) + 2n; cell-by-cell doubling holds; two methods agree to n = {N}; "
           f"{len(DATA)} DATA terms match")
 
 
