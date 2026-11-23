@@ -1,0 +1,12 @@
+# fetched 2026-11-23 from oeis.org (fmt=text), verbatim (%S %N %C %H %Y %O %A lines)
+%S A015126 1,1,3,3,5,3,7,5,7,5,11,5,13,7,15,15,17,7,19,15,13,11,23,15,25,13,19,
+%N A015126 Least k such that phi(k) = phi(n).
+%C A015126 From _Jianing Song_, Nov 11 2022: (Start)
+%C A015126 The first even term is a(33817088) = 16842752 (see A002181 and A143510).
+%C A015126 Conjecture: a(n) is always odd for odd n. (End)
+%H A015126 Antti Karttunen, <a href="/A015126/b015126.txt">Table of n, a(n) for n = 1..10000</a>
+%H A015126 Max Alekseyev, <a href="https://oeis.org/wiki/User:Max_Alekseyev/gpscripts">PARI/GP Scripts for Miscellaneous Math Problems</a> (invphi.gp).
+%Y A015126 Cf. A000010, A028476, A066412, A066659.
+%Y A015126 Cf. A002181, A143510.
+%O A015126 1,3
+%A A015126 _Vladeta Jovovic_, Jan 12 2002

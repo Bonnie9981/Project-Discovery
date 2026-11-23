@@ -224,5 +224,45 @@
   "author": "Cloitre 2001",
   "status": "already_settled",
   "note": "counterexample n = 709 recorded in entry (Xausa 2025)"
+ },
+ "A084189": {
+  "author": "Earls 2003",
+  "status": "proved",
+  "note": "a(n) <= 3: even-length palindrome divisible by 11 (DISC-0024)"
+ },
+ "A084352": {
+  "author": "Earls 2003",
+  "status": "proved",
+  "note": "same argument (DISC-0024)"
+ },
+ "A225004": {
+  "author": "Lowell 2013",
+  "status": "proved",
+  "note": "a(n) | n^2 by exponent comparison (DISC-0024)"
+ },
+ "A340896": {
+  "author": "Lowell 2021",
+  "status": "proved",
+  "note": "n^2 in row n iff prime power (DISC-0024)"
+ },
+ "A015126": {
+  "author": "J. Song 2022",
+  "status": "open_no_cx",
+  "note": "odd n => least preimage odd; no cx for phi <= 2e9 (DISC-0024)"
+ },
+ "A058383": {
+  "author": "Cloitre 2018",
+  "status": "open_no_cx",
+  "note": "phi(x)+phi(x-1)=floor((4x-3)/3) only Pierpont primes; checked x <= 1e10 (DISC-0024)"
+ },
+ "A111441": {
+  "author": "Bamberger 2020",
+  "status": "already_settled",
+  "note": "proof in entry (Munch-Andersen 2020)"
+ },
+ "A276674": {
+  "author": "Ordowski 2016",
+  "status": "proved",
+  "note": "x - lambda(x) = 2m > 0 => lambda(x) <= x/2 => x <= 4m (DISC-0024)"
  }
 }

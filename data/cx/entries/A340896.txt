@@ -1,0 +1,5 @@
+# fetched 2026-11-23 from oeis.org (fmt=text), verbatim (%N %C %A lines; %e triangle omitted)
+%N A340896 Irregular triangle in which the n-th row consists of all multiples of n that have fewer than twice as many divisors as n.
+%C A340896 If n has d divisors, n has an infinite number of multiples with exactly 2d divisors, but only a finite number of multiples with fewer than 2d divisors.
+%C A340896 Conjecture: row n includes n^2 if and only if n is a power of a prime number (A000961).
+%A A340896 _J. Lowell_, Jan 25 2021

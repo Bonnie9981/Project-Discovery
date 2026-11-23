@@ -1,0 +1,8 @@
+# fetched 2026-11-23 from oeis.org (fmt=text), verbatim (all %S %N %C %e %Y %O %A lines)
+%S A225004 1,4,9,16,25,18,49,64,81,50,121,48,169,98,75,256,289,162,361,100,147,
+%N A225004 a(n) is the largest multiple of n with fewer than twice as many divisors as n.
+%C A225004 Conjecture: a(n) is always a divisor of n^2.
+%e A225004 a(6) = 18 because 6 has 4 divisors and term must have fewer than 8 divisors. Only 6, 12, and 18 are multiples of 6 with fewer than 8 divisors.
+%Y A225004 Cf. A000005.
+%O A225004 1,2
+%A A225004 _J. Lowell_, Apr 23 2013
