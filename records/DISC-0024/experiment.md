@@ -7,7 +7,7 @@
 - 指令：`python -m discovery.tuzasat.search N [K] --out DIR`，`python -m discovery.tuzasat.check DIR N K...`。每個 (n, k) 的搜尋和檢查分開跑，各自 `timeout 600`。
 - 摘要（含 CNF、DRAT 的 SHA-256）：`data/tuzasat/summary.json`。CNF／DRAT 本身不進 git（可重跑產生，CaDiCaL 是決定性的）。
 
-## 兩個獨立實作
+## 實作（第二實作只到 7 點）
 
 - **A（SAT＋證書）：** 雙層 CEGAR，見 `docs/TUZASAT.md`。
 - **B（暴力）：** `check.nu_tau` 直接列舉三角形打包和邊覆蓋，對 networkx 圖譜裡所有 3～7 點的圖確認 τ ≤ 2ν（`tests/test_tuzasat.py::test_bruteforce_atlas`）。B 只到 7 點；8、9 點只有 A。
@@ -47,7 +47,9 @@
 | 10 | 5 | 80285 (74820 P / 5465 C) | 102.83 | 85.72 | 超過 600 秒，未驗 |
 | 10 | 6 | 100352 (90271 P / 10081 C) | 183.18 | 116.2 | 超過 600 秒，未驗 |
 
-n = 10、k = 7～10：沒有跑（執行中斷，而且不在主張範圍內）。
+| 10 | 7～10 | — | 沒跑（執行中斷） | — | 不適用 |
+
+n = 10、k = 7～10 沒有跑（執行中斷，而且不在主張範圍內），所以 summary.json 裡也沒有這幾列。
 
 ## 結論
 
