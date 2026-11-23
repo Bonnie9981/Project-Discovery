@@ -22,3 +22,4 @@ import Discovery.A362070Counter
 import Discovery.A134559Counter
 import Discovery.A073631Counter
 import Discovery.PalDigits
+import Discovery.DivisorExp

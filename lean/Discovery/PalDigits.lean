@@ -32,6 +32,10 @@ def alt : List Nat → Int
   | [] => 0
   | d :: ds => (d : Int) - alt ds
 
+theorem val_cons (d : Nat) (ds : List Nat) : val (d :: ds) = d + 10 * val ds := rfl
+theorem alt_cons (d : Nat) (ds : List Nat) : alt (d :: ds) = (d : Int) - alt ds := rfl
+theorem cons_append_single (x d : Nat) (l : List Nat) : (x :: l) ++ [d] = x :: (l ++ [d]) := rfl
+
 def IsPrime (p : Nat) : Prop := 2 ≤ p ∧ ∀ d, d ∣ p → d = 1 ∨ d = p
 
 theorem val_sub_alt (l : List Nat) : ∃ k : Int, (val l : Int) - alt l = 11 * k := by
@@ -48,7 +52,7 @@ theorem alt_append_single (l : List Nat) (d : Nat) :
   induction l with
   | nil => simp [alt]
   | cons x l ih =>
-    simp only [List.cons_append, alt, List.length_cons, ih]
+    rw [cons_append_single, alt_cons, alt_cons, ih, List.length_cons]
     by_cases h : l.length % 2 = 0
     · have h' : ¬ (l.length + 1) % 2 = 0 := by omega
       simp only [h, h', if_true, if_false]
@@ -120,7 +124,7 @@ theorem val_append_single (l : List Nat) (d : Nat) :
   induction l with
   | nil => simp [val]
   | cons x l ih =>
-    simp only [List.cons_append, val, ih, List.length_cons, Nat.pow_succ]
+    rw [cons_append_single, val_cons, val_cons, ih, List.length_cons, Nat.pow_succ]
     rw [← Nat.mul_assoc d]
     omega
 
@@ -208,7 +212,8 @@ theorem main (ds es fs : List Nat) (hds : ds ≠ []) (hes : es ≠ [])
     rw [Nat.pow_succ]
     omega
   have hi : val (d0 :: A) * val (e0 :: B) < 10 ^ (A.length + 1 + (B.length + 1)) := by
-    have h := Nat.mul_le_mul (Nat.succ_le_of_lt plt) (Nat.succ_le_of_lt qlt)
+    have h := Nat.mul_le_mul (show val (d0 :: A) + 1 ≤ 10 ^ (A.length + 1) from plt)
+      (show val (e0 :: B) + 1 ≤ 10 ^ (B.length + 1) from qlt)
     rw [← Nat.pow_add] at h
     have e2 : (val (d0 :: A) + 1) * (val (e0 :: B) + 1)
         = val (d0 :: A) * val (e0 :: B) + val (d0 :: A) + val (e0 :: B) + 1 := by
