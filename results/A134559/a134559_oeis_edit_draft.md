@@ -19,7 +19,7 @@
 **COMMENTS**：加在 Ratajczak 留言的 (End) 之後：
 
 ```
-The conjecture of Lechoslaw Ratajczak above is false: p = 4933 is in A005383 ((p+1)/2 = 2467 is prime), but b_4934(134) = T(4800,135) = 14802 = 6*2467 and b_4934(0) = sigma(4934) = 7404 is even, so gcd(P(4934),4934) = 4934, not 2. The terms of A005383 (other than 3, 5) below 1.5*10^5 that fail the two equations are 4933, 6997, 11113, 48673, 50341, 54217, 92941 (for 54217, gcd(P(54217),54217) = 54217). The converse holds: every n satisfying both equations is in A005383, since b_N(N-m) = m whenever N/2 < m <= 2N/3. - _Chi Hsia_, Nov 23 2026
+The conjecture of Lechoslaw Ratajczak above is false: p = 4933 is in A005383 ((p+1)/2 = 2467 is prime), but b_4934(134) = T(4800,135) = 14802 = 6*2467 and b_4934(0) = sigma(4934) = 7404 is even, so gcd(P(4934),4934) = 4934, not 2. The terms of A005383 (other than 3, 5) below 1.5*10^5 that fail the two equations are 4933, 6997, 11113, 48673, 50341, 54217, 92941 (for 54217, gcd(P(54217),54217) = 54217). The converse holds: every n satisfying both equations is in A005383, since b_N(N-m) = m whenever N/2 < m <= 2N/3, so every divisor d <= N/6 of N divides P(N) (see link). - _Chi Hsia_, Nov 23 2026
 ```
 
 **LINKS**：

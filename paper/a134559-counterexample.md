@@ -54,7 +54,10 @@ So the solutions of (*) form a subset of A005383, but a proper one.
   states `b` and `P` literally and checks by kernel computation that 4933 and 2467 are prime and
   `gcd(P(4934), 4934) = 4934`
   ([source](https://github.com/Bonnie9981/Project-Discovery/blob/main/lean/Discovery/A134559Counter.lean)).
-- Two programs (`b` by the `n mod u` definition in C, and by the divisor form `T(n−k, k+1)` in Python)
-  agree. A scan of all `n ≤ 1.5 · 10^5` finds no `n` outside A005383 satisfying (*).
+- A C program using the `n mod u` definition scans all `n ≤ 1.5 · 10^5`: it finds no `n` outside
+  A005383 satisfying (*), and exactly the seven failures listed above. A separate Python program using
+  the divisor form `T(n−k, k+1)` recomputes the three cases `n + 1 = 4934, 6998, 11114`.
+  An independent reviewer's program (antidiagonal recursion) reproduces the full scan and extends it
+  to `3 · 10^5`, adding the failures 161221, 172573, 242533.
 
 Code: <https://github.com/Bonnie9981/Project-Discovery/tree/main/results/A134559/code>.
