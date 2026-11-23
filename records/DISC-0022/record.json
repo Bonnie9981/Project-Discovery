@@ -21,6 +21,8 @@
     "A073631": {"status": "REFUTED", "proof": "3842760169 is a base-3/2 Wieferich prime (A376896), so k = 3842760169^2 is a nonsquarefree term not divisible by 23^2, and a square term other than 1, 529. Lean a073631_counterexample. Least counterexample: square factors of terms are base-3/2 Wieferich primes (paper lemma) and none lie in (23, 3842760169) (search to 2^32)."},
     "A130058": {"status": "REFUTED", "proof": "same conjecture as A073631"}
   },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
   "novelty": {
     "status": "NO_MATCH_IN_SCOPE",
     "sources_checked": ["oeis online (DISC-0022-S001, S002)"],

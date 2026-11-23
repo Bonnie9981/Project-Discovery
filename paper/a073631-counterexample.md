@@ -14,7 +14,7 @@ k = 3842760169^2 = 14766805716452908561.
 
 **Counterexample.** q = 3842760169 is a Wieferich prime to base 3/2 (A376896). Since q - 1 divides q^2 - 1, the number k = q^2 satisfies 3^(k-1) = 2^(k-1) (mod k). It is composite, a perfect square, not squarefree, and not divisible by 23^2. The same holds for q = 41975417117.
 
-**Minimality.** Let k be a nonsquarefree term with 23^2 not dividing k. Some prime q != 23 has q^2 | k, and by the lemma q is a Wieferich prime to base 3/2. A direct search over all primes 5 <= p < 2^32 finds only 23 and 3842760169 (matching A376896), so q >= 3842760169 and k >= q^2. For the perfect-square statement, a square term m^2 has every prime factor of m in A376896; if m is a power of 23 with 23^3 | m^2, the lemma's argument modulo 23^3 would give (3/2)^22 = 1 (mod 23^3), which is false, so m = 23.
+**Minimality.** Let k be a nonsquarefree term with 23^2 not dividing k. Some prime q != 23 has q^2 | k, and by the lemma q is a Wieferich prime to base 3/2. A direct search over all primes 5 <= p < 2^32 finds only 23 and 3842760169 (matching A376896), so q >= 3842760169 and k >= q^2. For the perfect-square statement, a square term m^2 has every prime factor of m in A376896; if m is a power of 23 with 23^3 | m^2, the lemma's argument modulo 23^3 would give (3/2)^22 = 1 (mod 23^3), which is false, so m = 23. If m has a prime factor other than 23, that factor is in A376896, so it is at least 3842760169 and m^2 >= 3842760169^2.
 
 **Infinitely many?** Each Wieferich prime q to base 3/2 other than 23 gives the counterexample q^2. Only two are known; whether there are infinitely many is open, as for Wieferich primes in general.
 

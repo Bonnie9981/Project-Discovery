@@ -19,13 +19,13 @@
 **COMMENTS**：加在 Adamchuk 那段留言之後：
 
 ```
-The conjecture above is false, and so is the observation that 1 and 529 are the only squares: if p is a Wieferich prime to base 3/2 (A376896), then p^2 is a term, because p-1 divides p^2-1. So 3842760169^2 = 14766805716452908561 and 41975417117^2 are terms. Conversely, if q^2 divides a term k, the order of 3/2 mod q^2 divides both k-1 and q(q-1), hence q-1, so q is in A376896. Therefore 3842760169^2 is the smallest nonsquarefree term not divisible by 23^2 and the smallest square term after 529 (see link). - _Chi Hsia_, Nov 23 2026
+The conjecture above is false, and so is the observation that 1 and 529 are the only squares: if p is a Wieferich prime to base 3/2 (A376896), then p^2 is a term, because p-1 divides p^2-1. So 3842760169^2 = 14766805716452908561 and 41975417117^2 are terms. Conversely, if q^2 divides a term k, the order of 3/2 mod q^2 divides both k-1 and q(q-1), hence q-1, so q is in A376896. A search of all primes below 2^32 finds no term of A376896 between 23 and 3842760169, so 3842760169^2 is the smallest nonsquarefree term not divisible by 23^2 and the smallest square term after 529 (see link). - _Chi Hsia_, Nov 23 2026
 ```
 
 **LINKS**：
 
 ```
-Chi Hsia, <a href="https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a073631-counterexample.md">A counterexample to the conjecture in A073631 and A130058</a>, 2026. Written with an LLM (Claude); checked in Lean 4.
+Chi Hsia, <a href="https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a073631-counterexample.md">A counterexample to the conjecture in A073631 and A130058</a>, 2026. Written with an LLM (Claude); the counterexample is checked in Lean 4.
 ```
 
 **CROSSREFS**：`Cf. A376896.` 加到最後一行。
@@ -53,7 +53,7 @@ This conjecture is false: 3842760169^2 is a nonsquarefree term of A073631 not di
 **COMMENTS**（新增）：
 
 ```
-If p is a term, then p^2 is in A073631. This gives counterexamples to the conjecture in A073631 and A130058. - _Chi Hsia_, Nov 23 2026
+If p > 23 is a term, then p^2 is in A073631 and is not divisible by 23^2. This gives counterexamples to the conjecture in A073631 and A130058. - _Chi Hsia_, Nov 23 2026
 ```
 
 **CROSSREFS**：`Cf. A001220 (Wieferich primes to base 2), A073631, A130058.`
