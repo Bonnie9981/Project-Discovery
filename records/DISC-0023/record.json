@@ -1,5 +1,5 @@
 {
-  "id": "DISC-0022",
+  "id": "DISC-0023",
   "line": "R-003",
   "title": "Phase 2：反例搜尋器第四批（Sun、Cloitre）：推翻 A073631 的猜想（3842760169²）",
   "status": "REFUTED",
@@ -26,8 +26,8 @@
   "reviewer": "reviewer (independent subagent)",
   "novelty": {
     "status": "NO_MATCH_IN_SCOPE",
-    "sources_checked": ["oeis online (DISC-0022-S001, S002)"],
+    "sources_checked": ["oeis online (DISC-0023-S001, S002)"],
     "note": "Immediate from A376896 (2024) plus a one-line order argument; nothing new claimed. The value is linking the two entries and correcting the open conjecture. Web, MathSciNet, zbMATH not searched.",
-    "evidence": ["DISC-0022-S001", "DISC-0022-S002"]
+    "evidence": ["DISC-0023-S001", "DISC-0023-S002"]
   }
 }

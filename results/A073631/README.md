@@ -1,6 +1,6 @@
 # OEIS A073631 / A130058：Adamchuk 2007 猜想的反例 3842760169²
 
-紀錄 [DISC-0022](../../records/DISC-0022/)，Lean `lean/Discovery/A073631Counter.lean`，搜尋器登錄 `discovery/cxsearch/conjectures.py`（`A073631`）。
+紀錄 [DISC-0023](../../records/DISC-0023/)，Lean `lean/Discovery/A073631Counter.lean`，搜尋器登錄 `discovery/cxsearch/conjectures.py`（`A073631`）。
 
 | 檔案 | 內容 |
 |---|---|

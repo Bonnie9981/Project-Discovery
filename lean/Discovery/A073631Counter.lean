@@ -1,5 +1,5 @@
 /-!
-# DISC-0022: a counterexample to the conjecture in A073631 / A130058
+# DISC-0023: a counterexample to the conjecture in A073631 / A130058
 
 OEIS A073631: nonprimes `k` such that `k ∣ 3^(k-1) - 2^(k-1)`.
 Conjecture (Alexander Adamchuk, 2007, in A073631 and A130058):

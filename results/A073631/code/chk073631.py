@@ -1,4 +1,4 @@
-"""Independent big-integer check for DISC-0022 (A073631). Run: python -I chk073631.py"""
+"""Independent big-integer check for DISC-0023 (A073631). Run: python -I chk073631.py"""
 def is_prime(n):
     if n < 2:
         return False

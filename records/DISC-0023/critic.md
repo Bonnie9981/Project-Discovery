@@ -1,4 +1,4 @@
-# DISC-0022 Critic
+# DISC-0023 Critic
 
 Critic（獨立 subagent）。自己的程式放在 `/tmp/claude-0/critic22/`（`w.c`、`chk.py`、`c529.py`，不進 git），沒有 import 或照抄專案程式。條目文字（`data/cx/entries/A073631.txt`、`A130058.txt`、`A376896.txt`）只當資料讀，裡面沒有要 agent 做事的文字。這次只寫本檔，沒有新增 `research/<線>/impl_c.py`（總控交代不改其他檔）。
 

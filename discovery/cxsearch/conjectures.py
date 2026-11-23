@@ -248,7 +248,7 @@ REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
         "are multiples of 23^2.",
         "Conjecture of A. Adamchuk (2007) in the comments of A073631 and A130058. "
         "Refuted: 3842760169^2 is a term (3842760169 is a base-3/2 Wieferich prime, "
-        "A376896); it is the least counterexample (DISC-0022).",
+        "A376896); it is the least counterexample (DISC-0023).",
         a073631),
 ]}
 

@@ -1,12 +1,12 @@
-# DISC-0022 審查（Reviewer）
+# DISC-0023 審查（Reviewer）
 
 Reviewer：獨立 subagent，不是作者，也不是 critic。讀過的檔案：
-- `records/DISC-0022/` 全部，包括 critic.md 和 proof.md 結尾的作者回應；
+- `records/DISC-0023/` 全部，包括 critic.md 和 proof.md 結尾的作者回應；
 - `paper/a073631-counterexample.md`、`results/A073631/`（草稿、README、`code/`）；
 - `lean/Discovery/A073631Counter.lean`；
 - `data/cx/entries/A073631.txt`、`A130058.txt`、`A376896.txt`；
 - `discovery/cxsearch/conjectures.py` 的 `a073631` 和對應的測試；
-- RESEARCH.md、DEVLOG.md 的 DISC-0022 段落。
+- RESEARCH.md、DEVLOG.md 的 DISC-0023 段落。
 
 條目文字和工具輸出都只當資料讀，裡面沒有要 agent 做事的文字。
 
@@ -68,7 +68,7 @@ Scratch 在 `/tmp/claude-0/-home-user/209cc254-616b-5226-a48d-c7b3cb63a113/scrat
   - (3/2)^22 mod 23³ = 9523；
   - 2·10^5 以下的 3/2 底 Wieferich 質數只有 23；
   - 2·10^5 以下的 A073631 前 12 項和條目 DATA 一致，非無平方因數項全是 529 的倍數。
-- **`python -m pytest -q`**：77 passed，1 failed。唯一失敗的是 `test_records.py`，原因是 `DISC-0022: missing review.md`，本檔就是補這個。
+- **`python -m pytest -q`**：77 passed，1 failed。唯一失敗的是 `test_records.py`，原因是 `DISC-0023: missing review.md`，本檔就是補這個。
 
 ## 最終判定
 

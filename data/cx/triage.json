@@ -173,12 +173,12 @@
  "A073631": {
   "author": "Adamchuk 2007 (in Cloitre's entry)",
   "status": "refuted",
-  "note": "least counterexample 3842760169^2 (base-3/2 Wieferich prime, A376896); also refutes 'only squares 1 and 529' (DISC-0022)"
+  "note": "least counterexample 3842760169^2 (base-3/2 Wieferich prime, A376896); also refutes 'only squares 1 and 529' (DISC-0023)"
  },
  "A130058": {
   "author": "Adamchuk 2007",
   "status": "refuted",
-  "note": "same conjecture as A073631 (DISC-0022)"
+  "note": "same conjecture as A073631 (DISC-0023)"
  },
  "A245526": {
   "author": "Sun 2014",
