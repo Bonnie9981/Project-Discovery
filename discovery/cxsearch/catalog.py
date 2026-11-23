@@ -28,23 +28,32 @@ def python_psp2(limit: int) -> list[int]:
     return [n for n in range(3, limit, 2) if pow(2, n - 1, n) == 1 and not numth.is_prime(n)]
 
 
-def build_c(limit: int, out: Path, workers: int = 4) -> Path:
+def build_c(limit: int, out: Path, workers: int = 4, segment: int = 2 * 10**8) -> Path:
+    """Build the catalog below `limit` with psp2.c.
+
+    The range is cut into segments (default 2e8, about a minute each) and each
+    segment runs under discovery.limits.run_limited, so no single run exceeds
+    the 600 s budget in config/limits.json. A segment that times out or fails
+    stops the build.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+    from discovery.limits import run_limited
+
     exe = out.with_suffix(".bin")
     subprocess.run(["gcc", "-O3", "-o", str(exe), str(C_SRC)], check=True)
-    step = -(-limit // workers)
-    procs, parts = [], []
-    for i in range(workers):
-        lo, hi = i * step + 1, min((i + 1) * step, limit)
-        part = out.with_name(f"{out.name}.part{i}")
-        parts.append(part)
-        procs.append(subprocess.Popen([str(exe), str(lo), str(hi)], stdout=part.open("w")))
-    for p in procs:
-        if p.wait():
-            raise RuntimeError("psp2.c failed")
+    bounds = [(lo, min(lo + segment, limit)) for lo in range(1, limit, segment)]
+
+    def one(b):
+        r = run_limited([str(exe), str(b[0]), str(b[1])])
+        if r["status"] != "ok":
+            raise RuntimeError(f"psp2.c segment {b}: {r['status']}")
+        return r["stdout"]
+
+    with ThreadPoolExecutor(workers) as pool:
+        parts = list(pool.map(one, bounds))
     with gzip.open(out, "wt") as f:
         for part in parts:
-            f.write(part.read_text())
-            part.unlink()
+            f.write(part)
     exe.unlink()
     return out
 

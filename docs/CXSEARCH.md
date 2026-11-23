@@ -19,7 +19,7 @@
 python -m discovery.cxsearch list
 python -m discovery.cxsearch catalog                    # 重驗目錄
 python -m discovery.cxsearch scan [KEY ...]             # 掃描
-python -m discovery.cxsearch catalog --build 1e10 --path /tmp/x_1e10.txt.gz   # 從頭建（4 核約 15 分鐘）
+python -m discovery.cxsearch catalog --build 1e10 --path /tmp/x_1e10.txt.gz   # 從頭建（切小段，每段走 run_limited）
 ```
 
 ## 新增一條猜想

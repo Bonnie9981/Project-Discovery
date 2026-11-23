@@ -2,7 +2,7 @@
 
 ## 方法
 
-1. 目錄：`discovery/cxsearch/psp2.c`（分段篩去質數 + Montgomery 算 2^(n−1) mod n，n < 2^63 精確）列出 10^10 以下所有 psp2，4 核約 15 分鐘（超過 `config/limits.json` 的 600 秒上限，這次是例外；平常直接用存好的目錄，`catalog` 只重驗不重建），存成 `data/cx/psp2_1e10.txt.gz`（sha256 28a9b306…）。`catalog.check` 用 Python 大整數逐一重驗每一項，並和 OEIS A055550、A055553 的 10^3～10^10 計數比對；另用純 Python 篩法重算 10^5 以下（測試）。
+1. 目錄：`discovery/cxsearch/psp2.c`（分段篩去質數 + Montgomery 算 2^(n−1) mod n，n < 2^63 精確）列出 10^10 以下所有 psp2，最初一次建置是 4 段各 2.5·10^9、約 15 分鐘，超過 `config/limits.json` 的 600 秒上限（critic 必修 3）；之後 `catalog.build_c` 改成切成 2·10^8 的小段、每段走 `run_limited`，10^9 以下重建 18 秒、和存檔逐項相同，存成 `data/cx/psp2_1e10.txt.gz`（sha256 28a9b306…）。`catalog.check` 用 Python 大整數逐一重驗每一項，並和 OEIS A055550、A055553 的 10^3～10^10 計數比對；另用純 Python 篩法重算 10^5 以下（測試）。
 2. 對齊：A215944 的定義（三個質因數含重數、被較小 psp2 整除）在 10^7、10^8、10^9、10^10 以下的項數與總和，和 OEIS b-file 完全一致（S003）。
 3. 自我測試：A218010（已知反例）跑出來必須剛好是 3380740301。
 4. 每條猜想一個判定函式（`discovery/cxsearch/conjectures.py`），掃整個目錄；A058128 直接對 n 算大整數。
@@ -22,7 +22,7 @@
 ```
 python -m discovery.cxsearch catalog            # 重驗目錄與計數
 python -m discovery.cxsearch scan               # 全部猜想
-python -m discovery.cxsearch catalog --build 1e10 --path /tmp/psp2_1e10.txt.gz   # 從頭建（約 15 分鐘）
+python -m discovery.cxsearch catalog --build 1e10 --path /tmp/psp2_1e10.txt.gz   # 從頭建（小段、每段受 600 秒上限）
 python results/A321790/code/struct.py 100000
 python -m pytest -q tests/test_cxsearch.py
 ```
