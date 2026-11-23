@@ -13,3 +13,4 @@ import Discovery.Rule54Mod23
 import Discovery.Rule54Mod1
 import Discovery.A268754Odd
 import Discovery.A071052Even
+import Discovery.Rule54Rows

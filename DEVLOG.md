@@ -32,3 +32,4 @@
 - **DISC-0014**：OEIS A071052（規則 150 第 n 列的 0 個數）從 2004 年標成猜想的 a(2n) = a(n) + 2n，紙上與 Lean 對所有 n ≥ 0 證完（`a071052_double`，只用 Lean core）：規則 150 走兩步 = 隔兩格走一步，第 2n 列是第 n 列中間插 0。是 A071053(2n) = A071053(n) 的一行推論，習題程度、不宣稱新；OEIS 編輯草稿在 `paper/`，由使用者送出。
 - **OEIS 第一次投稿回饋**：A334504、A268754 送出後，OEIS 編輯指正署名格式（`_Chi Hsia_, 月 日 年`）與欄位（公式放 FORMULA、不刪別人原句）。所有 OEIS 草稿照改，並在 `paper/oeis_edit_draft.md` 寫下 A268754 草稿要怎麼修。
 - **repo 分區整理**：分成工具區（`discovery/`、`research/r001～r003` 通用引擎、agents、docs、tests，將來可能抽成開源工具）和成果區（`results/A??????/` 一條 OEIS 序列一個資料夾，放草稿、審計、檢查腳本）。OEIS 已連過來的證明頁留在 `paper/`（網址固定），`records/` 和 `lean/` 不動。舊路徑對照在 `results/README.md`。
+- **DISC-0015**：OEIS A118109（規則 54 第 n 列的十進位寫法）和 A265225（前 n 列 ON 總數）的 8 個猜想公式，紙上與 Lean 證完（生成函數兩條為紙上）（`Rule54Rows.lean`，只用 core）：第 n+2 列 = 第 n 列左移兩格再接 0001 或 0111。另指出 A265225 的 Ianakiev 註解差一個索引（應為 a(n−1)）。習題程度、不宣稱新；OEIS 草稿在 `results/`，由使用者送出。
