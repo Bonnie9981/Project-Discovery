@@ -1,0 +1,48 @@
+{
+  "id": "DISC-0018",
+  "line": "R-001",
+  "title": "Phase 2：證明 OEIS A231897、A215461、A215462 三條「a(n) 永遠不會是…」的猜想（一行證明）",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "created_at": "2026-11-23T04:10:00+00:00",
+  "lean_theorems": [
+    "Discovery.NeverEasy.a231897_exists",
+    "Discovery.NeverEasy.wt_sq_two_pow_sub_one",
+    "Discovery.NeverEasy.a215462_pos",
+    "Discovery.NeverEasy.a215461_pos",
+    "Discovery.NeverEasy.sq_identity",
+    "Discovery.NeverEasy.wt_two_pow_sub_one"
+  ],
+  "candidates": {
+    "A231897-never-minus-1": {
+      "status": "PROVEN_KNOWN",
+      "proof": "(2^a-1)^2 = (2^(a-1)-1)*2^(a+1)+1 has binary weight a, so a(n) <= 2^n-1 exists for every n (Lean a231897_exists, core only; Python a <= 3000, first 25 terms recomputed)."
+    },
+    "A215462-never-0": {
+      "status": "PROVEN_KNOWN",
+      "proof": "Classical (AIME 1984 #14): for 2n >= 40 use 9, 25 or 35 according to 2n mod 6; the other summand is an odd multiple of 3 that is >= 9 (Lean a215462_pos; two implementations agree n < 600, zeros n < 200000 are only n <= 19)."
+    },
+    "A215461-never-0": {
+      "status": "PROVEN_KNOWN",
+      "proof": "For n >= 6 one of 2n-3, 2n-5, 2n-7 is an odd multiple of 3 that is >= 9, paired with the prime 3, 5 or 7 (Lean a215461_pos; zeros n < 200000 are only n = 0, 1, 5)."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0018-S001, DISC-0018-S002, DISC-0018-S003)",
+      "web search (DISC-0018-S004)"
+    ],
+    "note": "All three proofs are exercise level; A215462 is a classical competition problem. Nothing new is claimed; the value is removing 'Conjecture' from three OEIS entries with a checked proof.",
+    "evidence": [
+      "DISC-0018-S001",
+      "DISC-0018-S002",
+      "DISC-0018-S003",
+      "DISC-0018-S004"
+    ]
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus"
+}
