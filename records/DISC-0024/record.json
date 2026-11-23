@@ -1,0 +1,64 @@
+{
+  "id": "DISC-0024",
+  "line": "R-003",
+  "title": "Phase 2：反例搜尋器第五批（其他作者）：證明 A084189、A084352、A225004、A340896、A276674 的猜想；A015126、A058383 延伸驗證",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "created_at": "2026-11-23T11:20:00+00:00",
+  "milestone": true,
+  "lean_theorems": [
+    "Discovery.PalDigits.pal_even_dvd11",
+    "Discovery.PalDigits.main",
+    "Discovery.PalDigits.palprime_odd",
+    "Discovery.PalDigits.a084189",
+    "Discovery.PalDigits.a084352",
+    "Discovery.DivisorExp.two_P_le_Q",
+    "Discovery.DivisorExp.exponents_le"
+  ],
+  "candidates": {
+    "A084189": {
+      "status": "PROVEN_KNOWN",
+      "proof": "digits >= 4 palindromic primes have odd length; product has exactly a+b digits (even); even-length palindrome divisible by 11. Lean a084189."
+    },
+    "A084352": {
+      "status": "PROVEN_KNOWN",
+      "proof": "same, a = b. Lean a084352."
+    },
+    "A225004": {
+      "status": "PROVEN_KNOWN",
+      "proof": "d(nm)/d(n) = prod (a+x+1)/(a+1); a factor with x > a is >= 2. Lean exponents_le (product inequality only; divisor-count formula classical)."
+    },
+    "A340896": {
+      "status": "PROVEN_KNOWN",
+      "proof": "d(n^2)/d(n) = prod (2a+1)/(a+1) >= 9/4 when two or more primes. Paper only, numeric check n <= 150."
+    },
+    "A015126": {
+      "status": "OPEN_NO_CX",
+      "proof": "no counterexample for phi values <= 2e9"
+    },
+    "A058383": {
+      "status": "OPEN_NO_CX",
+      "proof": "converse direction proved on paper; no other solution x <= 1e10"
+    },
+    "A276674": {
+      "status": "PROVEN_KNOWN",
+      "proof": "x - lambda(x) even and positive excludes x = 1, 2 and odd prime powers; otherwise lambda(x) <= x/2 (even x: lambda <= phi <= x/2; odd x with two primes: lambda <= phi/2). Paper only, numeric check x <= 1e6."
+    }
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "sonnet",
+  "reviewer": "reviewer (independent subagent)",
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0024-S001, S002)"
+    ],
+    "note": "Elementary proofs (11-divisibility of even-length palindromes; divisor-count exponents). Exercise level; nothing new claimed. Value is closing four open OEIS conjectures. Web, MathSciNet, zbMATH not searched.",
+    "evidence": [
+      "DISC-0024-S001",
+      "DISC-0024-S002"
+    ]
+  }
+}

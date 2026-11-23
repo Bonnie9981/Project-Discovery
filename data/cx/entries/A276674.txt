@@ -1,0 +1,11 @@
+# fetched 2026-11-23 from oeis.org (fmt=text), verbatim (%S %N %C %o %A lines)
+%S A276674 21,28,45,46,51,64,65,77,82,85,91,106,111,126,129,133,136,148,155,166,
+%N A276674 Numbers n such that x - lambda(x) = n has no solution, where lambda(x) = A002322(x).
+%C A276674 Problem: are there infinitely many such numbers?
+%C A276674 Note that all these numbers are composite, because p - lambda(p) = 1 and p^2 - lambda(p^2) = p prime.
+%C A276674 If x - lambda(x) = n > 1, then x <= n^2.
+%C A276674 Conjecture: if x - lambda(x) = 2*m > 0, then x <= 4*m.
+%C A276674 Noncototients among these numbers are 172, 232, 244, 274, 298, 326, 362, ...
+%o A276674 (PARI) lista(nn) = {v = vecsort(vector(nn^2, n, n - lcm(znstar(n)[2])), ,8); for (n=1, nn, if (! vecsearch(v, n), print1(n, ", ")););} \\ _Michel Marcus_, Oct 03 2016
+%o A276674 (Perl) use ntheory ":all"; sub A { my $l=shift; my %C; undef $C{$_-carmichael_lambda($_)} for 1..$l*$l; my @R = grep { !exists $C{$_} } 1..$l; @R; } say for A(500); # _Dana Jacobsen_, Apr 27 2017
+%A A276674 _Thomas Ordowski_, Oct 03 2016
