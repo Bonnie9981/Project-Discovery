@@ -50,11 +50,9 @@ theorem powModAux_eq (f b e m : Nat) : powModAux f b e m = b ^ e % m := by
         have h0 : e % 2 = 0 := by omega
         rw [hsq, hsplit, h0, Nat.pow_zero, Nat.mul_one]
 
-/-- `k` is a term of A073631 (apart from the "nonprime" condition). -/
-def InSeq (k : Nat) : Prop := (3 ^ (k - 1) - 2 ^ (k - 1)) % k = 0
-
-theorem inSeq_of_mod (k : Nat) (h : 3 ^ (k - 1) % k = 2 ^ (k - 1) % k) : InSeq k :=
-  Nat.sub_mod_eq_zero_of_mod_eq h
+/-- `k` satisfies the defining divisibility of A073631: `k ∣ 3^(k-1) - 2^(k-1)`,
+written as equality of residues (`3^(k-1) ≥ 2^(k-1)`, so this is the same thing). -/
+def InSeq (k : Nat) : Prop := 3 ^ (k - 1) % k = 2 ^ (k - 1) % k
 
 def q1 : Nat := 3842760169
 def q2 : Nat := 41975417117
@@ -67,13 +65,15 @@ theorem wieferich_q2 : 3 ^ (q2 - 1) % (q2 * q2) = 2 ^ (q2 - 1) % (q2 * q2) := by
   rw [← powModAux_eq 40, ← powModAux_eq 40]; decide
 
 /-- `k = q1^2 = 14766805716452908561` satisfies the defining congruence of A073631. -/
+set_option maxRecDepth 100000 in
 theorem inSeq_q1_sq : InSeq (q1 * q1) := by
-  apply inSeq_of_mod
-  rw [← powModAux_eq 80, ← powModAux_eq 80]; decide
+  unfold InSeq
+  rw [← powModAux_eq 66, ← powModAux_eq 66]; decide
 
+set_option maxRecDepth 100000 in
 theorem inSeq_q2_sq : InSeq (q2 * q2) := by
-  apply inSeq_of_mod
-  rw [← powModAux_eq 80, ← powModAux_eq 80]; decide
+  unfold InSeq
+  rw [← powModAux_eq 74, ← powModAux_eq 74]; decide
 
 /-- The counterexample: `k = q1 * q1` is in A073631 (nonprime because `1 < q1 < k`
 and `q1 ∣ k`), it is a perfect square, it is divisible by the square `q1^2` with
@@ -92,7 +92,7 @@ theorem a073631_counterexample2 :
 
 /-- Sanity check against the DATA: `529 = 23^2` is a term. -/
 theorem inSeq_529 : InSeq 529 := by
-  apply inSeq_of_mod
+  unfold InSeq
   rw [← powModAux_eq 20, ← powModAux_eq 20]; decide
 
 end Discovery.A073631Counter

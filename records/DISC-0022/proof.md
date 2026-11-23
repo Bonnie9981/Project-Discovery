@@ -18,7 +18,6 @@
 |---|---|
 | `Discovery.A073631Counter.pow_mod'` | (a mod m)^k mod m = a^k mod m |
 | `Discovery.A073631Counter.powModAux_eq` | 二進位模冪 `powModAux` 等於 b^e mod m |
-| `Discovery.A073631Counter.inSeq_of_mod` | 3^(k−1) ≡ 2^(k−1) (mod k) ⇒ k 整除 3^(k−1) − 2^(k−1)（自然數減法） |
 | `Discovery.A073631Counter.wieferich_q1` | 3842760169 是 3/2 底 Wieferich 數 |
 | `Discovery.A073631Counter.wieferich_q2` | 41975417117 同上 |
 | `Discovery.A073631Counter.inSeq_q1_sq` | 3842760169² 滿足 A073631 的整除條件 |
@@ -35,4 +34,4 @@
 
 - Lean 只驗反例本身；引理（平方因數必為 3/2 底 Wieferich 質數）和最小性是紙上證明加電腦搜尋，沒有形式化。
 - 「q 是質數」沒有在 Lean 裡證：反例只需要 k = q·q、q ≥ 2，就已經是合數又有平方因數。q 的質數性由 Python Miller–Rabin（定底）確認，只用在最小性論證。
-- `InSeq` 沒包含「非質數」條件，非質數另外用 1 < q < q² 且 q | q² 表示。
+- `InSeq k` 寫成 3^(k−1) mod k = 2^(k−1) mod k（因為 3^(k−1) ≥ 2^(k−1)，等價於 k 整除差）；沒包含「非質數」條件，非質數另外用 1 < q < q² 且 q | q² 表示。

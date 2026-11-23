@@ -9,7 +9,6 @@
   "lean_theorems": [
     "Discovery.A073631Counter.pow_mod'",
     "Discovery.A073631Counter.powModAux_eq",
-    "Discovery.A073631Counter.inSeq_of_mod",
     "Discovery.A073631Counter.wieferich_q1",
     "Discovery.A073631Counter.wieferich_q2",
     "Discovery.A073631Counter.inSeq_q1_sq",
