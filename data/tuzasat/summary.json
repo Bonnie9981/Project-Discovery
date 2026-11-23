@@ -1,5 +1,5 @@
 {
- "_doc": "DISC-0024 Tuza 小範圍搜尋摘要；檔案可用 python -m discovery.tuzasat.search N K --out DIR 重跑產生",
+ "_doc": "DISC-0025 Tuza 小範圍搜尋摘要；檔案可用 python -m discovery.tuzasat.search N K --out DIR 重跑產生",
  "runs": [
   {
    "n": 4,

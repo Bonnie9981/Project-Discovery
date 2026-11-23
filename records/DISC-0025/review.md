@@ -1,4 +1,4 @@
-# DISC-0024 審查
+# DISC-0025 審查
 
 審查者：reviewer（獨立 subagent，未參與搜尋、程式、critic）。檔案、網頁和工具輸出都當資料讀，沒看到要審查者做事的嵌入文字。
 
@@ -17,7 +17,7 @@
 
 ## 重現結果
 
-- `python -m pytest -q tests/test_tuzasat.py tests/test_records.py tests/test_research_summary.py`：審查前 9 個通過、1 個失敗。失敗的是 `test_records`，原因只有「DISC-0024: missing review.md」，就是本檔還沒寫。其餘全部通過。
+- `python -m pytest -q tests/test_tuzasat.py tests/test_records.py tests/test_research_summary.py`：審查前 9 個通過、1 個失敗。失敗的是 `test_records`，原因只有「DISC-0025: missing review.md」，就是本檔還沒寫。其餘全部通過。
 - `python -m discovery.tuzasat.search 9 3 5 --out /tmp/rev24`：k = 3 UNSAT，2521 條擋子句（1.6 秒）；k = 5 UNSAT，5922 條擋子句（7.2 秒）。擋子句數和 experiment.md 相同。總耗時 9.8 秒。
 - `python -m discovery.tuzasat.check /tmp/rev24 9 3 5`：k = 3 證書通過（692 條基本子句、2521 條擋子句、9963 個引理）；k = 5 證書通過（692、5922、25288）。總耗時 31.8 秒。
 - SHA-256 和 `data/tuzasat/summary.json` **完全相同**：

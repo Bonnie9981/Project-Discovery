@@ -1,5 +1,5 @@
 {
-  "id": "DISC-0024",
+  "id": "DISC-0025",
   "line": "G-002",
   "title": "非數列副線第二題：Tuza 三角形猜想 τ ≤ 2ν 的小範圍 SAT 驗證加 DRAT 證書（n ≤ 9）",
   "status": "SUPPORTED_NOVELTY_UNCHECKED",
@@ -18,9 +18,9 @@
   },
   "novelty": {
     "status": "NO_MATCH_IN_SCOPE",
-    "sources_checked": ["web search (DISC-0024-S001..S003)"],
+    "sources_checked": ["web search (DISC-0025-S001..S003)"],
     "note": "No published exhaustive small-graph verification of Tuza's conjecture was found, but brute force over all graphs on <= 9-10 vertices is routine and has very likely been done unpublished (e.g. Gupta 2026 checks all labelled 7-vertex graphs as a lemma). Nothing new is claimed.",
-    "evidence": ["DISC-0024-S001", "DISC-0024-S002", "DISC-0024-S003"],
+    "evidence": ["DISC-0025-S001", "DISC-0025-S002", "DISC-0025-S003"],
     "open": ["MathSciNet/zbMATH not searched"]
   },
   "critic": "critic (independent subagent)",
