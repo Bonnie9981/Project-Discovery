@@ -47,8 +47,8 @@
       "proof": "x - lambda(x) even and positive excludes x = 1, 2 and odd prime powers; otherwise lambda(x) <= x/2 (even x: lambda <= phi <= x/2; odd x with two primes: lambda <= phi/2). Paper only, numeric check x <= 1e6."
     }
   },
-  "critic": "critic (independent subagent)",
-  "critic_model": "sonnet",
+  "critic": "critic (independent subagents: sonnet round 1, opus round 2)",
+  "critic_model": "opus",
   "reviewer": "reviewer (independent subagent)",
   "novelty": {
     "status": "NO_MATCH_IN_SCOPE",

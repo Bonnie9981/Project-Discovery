@@ -42,3 +42,25 @@ x = 1 + 2^a·3^b 是質數（a, b > 0）：φ(x) = x−1，φ(x−1) = (x−1)/3
 - x 奇數且至少兩個不同質因數：λ(x) 是各 λ(p^e) 的最小公倍數，每個都是偶數，所以 λ(x) ≤ ∏λ(p^e)/2 = φ(x)/2 < x/2。
 
 所以 x ≤ 2(x − λ(x)) = 4m。紙上證明，數值檢查 x ≤ 10^6（`results/A276674/code/check276674.py`，順便對 A276674 DATA 前 20 項）。
+
+## 定理對照（`lean/Discovery/PalDigits.lean`、`lean/Discovery/DivisorExp.lean`）
+
+| Lean 定理 | 內容 |
+|---|---|
+| `Discovery.PalDigits.pal_even_dvd11` | 偶數長度的回文數字串，值被 11 整除 |
+| `Discovery.PalDigits.main` | p、q 質數、數字全 ≥ 4，p·q 是（無前導零的）回文 ⇒ 位數和是奇數 |
+| `Discovery.PalDigits.palprime_odd` | 數字全 ≥ 4 的回文質數有奇數位 |
+| `Discovery.PalDigits.a084189` | A084189 猜想：兩個回文質數數字全 ≥ 4 時乘積不是回文 |
+| `Discovery.PalDigits.a084352` | A084352 猜想：同位數的兩質數數字全 ≥ 4 時乘積不是回文 |
+| `Discovery.DivisorExp.two_P_le_Q` | 有一個 x ≥ a+1 ⇒ ∏(a+x+1) ≥ 2∏(a+1) |
+| `Discovery.DivisorExp.exponents_le` | ∏(a+x+1) < 2∏(a+1) ⇒ 每個 x ≤ a |
+
+## 編譯結果
+
+本機沒有 Lean 工具鏈，靠 GitHub Actions 的 lean CI 編譯與公理檢查：兩個檔案都編過，公理只有 propext、Quot.sound、Classical.choice（PR #41 檢查）。
+
+## 敘述差異
+
+- 數字用小端數字串表示；pq 的回文寫法要求最高位 ≥ 1（標準寫法）。質數是一般定義。
+- DivisorExp 只證乘積不等式，d(n) = ∏(a+1) 的公式沒有形式化（古典事實）。
+- A340896、A276674 沒有 Lean，只有紙上證明＋數值檢查，所以判 SUPPORTED_KNOWN。
