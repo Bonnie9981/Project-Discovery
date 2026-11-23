@@ -90,3 +90,14 @@ def test_a134559_counterexample():
     c = REGISTRY["A134559"]
     assert [n for n in range(1, 2001) if c.test(n)] == []   # entry: checked for 2000 integers
     assert c.test(4933) is not None
+
+
+def test_a073631_counterexample():
+    from discovery.cxsearch.conjectures import REGISTRY
+    c = REGISTRY["A073631"]
+    assert [k for k in range(1, 30000) if c.test(k)] == []   # DATA range: only 23^2 multiples
+    assert c.test(529) is None                                # 23^2 itself is allowed
+    q = 3842760169
+    assert pow(3, q * q - 1, q * q) == pow(2, q * q - 1, q * q)
+    assert (q * q) % 529 != 0
+    assert c.test(q * q) == {"k": q * q, "square_factors": [q]}

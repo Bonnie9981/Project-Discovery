@@ -169,6 +169,36 @@ def a134559(n: int):
             "gcd(P(n),n)": a134559_gcd(n), "gcd(P(n+1),n+1)": a134559_gcd(n + 1)}
 
 
+def a073631(k: int):
+    """A073631 (Adamchuk 2007 comment): nonsquarefree terms are multiples of 23^2.
+
+    k is a term iff k is not prime and 3^(k-1) = 2^(k-1) (mod k). Square factors:
+    divide out every p <= k^(1/3); the cofactor c has all prime factors > k^(1/3),
+    so c is 1, a prime, p*q or p^2, and c has a square factor iff c is a perfect
+    square. Trial division is slow above ~1e15; give big k as known squares.
+    """
+    from math import isqrt
+    if k < 4 or pow(3, k - 1, k) != pow(2, k - 1, k):
+        return None
+    sq = []
+    c = k
+    p = 2
+    while p * p * p <= k:
+        if c % p == 0:
+            e = 0
+            while c % p == 0:
+                c //= p
+                e += 1
+            if e >= 2:
+                sq.append(p)
+        p += 1
+    r = isqrt(c)
+    if c > 1 and r * r == c:
+        sq.append(r)
+    if not sq or k % 529 == 0:
+        return None          # squarefree (so also covers k prime) or a multiple of 23^2
+    return {"k": k, "square_factors": sq}
+
 REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
     Conjecture(
         "A215944", "psp2",
@@ -212,6 +242,14 @@ REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
         "Read as: the solution set equals A005383 minus {3, 5}. Refuted: 4933 is in "
         "A005383 but 4934 | P(4934) (DISC-0021); the solution set is always inside A005383.",
         a134559),
+    Conjecture(
+        "A073631", "n",
+        "All nonsquarefree terms of A073631 (nonprimes k with k | 3^(k-1)-2^(k-1)) "
+        "are multiples of 23^2.",
+        "Conjecture of A. Adamchuk (2007) in the comments of A073631 and A130058. "
+        "Refuted: 3842760169^2 is a term (3842760169 is a base-3/2 Wieferich prime, "
+        "A376896); it is the least counterexample (DISC-0023).",
+        a073631),
 ]}
 
 
