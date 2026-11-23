@@ -21,7 +21,7 @@ https://github.com/Bonnie9981/Project-Discovery/blob/main/paper/a294646-countere
 **COMMENTS**：在 Conjecture 那行之後加：
 
 ```
-The conjecture fails for 2*n-2: a(9814447404) = 19628894806 = 2*n-2, since 2*n+1 = 19628894809 = 367*53484727 divides 3*2^(2*n)+1. This is the least such n. The parts a(n) != 2 and a(n) != 2*n are true: they say that 2*n+1 > 1 never divides 2^(2*n+1)-1 or 2^(2*n)+1. - _Chi Hsia_, Nov 23 2026
+The conjecture fails for 2*n-2: a(9814447404) = 19628894806 = 2*n-2, since 2*n+1 = 19628894809 = 367*53484727 divides 3*2^(2*n)+1. This is the least such n (exhaustive search, see link). The parts a(n) != 2 and a(n) != 2*n are true (classical; proofs in link): they say that 2*n+1 > 1 never divides 2^(2*n+1)-1 or 2^(2*n)+1. - _Chi Hsia_, Nov 23 2026
 ```
 
 （如果編輯希望拆開，可以把第二句「This is the least such n.」改成「No smaller n exists (exhaustive search).」）
