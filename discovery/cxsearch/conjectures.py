@@ -18,7 +18,7 @@ from discovery.cxsearch import numth
 @dataclass(frozen=True)
 class Conjecture:
     key: str             # "A215944" or "A215944#2"
-    domain: str          # "psp2" | "carmichael"
+    domain: str          # "psp2" | "carmichael" | "n"
     statement: str       # English, close to the entry's wording
     reading: str         # how we formalised it (ambiguities resolved here)
     test: Callable[[int], Optional[dict]]
@@ -92,6 +92,46 @@ def a218010(n):
     return {"n": n} if (5 * n - 1) % 24 == 0 else None
 
 
+def _vp_fact(x: int, p: int) -> int:
+    s = 0
+    while x:
+        x //= p
+        s += x
+    return s
+
+
+def a362070_value(n: int) -> int:
+    """A362070: a(n) = sum_{r=1..K(n)} m_min(n, r), where m_min(n, r) is the least m
+    with n | prod_{t=1..m} t(t+1)...(t+r-1) and K(n) is the Kempner number.
+    Per prime power p^e || n the p-adic valuation of that product is
+    v_p((m+r-1)!) + ... computed as sum_t [v_p((t+r-1)!) - v_p((t-1)!)]."""
+    if n == 1:
+        return 1
+    fac = numth.factor(n)
+
+    def kempner_pe(p, e):
+        m = 0
+        while True:
+            m += p
+            if _vp_fact(m, p) >= e:
+                return m
+
+    def f(p, e, r):
+        s, m = 0, 0
+        while s < e:
+            m += 1
+            s += _vp_fact(m + r - 1, p) - _vp_fact(m - 1, p)
+        return m
+    K = max(kempner_pe(p, e) for p, e in fac.items())
+    return sum(max(f(p, e, r) for p, e in fac.items()) for r in range(1, K + 1))
+
+
+def a362070(n: int):
+    """a(n) != a(n+1)."""
+    a, b = a362070_value(n), a362070_value(n + 1)
+    return {"n": n, "a(n)": a, "a(n+1)": b} if a == b else None
+
+
 REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
     Conjecture(
         "A215944", "psp2",
@@ -122,6 +162,12 @@ REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
         "Carmichael m with 5m = 1 (mod 24). Already refuted in the entry "
         "(3380740301, Greathouse 2014); kept as a pipeline self-test.",
         a218010),
+    Conjecture(
+        "A362070", "n",
+        "The equation a(n) = a(n+1) has no solutions.",
+        "a(n) exactly as in the entry's name (agrees with the 57 DATA terms and the entry's "
+        "Maxima program). Refuted: a(1715) = a(1716) = 91 (DISC-0020).",
+        a362070),
 ]}
 
 

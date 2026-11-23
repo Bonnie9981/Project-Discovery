@@ -67,8 +67,8 @@
  },
  "A266651": {
   "author": "Z.-W. Sun 2016",
-  "status": "skipped",
-  "note": "x^2-6x+36 == 3 mod 4 and coprime to x+6: elementary proof; needs sum-of-two-squares theory in Lean; queued"
+  "status": "already_settled",
+  "note": "entry: proved by Hao Pan, Jan 2016"
  },
  "A349093": {
   "author": "Ratajczak 2022",
@@ -77,8 +77,8 @@
  },
  "A362070": {
   "author": "Ratajczak 2023",
-  "status": "skipped",
-  "note": "same family as A349093; checked only to 1e4 in entry; queued"
+  "status": "refuted",
+  "note": "a(1715)=a(1716)=91, only n<=1e10 (DISC-0020); a(n)=n: no new n<=1e10"
  },
  "A069056": {
   "author": "Cloitre 2002",
@@ -92,8 +92,8 @@
  },
  "A332786": {
   "author": "Ordowski 2020",
-  "status": "skipped",
-  "note": "needs a(m) mod m^2 for psp m; queued"
+  "status": "open_no_cx",
+  "note": "49 only weak psp for composite m<=1e5; no m^2|a(m) (DISC-0020)"
  },
  "A306826": {
   "author": "Ordowski 2019",

@@ -74,3 +74,11 @@ def test_saved_entries_align():
     assert entry.align(a321790, entry.load("A321790")) is None
     assert entry.align(lambda n: 1 if n == 1 else (n**n - n) // (n - 1) ** 2, entry.load("A058128")) is None
     assert any("All three conjectures are true" in c for c in entry.load("A218483").settled_hints())
+
+
+def test_a362070_aligns_and_counterexample():
+    from discovery.cxsearch.conjectures import a362070_value, REGISTRY
+    assert entry.align(a362070_value, entry.load("A362070")) is None
+    assert a362070_value(1715) == a362070_value(1716) == 91
+    c = REGISTRY["A362070"]
+    assert [n for n in range(1700, 1730) if c.test(n)] == [1715]

@@ -1,0 +1,55 @@
+{
+  "id": "DISC-0020",
+  "line": "R-003",
+  "title": "Phase 2：反例搜尋器第二批（數論）：推翻 A362070（a(1715) = a(1716) = 91）",
+  "status": "REFUTED",
+  "authors": [
+    "orchestrator"
+  ],
+  "created_at": "2026-11-23T06:00:00+00:00",
+  "milestone": true,
+  "lean_theorems": [
+    "Discovery.A362070Counter.mmin_unique",
+    "Discovery.A362070Counter.kempner_unique",
+    "Discovery.A362070Counter.sumTo_congr",
+    "Discovery.A362070Counter.avalue_unique",
+    "Discovery.A362070Counter.kempner_1715",
+    "Discovery.A362070Counter.kempner_1716",
+    "Discovery.A362070Counter.mmin_1715",
+    "Discovery.A362070Counter.mmin_1716",
+    "Discovery.A362070Counter.a_1715",
+    "Discovery.A362070Counter.a_1716",
+    "Discovery.A362070Counter.a362070_counterexample"
+  ],
+  "candidates": {
+    "A362070": {
+      "status": "REFUTED",
+      "proof": "a(1715) = a(1716) = 91 (1715 = 5*7^3, K = 21; 1716 = 2^2*3*11*13, K = 13, m_min = 14 - r). Lean a362070_counterexample (core, kernel computation of the literal definition). Entry's own Maxima program agrees. Least and only solution with n <= 10^10 (sieve, 128-bit sums). Side question a(n) = n: no new solution <= 10^10."
+    },
+    "A332786": {
+      "status": "INCONCLUSIVE",
+      "proof": "No composite m <= 10^5 other than 49 has m | a(m); none has m^2 | a(m). Exact q-adic valuation, cross-checked with fractions for m <= 600."
+    },
+    "A349093": {
+      "status": "INCONCLUSIVE",
+      "proof": "Not rescanned; DISC-0019 smooth-pair check stands."
+    },
+    "A266651": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "Already proved by Hao Pan (2016) per the entry; skipped."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0020-S001, S002)"
+    ],
+    "note": "Elementary computation; nothing new is claimed beyond pointing out the counterexample. The entry says the conjecture was checked to 10^4, which contains 1715. Web, MathSciNet and zbMATH not searched.",
+    "evidence": [
+      "DISC-0020-S001",
+      "DISC-0020-S002"
+    ]
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus"
+}
