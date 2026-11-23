@@ -1,0 +1,7 @@
+%I A218483 #27 Feb 16 2025 08:33:18
+%N A218483 Fermat pseudoprimes to base 2 which are congruent to 1 (mod 8).
+%C A218483 For p = 5 the formula becomes 40*n + 25. From the first 15 pseudoprimes divisible by 5, 12 are of the form 40*n + 25 (beside 3 of them which are of the form 40*n + 5). Conjecture: there are no pseudoprimes to base 2 of the form 40*n + 15.
+%C A218483 Conjecture: If a Fermat pseudoprime to base 2 can be written as 8*p*n + p^2, where n is an integer and p one of its prime factors, then it can be written this way for any of its prime factors. Checked for all pseudoprimes from the sequence above.
+%C A218483 All three conjectures are true (obvious from new characterization). - _Charles R Greathouse IV_, Dec 07 2014
+%O A218483 1,1
+%A A218483 _Marius Coman_, Oct 30 2012

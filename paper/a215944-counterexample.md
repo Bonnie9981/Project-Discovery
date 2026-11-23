@@ -11,7 +11,7 @@ Chi Hsia, 2026. Written with an LLM (Claude); the counterexample is checked in L
 3. N is not of the stated form. Write N = p*A*B with A = p + m(p-1), B = p + n(p-1), m, n >= 1. Then A, B >= 2p-1 > p, so p^3 < N and p <= 145; p divides N, hence p = 61 (p = 1 gives the product 1). Then A*B = 49981 with A, B == 1 (mod 60) and A, B >= 121. The only divisors of 49981 = 151*331 are 1, 151, 331, 49981, and 151 == 31 (mod 60). Contradiction. (The argument does not need p, A, B to be prime.)
 4. N is not a multiple of 5461 = 43 * 127.
 
-**Smallest.** Among the 798 terms of A215944 below 10^10 (our list agrees with the b-file in count and sum), 210 violate the conjecture; 3048841 is the least. Allowing any number of prime factors, no psp2 below 3048841 violates it either.
+**Smallest.** Among the 798 terms of A215944 below 10^10 (our list agrees with the b-file in count and sum), 211 violate the conjecture (including 5654273717 = 1093^2*4733, divisible by the psp 1093^2); 3048841 is the least. Allowing any number of prime factors, no psp2 below 3048841 violates it either.
 
 **Reproduce.** `python -m discovery.cxsearch scan A215944` in https://github.com/Bonnie9981/Project-Discovery (psp2 list to 10^10 checked against A055550). Lean: `lean/Discovery/CxBatch1.lean`, theorem `a215944_counterexample`.
 

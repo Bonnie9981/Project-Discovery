@@ -1,7 +1,7 @@
 {
   "id": "DISC-0019",
   "line": "R-003",
-  "title": "Phase 2：反例搜尋器第一批：推翻 A215944（3048841），證明 A058128、A218483，A321790 補資料",
+  "title": "Phase 2：反例搜尋器第一批：推翻 A215944（3048841），證明 A058128，A321790 補資料",
   "status": "REFUTED",
   "authors": [
     "orchestrator"
@@ -32,15 +32,15 @@
   "candidates": {
     "A215944": {
       "status": "REFUTED",
-      "proof": "N = 3048841 = 61*151*331 is psp2, divisible by psp2 49981 = 151*331, not of the form p((m+1)p-m)((k+1)p-k) (p <= N^(1/3) forces p = 61; 151 != 1 mod 60), not a multiple of 5461. Lean a215944_counterexample (core). Least: 210 of 798 terms < 1e10 fail, 3048841 first; definition aligned with b-file (count and sum at 1e7..1e10)."
+      "proof": "N = 3048841 = 61*151*331 is psp2, divisible by psp2 49981 = 151*331, not of the form p((m+1)p-m)((k+1)p-k) (p <= N^(1/3) forces p = 61; 151 != 1 mod 60), not a multiple of 5461. Lean a215944_counterexample (core). Least: 211 of 798 terms < 1e10 fail, 3048841 first; definition aligned with b-file (count and sum at 1e7..1e10). Includes squareful 5654273717 = 1093^2*4733 (found by critic)."
     },
     "A058128": {
       "status": "PROVEN_KNOWN",
-      "proof": "Even n: a(n) = n*S, S = 1 mod n-1, so n^a = n mod a. Lean a058128_weak_psp (core). Same idea as Song's 2022 proof for A343009."
+      "proof": "Even n: a(n) = n*S, S = 1 mod n-1, so n^a = n mod a. Lean a058128_weak_psp (core). Same idea as Song's 2022 proof for A343009. Offset and DATA aligned with entry (data/cx/entries/A058128.txt)."
     },
     "A218483": {
-      "status": "PROVEN_KNOWN",
-      "proof": "5 | N needs 4 | N-1, but N-1 = 14 mod 40. Lean a218483_no_psp. Conjectures 2, 3 are equivalent to N = 1 mod 8 (paper only)."
+      "status": "SUPPORTED_KNOWN",
+      "proof": "Already settled: Greathouse 2014 entry comment says all three conjectures are true. Our one-line proof is in Lean (a218483_no_psp) only as a check; no OEIS edit."
     },
     "A321790": {
       "status": "INCONCLUSIVE",

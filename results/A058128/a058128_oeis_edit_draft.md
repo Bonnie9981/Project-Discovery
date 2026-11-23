@@ -17,7 +17,7 @@
 **COMMENTS**：在 Rotondo 的 Conjecture 之後加：
 
 ```
-The conjecture is true: for even n, a(n) = n*S with S = (n^(n-1)-1)/(n-1)^2 coprime to n and S == 1 (mod n-1); hence n-1 divides n*S-1, n^(n*S) == n (mod S), and so n^a(n) == n (mod a(n)). It fails for odd n >= 5 (e.g. 5^195 == 125 (mod 195)). - _Chi Hsia_, Nov 23 2026
+The conjecture is true: for even n, a(n) = n*S with S = (n^(n-1)-1)/(n-1)^2 coprime to n and S == 1 (mod n-1); hence n-1 divides n*S-1, n^(n*S) == n (mod S), and so n^a(n) == n (mod a(n)). It can fail for odd n, e.g. n = 5: 5^195 == 125 (mod 195). - _Chi Hsia_, Nov 23 2026
 ```
 
 **LINKS**：

@@ -35,7 +35,7 @@ def test_a215944_definition_matches_bfile():
 
 def test_a215944_counterexample():
     r = conjectures.scan("A215944", catalog.load(CAT), 10**10, keep=1)
-    assert r["failures"] == 210 and r["first"][0]["n"] == 3048841
+    assert r["failures"] == 211 and r["first"][0]["n"] == 3048841
     assert numth.is_psp(3048841) and numth.is_psp(151 * 331)
 
 
@@ -50,7 +50,7 @@ def test_no_failures_where_proved_or_open():
     psp = catalog.load(CAT)
     for key in ("A218483#1", "A321790"):
         assert conjectures.scan(key, psp, 10**10)["failures"] == 0
-    assert conjectures.scan("A058128", range(1, 120), 120)["failures"] == 0
+    assert conjectures.scan("A058128", range(1, 400), 400)["failures"] == 0
 
 
 def test_entry_parse_and_align():
@@ -61,3 +61,16 @@ def test_entry_parse_and_align():
     assert entry.align(lambda n: n, e) is None
     assert entry.align(lambda n: n - 1, e) == (1, 1, 0)
     assert e.settled_hints()
+
+
+def test_saved_entries_align():
+    psp = catalog.load(CAT)
+
+    def a321790(i):
+        k, b = psp[i - 1], 3
+        while pow(b, k - 1, k) == 1:
+            b += 1
+        return b
+    assert entry.align(a321790, entry.load("A321790")) is None
+    assert entry.align(lambda n: 1 if n == 1 else (n**n - n) // (n - 1) ** 2, entry.load("A058128")) is None
+    assert any("All three conjectures are true" in c for c in entry.load("A218483").settled_hints())

@@ -15,7 +15,7 @@
 **COMMENTS**：把「The smallest such semiprimes are 341, 2701, ?, 721801, ...」的問號改成 873181，或另加一行：
 
 ```
-The missing term in "341, 2701, ?, 721801" is 873181 = 661*1321. The conjecture holds for all semiprime pseudoprimes below 10^10. A counterexample p*q (p < q) needs p-1 | q-1 and q | a^(p-1)-1 for every prime a < p; there is none with p <= 10^5. - _Chi Hsia_, Nov 23 2026
+The missing term in "341, 2701, ?, 721801" is 873181 = 661*1321; the next ones (a(n) = 13, 17, 19, 23) are 42702661, 1112103541, 2380603501, 5202153001. The conjecture holds for all semiprime pseudoprimes below 10^10. A counterexample p*q (p < q) needs p-1 | q-1 and q | a^(p-1)-1 for every prime a < p; there is none with p <= 10^5 (k = p^2 would need p to be a Wieferich prime; 1093^2 and 3511^2 satisfy the conjecture). - _Chi Hsia_, Nov 23 2026
 ```
 
 ## 「Reason for edit」

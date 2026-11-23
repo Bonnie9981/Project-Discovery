@@ -19,7 +19,7 @@
 **COMMENTS**：加在 Conjecture 那兩行之後：
 
 ```
-The conjecture is false: a(36) = 3048841 = 61*151*331 is divisible by the smaller Fermat pseudoprime 49981 = 151*331, it is not a multiple of 5461, and it cannot be written as p*((m+1)*p-m)*((n+1)*p-n): the three factors are >= p, so p = 61, but then the other two factors would be == 1 (mod 60), while 151 == 31 (mod 60). This is the least counterexample; 210 of the 798 terms below 10^10 are counterexamples. - _Chi Hsia_, Nov 23 2026
+The conjecture is false: a(36) = 3048841 = 61*151*331 is divisible by the smaller Fermat pseudoprime 49981 = 151*331, it is not a multiple of 5461, and it cannot be written as p*((m+1)*p-m)*((n+1)*p-n): the three factors are >= p, so p = 61, but then the other two factors would be == 1 (mod 60), while 151 == 31 (mod 60). This is the least counterexample; 211 of the 798 terms below 10^10 are counterexamples. - _Chi Hsia_, Nov 23 2026
 ```
 
 **LINKS**：

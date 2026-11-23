@@ -1,26 +1,118 @@
 {
-  "_note": "Triage of OEIS conjectures seen in the 2026-11-23 batch harvest (DISC-0019-S001). status: refuted | proved | open_no_cx | already_settled | skipped. Text is our summary, not OEIS text.",
-  "A215944": {"author": "Coman 2012", "status": "refuted", "note": "least counterexample 3048841 (DISC-0019)"},
-  "A058128": {"author": "Rotondo 2024", "status": "proved", "note": "DISC-0019"},
-  "A218483": {"author": "Coman 2012", "status": "proved", "note": "all three, one line each (DISC-0019)"},
-  "A321790": {"author": "Ordowski 2018", "status": "open_no_cx", "note": "none below 1e10; structural p <= 1e5; '?' = 873181"},
-  "A218010": {"author": "Coman 2012", "status": "already_settled", "note": "Greathouse 2014: 3380740301; pipeline self-test"},
-  "A214305": {"author": "Coman 2012", "status": "already_settled", "note": "Rodriguez 2026 counterexample 34945"},
-  "A215672": {"author": "Coman 2012", "status": "already_settled", "note": "Greathouse 2014: 617093"},
-  "A260119": {"author": "Corneth 2015", "status": "already_settled", "note": "Israel 2015 proved both"},
-  "A182090": {"author": "Coman 2012", "status": "already_settled", "note": "counterexample 6049681 in entry"},
-  "A182206": {"author": "Coman 2012", "status": "skipped", "note": "follows from Korselt"},
-  "A182207": {"author": "Coman 2012", "status": "skipped", "note": "follows from Korselt"},
-  "A182532": {"author": "Coman 2012", "status": "skipped", "note": "follows from Korselt"},
-  "A212843": {"author": "Coman 2012", "status": "skipped", "note": "first one follows from Korselt (noted in entry)"},
-  "A266651": {"author": "Z.-W. Sun 2016", "status": "skipped", "note": "x^2-6x+36 == 3 mod 4 and coprime to x+6: elementary proof; needs sum-of-two-squares theory in Lean; queued"},
-  "A349093": {"author": "Ratajczak 2022", "status": "open_no_cx", "note": "a(n)=a(n+1) needs consecutive smooth numbers with full prime powers (Tutescu-like); smooth pairs 30-smooth < 1e11 none"},
-  "A362070": {"author": "Ratajczak 2023", "status": "skipped", "note": "same family as A349093; checked only to 1e4 in entry; queued"},
-  "A069056": {"author": "Cloitre 2002", "status": "skipped", "note": "equivalent to: closure of {2} under p -> prime factors of p^c-1 is infinite; not a finite search"},
-  "A292559": {"author": "Ordowski 2017", "status": "skipped", "note": "needs factorizations of 2^k-1"},
-  "A332786": {"author": "Ordowski 2020", "status": "skipped", "note": "needs a(m) mod m^2 for psp m; queued"},
-  "A306826": {"author": "Ordowski 2019", "status": "skipped", "note": "a(n) prime for all n; extend terms later"},
-  "A307244": {"author": "Ordowski 2019", "status": "skipped", "note": "same as A306826 for base 3"},
-  "A239293": {"author": "Ordowski 2018", "status": "skipped", "note": "elementary both directions"},
-  "A309268": {"author": "Eldar-Ordowski 2019", "status": "skipped", "note": "none below 2^64 already"}
+ "_note": "Triage of OEIS conjectures seen in the 2026-11-23 batch harvest (DISC-0019-S001). status: refuted | proved | open_no_cx | already_settled | skipped. Text is our summary, not OEIS text.",
+ "A215944": {
+  "author": "Coman 2012",
+  "status": "refuted",
+  "note": "least counterexample 3048841; 211 of 798 terms < 1e10 (DISC-0019)"
+ },
+ "A058128": {
+  "author": "Rotondo 2024",
+  "status": "proved",
+  "note": "DISC-0019"
+ },
+ "A218483": {
+  "author": "Coman 2012",
+  "status": "already_settled",
+  "note": "Greathouse 2014 comment: all three conjectures true (missed in first read; caught by critic). Lean a218483_no_psp kept as a check only."
+ },
+ "A321790": {
+  "author": "Ordowski 2018",
+  "status": "open_no_cx",
+  "note": "none below 1e10; structural p <= 1e5; '?' = 873181"
+ },
+ "A218010": {
+  "author": "Coman 2012",
+  "status": "already_settled",
+  "note": "Greathouse 2014: 3380740301; pipeline self-test"
+ },
+ "A214305": {
+  "author": "Coman 2012",
+  "status": "already_settled",
+  "note": "Rodriguez 2026 counterexample 34945"
+ },
+ "A215672": {
+  "author": "Coman 2012",
+  "status": "already_settled",
+  "note": "Greathouse 2014: 617093"
+ },
+ "A260119": {
+  "author": "Corneth 2015",
+  "status": "already_settled",
+  "note": "Israel 2015 proved both"
+ },
+ "A182090": {
+  "author": "Coman 2012",
+  "status": "already_settled",
+  "note": "counterexample 6049681 in entry"
+ },
+ "A182206": {
+  "author": "Coman 2012",
+  "status": "skipped",
+  "note": "follows from Korselt"
+ },
+ "A182207": {
+  "author": "Coman 2012",
+  "status": "skipped",
+  "note": "follows from Korselt"
+ },
+ "A182532": {
+  "author": "Coman 2012",
+  "status": "skipped",
+  "note": "follows from Korselt"
+ },
+ "A212843": {
+  "author": "Coman 2012",
+  "status": "skipped",
+  "note": "first one follows from Korselt (noted in entry)"
+ },
+ "A266651": {
+  "author": "Z.-W. Sun 2016",
+  "status": "skipped",
+  "note": "x^2-6x+36 == 3 mod 4 and coprime to x+6: elementary proof; needs sum-of-two-squares theory in Lean; queued"
+ },
+ "A349093": {
+  "author": "Ratajczak 2022",
+  "status": "open_no_cx",
+  "note": "a(n)=a(n+1) needs consecutive smooth numbers with full prime powers (Tutescu-like); smooth pairs 30-smooth < 1e11 none"
+ },
+ "A362070": {
+  "author": "Ratajczak 2023",
+  "status": "skipped",
+  "note": "same family as A349093; checked only to 1e4 in entry; queued"
+ },
+ "A069056": {
+  "author": "Cloitre 2002",
+  "status": "skipped",
+  "note": "equivalent to: closure of {2} under p -> prime factors of p^c-1 is infinite; not a finite search"
+ },
+ "A292559": {
+  "author": "Ordowski 2017",
+  "status": "skipped",
+  "note": "needs factorizations of 2^k-1"
+ },
+ "A332786": {
+  "author": "Ordowski 2020",
+  "status": "skipped",
+  "note": "needs a(m) mod m^2 for psp m; queued"
+ },
+ "A306826": {
+  "author": "Ordowski 2019",
+  "status": "skipped",
+  "note": "a(n) prime for all n; extend terms later"
+ },
+ "A307244": {
+  "author": "Ordowski 2019",
+  "status": "skipped",
+  "note": "same as A306826 for base 3"
+ },
+ "A239293": {
+  "author": "Ordowski 2018",
+  "status": "skipped",
+  "note": "elementary both directions"
+ },
+ "A309268": {
+  "author": "Eldar-Ordowski 2019",
+  "status": "skipped",
+  "note": "none below 2^64 already"
+ }
 }

@@ -24,13 +24,6 @@ class Conjecture:
     test: Callable[[int], Optional[dict]]
 
 
-def _three_primes(n):
-    f = numth.factor(n)
-    if len(f) != 3 or any(e != 1 for e in f.values()):
-        return None
-    return sorted(f)
-
-
 def in_a215944(n):
     """Membership in A215944: psp2 with three prime factors (counted with
     multiplicity) divisible by a smaller psp2. Checked against the b-file."""
@@ -41,19 +34,34 @@ def in_a215944(n):
     return any(d < n and numth.is_psp(d) for d in {a * b, a * c, b * c})
 
 
+def _divisors(n):
+    ds = [1]
+    for p, e in numth.factor(n).items():
+        ds = [d * p ** i for d in ds for i in range(e + 1)]
+    return sorted(ds)
+
+
+def coman_form(n):
+    """Witness (p, A, B) with n = p*A*B, A = (m+1)p-m, B = (k+1)p-k, m, k >= 1,
+    i.e. A, B = 1 (mod p-1) and A, B >= 2p-1. p, A, B need not be prime."""
+    for p in _divisors(n):
+        if p < 2 or p ** 3 > n:
+            continue
+        r = n // p
+        for a in _divisors(r):
+            b = r // a
+            if a <= b and a >= 2 * p - 1 and (a - 1) % (p - 1) == 0 and (b - 1) % (p - 1) == 0:
+                return (p, a, b)
+    return None
+
+
 def a215944(n):
-    ps = _three_primes(n)
-    if ps is None:
+    """Members of A215944 (squareful ones included) that violate the conjecture."""
+    if not in_a215944(n) or coman_form(n):
         return None
-    p, q, r = ps
-    smaller = [d for d in (p * q, p * r, q * r) if numth.is_psp(d)]
-    if not smaller:
-        return None
-    if (q - 1) % (p - 1) == 0 and (r - 1) % (p - 1) == 0:
-        return None  # n = p*((m+1)p-m)*((k+1)p-k) with m, k >= 1
     if n % 5461 == 0 and (n // 5461 + 13) % 42 == 0:
         return None  # the stated exception 5461*(42k-13)
-    return {"n": n, "factors": ps, "psp_divisors": smaller}
+    return {"n": n, "factors": numth.factor(n)}
 
 
 def a321790(k):
@@ -89,9 +97,9 @@ REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
         "A215944", "psp2",
         "The only psp2 divisible by a smaller psp2 that can't be written as "
         "p*((m+1)p-m)*((n+1)p-n) are multiples of 5461 of the form 5461*(42k-13).",
-        "Domain = the entry's own domain: psp2 n = p*q*r with three distinct primes "
-        "p < q < r and one of pq, pr, qr a psp2. The form with natural m, n means "
-        "(p-1) | (q-1) and (p-1) | (r-1) with p the least prime factor.",
+        "Domain = the entry's own terms: psp2 with three prime factors counted with "
+        "multiplicity, divisible by a smaller psp2. The form with natural m, n >= 1 "
+        "means n = p*A*B with A, B = 1 (mod p-1) and A, B >= 2p-1 (p, A, B any naturals).",
         a215944),
     Conjecture(
         "A218483#1", "psp2",
