@@ -1,0 +1,23 @@
+{
+  "id": "DISC-0022",
+  "line": "G-001",
+  "title": "非數列副線：Erdős–Gyárfás 猜想小範圍 SAT 重現加 DRAT 證書（n ≤ 19）",
+  "status": "SUPPORTED_KNOWN",
+  "authors": ["orchestrator"],
+  "created_at": "2026-11-23T09:21:00+00:00",
+  "lean_theorems": [],
+  "candidates": {
+    "EG-n<=19": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "No graph with min degree >= 3 and no C4/C8/C16 on n <= 17 vertices: CEGAR SAT UNSAT, DRAT certificate checked by an independent RUP checker (discovery/egsat/check.py), all within config/limits.json. n = 18, 19 certificates also pass but exceeded the 600 s limit (approved by the user afterwards, 2026-11-23); n = 20..22 solver-only. Known: Ducoffe-Dumitru arXiv:2609.28594 covers n <= 40."
+    }
+  },
+  "novelty": {
+    "status": "MATCH_FOUND",
+    "sources_checked": ["web search (DISC-0022-S001)"],
+    "note": "Pure reproduction of a published computational bound (n <= 40). Nothing new is claimed.",
+    "evidence": ["DISC-0022-S001"]
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "sonnet"
+}

@@ -1,0 +1,215 @@
+{
+ "note": "DISC-0022; certificates not in git (too large), regenerate with python -m discovery.egsat.search N --out DIR; n=18,19 checks exceeded config/limits.json (600 s / 50 MB) and were approved by the user afterwards (2026-11-23); n=20..22 checks aborted",
+ "solver": "PySAT Cadical195",
+ "results": {
+  "4": {
+   "status": "UNSAT",
+   "blocked_cycles": 0,
+   "base_clauses": 51,
+   "solve_seconds": 0.0,
+   "cnf_sha256": "383eaec042b8b1bb82d483af029d0db126077b563d70b6a025969d04bbc6b41d",
+   "drat_sha256": "6f5bfbd223a2a5608227b3bd3f2d447784c2326f3a20c1d858c75bf2dc1793b7",
+   "drat_bytes": 563,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "5": {
+   "status": "UNSAT",
+   "blocked_cycles": 0,
+   "base_clauses": 124,
+   "solve_seconds": 0.0,
+   "cnf_sha256": "f184e6d7471a01762901f3108eca0b04441cd465e51fafabf310a32add42ba6a",
+   "drat_sha256": "e1af0949ec58d63ce30b68f7f5af8f3d72297ede722ab852b6288b8da413a8d5",
+   "drat_bytes": 100,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "6": {
+   "status": "UNSAT",
+   "blocked_cycles": 0,
+   "base_clauses": 260,
+   "solve_seconds": 0.0,
+   "cnf_sha256": "e52823a84f6fef1386f91423c72d8912657501b3fd66cf93a522cdb174a75af9",
+   "drat_sha256": "c633d60659944ffd9655ffcf09799c05c0e03c28513bfa0c21fcfa247f4c10f7",
+   "drat_bytes": 320,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "7": {
+   "status": "UNSAT",
+   "blocked_cycles": 0,
+   "base_clauses": 504,
+   "solve_seconds": 0.0,
+   "cnf_sha256": "364c6e3d20fbc96c6510fe6d5eb7f74ece8e508dab81e5037f920f19d8f14216",
+   "drat_sha256": "0adde6936ac01c5c226be7b10b792532bd4119b16de20212a204b15febdc324b",
+   "drat_bytes": 1058,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "8": {
+   "status": "UNSAT",
+   "blocked_cycles": 0,
+   "base_clauses": 924,
+   "solve_seconds": 0.0,
+   "cnf_sha256": "b6c95d42ea8c76e5034157077661e76ad1360534a51a30280a1e5ebbc01da77a",
+   "drat_sha256": "6f135c64c42251dfb5c50fccb9fa44922e5e34b20c2a1de5f03f22c4a9ad425d",
+   "drat_bytes": 4172,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "9": {
+   "status": "UNSAT",
+   "blocked_cycles": 0,
+   "base_clauses": 1616,
+   "solve_seconds": 0.0,
+   "cnf_sha256": "f6e841e86e954ba4fbccf1308792ca3049638ff0fdfbaa76ba47889949aafe1a",
+   "drat_sha256": "298c7051733b0aa0d5bf7575f82648d6ccbe350d37d94489ae23e92d3a9592fb",
+   "drat_bytes": 7394,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "10": {
+   "status": "UNSAT",
+   "blocked_cycles": 28,
+   "base_clauses": 2709,
+   "solve_seconds": 0.01,
+   "cnf_sha256": "493c4481244999d9f3c1669183866b3208bc8eddd857c29f80e42e722a14e4c2",
+   "drat_sha256": "94a3545c6d4ee6ebf7b9c0024594d613888d1338c3b6f8b7b4e97f9f67e1d8ae",
+   "drat_bytes": 7378,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "11": {
+   "status": "UNSAT",
+   "blocked_cycles": 91,
+   "base_clauses": 4370,
+   "solve_seconds": 0.02,
+   "cnf_sha256": "d4291882e16a78e818bf151739898a26383809acf98c8e7b99d93c94fb32cf1d",
+   "drat_sha256": "ac6e284923d7727177f03b6c6bcd045fe22d60a6faa3e9ac52a18ff9d80a48e5",
+   "drat_bytes": 62960,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "12": {
+   "status": "UNSAT",
+   "blocked_cycles": 407,
+   "base_clauses": 6809,
+   "solve_seconds": 0.05,
+   "cnf_sha256": "1108142ea83d589a725b2307cfd5e2f12f8fc808c10a175f78925cb3294e8cb1",
+   "drat_sha256": "6e02737daa9fdda8c61adc0966d6de78a9928c315d76cb781d827da21a68d8a8",
+   "drat_bytes": 109941,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "13": {
+   "status": "UNSAT",
+   "blocked_cycles": 1273,
+   "base_clauses": 10284,
+   "solve_seconds": 0.23,
+   "cnf_sha256": "7f29ab18008f28870a53b2023e79398cbc0cb0806e8373f0f8837d5669c168e6",
+   "drat_sha256": "eaf13eddb62afe45143ad5456bdf0bb79d959b40a6e658ef345a3269efa6988a",
+   "drat_bytes": 290671,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "14": {
+   "status": "UNSAT",
+   "blocked_cycles": 3105,
+   "base_clauses": 15106,
+   "solve_seconds": 0.47,
+   "cnf_sha256": "2d188132b752d27f95831659c25be654702d58b9014d50a6804e5bfac49f7e37",
+   "drat_sha256": "42c7c676c2b4fad46e932d0f5d4f549ea349b75d4a69a54790866842dc3dd9f3",
+   "drat_bytes": 1309388,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "15": {
+   "status": "UNSAT",
+   "blocked_cycles": 6695,
+   "base_clauses": 21644,
+   "solve_seconds": 1.22,
+   "cnf_sha256": "623c97f1da4d829fce1d99d27ca13fbb84b54e5261b3c226ef8199cd8441b642",
+   "drat_sha256": "9ce4064c4f50c52ab6fea202a360ad6c349b577749d6ac67936de33220168daa",
+   "drat_bytes": 2002754,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "16": {
+   "status": "UNSAT",
+   "blocked_cycles": 17216,
+   "base_clauses": 30330,
+   "solve_seconds": 7.04,
+   "cnf_sha256": "bf3cacb32c5a4f605888c52d7ce41cd1b78e0e70576192a0f951aaa4dccca6ad",
+   "drat_sha256": "4b4dcd838fdc35bcafbc6eba4bce5f718598bfc5481e51510d76a1ebd7286f95",
+   "drat_bytes": 7735666,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "17": {
+   "status": "UNSAT",
+   "blocked_cycles": 36483,
+   "base_clauses": 41664,
+   "solve_seconds": 17.79,
+   "cnf_sha256": "40dde52f6f3fb7e0b0a36c6f83a912864483342f5109c0dd0aebe9eda22a9ca3",
+   "drat_sha256": "f416d2f46af4ea6aa3272f657a071cecfdcc3847d2bebb28142c46c7272620c8",
+   "drat_bytes": 13677337,
+   "certificate_checked": true,
+   "within_limits": true
+  },
+  "18": {
+   "status": "UNSAT",
+   "blocked_cycles": 71553,
+   "base_clauses": 56219,
+   "solve_seconds": 43.63,
+   "cnf_sha256": "04d5bb676fa7cecba5ddb9cca2de57796ac638ba0376626869a45f58b38ecf5b",
+   "drat_sha256": "15e7a4da6da6531d9b85699af5f29b98aefcb62d46fecc215eb0a9ba33c7fa2a",
+   "drat_bytes": 30725863,
+   "certificate_checked": true,
+   "within_limits": false
+  },
+  "19": {
+   "status": "UNSAT",
+   "blocked_cycles": 133299,
+   "base_clauses": 74646,
+   "solve_seconds": 111.06,
+   "cnf_sha256": "15ca93849ebb82f70e44f391c536531588c496b73c9a341062f2cb4dc7d7b9c2",
+   "drat_sha256": "8da4541deca51a27b56e7fb96aeaa99061bfa8b57be8b3694e3b97505f42e5e2",
+   "drat_bytes": 77197905,
+   "certificate_checked": true,
+   "within_limits": false
+  },
+  "20": {
+   "status": "UNSAT",
+   "blocked_cycles": 231662,
+   "base_clauses": 97679,
+   "solve_seconds": 260.41,
+   "cnf_sha256": "9c786af82207449563dd38212b9c86ba09528d2f16667c490a915451cbd7834a",
+   "drat_sha256": "8ee743a176d15ab42711662fee0727b3589f05168c7262517848aa7b404c73e1",
+   "drat_bytes": 131991293,
+   "certificate_checked": false,
+   "within_limits": false
+  },
+  "21": {
+   "status": "UNSAT",
+   "blocked_cycles": 384213,
+   "base_clauses": 126140,
+   "solve_seconds": 591.71,
+   "cnf_sha256": "8afbe98bc2c3e2db702b2972369039aee0a2cfd5d2103035c0a5fa6f165dcd72",
+   "drat_sha256": "aa255cb6b62d4e3700f44da498aa01120d414b60b18b311e3a9d8eb9a3e5ed63",
+   "drat_bytes": 308554769,
+   "certificate_checked": false,
+   "within_limits": false
+  },
+  "22": {
+   "status": "UNSAT",
+   "blocked_cycles": 619435,
+   "base_clauses": 160944,
+   "solve_seconds": 1376.96,
+   "cnf_sha256": "750a369a009160cb179e47cfb104be6f6a5bef7720f8f8942ceea6548541b119",
+   "drat_sha256": "7be402ca6e4d094166b6c39bb67267a2a624b8e9d11b62a5875498ccbe3df410",
+   "drat_bytes": 638172437,
+   "certificate_checked": false,
+   "within_limits": false
+  }
+ }
+}
