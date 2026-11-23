@@ -52,4 +52,4 @@
 
 1. experiment.md 標題改成「實作（第二實作只到 7 點）」，proof.md 也寫明 8、9 點只靠證書鏈。
 2. proof.md 加一段：k 範圍的完整性靠 summary.json 加人工核對，check.py 不檢查。
-3. experiment.md 表格補一列 n = 10、k = 7～10（沒跑），並說明 summary.json 為什麼沒有這幾列。
+3. experiment.md 表格補上 n = 10、k = 7～10（後來跑完，只有求解器結果，都是 UNSAT），並說明 summary.json 為什麼沒有這幾列。
