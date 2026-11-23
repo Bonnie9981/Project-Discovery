@@ -1,5 +1,5 @@
 {
- "note": "DISC-0022; certificates not in git (too large), regenerate with python -m discovery.egsat.search N --out DIR; n=18,19 checks exceeded config/limits.json (600 s / 50 MB) and await approval; n=20..22 checks aborted",
+ "note": "DISC-0022; certificates not in git (too large), regenerate with python -m discovery.egsat.search N --out DIR; n=18,19 checks exceeded config/limits.json (600 s / 50 MB) and were approved by the user afterwards (2026-11-23); n=20..22 checks aborted",
  "solver": "PySAT Cadical195",
  "results": {
   "4": {
