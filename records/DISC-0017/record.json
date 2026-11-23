@@ -1,0 +1,48 @@
+{
+  "id": "DISC-0017",
+  "line": "R-003",
+  "title": "Phase 2：OEIS A294646 猜想「a(n) 不會是 2n−2」的反例 n = 9814447404，另兩半為古典結果",
+  "status": "REFUTED",
+  "authors": [
+    "orchestrator"
+  ],
+  "created_at": "2026-11-23T01:45:00+00:00",
+  "lean_theorems": [
+    "Discovery.A294646Counter.a294646_counterexample",
+    "Discovery.A294646Counter.key",
+    "Discovery.A294646Counter.dvd_three_pow_add_one",
+    "Discovery.A294646Counter.modulus_factor",
+    "Discovery.A294646Counter.inv_unique",
+    "Discovery.A294646Counter.powModAux_eq"
+  ],
+  "candidates": {
+    "A294646-not-2n-2": {
+      "status": "REFUTED",
+      "proof": "n = 9814447404: 2n+1 = 19628894809 = 367*53484727 divides 3*2^(2n)+1, so a(n) = 2n-2 (Lean kernel check a294646_counterexample, core only; Python big-int check). Least counterexample: structural search (scan.c, all admissible primes p < 2e6, cofactors <= 1e9) is complete for 2n+1 <= 6.1e10 and finds only this one; brute force over all odd m < 1.964e10 finds only this one."
+    },
+    "A294646-not-2": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "Classical: m > 1 never divides 2^m - 1 (least prime factor vs order of 2). Paper proof only; brute force m < 1.964e10."
+    },
+    "A294646-not-2n": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "Classical: m > 1 never divides 2^(m-1) + 1 (2-adic valuation of the order of 2). Paper proof only; brute force m < 1.964e10."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0017-S001, DISC-0017-S002)",
+      "web search (DISC-0017-S003)"
+    ],
+    "note": "No report of this counterexample in the OEIS entry, an OEIS term search, or web search. The method (necessary congruences + search) is standard; the result is a single explicit counterexample. Not claimed as a new theorem; MathSciNet/zbMATH not searched.",
+    "evidence": [
+      "DISC-0017-S001",
+      "DISC-0017-S002",
+      "DISC-0017-S003"
+    ]
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)"
+}
