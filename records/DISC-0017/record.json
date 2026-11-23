@@ -18,15 +18,15 @@
   "candidates": {
     "A294646-not-2n-2": {
       "status": "REFUTED",
-      "proof": "n = 9814447404: 2n+1 = 19628894809 = 367*53484727 divides 3*2^(2n)+1, so a(n) = 2n-2 (Lean kernel check a294646_counterexample, core only; Python big-int check). Least counterexample: structural search (scan.c, all admissible primes p < 2e6, cofactors <= 1e9) is complete for 2n+1 <= 6.1e10 and finds only this one; brute force over all odd m < 1e10 agrees."
+      "proof": "n = 9814447404: 2n+1 = 19628894809 = 367*53484727 divides 3*2^(2n)+1, so a(n) = 2n-2 (Lean kernel check a294646_counterexample, core only; Python big-int check). Least counterexample: structural search (scan.c, all admissible primes p < 2e6, cofactors <= 1e9) is complete for 2n+1 <= 6.1e10 and finds only this one; brute force over all odd m < 1.964e10 finds only this one."
     },
     "A294646-not-2": {
       "status": "SUPPORTED_KNOWN",
-      "proof": "Classical: m > 1 never divides 2^m - 1 (least prime factor vs order of 2). Paper proof only; brute force m < 1e10."
+      "proof": "Classical: m > 1 never divides 2^m - 1 (least prime factor vs order of 2). Paper proof only; brute force m < 1.964e10."
     },
     "A294646-not-2n": {
       "status": "SUPPORTED_KNOWN",
-      "proof": "Classical: m > 1 never divides 2^(m-1) + 1 (2-adic valuation of the order of 2). Paper proof only; brute force m < 1e10."
+      "proof": "Classical: m > 1 never divides 2^(m-1) + 1 (2-adic valuation of the order of 2). Paper proof only; brute force m < 1.964e10."
     }
   },
   "novelty": {
@@ -41,5 +41,8 @@
       "DISC-0017-S002",
       "DISC-0017-S003"
     ]
-  }
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)"
 }
