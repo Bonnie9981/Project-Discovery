@@ -18,5 +18,5 @@ The conjecture is true. If x - lambda(x) is even and positive, then x is not 1, 
 **Reason for edit**：
 
 ```
-Short proof of the conjecture x <= 4m (lambda(x) <= x/2 unless x - lambda(x) is odd).
+Short proof of the conjecture x <= 4m (lambda(x) <= x/2 whenever x - lambda(x) is even and positive).
 ```
