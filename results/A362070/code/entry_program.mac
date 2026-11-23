@@ -1,0 +1,4 @@
+K(u):=(b:1, for i:1 while mod(b,u)#0 do (c:i, b:b*(i+1)), c+1);
+a(n):=(s:0, for r:2 thru K(n)-1 do (z:product(j,j,1,r), for q:1 while mod(z,n)#0 do (z:z*product(y,y,q+1,q+r),m:q+1),s:s+m),s+K(n)+1);
+print(makelist(a(n),n,2,20));
+print(a(1714),a(1715),a(1716),a(1717));

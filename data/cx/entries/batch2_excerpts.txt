@@ -1,0 +1,21 @@
+# DISC-0020 batch 2: conjecture lines copied verbatim from oeis.org (fmt=text), 2026-11-23.
+%I A349093 #10 Feb 16 2025 08:34:02
+%C A349093 Conjecture: the equation a(n) = a(n+1) has no solutions. This holds up to at least n = 10^7.
+%A A349093 _Lechoslaw Ratajczak_, Mar 25 2022
+%I A332786 #41 Sep 15 2024 02:25:54
+%N A332786 a(n) = numerator(-1/n + Sum_{k=1..n} 2^(k-1)/k).
+%C A332786 If p > 3 is a prime, then p^2 | a(p).
+%C A332786 If p is a Wolstenholme prime (A088164), then p^3 | a(p).
+%C A332786 However, it should be noted that also 7^3 | a(7).
+%C A332786 Conjecture: there are no pseudoprimes m such that m^2 | a(m).
+%C A332786 Is 7^2 the only weak pseudoprime (i.e., a composite m such that m | a(m))?
+%H A332786 Robert Israel, <a href="/A332786/b332786.txt">Table of n, a(n) for n = 1..1367</a>
+%A A332786 _Thomas Ordowski_, Feb 24 2020
+%I A306826 #22 Jun 06 2021 07:59:27
+%C A306826 Conjecture: a(n) is prime for every n > 0, namely a(n) is the smallest odd prime p > a(n-1) such that 2^(p-1) == 1 (mod a(n-1)), with a(0) = 1.
+%H A306826 Amiram Eldar, <a href="/A306826/b306826.txt">Table of n, a(n) for n = 0..1000</a>
+%I A307244 #19 Apr 10 2019 10:24:54
+%C A307244 Conjecture: a(n) is prime for every n > 0, namely a(n) is the smallest prime p > a(n-1) different from 3 such that 3^(p-1) == 1 (mod a(n-1)), with a(0) = 1.
+%I A266651 #15 Jan 06 2016 06:27:19
+%C A266651 Conjecture: For any integer x with gcd(x,6) = 1, the number x^3 + 6^3 is never a sum of two squares.
+%C A266651 Hao Pan at Nanjing Univ. confirmed the conjecture on Jan. 3, 2016. - _Zhi-Wei Sun_, Jan 06 2016
