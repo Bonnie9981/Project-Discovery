@@ -31,19 +31,19 @@
       "proof": "d(nm)/d(n) = prod (a+x+1)/(a+1); a factor with x > a is >= 2. Lean exponents_le (product inequality only; divisor-count formula classical)."
     },
     "A340896": {
-      "status": "PROVEN_KNOWN",
+      "status": "SUPPORTED_KNOWN",
       "proof": "d(n^2)/d(n) = prod (2a+1)/(a+1) >= 9/4 when two or more primes. Paper only, numeric check n <= 150."
     },
     "A015126": {
-      "status": "OPEN_NO_CX",
+      "status": "INCONCLUSIVE",
       "proof": "no counterexample for phi values <= 2e9"
     },
     "A058383": {
-      "status": "OPEN_NO_CX",
+      "status": "INCONCLUSIVE",
       "proof": "converse direction proved on paper; no other solution x <= 1e10"
     },
     "A276674": {
-      "status": "PROVEN_KNOWN",
+      "status": "SUPPORTED_KNOWN",
       "proof": "x - lambda(x) even and positive excludes x = 1, 2 and odd prime powers; otherwise lambda(x) <= x/2 (even x: lambda <= phi <= x/2; odd x with two primes: lambda <= phi/2). Paper only, numeric check x <= 1e6."
     }
   },
