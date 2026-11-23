@@ -114,5 +114,60 @@
   "author": "Eldar-Ordowski 2019",
   "status": "skipped",
   "note": "none below 2^64 already"
+ },
+ "A134559": {
+  "author": "Ratajczak 2019",
+  "status": "refuted",
+  "note": "least counterexample 4933 (DISC-0021); converse proved"
+ },
+ "A306467": {
+  "author": "Ratajczak 2019",
+  "status": "open_no_cx",
+  "note": "a(n)=a(n+1) only 1,2,3,4,9,27 for n<=20000"
+ },
+ "A322445": {
+  "author": "Ratajczak 2018",
+  "status": "open_no_cx",
+  "note": "a(n)=a(n+1) only 2400 (n<=1e7 and all 47-smooth pairs)"
+ },
+ "A309491": {
+  "author": "Ratajczak 2019",
+  "status": "open_no_cx",
+  "note": "only 8 up to 1e8"
+ },
+ "A008590": {
+  "author": "Ratajczak 2017",
+  "status": "open_no_cx",
+  "note": "parity characterization holds n<=1e8"
+ },
+ "A033235": {
+  "author": "Ratajczak 2017",
+  "status": "open_no_cx",
+  "note": "holds for primes <=1e8 (class field theory likely)"
+ },
+ "A380153": {
+  "author": "Ratajczak 2025",
+  "status": "skipped",
+  "note": "even-term question; Alekseyev 2026 comment"
+ },
+ "A140110": {
+  "author": "Ratajczak 2017",
+  "status": "skipped",
+  "note": "checked to 1e8 already"
+ },
+ "A237428": {
+  "author": "Ratajczak 2014",
+  "status": "skipped",
+  "note": "Resta a(8)>1e9"
+ },
+ "A090086": {
+  "author": "Ordowski 2018",
+  "status": "open_no_cx",
+  "note": "a(2^p)=p^2 only p=3,5,7,13,17 for p<=3000"
+ },
+ "A091669": {
+  "author": "Eldar-Ordowski 2020",
+  "status": "already_settled",
+  "note": "proved 2026 per entry"
  }
 }

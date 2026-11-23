@@ -132,6 +132,43 @@ def a362070(n: int):
     return {"n": n, "a(n)": a, "a(n+1)": b} if a == b else None
 
 
+def a134559_gcd(n: int) -> int:
+    """gcd(P(n), n) with P(n) = prod_{k=0..ceil(n/2)-1} b_n(k), where b_n(k) is the
+    sum of all u in [1, n] with n mod u = k (A134559, Ratajczak 2019 comment)."""
+    K = (n + 1) // 2
+    b = [0] * K
+    for u in range(1, n + 1):
+        r = n % u
+        if r < K:
+            b[r] += u
+    pr = 1 % n
+    for x in b:
+        pr = pr * x % n
+    from math import gcd
+    return gcd(pr, n)
+
+
+def _is_prime_small(n: int) -> bool:
+    if n < 2:
+        return False
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            return False
+        d += 1
+    return True
+
+
+def a134559(n: int):
+    """[gcd(P(n),n) = 1 and gcd(P(n+1),n+1) = 2]  <=>  n in A005383 minus {3, 5}."""
+    sat = a134559_gcd(n) == 1 and a134559_gcd(n + 1) == 2
+    in_a = n > 5 and _is_prime_small(n) and n % 2 == 1 and _is_prime_small((n + 1) // 2)
+    if sat == in_a:
+        return None
+    return {"n": n, "satisfies": sat, "in_A005383": in_a,
+            "gcd(P(n),n)": a134559_gcd(n), "gcd(P(n+1),n+1)": a134559_gcd(n + 1)}
+
+
 REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
     Conjecture(
         "A215944", "psp2",
@@ -168,6 +205,13 @@ REGISTRY: dict[str, Conjecture] = {c.key: c for c in [
         "a(n) exactly as in the entry's name (agrees with the 57 DATA terms and the entry's "
         "Maxima program). Refuted: a(1715) = a(1716) = 91 (DISC-0020).",
         a362070),
+    Conjecture(
+        "A134559", "n",
+        "Consecutive n with gcd(P(n),n) = 1 and gcd(P(n+1),n+1) = 2 are consecutive "
+        "elements of A005383 (save 3 and 5).",
+        "Read as: the solution set equals A005383 minus {3, 5}. Refuted: 4933 is in "
+        "A005383 but 4934 | P(4934) (DISC-0021); the solution set is always inside A005383.",
+        a134559),
 ]}
 
 

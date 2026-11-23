@@ -82,3 +82,11 @@ def test_a362070_aligns_and_counterexample():
     assert a362070_value(1715) == a362070_value(1716) == 91
     c = REGISTRY["A362070"]
     assert [n for n in range(1700, 1730) if c.test(n)] == [1715]
+
+
+def test_a134559_counterexample():
+    from discovery.cxsearch.conjectures import a134559_gcd, REGISTRY
+    assert a134559_gcd(4933) == 1 and a134559_gcd(4934) == 4934
+    c = REGISTRY["A134559"]
+    assert [n for n in range(1, 2001) if c.test(n)] == []   # entry: checked for 2000 integers
+    assert c.test(4933) is not None
