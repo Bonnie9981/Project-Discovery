@@ -23,6 +23,7 @@
   },
   "critic": "critic (independent subagent)",
   "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
   "novelty": {
     "status": "NO_MATCH_IN_SCOPE",
     "sources_checked": ["oeis online (DISC-0022-S001, S002)"],
