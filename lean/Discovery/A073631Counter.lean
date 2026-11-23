@@ -64,8 +64,8 @@ theorem wieferich_q1 : 3 ^ (q1 - 1) % (q1 * q1) = 2 ^ (q1 - 1) % (q1 * q1) := by
 theorem wieferich_q2 : 3 ^ (q2 - 1) % (q2 * q2) = 2 ^ (q2 - 1) % (q2 * q2) := by
   rw [← powModAux_eq 40, ← powModAux_eq 40]; decide
 
-/-- `k = q1^2 = 14766805716452908561` satisfies the defining congruence of A073631. -/
 set_option maxRecDepth 100000 in
+/-- `k = q1^2 = 14766805716452908561` satisfies the defining congruence of A073631. -/
 theorem inSeq_q1_sq : InSeq (q1 * q1) := by
   unfold InSeq
   rw [← powModAux_eq 66, ← powModAux_eq 66]; decide
