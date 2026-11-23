@@ -30,5 +30,6 @@ python -m discovery.cxsearch scan A362070 --nmax 2000      # Python，找到 171
 gcc -O2 -o scan results/A362070/code/scan.c -lm
 ./scan 1000000000                                           # 約 2 分鐘，HIT n=1715
 python results/A362070/code/brute.py 1715 1716               # 照定義逐字算
-maxima -b results/A362070/code/entry_program.mac             # 條目自己的程式
+maxima -b results/A362070/code/entry_program.mac             # 條目自己的程式（a(1714) 的 K = 857，要跑幾分鐘）
+gcc -O2 -o a332786 records/DISC-0020/a332786.c && ./a332786 1 100000   # A332786，要給 lo hi
 ```

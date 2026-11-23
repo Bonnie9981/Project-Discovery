@@ -25,7 +25,7 @@ The conjecture is false: a(1715) = a(1716) = 91. Here 1716 = 2^2*3*11*13 gives m
 另一個問句（a(n) = n 的其他解）可以順便加：
 
 ```
-There is no further solution of a(n) = n (other than consecutive triangular numbers with odd prime indices) for n <= 10^10. - _Chi Hsia_, Nov 23 2026
+Besides 1 and 16, every solution of a(n) = n with n <= 10^10 is a triangular number p*(p+1)/2 with p an odd prime. - _Chi Hsia_, Nov 23 2026
 ```
 
 **LINKS**：
