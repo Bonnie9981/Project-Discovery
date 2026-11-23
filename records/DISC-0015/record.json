@@ -1,0 +1,58 @@
+{
+  "id": "DISC-0015",
+  "line": "R-003",
+  "title": "Phase 2：證明 OEIS A118109、A265225（規則 54 單細胞各列）的猜想公式",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-23T00:30:00+00:00",
+  "lean_theorems": [
+    "Discovery.Rule54Rows.rule_eq",
+    "Discovery.Rule54Rows.C_step",
+    "Discovery.Rule54Rows.row_eq",
+    "Discovery.Rule54Rows.shift",
+    "Discovery.Rule54Rows.tail",
+    "Discovery.Rule54Rows.a118109_step",
+    "Discovery.Rule54Rows.a118109_rec",
+    "Discovery.Rule54Rows.a118109_mul",
+    "Discovery.Rule54Rows.a118109_floor",
+    "Discovery.Rule54Rows.ones_formula",
+    "Discovery.Rule54Rows.a265225_even",
+    "Discovery.Rule54Rows.a265225_odd",
+    "Discovery.Rule54Rows.a265225_barker",
+    "Discovery.Rule54Rows.a265225_rec",
+    "Discovery.Rule54Rows.a265225_hurt",
+    "Discovery.Rule54Rows.a265225_veselovac"
+  ],
+  "candidates": {
+    "A118109-formulas": {
+      "status": "PROVEN_KNOWN",
+      "proof": "Lean (core only) for all n: row closed form row_eq; a(n+2) = 10000*a(n) + (1 or 111); Barker recurrence a118109_rec, Keller floor formula a118109_floor. G.f. follows from the recurrence and initial terms (paper). Numeric: two methods in one script for n <= 300 plus DATA."
+    },
+    "A265225-formulas": {
+      "status": "PROVEN_KNOWN",
+      "proof": "Lean (core only) for all n: a265225_barker, a265225_rec, a265225_hurt, a265225_veselovac. G.f. from the recurrence (paper)."
+    },
+    "A265225-ianakiev": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "Paper proof: n-subsets of 1..2n realise every sum in [n(n+1)/2, n(3n+1)/2]; minimum divisible by n is n(n+1)/2 (n odd) or n(n+2)/2 (n even) = a(n-1). The comment's 'a(n)' is off by one. Brute force n <= 11."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0015-S001, DISC-0015-S002, DISC-0015-S003)"
+    ],
+    "note": "Exercise level: the row pattern is visible in NKS p.55 and A118108 already states the decimal closed form. Nothing new is claimed; the value is closing the conjecture labels in OEIS with checked proofs and correcting the index in Ianakiev's comment.",
+    "open": [],
+    "evidence": [
+      "DISC-0015-S001",
+      "DISC-0015-S002",
+      "DISC-0015-S003"
+    ]
+  }
+}
