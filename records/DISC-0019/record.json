@@ -1,0 +1,69 @@
+{
+  "id": "DISC-0019",
+  "line": "R-003",
+  "title": "Phase 2：反例搜尋器第一批：推翻 A215944（3048841），證明 A058128、A218483，A321790 補資料",
+  "status": "REFUTED",
+  "authors": [
+    "orchestrator"
+  ],
+  "created_at": "2026-11-23T05:30:00+00:00",
+  "milestone": true,
+  "lean_theorems": [
+    "Discovery.CxBatch1.mul_mod_mod'",
+    "Discovery.CxBatch1.pow_mod'",
+    "Discovery.CxBatch1.powModAux_eq",
+    "Discovery.CxBatch1.prime_61",
+    "Discovery.CxBatch1.prime_151",
+    "Discovery.CxBatch1.prime_331",
+    "Discovery.CxBatch1.psp_N",
+    "Discovery.CxBatch1.psp_Q",
+    "Discovery.CxBatch1.factor_ge",
+    "Discovery.CxBatch1.small_div",
+    "Discovery.CxBatch1.small_div2",
+    "Discovery.CxBatch1.not_coman_form",
+    "Discovery.CxBatch1.a215944_counterexample",
+    "Discovery.CxBatch1.tri_two",
+    "Discovery.CxBatch1.expand",
+    "Discovery.CxBatch1.geo_pow",
+    "Discovery.CxBatch1.a058128_weak_psp",
+    "Discovery.CxBatch1.a058128_n4",
+    "Discovery.CxBatch1.a218483_no_psp"
+  ],
+  "candidates": {
+    "A215944": {
+      "status": "REFUTED",
+      "proof": "N = 3048841 = 61*151*331 is psp2, divisible by psp2 49981 = 151*331, not of the form p((m+1)p-m)((k+1)p-k) (p <= N^(1/3) forces p = 61; 151 != 1 mod 60), not a multiple of 5461. Lean a215944_counterexample (core). Least: 210 of 798 terms < 1e10 fail, 3048841 first; definition aligned with b-file (count and sum at 1e7..1e10)."
+    },
+    "A058128": {
+      "status": "PROVEN_KNOWN",
+      "proof": "Even n: a(n) = n*S, S = 1 mod n-1, so n^a = n mod a. Lean a058128_weak_psp (core). Same idea as Song's 2022 proof for A343009."
+    },
+    "A218483": {
+      "status": "PROVEN_KNOWN",
+      "proof": "5 | N needs 4 | N-1, but N-1 = 14 mod 40. Lean a218483_no_psp. Conjectures 2, 3 are equivalent to N = 1 mod 8 (paper only)."
+    },
+    "A321790": {
+      "status": "INCONCLUSIVE",
+      "proof": "No counterexample among 6504 semiprime psp2 < 1e10; structural search over p <= 1e5 (q unbounded) finds none. Filled '?' = 873181 = 661*1321 (least semiprime psp2 with least non-witness 7)."
+    },
+    "A218010-selftest": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "Pipeline re-finds Greathouse's 3380740301 as the only Carmichael m < 1e10 with 5m = 1 mod 24."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0019-S001..S004)"
+    ],
+    "note": "Counterexample and proofs are elementary; nothing new is claimed. 3048841 is already a term of the A215944 b-file but nobody compared it with the conjecture. Web, MathSciNet and zbMATH not searched.",
+    "evidence": [
+      "DISC-0019-S001",
+      "DISC-0019-S002",
+      "DISC-0019-S003",
+      "DISC-0019-S004"
+    ]
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus"
+}
