@@ -169,5 +169,60 @@
   "author": "Eldar-Ordowski 2020",
   "status": "already_settled",
   "note": "proved 2026 per entry"
+ },
+ "A073631": {
+  "author": "Adamchuk 2007 (in Cloitre's entry)",
+  "status": "refuted",
+  "note": "least counterexample 3842760169^2 (base-3/2 Wieferich prime, A376896); also refutes 'only squares 1 and 529' (DISC-0022)"
+ },
+ "A130058": {
+  "author": "Adamchuk 2007",
+  "status": "refuted",
+  "note": "same conjecture as A073631 (DISC-0022)"
+ },
+ "A245526": {
+  "author": "Sun 2014",
+  "status": "already_settled",
+  "note": "Poonen counterexample n = 14268177 recorded in entry"
+ },
+ "A245525": {
+  "author": "Sun 2014",
+  "status": "already_settled",
+  "note": "Alekseyev counterexample n = 1119414 recorded in entry"
+ },
+ "A067803": {
+  "author": "Cloitre 2002",
+  "status": "skipped",
+  "note": "Resta searched to 1e13 (in entry)"
+ },
+ "A067129": {
+  "author": "Cloitre 2002",
+  "status": "skipped",
+  "note": "Eldar b-file 10000 terms; not rechecked"
+ },
+ "A279821": {
+  "author": "Sun 2016",
+  "status": "skipped",
+  "note": "entry: checked to 6e6; T(m) mod m costly"
+ },
+ "A303639": {
+  "author": "Sun 2018",
+  "status": "already_settled",
+  "note": "a(800322180) = 0 recorded in entry"
+ },
+ "A076502": {
+  "author": "Cloitre 2002",
+  "status": "already_settled",
+  "note": "counterexample n = 1167 recorded in entry"
+ },
+ "A071532": {
+  "author": "Cloitre 2002",
+  "status": "already_settled",
+  "note": "a(331523) = -1 recorded in entry"
+ },
+ "A065560": {
+  "author": "Cloitre 2001",
+  "status": "already_settled",
+  "note": "counterexample n = 709 recorded in entry (Xausa 2025)"
  }
 }
