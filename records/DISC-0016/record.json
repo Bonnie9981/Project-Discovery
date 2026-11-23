@@ -1,0 +1,51 @@
+{
+  "id": "DISC-0016",
+  "line": "R-003",
+  "title": "Phase 2：證明 OEIS A085588（規則 150 環的最終週期）整除 2^D(2^s−1)，並指出條目原句方向寫反",
+  "status": "PROVEN_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "created_at": "2026-11-23T00:50:00+00:00",
+  "lean_theorems": [
+    "Discovery.A085588Period.a085588_dvd",
+    "Discovery.A085588Period.any_state_dvd",
+    "Discovery.A085588Period.iter_identity",
+    "Discovery.A085588Period.period_dvd",
+    "Discovery.A085588Period.iter_pow_two",
+    "Discovery.A085588Period.spread_spread",
+    "Discovery.A085588Period.spread_congr"
+  ],
+  "candidates": {
+    "A085588-dvd": {
+      "status": "PROVEN_KNOWN",
+      "proof": "Lean (core only) for every n = 2^D m with m | 2^s -+ 1: F^(2^D + 2^D(2^s-1)) = F^(2^D) on every ring state (GF(2) Frobenius: 2^j steps = spread by 2^j; 2^(D+s) = +-2^D mod n), hence the eventual period divides 2^D(2^s-1) (a085588_dvd, any_state_dvd). With s = A309786(n) this is a(n) | 2^A007814(n)(2^A309786(n)-1), the corrected direction of the 2024 comment. Numeric: two methods (fast operator powers + exact order; brute-force simulation) for n <= 200, 64 DATA terms, and the whole b-file n <= 1000."
+    },
+    "A085588-literal": {
+      "status": "REFUTED",
+      "proof": "The comment as written ('2^A007814(n)*(2^A309786(n)-1) divides a(n)') fails at n = 4 (a = 2) and n = 13 (a = 21 vs 63); 174 failures in the b-file, agree with the n the comment lists as a(n) != 2^D(2^s-1)."
+    },
+    "A085588-fixed-points": {
+      "status": "OPEN",
+      "proof": "Partial: a(n) = n implies m | 2^s - 1; the comment's first converse exception 445 is a typo for 455 (445 not in A115770; a(455) = 4095); every 2^i(2^j-1) with j >= 3 is in A115770 (carryless computation). n <= 1000: a(n) = n only for 2^i(2^j-1). The step 'a(n) = n => odd part is Mersenne' is not proved."
+    }
+  },
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis online (DISC-0016-S001, DISC-0016-S002, DISC-0016-S003)"
+    ],
+    "note": "Same Frobenius argument as Martin-Odlyzko-Wolfram 1984 Theorem 3.5 for rule 90 (cited in the entry, original not read); Tadaki 1993 may already contain the rule 150 case. Nothing new is claimed; the value is correcting the reversed comment in OEIS and giving a checked proof.",
+    "open": [
+      "A085588-fixed-points"
+    ],
+    "evidence": [
+      "DISC-0016-S001",
+      "DISC-0016-S002",
+      "DISC-0016-S003"
+    ]
+  }
+}
