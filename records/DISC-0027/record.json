@@ -1,0 +1,29 @@
+{
+  "id": "DISC-0027",
+  "line": "R-003",
+  "title": "Phase 2：序列關係挖掘第一個結果：4 部分分拆的部分和與整數三角形邊長和的差分關係，並證明 Barker 的 8 個猜想 g.f.",
+  "status": "SUPPORTED_NOVELTY_UNCHECKED",
+  "authors": ["orchestrator"],
+  "created_at": "2026-11-27T18:45:00+00:00",
+  "milestone": true,
+  "lean_theorems": [],
+  "candidates": {
+    "A308758": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "paper proof: (a,a,c,d) <-> (c,a,a+d-1) gives a(n)-a(n-1) = A307686(n-1); g.f. from y1+2y2+3y3+4y4 parametrisation equals Barker's. Checked n <= 200. No Lean."},
+    "A308759": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "same bijection: a(n)-a(n-1) = A308096(n-1); Barker g.f. correct"},
+    "A308733": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "same bijection: a(n)-a(n-1) = A307966(n-1)-A308096(n-1)+A005044(n-1); Barker g.f. correct"},
+    "A308760": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "same bijection: a(n)-a(n-1) = A026810(n-1)+A308096(n-1); Barker g.f. correct"},
+    "A308775": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "Barker g.f. correct (sum of the four)"},
+    "A307686": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "Barker g.f. correct via the relation"},
+    "A308096": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "Barker g.f. correct via the relation"},
+    "A307966": {"status": "SUPPORTED_NOVELTY_UNCHECKED", "proof": "Barker g.f. correct via the relation and the classical g.f. of A005044"}
+  },
+  "critic": "critic (two independent subagents: sonnet, then opus)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": ["oeis offline snapshot 091a90f51479 (DISC-0027-S001..S003)"],
+    "note": "No cross-reference or formula linking the two families in the OEIS; the count version (A026810 first differences = A005044) is known. Web, MathSciNet, zbMATH, arXiv not searched. Likely exercise level.",
+    "evidence": ["DISC-0027-S001", "DISC-0027-S002", "DISC-0027-S003"]
+  }
+}
