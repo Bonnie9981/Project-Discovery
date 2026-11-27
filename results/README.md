@@ -16,6 +16,9 @@
 | [A321790/](A321790/) | 補上「?」= 873181，搜尋範圍 | DISC-0019 |
 | [A308758/](A308758/) | 4 部分分拆的部分和 vs 整數三角形邊長和：四條差分關係（雙射），Barker 8 個猜想 g.f. 成立 | DISC-0028 |
 | [rule54-transient/](rule54-transient/) | 規則 54 暫態，新序列草稿 | DISC-0010～0012 |
+| [locating-dominating-path/](locating-dominating-path/) | 路徑圖定位支配集個數，新序列草稿（生成函數，證明） | DISC-0027 |
+| [identifying-code-path/](identifying-code-path/) | 路徑圖識別碼個數，新序列草稿（7 階遞迴，證明） | DISC-0027 |
+| [A001642/](A001642/) | 環的定位支配集個數 = A001642（n ≥ 5，證明） | DISC-0027 |
 
 狀態：**全部是內部草稿。** 對外（OEIS 送出）由使用者本人決定、本人送出。署名 Chi Hsia，附 AI 使用聲明。
 
