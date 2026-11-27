@@ -21,9 +21,10 @@
 ## 新增一條序列時
 
 1. 開 `results/A??????/`，放 `README.md`（列出 DISC 紀錄和 Lean 檔）、短證明、OEIS 草稿，檢查腳本放 `code/`。
-2. `code/` 裡的腳本要用 repo 的模組時，用 `sys.path.insert(0, str(Path(__file__).resolve().parents[3]))`。
-3. OEIS 要連的證明頁放 `paper/`（網址一旦送出就不能動），其餘放這裡。
-4. 研究過程照舊寫在 `records/DISC-XXXX/`（流水帳，只增不改），Lean 照舊放 `lean/Discovery/`。
+2. 附兩份高二版中文說明：`證明方法說明.md`、`程式說明.md`（規定見 CLAUDE.md）。
+3. `code/` 裡的腳本要用 repo 的模組時，用 `sys.path.insert(0, str(Path(__file__).resolve().parents[3]))`。
+4. OEIS 要連的證明頁放 `paper/`（網址一旦送出就不能動），其餘放這裡。
+5. 研究過程照舊寫在 `records/DISC-XXXX/`（流水帳，只增不改），Lean 照舊放 `lean/Discovery/`。
 
 ## 舊路徑對照（2026-11-22 整理前）
 
