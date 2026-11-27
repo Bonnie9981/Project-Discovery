@@ -1,0 +1,7 @@
+# fetched 2026-11-27 from oeis.org (fmt=text), verbatim (%S %N %C %A lines; %e omitted)
+%S A219433 1,2,2,4,2,4,6,12,2,2,12,4,2,4,6,2,12,6,4,8,4,4,2,2,4,6,6,6,24,2,4,2,
+%N A219433 a(n) is the smallest 3-smooth number such that prime(n)*a(n) + 1 is prime.
+%C A219433 Conjecture: a(n) < prime(n) except for a(522720).
+%C A219433 a(522720)=12582912 > p(522720)=7728803.
+%C A219433 Conjecture tested up to a(1000000).
+%A A219433 _Lei Zhou_, Nov 19 2012
