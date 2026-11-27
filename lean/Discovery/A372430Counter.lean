@@ -53,10 +53,14 @@ def k : Nat := 2 ^ 87 + 2 ^ 49
 
 theorem k_value : k = 154742504911235484315811840 := by decide
 
+set_option maxRecDepth 100000 in
 /-- 229 is the 50th prime and 457 is the 88th prime. -/
 theorem prime_229 : IsPrime 229 := (isPrimeB_iff 229).mp (by rfl)
+set_option maxRecDepth 100000 in
 theorem prime_457 : IsPrime 457 := (isPrimeB_iff 457).mp (by rfl)
+set_option maxRecDepth 100000 in
 theorem count_229 : primesBelow 229 = 49 := by rfl
+set_option maxRecDepth 100000 in
 theorem count_457 : primesBelow 457 = 87 := by rfl
 
 /-- The only 1-bits of k are bits 49 and 87 (binary indices 50 and 88). -/
@@ -77,6 +81,7 @@ theorem a372430_counterexample :
   ⟨by decide, k_lt, fun i hi h => (k_bits i hi).mp h,
     prime_229, count_229, dvd_229, prime_457, count_457, dvd_457⟩
 
+set_option maxRecDepth 100000 in
 /-- Sanity check against the entry: 4100 = 2^12 + 2^2, prime(3) = 5 and prime(13) = 41. -/
 example : 4100 = 2 ^ 12 + 2 ^ 2 ∧ 4100 % 5 = 0 ∧ 4100 % 41 = 0 ∧
     primesBelow 5 = 2 ∧ primesBelow 41 = 12 := by decide
