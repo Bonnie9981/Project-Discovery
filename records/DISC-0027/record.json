@@ -1,0 +1,25 @@
+{
+  "id": "DISC-0027",
+  "line": "R-001",
+  "title": "新序列主線第一批：路徑與環上的定位支配集、識別碼個數（生成函數、A001642 新解釋）",
+  "status": "SUPPORTED_POSSIBLY_NEW",
+  "authors": ["orchestrator"],
+  "created_at": "2026-11-27T15:30:00+00:00",
+  "milestone": true,
+  "lean_theorems": [],
+  "candidates": {
+    "H1-LD-path": {"status": "SUPPORTED_POSSIBLY_NEW", "proof": "paper proof (Lemma 1 gap rules + 2-state transfer), paper/locating-dominating-paths.md Thm 1; three independent implementations agree n <= 20; no Lean"},
+    "H2-LD-cycle-A001642": {"status": "SUPPORTED_POSSIBLY_NEW", "proof": "paper proof (tiling bijection, tiles 1,2,4,5), Thm 2; n >= 5 and n = 3; n = 4 exception predicted and confirmed; no Lean"},
+    "H3-ID-path": {"status": "SUPPORTED_POSSIBLY_NEW", "proof": "paper proof (Lemma 3 word rules + 8-state matrix, exact charpoly, Cayley-Hamilton), Thm 3; no Lean"}
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "novelty": {
+    "status": "PENDING_REVIEW",
+    "sources_checked": ["offline OEIS snapshot 091a90f51479 (terms and full text)", "web search x2"],
+    "note": "No OEIS entry contains the term lists or mentions identifying codes / locating-dominating sets; web search found only minimum-size results. MathSciNet/zbMATH not searched. Proposed by agent; not NOVELTY_SUPPORTED (needs a human).",
+    "open": ["MathSciNet/zbMATH not checked", "no Lean formalization"],
+    "evidence": ["literature.md S001-S003"]
+  }
+}
