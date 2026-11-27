@@ -28,3 +28,24 @@ def test_euler_41_fails_at_40():
                    lambda n: is_prime_mr(n*n+n+41))
     v = verify.check(c)
     assert v.status == verify.REFUTED and v.counterexample == 40
+
+
+def test_counterexample_in_ascending_domain_is_least_in_tested_order():
+    v = verify.check(conj(lambda n: n < 42, lambda n: n < 42))
+    assert v.counterexample_scope == "LEAST_IN_TESTED_ORDER"
+
+
+def test_unordered_domain_does_not_claim_least():
+    # Red-team case: domain visits 10 before 2, and both fail. 10 must not be called least.
+    c = Conjecture("t", "", lambda: [1, 10, 2, 3], "", lambda n: n == 1, lambda n: n == 1)
+    v = verify.check(c)
+    assert v.status == verify.REFUTED and v.counterexample == 10
+    assert v.counterexample_scope == "FOUND"
+
+
+def test_generator_domain_stopped_early_does_not_claim_least():
+    c = Conjecture("t", "", lambda: iter(range(100)), "", lambda n: n < 42, lambda n: n < 42)
+    v = verify.check(c)
+    assert v.counterexample == 42 and v.counterexample_scope == "FOUND"
+    v = verify.check(c, stop_at_first_counterexample=False)
+    assert v.counterexample == 42 and v.counterexample_scope == "LEAST_IN_TESTED_ORDER"
