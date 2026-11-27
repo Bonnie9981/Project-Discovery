@@ -56,6 +56,12 @@ class Verdict:
     implementations: int = 2
     domain_independent: bool = False
     stopped_reason: str | None = None
+    # How strong the counterexample claim is (2026-11-27 red-team review):
+    #   LEAST_IN_TESTED_ORDER - the domain was strictly increasing up to the
+    #       counterexample, so no smaller n in that domain fails. It is the least
+    #       counterexample overall only if the domain covers every candidate n.
+    #   FOUND - a counterexample, with no claim that it is the least.
+    counterexample_scope: str | None = None
 
     def as_dict(self) -> dict:
         return {
@@ -66,6 +72,7 @@ class Verdict:
             "implementations": self.implementations,
             "domain_independent": self.domain_independent,
             "stopped_reason": self.stopped_reason,
+            "counterexample_scope": self.counterexample_scope,
         }
 
 
@@ -94,7 +101,22 @@ def check(conj: Conjecture, stop_at_first_counterexample: bool = True,
     checked = 0
     disagreements: list[int] = []
     counterexample: int | None = None
+    # A least-counterexample claim needs the domain in strictly increasing order.
+    # A range or list is checked up front; any other iterable only as far as it was
+    # walked, so an early stop on it gives no least claim.
+    if isinstance(domain, range):
+        known_sorted = domain.step > 0
+    elif isinstance(domain, (list, tuple)):
+        known_sorted = all(x < y for x, y in zip(domain, domain[1:]))
+    else:
+        known_sorted = None
+    ascending = True
+    prev: int | None = None
+    stopped_early = False
     for n in domain:
+        if prev is not None and n <= prev:
+            ascending = False
+        prev = n
         if checked >= budget.max_iterations:
             return verdict(INCONCLUSIVE, checked=checked, stopped_reason=f"max_iterations={budget.max_iterations}")
         if time.monotonic() - t0 > budget.max_seconds:
@@ -109,9 +131,13 @@ def check(conj: Conjecture, stop_at_first_counterexample: bool = True,
         if not answers[0] and counterexample is None:
             counterexample = n
             if stop_at_first_counterexample:
+                stopped_early = True
                 break
     if disagreements:
         return verdict(INCONCLUSIVE, checked=checked, counterexample=counterexample, disagreements=disagreements)
     if counterexample is not None:
-        return verdict(REFUTED, checked=checked, counterexample=counterexample)
+        least = known_sorted if known_sorted is not None else (ascending and not stopped_early)
+        scope = "LEAST_IN_TESTED_ORDER" if least else "FOUND"
+        return verdict(REFUTED, checked=checked, counterexample=counterexample,
+                       counterexample_scope=scope)
     return verdict(SUPPORTED_IN_RANGE, checked=checked)
