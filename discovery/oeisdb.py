@@ -52,7 +52,7 @@ SETTLED = re.compile(
 # describe a search, not a settlement.
 NEGATED = re.compile(
     r"\b(found |finds |with |there (is|are|was|were) )?no (other |such )?counterexamples?\b|found no\b|without (finding )?(a |any )?counterexamples?|"
-    r"(confirmed|verified|checked|true|holds) (numerically |computationally )?"
+    r"(confirmed|verified|checked|holds) (numerically |computationally )?"
     r"(for|up to|through|below|to|until)\b", re.I)
 
 
