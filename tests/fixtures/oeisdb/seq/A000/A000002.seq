@@ -1,0 +1,9 @@
+%I A000002 #1 Jan 01 2020 00:00:00
+%S A000002 2,3,5,7
+%N A000002 Made-up test entry (not real OEIS data).
+%C A000002 Unsigned remark by the original author.
+%C A000002 Conjecture: a(n) is never a square
+%C A000002 for n > 1. I found no counterexample up to 10^9. - _Third Person_, May 05 2024
+%K A000002 nonn
+%O A000002 1,1
+%A A000002 _Test Person_, Feb 02 2003

@@ -48,6 +48,18 @@ CONJ = re.compile(
 SETTLED = re.compile(
     r"counterexample|disprove|is false|fails for|not true|\bproved\b|\bproven\b|"
     r"proof of (the|this) conjecture|conjecture (is|was) (true|confirmed)|confirmed", re.I)
+# Negated forms ("no counterexample up to 10^7", "confirmed for n < 1000")
+# describe a search, not a settlement.
+NEGATED = re.compile(
+    r"\b(found |finds |with |there (is|are|was|were) )?no (other |such )?counterexamples?\b|found no\b|without (finding )?(a |any )?counterexamples?|"
+    r"(confirmed|verified|checked|true|holds) (numerically |computationally )?"
+    r"(for|up to|through|below|to|until)\b", re.I)
+
+
+def is_settled(text: str) -> bool:
+    return SETTLED.search(NEGATED.sub(" ", text)) is not None
+
+
 KINDS = {
     "never": r"\bnever\b|\bno term\b|\bnone of\b",
     "no_solutions": r"no (other |more |further )?solutions?|\bhas no\b|there (is|are) no",
@@ -105,20 +117,47 @@ def parse_seq(text: str) -> dict:
     return e
 
 
+MAX_PARA = 6  # a conjecture paragraph spans at most this many %C/%F lines
+
+
 def conj_rows(e: dict):
-    """(tag, text, kinds, year, by) for every conjecture-like C/F line."""
-    for tag, body in e["lines"]:
-        # A line that reports a counterexample/proof is a settlement, not a conjecture.
-        if tag in "CF" and CONJ.search(body) and not SETTLED.search(body):
-            d = DATE.search(body)
-            s = SIG.search(body)
-            yield (tag, body, ",".join(kinds_of(body)),
-                   int(d.group(1)) if d else e["year"], s.group(1) if s else "")
+    """(tag, text, kinds, year, by, nlines) for every conjecture-like C/F comment.
+
+    OEIS splits one comment over several lines of the same tag and signs only
+    the last one ("- _Name_, Mon dd yyyy"). A conjecture paragraph runs from
+    the line that says "Conjecture"/"It seems"/... through the next signed
+    line of the same tag (at most MAX_PARA lines); if no signed line follows,
+    it is the single line. Kinds, year and author come from the whole
+    paragraph; the year falls back to the entry's creation year (%A).
+    """
+    ls = e["lines"]
+    i = 0
+    while i < len(ls):
+        tag, body = ls[i]
+        if tag not in "CF" or not CONJ.search(body):
+            i += 1
+            continue
+        j = i
+        while (not SIG.search(ls[j][1]) and j + 1 < len(ls) and j + 1 - i < MAX_PARA
+               and ls[j + 1][0] == tag):
+            j += 1
+        if not SIG.search(ls[j][1]):
+            j = i
+        text = " ".join(b for _, b in ls[i:j + 1])
+        i = j + 1
+        # A comment that reports a counterexample/proof is a settlement, not a conjecture.
+        if is_settled(text):
+            continue
+        d = list(DATE.finditer(text))
+        s = SIG.search(text)
+        yield (tag, text, ",".join(kinds_of(text)),
+               int(d[-1].group(1)) if d else e["year"], s.group(1) if s else "", j - i + 1)
 
 
-def settled(e: dict, conj_texts: set[str]) -> bool:
-    return any(SETTLED.search(b) for t, b in e["lines"]
-               if t in "CFE" and b not in conj_texts)
+def settled(e: dict, conj_texts: list[str]) -> bool:
+    """Some C/F/E line outside the conjecture paragraphs says counterexample/proved/..."""
+    return any(is_settled(b) for t, b in e["lines"]
+               if t in "CFE" and not any(b in c for c in conj_texts))
 
 
 SCHEMA = """
@@ -152,9 +191,9 @@ def build(src: Path = SRC, db: Path = DB, progress: bool = True) -> dict:
         nterms = e["data"].count(",") + 1 if e["data"].strip(",") else 0
         con.execute("insert into seq values(?,?,?,?,?,?,?,?,?)",
                     (e["anum"], e["name"], e["keywords"], e["offset"], e["author"],
-                     e["year"], e["modified"], nterms, int(settled(e, {r[1] for r in rows}))))
+                     e["year"], e["modified"], nterms, int(settled(e, [r[1] for r in rows]))))
         con.executemany("insert into line values(?,?,?)", [(e["anum"], t, b) for t, b in e["lines"]])
-        con.executemany("insert into conj values(?,?,?,?,?,?)", [(e["anum"], *r) for r in rows])
+        con.executemany("insert into conj values(?,?,?,?,?,?)", [(e["anum"], *r[:5]) for r in rows])
         n += 1
         nconj += len(rows)
         if progress and i % 50000 == 0:
@@ -289,7 +328,7 @@ def stats(con) -> dict:
              "select count(distinct c.anum) from conj c join seq s using(anum) where s.settled=0").fetchone()[0]}
     s["by_kind"] = {k: con.execute("select count(*) from conj where (','||kinds||',') like ?",
                                    (f"%,{k},%",)).fetchone()[0] for k in KINDS}
-    s["by_decade"] = dict(con.execute(
+    s["by_5_years"] = dict(con.execute(
         "select (year/5)*5, count(*) from conj where year is not null group by 1 order by 1"))
     return s
 
