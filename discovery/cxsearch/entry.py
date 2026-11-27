@@ -62,7 +62,16 @@ def parse(text: str) -> Entry:
 
 
 def load(anum: str, directory: Path = ENTRY_DIR) -> Entry:
-    return parse((directory / f"{anum}.txt").read_text(encoding="utf-8"))
+    """Saved copy in data/cx/entries/ first; otherwise the offline OEIS
+    (discovery.oeisdb), which is also saved there so the record keeps the
+    exact text it was judged on."""
+    p = directory / f"{anum}.txt"
+    if not p.exists():
+        from discovery import oeisdb
+        if oeisdb.entry_text(anum) is None:
+            raise FileNotFoundError(f"{anum}: not saved and not in offline OEIS")
+        p = oeisdb.export(anum, directory)
+    return parse(p.read_text(encoding="utf-8"))
 
 
 def align(fn: Callable[[int], int], e: Entry, count: int | None = None):

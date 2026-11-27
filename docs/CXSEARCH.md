@@ -4,7 +4,7 @@
 
 ## 流程
 
-1. **選題**：用 Chrome 在 OEIS 搜「Conjecture: a(n) is never」「no solutions」「always prime」「pseudoprimes conjecture」等，`fmt=text` 批次抓回，篩出「沒有人回覆過」的猜想。分流紀錄在 `data/cx/triage.json`。優先：is never > no solutions > always prime；避開 conjectured 線性遞迴。
+1. **選題**：先用離線全庫（`python -m discovery.oeisdb conj ...`，見 docs/OEISDB.md）；舊做法是用 Chrome 在 OEIS 搜「Conjecture: a(n) is never」「no solutions」「always prime」「pseudoprimes conjecture」等，`fmt=text` 批次抓回，篩出「沒有人回覆過」的猜想。分流紀錄在 `data/cx/triage.json`。優先：is never > no solutions > always prime；避開 conjectured 線性遞迴。
 2. **先看條目留言**：`entry.Entry.settled_hints()` 把含 counterexample、proved、is true… 的留言挑出來給人看（A214305、A215672、A218010 都已經有人推翻，不能重複報）。
 3. **對齊**：判定函式先和 DATA、b-file 對齊（`entry.align`、或比項數與總和），offset 和定義讀錯是假反例的最大來源。
 4. **目錄**：`catalog.py` 的 2 底偽質數（psp2）目錄到 10^10（`data/cx/psp2_1e10.txt.gz`），載入時用 Python 大整數逐項重驗，並對 OEIS A055550、A055553 的計數。Carmichael 數由 Korselt 判別從 psp2 篩出（完整）。
