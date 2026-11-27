@@ -1,0 +1,35 @@
+{
+  "id": "DISC-0026",
+  "line": "R-003",
+  "title": "Phase 2：反例搜尋器第六批（只驗到小範圍的條目）：推翻 A372430 的猜想（2^87 + 2^49）",
+  "status": "REFUTED",
+  "authors": ["orchestrator"],
+  "created_at": "2026-11-27T14:40:00+00:00",
+  "milestone": true,
+  "lean_theorems": [
+    "Discovery.A372430Counter.isPrimeB_iff",
+    "Discovery.A372430Counter.k_value",
+    "Discovery.A372430Counter.prime_229",
+    "Discovery.A372430Counter.prime_457",
+    "Discovery.A372430Counter.count_229",
+    "Discovery.A372430Counter.count_457",
+    "Discovery.A372430Counter.k_bits",
+    "Discovery.A372430Counter.k_lt",
+    "Discovery.A372430Counter.dvd_229",
+    "Discovery.A372430Counter.dvd_457",
+    "Discovery.A372430Counter.a372430_counterexample"
+  ],
+  "candidates": {
+    "A372430": {"status": "REFUTED", "proof": "k = 2^87 + 2^49 has binary indices {50, 88}; prime(50) = 229 and prime(88) = 457 divide k (2^38+1 = 5*229*457*525313). Lean a372430_counterexample. Least after 4100: exhaustive DFS over k < 2^120."},
+    "A219433": {"status": "INCONCLUSIVE", "proof": "no new exception for n <= 1e8 (only the known n = 522720)"}
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": ["oeis online (DISC-0026-S001, S002)"],
+    "note": "Counterexample not found anywhere on OEIS; it is far beyond the stated 10^7 check, found by a structured exhaustive search. Elementary once found. Web, MathSciNet, zbMATH not searched.",
+    "evidence": ["DISC-0026-S001", "DISC-0026-S002"]
+  }
+}

@@ -264,5 +264,40 @@
   "author": "Ordowski 2016",
   "status": "proved",
   "note": "x - lambda(x) = 2m > 0 => lambda(x) <= x/2 => x <= 4m (DISC-0024)"
+ },
+ "A372430": {
+  "author": "Wiseman 2024",
+  "status": "refuted",
+  "note": "2^87+2^49 (binary indices 50, 88; 229, 457 divide); only one besides 4100 below 2^120 (DISC-0026)"
+ },
+ "A219433": {
+  "author": "Lei Zhou 2012",
+  "status": "open_no_cx",
+  "note": "no new exception for n <= 1e8 (DISC-0026)"
+ },
+ "A037301": {
+  "author": "Koenig 2020",
+  "status": "skipped",
+  "note": "no 5 consecutive terms; checked to 3^29 in entry; needs smarter search"
+ },
+ "A330904": {
+  "author": "Koenig 2020",
+  "status": "skipped",
+  "note": "same type, checked to 3^30"
+ },
+ "A334765": {
+  "author": "Koenig 2020",
+  "status": "skipped",
+  "note": "no 4 consecutive, checked to 3^26"
+ },
+ "A134003": {
+  "author": "Layman 2007",
+  "status": "skipped",
+  "note": "provable for positive a, b: 2P = X^2+Y^2 has one representation; trivial a = 0 solution always exists"
+ },
+ "A272170": {
+  "author": "Cicuttin 2016",
+  "status": "skipped",
+  "note": "provable via fractional parts of n*log2(phi); no three equal in a row"
  }
 }
