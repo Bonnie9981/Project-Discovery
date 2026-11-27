@@ -1,10 +1,10 @@
-# DISC-0027 Review（獨立審查）
+# DISC-0028 Review（獨立審查）
 
 ## 審查項目
 
 1. **critic 第二輪的四條必修**：
    - 必修 1（定理 2 的「次數相加 < 60、比 120 項」論證）：**論文已改**。`paper/a308758-four-parts.md` 定理 2 現在寫「numerator1·denominator2 − numerator2·denominator1 is the zero polynomial」，指向 `check_gf_exact`。我讀過 `check_gf_exact`：用整數係數多項式（list）運算，把每個 g.f. 寫成 N/Q0²（Q0 = (1−x)(1−x²)(1−x³)(1−x⁴)），Barker 的分母改寫成 (1−x)^(top−3−k3)(1−x²)(1−x⁴)²(1−x³)^k3，(1−x) 的指數正負都搬到正確的一邊，然後交叉相乘比較，沒有截斷。這個改寫我手算過：(1−x²)(1−x⁴)²(1−x³)^k3 = (1−x)^(3+k3)(1+x)³(1+x²)²(1+x+x²)^k3，所以指數是 2−k3（分拆）或 1−k3（三角形），和程式一致。`check_gf`（前 120 項）留著當額外檢查，註解已寫明「only a sanity check」。
-     **但沒有同步改完**：`records/DISC-0027/experiment.md`「實作三」和 `proof.md`「定理對照」第 4 點還寫「比較前 120 個係數（次數和都小於 60，所以相等）」；`check_a308758.py` 開頭說明第 (3) 點和第 132 行註解也還寫「to a degree that makes agreement equivalent / the same degree argument applies」。critic 已算出照字面寫法 A308775 的交叉乘積次數是 140，大於 120，所以這個論證本身不成立。結論沒受影響（精確恆等式成立），但文件互相矛盾。見必修 1。
+     **但沒有同步改完**：`records/DISC-0028/experiment.md`「實作三」和 `proof.md`「定理對照」第 4 點還寫「比較前 120 個係數（次數和都小於 60，所以相等）」；`check_a308758.py` 開頭說明第 (3) 點和第 132 行註解也還寫「to a degree that makes agreement equivalent / the same degree argument applies」。critic 已算出照字面寫法 A308775 的交叉乘積次數是 140，大於 120，所以這個論證本身不成立。結論沒受影響（精確恆等式成立），但文件互相矛盾。見必修 1。
    - 必修 2（n ≥ 2）：**已改**。論文定理 1 寫「For n >= 2」，並註明 n = 1 時把三條 offset 1 數列不存在的第 0 項當 0，兩邊都是 0。OEIS 草稿 FORMULA 也寫「for n >= 2」。
    - 必修 3（作者行）：**已改**。論文開頭是「Chi Hsia ... (Prepared with the help of an AI assistant (Claude); to be checked by the author before any OEIS submission.)」，不再替人類作者宣稱已核對。
    - 必修 4（高二版說明）：**已補**。`results/A308758/證明方法說明.md`、`程式說明.md` 都存在，內容見第 6 項。
@@ -43,7 +43,7 @@ STATUS: SUPPORTED_NOVELTY_UNCHECKED
 - 8 個候選維持 `SUPPORTED_NOVELTY_UNCHECKED`。
 
 必修（只涉及文件，不影響判定與數學）：
-1. 把舊的「前 120 項、次數和 < 60」論證改成「交叉相乘為零多項式（`check_gf_exact`）」，或註明 120 項只是額外檢查。要改的地方：`records/DISC-0027/experiment.md`「實作三」、`proof.md`「定理對照」第 4 點、`results/A308758/code/check_a308758.py` 開頭說明第 (3) 點和第 132 行註解。這個論證對 A308775 不成立（交叉乘積次數 140 > 120），不能留在紀錄裡。依第 3 節，紀錄完成後要用附加的方式更正（例如在 experiment.md 末尾加「更正」一節）。
+1. 把舊的「前 120 項、次數和 < 60」論證改成「交叉相乘為零多項式（`check_gf_exact`）」，或註明 120 項只是額外檢查。要改的地方：`records/DISC-0028/experiment.md`「實作三」、`proof.md`「定理對照」第 4 點、`results/A308758/code/check_a308758.py` 開頭說明第 (3) 點和第 132 行註解。這個論證對 A308775 不成立（交叉乘積次數 140 > 120），不能留在紀錄裡。依第 3 節，紀錄完成後要用附加的方式更正（例如在 experiment.md 末尾加「更正」一節）。
 
 建議：
 - 論文遞迴式那句補上「把負索引的項當 0」，或改成「n ≥ max(分子次數+1, 階數)」。

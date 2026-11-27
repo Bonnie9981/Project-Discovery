@@ -1,4 +1,4 @@
-"""Check the 4-part-partition / integer-triangle relations (DISC-0027).
+"""Check the 4-part-partition / integer-triangle relations (DISC-0028).
 
 (1) brute force: enumerate partitions of n into 4 parts and integer triangles of
     perimeter n-1, check the five difference identities for n <= N;

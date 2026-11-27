@@ -1,4 +1,4 @@
-# DISC-0027 文獻與新穎性（只查了離線 OEIS）
+# DISC-0028 文獻與新穎性（只查了離線 OEIS）
 
 ## 問題
 
@@ -22,4 +22,4 @@ OEIS 上「n 分成 4 部分的分拆，各部分加總」（A308733/58/59/60/75
 
 ## 查詢紀錄
 
-DISC-0027-S001～S003（search_evidence.jsonl）。
+DISC-0028-S001～S003（search_evidence.jsonl）。

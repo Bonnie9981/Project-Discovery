@@ -1,6 +1,6 @@
 # OEIS A308758 家族：4 部分分拆的部分和 vs 整數三角形的邊長和
 
-紀錄 [DISC-0027](../../records/DISC-0027/)。證明頁 [paper/a308758-four-parts.md](../../paper/a308758-four-parts.md)。這是序列關係挖掘（`discovery/relmine.py`）找到的第一個結果。
+紀錄 [DISC-0028](../../records/DISC-0028/)。證明頁 [paper/a308758-four-parts.md](../../paper/a308758-four-parts.md)。這是序列關係挖掘（`discovery/relmine.py`）找到的第一個結果。
 
 | 檔案 | 內容 |
 |---|---|
