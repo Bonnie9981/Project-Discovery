@@ -40,7 +40,7 @@ ENTRY_DIR = ROOT / "data" / "cx" / "entries"
 REPO = "https://github.com/oeis/oeisdata"
 
 LINE = re.compile(r"^%([A-Za-z]) (A\d{6}) ?(.*)$")
-TEXT_TAGS = "NCFEY"  # lines kept for text search
+TEXT_TAGS = "NCFEYHD"  # lines kept for text search (%H links and %D references help novelty checks)
 CONJ = re.compile(
     r"\b(conjectur\w*|it seems|seems that|it appears|appears that|apparently|"
     r"empirical\w*|presumably|probably|it is likely|we guess)\b", re.I)
