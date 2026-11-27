@@ -94,7 +94,7 @@
 
 ChatGPT 紅隊審查（[REDTEAM_2026-11-27.md](REDTEAM_2026-11-27.md)）指出「找到反例」「最小反例」「搜尋完整」「新的」常被混在一起。之後每筆紀錄的 `review.md` 和 OEIS 草稿都要分開寫：
 
-- **反例強度**：`FOUND`（找到一個反例）／`LEAST_IN_TESTED_ORDER`（在一個遞增、完整的有限範圍內是第一個）／`LEAST_PROVEN`（有數學論證或完整窮舉證明沒有更小的）。`verify.check` 會在 `counterexample_scope` 自動填前兩種；第三種只能由審查者依證據寫。
+- **反例強度**：`FOUND`（找到一個反例）／`LEAST_IN_TESTED_ORDER`（在受測的遞增範圍內是第一個；範圍是否涵蓋所有 n 要另外說明）／`LEAST_PROVEN`（有數學論證或完整窮舉證明沒有更小的）。`verify.check` 會在 `counterexample_scope` 自動填前兩種；第三種只能由審查者依證據寫。
 - **搜尋完整度**：搜尋程式碰到溢位、記憶體或時間上限而沒算完的情形，要另外計數（例如 `OVERFLOW_INCOMPLETE`），只要有一筆，就不能寫「範圍內沒有其他例外」。
 - **Lean 範圍**：每個 Lean 定理旁寫 `LEAN_SCOPE`，分別標明 witness（反例本身）、定義對齊、最小性、唯一性是否被 Lean 驗證。目前的反例定理都只驗證 witness，最小性是計算宣稱。
 - **新穎性**：沒找到只能寫「在某某範圍內沒找到」（例如 `NO_MATCH_OEIS`），查證時記下日期、OEIS 快照 commit、搜尋字串和沒查到的來源。

@@ -350,7 +350,7 @@ def main(argv=None) -> int:
     c.add_argument("--from", dest="anum_from", help="start at this A-number")
     c.add_argument("--limit", type=int, default=30)
     c.add_argument("--json", action="store_true")
-    g = sub.add_parser("grep", help="regex over N/C/F/E/Y lines")
+    g = sub.add_parser("grep", help="regex over N/C/F/E/Y/H/D lines")
     g.add_argument("pattern")
     g.add_argument("--tag", choices=list(TEXT_TAGS))
     g.add_argument("--limit", type=int, default=30)
