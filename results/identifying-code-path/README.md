@@ -6,3 +6,4 @@
 |---|---|
 | `id_path_oeis_new_sequence.md` | OEIS 新序列草稿 |
 | `b_id_path.txt` | b-file，n = 1..500 |
+| `證明方法說明.md`、`程式說明.md` | 高二版說明 |
