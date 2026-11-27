@@ -5,5 +5,6 @@ __pycache__/
 discovery.db
 data/oeis/raw/
 data/oeis/index/
+data/oeis/oeisdata/
 lean/axioms.txt
 logs/

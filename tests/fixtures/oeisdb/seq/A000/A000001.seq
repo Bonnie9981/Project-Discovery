@@ -1,0 +1,9 @@
+%I A000001 #1 Jan 01 2020 00:00:00
+%S A000001 1,2,3,4,5,6,7,8,9,10
+%N A000001 Made-up test entry (not real OEIS data).
+%C A000001 Conjecture: a(n) is periodic mod 7. - _Test Person_, Mar 03 2021
+%C A000001 It seems that 11 divides a(n) for no n. - _Other Person_, Apr 04 2022
+%C A000001 A counterexample to the first conjecture was found.
+%K A000001 nonn,base
+%O A000001 1,2
+%A A000001 _Test Person_, Feb 02 2019
