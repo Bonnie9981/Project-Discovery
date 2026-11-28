@@ -21,6 +21,11 @@
 | [locating-dominating-path/](locating-dominating-path/) | 路徑圖定位支配集個數，新序列草稿（生成函數，證明） | DISC-0027 |
 | [identifying-code-path/](identifying-code-path/) | 路徑圖識別碼個數，新序列草稿（7 階遞迴，證明） | DISC-0027 |
 | [A001642/](A001642/) | 環的定位支配集個數 = A001642（n ≥ 5，證明） | DISC-0027 |
+| [open-locating-cycle/](open-locating-cycle/) | 環的開定位支配集個數 = A001609(n) 或 A001609(n/2)²，新序列草稿（證明） | DISC-0030 |
+| [open-locating-path/](open-locating-path/) | 路徑的開定位支配集個數 = A000930 乘積，新序列草稿（證明） | DISC-0030 |
+| [A001609/](A001609/) | A001609 的開定位支配集解釋，編輯草稿 | DISC-0030 |
+| [ladder-locating/](ladder-locating/) | 梯子圖定位支配集個數，新序列草稿（電腦輔助證明） | DISC-0030 |
+| [ladder-identifying/](ladder-identifying/) | 梯子圖識別碼個數，新序列草稿（電腦輔助證明） | DISC-0030 |
 
 狀態：**全部是內部草稿。** 對外（OEIS 送出）由使用者本人決定、本人送出。署名 Chi Hsia，附 AI 使用聲明。
 
