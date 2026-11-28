@@ -1,0 +1,54 @@
+{
+  "id": "DISC-0031",
+  "line": "R-003",
+  "title": "Phase 2：序列關係挖掘第三個結果：132-避免排列 marked mesh pattern (0,0,k,0) 的 x 係數 g.f.，證明 A212339（Barker、Dale）與 A212341（Barker）的猜想；A212344、A212345 由 KRT Theorem 13 得到",
+  "status": "SUPPORTED_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "created_at": "2026-11-28T03:30:00+00:00",
+  "milestone": false,
+  "lean_theorems": [],
+  "candidates": {
+    "A212339": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "decomposition sigma = alpha n beta gives Q = 1 + t(P_k + x(Q-P_k))Q; x^1 coefficient G = t F^2 (F-P_k); k=3 equals Barker's g.f. and Dale's signature (exact polynomial identity). Brute force n <= 11, DP n < 60. No Lean."
+    },
+    "A212341": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "same theorem with k=4; exact identity with Barker's g.f."
+    },
+    "A212344": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "KRT arXiv:1201.6243 Theorem 13(1) with k=3: 5*C(n-3). Checked by brute force n <= 11."
+    },
+    "A212345": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "KRT Theorem 13(2) with k=3, a_3 = 9: 9*C(n-3). Checked by brute force n <= 11."
+    }
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis offline snapshot 091a90f51479 (DISC-0031-S001)",
+      "arXiv:1201.6243 Sections 4-5 (S002)",
+      "KRT parts II, III, partial (S003)",
+      "arXiv:1311.6292 (S004)"
+    ],
+    "note": "The x-coefficient formula is one extraction step from the KRT functional equation (exercise level), but KRT state they found no simple formula and OEIS marks the g.f.s as empirical/conjecture. A212344/A212345 are direct special cases of KRT Theorem 13. Not claimed as new. Reviewer: SUPPORTED_KNOWN for all four, because Barker's g.f.s are already in OEIS and KRT's closed form (17), also printed in the Mathematica lines of A212339/A212341, gives them by one differentiation in x at x=0.",
+    "evidence": [
+      "DISC-0031-S001",
+      "DISC-0031-S002",
+      "DISC-0031-S003",
+      "DISC-0031-S004"
+    ],
+    "open": [
+      "Lean formalization not done",
+      "MathSciNet, zbMATH and papers citing KRT not searched; later parts of KRT II/III read only via summary",
+      "KRT not re-read independently by critic/reviewer (arXiv 403 from proxy); Theorem 13 numbering and the '532' typo rest on literature.md (web-fetch reading)"
+    ]
+  }
+}
