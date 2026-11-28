@@ -1,0 +1,26 @@
+{
+  "id": "DISC-0030",
+  "line": "R-001",
+  "title": "新序列主線第二批：路徑與環的開定位支配集（A000930、A001609 公式）、梯子圖的定位支配集與識別碼",
+  "status": "SUPPORTED_POSSIBLY_NEW",
+  "authors": ["orchestrator"],
+  "created_at": "2026-11-28T01:15:00+00:00",
+  "milestone": true,
+  "lean_theorems": [],
+  "candidates": {
+    "H1-OLD-cycle": {"status": "SUPPORTED_POSSIBLY_NEW", "proof": "paper proof (parity split, step-2 relabelling, cyclic tiling 1/110 -> A001609); brute force n <= 20; no Lean"},
+    "H2-OLD-path": {"status": "SUPPORTED_POSSIBLY_NEW", "proof": "paper proof (parity split, sparse-zero words -> A000930); brute force n <= 20; no Lean"},
+    "H3-LD-ladder": {"status": "SUPPORTED_POSSIBLY_NEW", "proof": "computer-assisted: column transfer matrix, vector identity certified (n >= 29), exact values below; no Lean"},
+    "H4-ID-ladder": {"status": "SUPPORTED_POSSIBLY_NEW", "proof": "computer-assisted: column transfer matrix, vector identity certified (n >= 24), exact values below; no Lean"}
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "novelty": {
+    "status": "PENDING_REVIEW",
+    "sources_checked": ["offline OEIS snapshot 091a90f51479 (terms and full text)", "web search (DISC-0027 S002, S003)"],
+    "note": "No OEIS entry contains the four term lists; OEIS text never mentions open-locating-dominating sets. MathSciNet/zbMATH not searched. Proposed by agent.",
+    "open": ["MathSciNet/zbMATH not checked", "no Lean formalization", "strip.py correctness supported by agreement, not proved separately"],
+    "evidence": ["literature.md S001"]
+  }
+}

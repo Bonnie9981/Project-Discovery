@@ -46,3 +46,22 @@ def test_check_paths_small():
         assert m.brute(m.path, m.is_id, n) == sum(map(m.id_word_path, words)) == m.ID_PATH[n - 1]
         if n >= 3:
             assert (m.brute(m.cycle, m.is_ld, n) == m.A001642[n - 1]) == (n != 4)
+
+
+def test_old_formulas_small():
+    p = ROOT / "results/open-locating-cycle/code/check_old.py"
+    spec = importlib.util.spec_from_file_location("check_old", p)
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    for n in range(1, 13):
+        assert m.brute(m.path, n) == m.old_path(n)
+        if n >= 3:
+            assert m.brute(m.cycle, n) == m.old_cycle(n)
+
+
+def test_strip_matches_window_dp():
+    from discovery.newseq import strip as ST
+    for prop in ("locating_dominating", "identifying_code"):
+        S = ST.Strip("ladder", prop)
+        for n in range(S.lo + S.hi + S.K, 13):
+            assert S.count(n) == T.stats(ST.ladder(n), prop, S.nb)[0]
