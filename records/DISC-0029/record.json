@@ -1,0 +1,42 @@
+{
+  "id": "DISC-0029",
+  "line": "R-003",
+  "title": "Phase 2：序列關係挖掘第二個結果：A336482 = A102712 的差分（組合的左到右極大值與最大部分），並證明 A119706 的 Mathar 猜想",
+  "status": "SUPPORTED_KNOWN",
+  "authors": [
+    "orchestrator"
+  ],
+  "created_at": "2026-11-28T01:15:00+00:00",
+  "milestone": false,
+  "lean_theorems": [],
+  "candidates": {
+    "A336482": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "paper proof by g.f., refined for each j: B_j(n) = A_j(n) - A_j(n-1); checked by brute force n <= 18 and DP n < 80. No Lean. Also follows from the g.f. of A382312 (Rascoe 2025): d/dy at y=1 gives (1-x) times Jovovic g.f. of A102712."
+    },
+    "A119706": {
+      "status": "SUPPORTED_KNOWN",
+      "proof": "bijection binary words of length n <-> compositions of n+1; longest run k <-> largest part k+1. No Lean. Also follows in one step from the g.f.s already in A102712 (Jovovic) and A119706 (Balado 2025)."
+    }
+  },
+  "critic": "critic (independent subagent)",
+  "critic_model": "opus",
+  "reviewer": "reviewer (independent subagent)",
+  "novelty": {
+    "status": "NO_MATCH_IN_SCOPE",
+    "sources_checked": [
+      "oeis offline snapshot 091a90f51479 (DISC-0029-S001, S002)",
+      "arXiv:2602.10005 pp. 1-36 (DISC-0029-S003)"
+    ],
+    "note": "Neither statement is written in the OEIS, but both follow in one step from g.f.s already in the entries (A382312 for A336482; A102712 and A119706 for Mathar's conjecture). Exercise level; per section 1c these are not qualifying L1 candidates.",
+    "evidence": [
+      "DISC-0029-S001",
+      "DISC-0029-S002",
+      "DISC-0029-S003"
+    ],
+    "open": [
+      "Lean formalization not done",
+      "web, MathSciNet, zbMATH not searched; arXiv:2602.10005 pp. 37-120 unread"
+    ]
+  }
+}
