@@ -16,6 +16,7 @@
 | [A321790/](A321790/) | 補上「?」= 873181，搜尋範圍 | DISC-0019 |
 | [A308758/](A308758/) | 4 部分分拆的部分和 vs 整數三角形邊長和：四條差分關係（雙射），Barker 8 個猜想 g.f. 成立 | DISC-0028 |
 | [A336482/](A336482/) | 組合：左到右極大值總數 = 最大部分和的差分；A119706 的 Mathar 猜想（證明） | DISC-0029 |
+| [A212339/](A212339/) | 132-避免排列 marked mesh pattern 的 x 係數 g.f.（A212339、A212341 證明；A212344、A212345 補出處） | DISC-0031 |
 | [rule54-transient/](rule54-transient/) | 規則 54 暫態，新序列草稿 | DISC-0010～0012 |
 | [locating-dominating-path/](locating-dominating-path/) | 路徑圖定位支配集個數，新序列草稿（生成函數，證明） | DISC-0027 |
 | [identifying-code-path/](identifying-code-path/) | 路徑圖識別碼個數，新序列草稿（7 階遞迴，證明） | DISC-0027 |
